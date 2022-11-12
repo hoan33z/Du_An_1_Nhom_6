@@ -14,5 +14,6 @@ namespace _1.DAL.Models
         public string SDT { get; set; }
         public DateTime NgayThanhToan { get; set; }
         public int TrangThai { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
     }
 }

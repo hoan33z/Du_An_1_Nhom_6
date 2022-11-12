@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1.DAL.Models;
 
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(VatLieuDbContext))]
-    partial class VatLieuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221112164313_oko11122022")]
+    partial class oko11122022
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,7 +29,7 @@ namespace _1.DAL.Migrations
 
                     b.Property<decimal>("DonGia")
                         .HasColumnType("decimal")
-                        .HasColumnName("DonGia");
+                        .HasColumnName("Đơn Giá");
 
                     b.Property<Guid>("IdChiTietSp")
                         .HasColumnType("uniqueidentifier");
@@ -37,7 +39,7 @@ namespace _1.DAL.Migrations
 
                     b.Property<int>("SoLuongMua")
                         .HasColumnType("int")
-                        .HasColumnName("SoLuongMua");
+                        .HasColumnName("Số Lượng Mua");
 
                     b.HasKey("IdCTGioHang");
 
@@ -56,23 +58,18 @@ namespace _1.DAL.Migrations
 
                     b.Property<decimal>("DonGia")
                         .HasColumnType("decimal")
-                        .HasColumnName("DonGia");
+                        .HasColumnName("Đơn Giá");
 
                     b.Property<Guid>("IdChiTietSP")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IdHoaDon")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("SoLuongMua")
                         .HasColumnType("int")
-                        .HasColumnName("SoLuongMua");
+                        .HasColumnName("Số Lượng Mua");
 
                     b.HasKey("IdCTHoaDon");
 
                     b.HasIndex("IdChiTietSP");
-
-                    b.HasIndex("IdHoaDon");
 
                     b.ToTable("ChiTietHoaDon");
                 });
@@ -85,11 +82,11 @@ namespace _1.DAL.Migrations
 
                     b.Property<decimal>("GiaBan")
                         .HasColumnType("decimal")
-                        .HasColumnName("GiaBan");
+                        .HasColumnName("Giá Bán");
 
                     b.Property<decimal>("GiaNhap")
                         .HasColumnType("decimal")
-                        .HasColumnName("GiaNhap");
+                        .HasColumnName("Giá Nhập");
 
                     b.Property<string>("HinhAnh")
                         .HasColumnType("nvarchar(max)");
@@ -106,23 +103,32 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdSp")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("LoaiSpIdLoaiSp")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("NhaCungCapIdNhaCungCap")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("SanPhamIdSp")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("SoLuong")
                         .HasColumnType("int")
-                        .HasColumnName("SoLuong");
+                        .HasColumnName("Số Lượng");
 
                     b.Property<string>("Ten")
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("Ten");
+                        .HasColumnName("Tên");
 
                     b.HasKey("IdChiTietSP");
 
                     b.HasIndex("IdDanhMuc");
 
-                    b.HasIndex("IdLoaiSp");
+                    b.HasIndex("LoaiSpIdLoaiSp");
 
-                    b.HasIndex("IdNhaCungCap");
+                    b.HasIndex("NhaCungCapIdNhaCungCap");
 
-                    b.HasIndex("IdSp");
+                    b.HasIndex("SanPhamIdSp");
 
                     b.ToTable("ChiTietSanPham");
                 });
@@ -136,7 +142,7 @@ namespace _1.DAL.Migrations
                     b.Property<string>("TenDanhMuc")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("Ten");
+                        .HasColumnName("Tên");
 
                     b.HasKey("IdDanhMuc");
 
@@ -152,23 +158,23 @@ namespace _1.DAL.Migrations
                     b.Property<string>("DiaChi")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("DiaChi");
+                        .HasColumnName("Địa Chỉ");
 
                     b.Property<Guid>("IdKhachHang")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("NgayThanhToan")
                         .HasColumnType("datetime")
-                        .HasColumnName("NgayThanhToan");
+                        .HasColumnName("Ngày Thanh Toán");
 
                     b.Property<string>("SDT")
                         .IsRequired()
                         .HasColumnType("nvarchar(10)")
-                        .HasColumnName("SDT");
+                        .HasColumnName("Số Điện Thoại");
 
                     b.Property<int>("TrangThai")
                         .HasColumnType("int")
-                        .HasColumnName("TrangThai");
+                        .HasColumnName("Trạng Thái");
 
                     b.HasKey("IdGioHang");
 
@@ -186,7 +192,7 @@ namespace _1.DAL.Migrations
                     b.Property<string>("DiaChi")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("ĐiaChi");
+                        .HasColumnName("Địa Chỉ");
 
                     b.Property<Guid>("IdKhachHang")
                         .HasColumnType("uniqueidentifier");
@@ -196,20 +202,20 @@ namespace _1.DAL.Migrations
 
                     b.Property<DateTime>("NgayNhan")
                         .HasColumnType("datetime")
-                        .HasColumnName("NgayNhan");
+                        .HasColumnName("Ngày Nhận");
 
                     b.Property<DateTime>("NgayThanhToan")
                         .HasColumnType("datetime")
-                        .HasColumnName("NgayThanhToan");
+                        .HasColumnName("Ngày Thanh Toán");
 
                     b.Property<string>("SDT")
                         .IsRequired()
                         .HasColumnType("nvarchar(10)")
-                        .HasColumnName("SDT");
+                        .HasColumnName("Số Điện Thoại");
 
                     b.Property<decimal>("TongTien")
                         .HasColumnType("decimal")
-                        .HasColumnName("TongTien");
+                        .HasColumnName("Tổng Tiền");
 
                     b.HasKey("IdHoaDon");
 
@@ -229,7 +235,7 @@ namespace _1.DAL.Migrations
                     b.Property<string>("DiaChi")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("ĐiaChi");
+                        .HasColumnName("Địa Chỉ");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -239,12 +245,12 @@ namespace _1.DAL.Migrations
                     b.Property<string>("SDT")
                         .IsRequired()
                         .HasColumnType("nvarchar(10)")
-                        .HasColumnName("SDT");
+                        .HasColumnName("Số Điện Thoại");
 
                     b.Property<string>("TenKh")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenKhachHang");
+                        .HasColumnName("Tên Khách Hàng");
 
                     b.HasKey("IdKhachHang");
 
@@ -260,7 +266,7 @@ namespace _1.DAL.Migrations
                     b.Property<string>("TenLoaiSp")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenLoaiSp");
+                        .HasColumnName("Tên Loại Sản Phẩm");
 
                     b.HasKey("IdLoaiSp");
 
@@ -275,7 +281,7 @@ namespace _1.DAL.Migrations
 
                     b.Property<int>("LoaiTk")
                         .HasColumnType("int")
-                        .HasColumnName("TenLoaiTK");
+                        .HasColumnName("Tên Loại Tài Khoản");
 
                     b.HasKey("IdLoaiTK");
 
@@ -291,7 +297,7 @@ namespace _1.DAL.Migrations
                     b.Property<string>("TenNhaCungCap")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenNhaCC");
+                        .HasColumnName("Tên Nhà Cung Cấp");
 
                     b.HasKey("IdNhaCungCap");
 
@@ -345,12 +351,12 @@ namespace _1.DAL.Migrations
 
                     b.Property<DateTime>("NgayNhap")
                         .HasColumnType("datetime")
-                        .HasColumnName("NgayNhap");
+                        .HasColumnName("Ngày Nhập");
 
                     b.Property<string>("TenSp")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenSanPham");
+                        .HasColumnName("Tên Sản Phẩm");
 
                     b.HasKey("IdSp");
 
@@ -365,21 +371,21 @@ namespace _1.DAL.Migrations
 
                     b.Property<int>("LoaiTk")
                         .HasColumnType("int")
-                        .HasColumnName("LoaiTK");
+                        .HasColumnName("Loại Tài Khoản");
 
                     b.Property<string>("MatKhau")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("MatKhau");
+                        .HasColumnName("Mật Khẩu");
 
                     b.Property<string>("TenTaiKhoan")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("TenTaiKhoan");
+                        .HasColumnName("Tên Tài Khoản");
 
                     b.Property<int>("TrangThai")
                         .HasColumnType("int")
-                        .HasColumnName("TrangThai");
+                        .HasColumnName("Trạng Thá");
 
                     b.HasKey("IdTaiKhoan");
 
@@ -413,15 +419,7 @@ namespace _1.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_1.DAL.Models.HoaDon", "HoaDon")
-                        .WithMany()
-                        .HasForeignKey("IdHoaDon")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("ChiTietSanPham");
-
-                    b.Navigation("HoaDon");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.ChiTietSanPham", b =>
@@ -434,21 +432,15 @@ namespace _1.DAL.Migrations
 
                     b.HasOne("_1.DAL.Models.LoaiSp", "LoaiSp")
                         .WithMany()
-                        .HasForeignKey("IdLoaiSp")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LoaiSpIdLoaiSp");
 
                     b.HasOne("_1.DAL.Models.NhaCungCap", "NhaCungCap")
                         .WithMany()
-                        .HasForeignKey("IdNhaCungCap")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("NhaCungCapIdNhaCungCap");
 
                     b.HasOne("_1.DAL.Models.SanPham", "SanPham")
                         .WithMany()
-                        .HasForeignKey("IdSp")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SanPhamIdSp");
 
                     b.Navigation("DanhMuc");
 

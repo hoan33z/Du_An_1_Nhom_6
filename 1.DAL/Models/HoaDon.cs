@@ -17,5 +17,7 @@ namespace _1.DAL.Models
         public DateTime NgayNhan { get; set; }
         public string SDT { get; set; }
         public string DiaChi { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
     }
 }

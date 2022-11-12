@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1.DAL.Models;
 
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(VatLieuDbContext))]
-    partial class VatLieuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221112165309_suatencotdb11122022")]
+    partial class suatencotdb11122022
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,9 +63,6 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdChiTietSP")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IdHoaDon")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("SoLuongMua")
                         .HasColumnType("int")
                         .HasColumnName("SoLuongMua");
@@ -71,8 +70,6 @@ namespace _1.DAL.Migrations
                     b.HasKey("IdCTHoaDon");
 
                     b.HasIndex("IdChiTietSP");
-
-                    b.HasIndex("IdHoaDon");
 
                     b.ToTable("ChiTietHoaDon");
                 });
@@ -413,15 +410,7 @@ namespace _1.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_1.DAL.Models.HoaDon", "HoaDon")
-                        .WithMany()
-                        .HasForeignKey("IdHoaDon")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("ChiTietSanPham");
-
-                    b.Navigation("HoaDon");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.ChiTietSanPham", b =>

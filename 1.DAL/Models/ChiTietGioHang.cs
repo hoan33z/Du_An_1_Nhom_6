@@ -9,13 +9,13 @@ namespace _1.DAL.Models
     public class ChiTietGioHang
     {
         public Guid IdCTGioHang { get; set; }
-        //public Guid IdChiTietSP { get; set; }
-        //public Guid IdGioHang { get; set; }
+        public Guid IdChiTietSp { get; set; }
+        public Guid IdGioHang { get; set; }
 
         public decimal DonGia { get; set; }
         public int SoLuongMua { get; set; }
 
-        //public virtual ChiTietSanPham? ChiTietSanPham { get; set; }
-        //public virtual GioHang? GioHang { get; set; }
+        public virtual ChiTietSanPham? ChiTietSanPham { get; set; }
+        public virtual GioHang? GioHang { get; set; }
     }
 }

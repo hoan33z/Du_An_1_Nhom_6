@@ -19,6 +19,9 @@ namespace _1.DAL.Models
         public decimal GiaNhap { get; set; }
         public decimal GiaBan { get; set; }
         public int SoLuong { get; set; }
-
+        public virtual DanhMuc? DanhMuc { get; set; }
+        public virtual LoaiSp? LoaiSp { get; set; }
+        public virtual NhaCungCap? NhaCungCap { get; set; }
+        public virtual SanPham? SanPham { get; set; }
     }
 }
