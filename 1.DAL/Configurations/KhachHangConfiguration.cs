@@ -14,12 +14,12 @@ namespace _1.DAL.Configurations
         public void Configure(EntityTypeBuilder<KhachHang> builder)
         {
             builder.HasKey(c => c.IdKhachHang);
-
+            builder.Property(c => c.Email).IsRequired();
             builder.Property(c => c.TenKh).HasColumnName("TenKhachHang").HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(c => c.SDT).HasColumnName("SDT").HasColumnType("nvarchar(10)").IsRequired();
             builder.Property(c => c.DiaChi).HasColumnName("ĐiaChi").HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(c => c.Email).HasColumnName("Email").HasColumnType("nvarchar(50)").IsRequired();
-
+            builder.HasOne(c => c.TaiKhoan).WithMany().HasForeignKey(c => c.Email);
         }
     }
 }

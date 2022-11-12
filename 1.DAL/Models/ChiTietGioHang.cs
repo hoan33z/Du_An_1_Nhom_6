@@ -8,7 +8,6 @@ namespace _1.DAL.Models
 {
     public class ChiTietGioHang
     {
-        public Guid IdCTGioHang { get; set; }
         public Guid IdChiTietSp { get; set; }
         public Guid IdGioHang { get; set; }
 

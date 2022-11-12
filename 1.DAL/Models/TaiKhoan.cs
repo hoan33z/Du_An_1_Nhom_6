@@ -8,10 +8,10 @@ namespace _1.DAL.Models
 {
     public class TaiKhoan
     {
-        public Guid IdTaiKhoan { get; set; }
         public string TenTaiKhoan { get; set; }
         public string MatKhau { get; set; }
-        public int LoaiTk { get; set; }
+        public Guid IdLoaiTk { get; set; }
         public int TrangThai { get; set; }
+        public virtual LoaiTK? LoaiTK { get; set; }
     }
 }

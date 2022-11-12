@@ -13,9 +13,8 @@ namespace _1.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<ChiTietHoaDon> builder)
         {
-            builder.HasKey(c => c.IdCTHoaDon);
-            builder.Property(c => c.IdChiTietSP).IsRequired();
-            builder.Property(c => c.IdHoaDon).IsRequired();
+            builder.HasKey(c => c.IdChiTietSP);
+            builder.HasKey(c => c.IdHoaDon);
             builder.Property(c => c.DonGia).HasColumnName("DonGia").HasColumnType("decimal");
             builder.Property(c => c.SoLuongMua).HasColumnName("SoLuongMua").HasColumnType("int");
             builder.HasOne(c => c.ChiTietSanPham).WithMany().HasForeignKey(c => c.IdChiTietSP);

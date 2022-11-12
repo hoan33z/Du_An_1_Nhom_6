@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace _3.PL.Views
 {
-    public partial class ChiTietSP : Form
+    public partial class FrmNhanVien : Form
     {
-        public ChiTietSP()
+        public FrmNhanVien()
         {
             InitializeComponent();
         }
+
     }
 }

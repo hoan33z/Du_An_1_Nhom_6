@@ -10,6 +10,5 @@ namespace _1.DAL.Models
     {
         public Guid IdSp { get; set; }
         public string TenSp { get; set; }
-        public DateTime NgayNhap { get; set; }
     }
 }

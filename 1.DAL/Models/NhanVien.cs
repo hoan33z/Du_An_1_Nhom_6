@@ -15,6 +15,6 @@ namespace _1.DAL.Models
         public string Email { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
-
+        public virtual TaiKhoan? TaiKhoan { get; set; }
     }
 }

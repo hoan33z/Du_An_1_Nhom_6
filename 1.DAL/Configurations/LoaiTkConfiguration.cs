@@ -15,8 +15,8 @@ namespace _1.DAL.Configurations
         {
             builder.HasKey(c => c.IdLoaiTK);
 
-            builder.Property(c => c.LoaiTk).HasColumnName("TenLoaiTK").HasColumnType("int").IsRequired();
-
+            builder.Property(c => c.LoaiTk).HasColumnName("TenLoaiTK").HasColumnType("nvarchar(50)").IsRequired();
+    
         }
     }
 }

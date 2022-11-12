@@ -16,8 +16,6 @@ namespace _1.DAL.Configurations
             builder.HasKey(c => c.IdSp);
 
             builder.Property(c => c.TenSp).HasColumnName("TenSanPham").HasColumnType("nvarchar(100)").IsRequired();
-            builder.Property(c => c.NgayNhap).HasColumnName("NgayNhap").HasColumnType("datetime").IsRequired();
-
         }
     }
 }

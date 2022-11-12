@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _3.PL.Views
 {
-    public partial class NhanVien : Form
+    public partial class FrmKhachHang : Form
     {
-        public NhanVien()
+        public FrmKhachHang()
         {
             InitializeComponent();
         }

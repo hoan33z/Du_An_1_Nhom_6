@@ -14,7 +14,6 @@ namespace _1.DAL.Configurations
         public void Configure(EntityTypeBuilder<LoaiSp> builder)
         {
             builder.HasKey(c => c.IdLoaiSp);
-
             builder.Property(c => c.TenLoaiSp).HasColumnName("TenLoaiSp").HasColumnType("nvarchar(100)").IsRequired();
         }
     }

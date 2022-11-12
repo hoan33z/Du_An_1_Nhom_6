@@ -10,10 +10,9 @@ namespace _1.DAL.Models
     {
         public Guid IdGioHang { get; set; }
         public Guid IdKhachHang { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
         public DateTime NgayThanhToan { get; set; }
+        public DateTime NgayMuaHang { get; set; }
         public int TrangThai { get; set; }
-        public virtual KhachHang KhachHang { get; set; }
+        public virtual KhachHang? KhachHang { get; set; }
     }
 }
