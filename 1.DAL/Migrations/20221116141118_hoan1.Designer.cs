@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1.DAL.Models;
 
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(VatLieuDbContext))]
-    partial class VatLieuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221116141118_hoan1")]
+    partial class hoan1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,7 +130,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("IdDanhMuc");
 
-                    b.ToTable("DanhMucs");
+                    b.ToTable("DanhMuc");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.GioHang", b =>

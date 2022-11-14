@@ -18,4 +18,5 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.TenDanhMuc).HasColumnName("TenDanhMuc").HasColumnType("nvarchar(100)").IsRequired();
         }
     }
+    
 }

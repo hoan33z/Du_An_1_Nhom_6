@@ -12,6 +12,7 @@ namespace _1.DAL.Models
         public string MatKhau { get; set; }
         public Guid IdLoaiTk { get; set; }
         public int TrangThai { get; set; }
+        public bool TrangThaiPass { get; set; }
         public virtual LoaiTK? LoaiTK { get; set; }
     }
 }

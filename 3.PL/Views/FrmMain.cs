@@ -17,5 +17,13 @@ namespace _3.PL.Views
             InitializeComponent();
         }
 
+        private void btnDatHang_Click(object sender, EventArgs e)
+        {
+            FrmDatHang datHang = new FrmDatHang();
+            datHang.TopLevel = false;
+            datHang.FormBorderStyle=System.Windows.Forms.FormBorderStyle.None;
+            panelDatHang.Controls.Add(datHang);
+            datHang.Show();
+        }
     }
 }

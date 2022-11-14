@@ -14,6 +14,10 @@ namespace _1.DAL.Models
         {
         }
 
+        public VatLieuDbContext(DbContextOptions<VatLieuDbContext> options) : base(options)
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder.
@@ -25,5 +29,6 @@ namespace _1.DAL.Models
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+        public DbSet<DanhMuc> DanhMucs { get; set; }
     }
 }

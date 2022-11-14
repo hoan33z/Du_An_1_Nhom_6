@@ -74,7 +74,8 @@ namespace _1.DAL.Migrations
                     TenTaiKhoan = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     MatKhau = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     IdLoaiTk = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TrangThai = table.Column<int>(type: "int", nullable: false)
+                    TrangThai = table.Column<int>(type: "int", nullable: false),
+                    TrangThaiPass = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

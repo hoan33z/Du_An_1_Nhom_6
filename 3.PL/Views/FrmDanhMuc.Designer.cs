@@ -1,6 +1,6 @@
 ﻿namespace _3.PL.Views
 {
-    partial class NhaCungCap
+    partial class FrmDanhMuc
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,11 @@
         {
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDanhMuc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgridDanhMuc = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridDanhMuc)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -46,6 +46,7 @@
             this.button3.TabIndex = 12;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -56,14 +57,15 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Sửa";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox1
+            // txtDanhMuc
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 3);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 31);
-            this.textBox1.TabIndex = 10;
+            this.txtDanhMuc.Location = new System.Drawing.Point(153, 0);
+            this.txtDanhMuc.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDanhMuc.Name = "txtDanhMuc";
+            this.txtDanhMuc.Size = new System.Drawing.Size(187, 31);
+            this.txtDanhMuc.TabIndex = 10;
             // 
             // label1
             // 
@@ -72,21 +74,22 @@
             this.label1.Location = new System.Drawing.Point(11, 6);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 25);
+            this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 9;
-            this.label1.Text = "TenNhaCC";
+            this.label1.Text = "Tên Danh Mục";
             // 
-            // dataGridView1
+            // dgridDanhMuc
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 88);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(343, 167);
-            this.dataGridView1.TabIndex = 8;
+            this.dgridDanhMuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridDanhMuc.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgridDanhMuc.Location = new System.Drawing.Point(0, 83);
+            this.dgridDanhMuc.Margin = new System.Windows.Forms.Padding(4);
+            this.dgridDanhMuc.Name = "dgridDanhMuc";
+            this.dgridDanhMuc.RowHeadersWidth = 51;
+            this.dgridDanhMuc.RowTemplate.Height = 29;
+            this.dgridDanhMuc.Size = new System.Drawing.Size(340, 167);
+            this.dgridDanhMuc.TabIndex = 8;
+            this.dgridDanhMuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDanhMuc_CellClick);
             // 
             // button1
             // 
@@ -97,22 +100,24 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // NhaCungCap
+            // FrmDanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 255);
+            this.ClientSize = new System.Drawing.Size(340, 250);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDanhMuc);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgridDanhMuc);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "NhaCungCap";
-            this.Text = "NhaCungCap";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FrmDanhMuc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "DanhMuc";
+            ((System.ComponentModel.ISupportInitialize)(this.dgridDanhMuc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,9 +127,9 @@
 
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDanhMuc;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgridDanhMuc;
         private System.Windows.Forms.Button button1;
     }
 }
