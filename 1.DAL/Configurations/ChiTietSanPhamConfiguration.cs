@@ -17,6 +17,7 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.IdLoaiSp).IsRequired();
             builder.Property(c => c.IdNhaCungCap).IsRequired();
             builder.Property(c => c.IdSp).IsRequired();
+            builder.Property(c => c.IdDonVi).IsRequired();
             builder.Property(c => c.IdDanhMuc).IsRequired();
             builder.Property(c => c.Ten).HasColumnName("Ten").HasColumnType("nvarchar(100)");
             builder.Property(c => c.GiaBan).HasColumnName("GiaBan").HasColumnType("decimal");
@@ -26,6 +27,7 @@ namespace _1.DAL.Configurations
             builder.HasOne(c => c.NhaCungCap).WithMany().HasForeignKey(c => c.IdNhaCungCap);
             builder.HasOne(c => c.SanPham).WithMany().HasForeignKey(c => c.IdSp);
             builder.HasOne(c => c.DanhMuc).WithMany().HasForeignKey(c => c.IdDanhMuc);
+            builder.HasOne(c => c.DonVi).WithMany().HasForeignKey(c => c.IdDonVi);
         }
     }
 }

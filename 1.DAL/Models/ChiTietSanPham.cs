@@ -13,6 +13,7 @@ namespace _1.DAL.Models
         public Guid IdNhaCungCap { get; set; }
         public Guid IdSp { get; set; }
         public Guid IdDanhMuc { get; set; }
+        public Guid IdDonVi { get; set; }
 
         public string Ten { get; set; }
         public string HinhAnh { get; set; }
@@ -23,5 +24,6 @@ namespace _1.DAL.Models
         public virtual NhaCungCap? NhaCungCap { get; set; }
         public virtual SanPham? SanPham { get; set; }
         public virtual DanhMuc? DanhMuc { get; set; }
+        public virtual DonVi? DonVi { get; set; }
     }
 }

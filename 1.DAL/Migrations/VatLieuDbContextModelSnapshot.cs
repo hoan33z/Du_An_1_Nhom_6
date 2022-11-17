@@ -85,6 +85,9 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdDanhMuc")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("IdDonVi")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("IdLoaiSp")
                         .HasColumnType("uniqueidentifier");
 
@@ -105,6 +108,8 @@ namespace _1.DAL.Migrations
                     b.HasKey("IdChiTietSP");
 
                     b.HasIndex("IdDanhMuc");
+
+                    b.HasIndex("IdDonVi");
 
                     b.HasIndex("IdLoaiSp");
 
@@ -129,6 +134,21 @@ namespace _1.DAL.Migrations
                     b.HasKey("IdDanhMuc");
 
                     b.ToTable("DanhMucs");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.DonVi", b =>
+                {
+                    b.Property<Guid>("IdDonVi")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("TenDonVi")
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("TenDonVi");
+
+                    b.HasKey("IdDonVi");
+
+                    b.ToTable("DonVi");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.GioHang", b =>
@@ -222,8 +242,6 @@ namespace _1.DAL.Migrations
                         .HasColumnName("TenKhachHang");
 
                     b.HasKey("IdKhachHang");
-
-                    b.HasIndex("Email");
 
                     b.ToTable("KhachHang");
                 });
@@ -408,6 +426,12 @@ namespace _1.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("_1.DAL.Models.DonVi", "DonVi")
+                        .WithMany()
+                        .HasForeignKey("IdDonVi")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("_1.DAL.Models.LoaiSp", "LoaiSp")
                         .WithMany()
                         .HasForeignKey("IdLoaiSp")
@@ -427,6 +451,8 @@ namespace _1.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("DanhMuc");
+
+                    b.Navigation("DonVi");
 
                     b.Navigation("LoaiSp");
 
@@ -461,17 +487,6 @@ namespace _1.DAL.Migrations
                     b.Navigation("KhachHang");
 
                     b.Navigation("NhanVien");
-                });
-
-            modelBuilder.Entity("_1.DAL.Models.KhachHang", b =>
-                {
-                    b.HasOne("_1.DAL.Models.TaiKhoan", "TaiKhoan")
-                        .WithMany()
-                        .HasForeignKey("Email")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TaiKhoan");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.NhanVien", b =>
