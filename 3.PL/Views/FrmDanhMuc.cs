@@ -25,14 +25,14 @@ namespace _3.PL.Views
         }
         public void LoadData()
         {
-            dgridDanhMuc.ColumnCount = 2;
-            dgridDanhMuc.Columns[0].Name = "ID";
-            dgridDanhMuc.Columns[0].Visible = false;
-            dgridDanhMuc.Columns[1].Name = "TenDanhMuc";
-            dgridDanhMuc.Rows.Clear();
+            dgriDanhMuc.ColumnCount = 2;
+            dgriDanhMuc.Columns[0].Name = "ID";
+            dgriDanhMuc.Columns[0].Visible = false;
+            dgriDanhMuc.Columns[1].Name = "TenDanhMuc";
+            dgriDanhMuc.Rows.Clear();
             foreach (var x in _IdanhMucService.GetAll())
             {
-                dgridDanhMuc.Rows.Add(x.IdDanhMuc, x.TenDanhMuc);
+                dgriDanhMuc.Rows.Add(x.IdDanhMuc, x.TenDanhMuc);
             }
         }
         public DanhMuc GetDataFromDb()
@@ -57,7 +57,7 @@ namespace _3.PL.Views
         {
             int rowindex = e.RowIndex;
             if (rowindex == -1 || rowindex == _IdanhMucService.GetAll().Count) return;
-            _idWhenClick = Guid.Parse(dgridDanhMuc.Rows[rowindex].Cells[0].Value.ToString());
+            _idWhenClick = Guid.Parse(dgriDanhMuc.Rows[rowindex].Cells[0].Value.ToString());
             var danhMuc = _IdanhMucService.GetAll().FirstOrDefault(c => c.IdDanhMuc == _idWhenClick);
             txtDanhMuc.Text = danhMuc.TenDanhMuc;
         }

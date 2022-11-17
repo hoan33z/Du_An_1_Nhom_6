@@ -37,7 +37,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.panelDatHang = new System.Windows.Forms.Panel();
+            this.panelFrm = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -122,6 +122,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Hóa Đơn";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -161,14 +162,14 @@
             this.button1.Text = "Sản Phẩm";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // panelDatHang
+            // panelFrm
             // 
-            this.panelDatHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDatHang.Location = new System.Drawing.Point(197, 0);
-            this.panelDatHang.Margin = new System.Windows.Forms.Padding(4);
-            this.panelDatHang.Name = "panelDatHang";
-            this.panelDatHang.Size = new System.Drawing.Size(981, 564);
-            this.panelDatHang.TabIndex = 0;
+            this.panelFrm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFrm.Location = new System.Drawing.Point(197, 0);
+            this.panelFrm.Margin = new System.Windows.Forms.Padding(4);
+            this.panelFrm.Name = "panelFrm";
+            this.panelFrm.Size = new System.Drawing.Size(981, 564);
+            this.panelFrm.TabIndex = 0;
             // 
             // FrmMain
             // 
@@ -176,7 +177,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1178, 564);
-            this.Controls.Add(this.panelDatHang);
+            this.Controls.Add(this.panelFrm);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
@@ -196,7 +197,7 @@
         private System.Windows.Forms.Button btnDatHang;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panelDatHang;
+        private System.Windows.Forms.Panel panelFrm;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button5;
     }

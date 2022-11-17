@@ -57,7 +57,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(471, 560);
+            this.panel1.Size = new System.Drawing.Size(471, 508);
             this.panel1.TabIndex = 0;
             // 
             // groupBox3
@@ -65,7 +65,7 @@
             this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(0, 191);
+            this.groupBox3.Location = new System.Drawing.Point(0, 139);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
@@ -163,7 +163,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(4, 522);
+            this.button1.Location = new System.Drawing.Point(4, 464);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(258, 36);
@@ -182,7 +182,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(499, 560);
+            this.groupBox2.Size = new System.Drawing.Size(488, 508);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giỏ Hàng";
@@ -196,16 +196,16 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(491, 490);
+            this.dataGridView1.Size = new System.Drawing.Size(480, 428);
             this.dataGridView1.TabIndex = 3;
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button2.Location = new System.Drawing.Point(270, 522);
+            this.button2.Location = new System.Drawing.Point(266, 464);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(226, 36);
+            this.button2.Size = new System.Drawing.Size(218, 36);
             this.button2.TabIndex = 2;
             this.button2.Text = "Hủy";
             this.button2.UseVisualStyleBackColor = false;
@@ -215,7 +215,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(970, 560);
+            this.ClientSize = new System.Drawing.Size(959, 508);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Red;

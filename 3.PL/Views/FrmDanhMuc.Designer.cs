@@ -32,9 +32,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtDanhMuc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgridDanhMuc = new System.Windows.Forms.DataGridView();
+            this.dgriDanhMuc = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgridDanhMuc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgriDanhMuc)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -78,18 +78,18 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Tên Danh Mục";
             // 
-            // dgridDanhMuc
+            // dgriDanhMuc
             // 
-            this.dgridDanhMuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgridDanhMuc.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgridDanhMuc.Location = new System.Drawing.Point(0, 83);
-            this.dgridDanhMuc.Margin = new System.Windows.Forms.Padding(4);
-            this.dgridDanhMuc.Name = "dgridDanhMuc";
-            this.dgridDanhMuc.RowHeadersWidth = 51;
-            this.dgridDanhMuc.RowTemplate.Height = 29;
-            this.dgridDanhMuc.Size = new System.Drawing.Size(340, 167);
-            this.dgridDanhMuc.TabIndex = 8;
-            this.dgridDanhMuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDanhMuc_CellClick);
+            this.dgriDanhMuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgriDanhMuc.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgriDanhMuc.Location = new System.Drawing.Point(0, 83);
+            this.dgriDanhMuc.Margin = new System.Windows.Forms.Padding(4);
+            this.dgriDanhMuc.Name = "dgriDanhMuc";
+            this.dgriDanhMuc.RowHeadersWidth = 51;
+            this.dgriDanhMuc.RowTemplate.Height = 29;
+            this.dgriDanhMuc.Size = new System.Drawing.Size(340, 167);
+            this.dgriDanhMuc.TabIndex = 8;
+            this.dgriDanhMuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDanhMuc_CellClick);
             // 
             // button1
             // 
@@ -111,13 +111,13 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtDanhMuc);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgridDanhMuc);
+            this.Controls.Add(this.dgriDanhMuc);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmDanhMuc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DanhMuc";
-            ((System.ComponentModel.ISupportInitialize)(this.dgridDanhMuc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgriDanhMuc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,7 +129,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtDanhMuc;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgridDanhMuc;
+        private System.Windows.Forms.DataGridView dgriDanhMuc;
         private System.Windows.Forms.Button button1;
     }
 }
