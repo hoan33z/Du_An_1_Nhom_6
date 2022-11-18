@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class LoaiTKRepository : ILoaiTK
+    public class LoaiTkRepository : ILoaiTKRepository
     {
         VatLieuDbContext _vatLieuDbContext;
-        public LoaiTKRepository()
+        public LoaiTkRepository()
         {
             _vatLieuDbContext = new VatLieuDbContext();
         }

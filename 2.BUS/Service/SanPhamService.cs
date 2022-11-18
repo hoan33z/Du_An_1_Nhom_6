@@ -20,23 +20,28 @@ namespace _2.BUS.Service
         }
         public string Add(SanPham obj)
         {
+            if (obj == null) return "Thêm Khong Thanh Cong";
             if (_sanPhamRepository.Add(obj)) return "Them thanh cong";
             return "ok";
         }
 
         public string Delete(SanPham obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return "Xóa Khong Thanh Cong";
+            if (_sanPhamRepository.Delete(obj)) return "Xóa thanh cong";
+            return "ok";
         }
 
         public List<SanPham> GetAll()
         {
-            throw new NotImplementedException();
+            return _sanPhamRepository.GetAll().ToList();
         }
 
         public string Update(SanPham obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return "Sửa không thàmh công";
+            if (_sanPhamRepository.Update(obj)) return "Sửa thành công";
+            return "ok";
         }
     }
 }

@@ -65,11 +65,11 @@
             this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(0, 139);
+            this.groupBox3.Location = new System.Drawing.Point(0, 189);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(471, 369);
+            this.groupBox3.Size = new System.Drawing.Size(471, 319);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông Tin Sản Phẩm";
@@ -83,7 +83,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(463, 337);
+            this.dataGridView2.Size = new System.Drawing.Size(463, 287);
             this.dataGridView2.TabIndex = 0;
             // 
             // groupBox1

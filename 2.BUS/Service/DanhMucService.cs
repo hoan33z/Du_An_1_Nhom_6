@@ -19,6 +19,7 @@ namespace _2.BUS.Service
         }
         public string Add(DanhMuc obj)
         {
+            if (obj == null) return "Thêm Khong Thanh Cong";
             if (_danhMucRepository.Add(obj)) return "Them thanh cong";
             return "ok";
         }

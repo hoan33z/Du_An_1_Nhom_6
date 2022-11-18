@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    public interface ILoaiSp
+    public interface ILoaiSpRepository
     {
         public bool Add(LoaiSp obj);
         public bool Update(LoaiSp obj);

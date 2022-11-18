@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    public interface IDonVi
+    public interface IDonViRepository
     {
         public bool Add(DonVi obj);
         public bool Update(DonVi obj);
