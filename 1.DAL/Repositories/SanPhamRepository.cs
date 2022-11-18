@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class SanPhamRepository : ISanPham
+    public class SanPhamRepository : ISanPhamRepository
     {
         VatLieuDbContext _vatLieuDbContext;
         public SanPhamRepository()
