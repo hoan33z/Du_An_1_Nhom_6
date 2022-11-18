@@ -15,6 +15,7 @@ namespace _1.DAL.Models
         public decimal TongTien { get; set; }
         public DateTime NgayThanhToan { get; set; }
         public DateTime NgayNhan { get; set; }
+        public DateTime NgayTao { get; set; }
         public virtual KhachHang? KhachHang { get; set; }
         public virtual NhanVien?  NhanVien { get; set; }
     }

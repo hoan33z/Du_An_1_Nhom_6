@@ -13,10 +13,11 @@ namespace _1.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<DanhMuc> builder)
         {
-            builder.HasKey(c => c.IdDanhMuc);
+            builder.ToTable("DanhMuc");
 
+            builder.HasKey(c => c.IdDanhMuc);
             builder.Property(c => c.TenDanhMuc).HasColumnName("TenDanhMuc").HasColumnType("nvarchar(100)").IsRequired();
         }
     }
-    
+
 }
