@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class LoaiSpRepository : ILoaiSp
+    public class LoaiSpRepository : ILoaiSpRepository
     {
         VatLieuDbContext _vatLieuDbContext;
         public LoaiSpRepository()

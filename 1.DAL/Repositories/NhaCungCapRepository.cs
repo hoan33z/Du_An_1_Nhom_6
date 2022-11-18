@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class NhaCungCapRepository : INhaCungCap
+    public class NhaCungCapRepository : INhaCungCapRepository
     {
         VatLieuDbContext _vatLieuDbContext;
         public NhaCungCapRepository()

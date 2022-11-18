@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    public interface ISanPham
+    public interface ISanPhamRepository
     {
         public bool Add(SanPham obj);
         public bool Update(SanPham obj);

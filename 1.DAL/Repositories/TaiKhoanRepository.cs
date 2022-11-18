@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class TaiKhoanRepository : ITaiKhoan
+    public class TaiKhoanRepository : ITaiKhoanRepository
     {
         VatLieuDbContext _vatLieuDbContext;
         public TaiKhoanRepository()
@@ -23,6 +23,8 @@ namespace _1.DAL.Repositories
             return true;
         }
 
+       
+
         public bool Delete(TaiKhoan obj)
         {
             if (obj == null) return false;
@@ -31,6 +33,8 @@ namespace _1.DAL.Repositories
             _vatLieuDbContext.SaveChanges();
             return true;
         }
+
+      
 
         public List<TaiKhoan> GetAll()
         {
@@ -50,5 +54,7 @@ namespace _1.DAL.Repositories
             _vatLieuDbContext.SaveChanges();
             return true;
         }
+
+     
     }
 }
