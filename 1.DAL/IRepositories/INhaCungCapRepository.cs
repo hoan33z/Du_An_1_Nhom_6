@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    public interface INhaCungCap
+    public interface INhaCungCapRepository
     {
         public bool Add(NhaCungCap obj);
         public bool Update(NhaCungCap obj);

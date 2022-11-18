@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class DonViRepository : IDonVi
+    public class DonViRepository : IDonViRepository
     {
         VatLieuDbContext _vatLieuDbContext;
         public DonViRepository()

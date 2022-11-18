@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace _3.PL.Views
 {
-    public partial class NhaCungCap : Form
+    public partial class FrmCTSanPham : Form
     {
-        public NhaCungCap()
+        public FrmCTSanPham()
         {
             InitializeComponent();
         }
 
-      
     }
+
 }

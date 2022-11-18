@@ -9,6 +9,6 @@ namespace _1.DAL.Models
     public class LoaiTK
     {
         public Guid IdLoaiTK { get; set; }
-        public int LoaiTk { get; set; }
+        public string TenLoaiTk { get; set; }
     }
 }

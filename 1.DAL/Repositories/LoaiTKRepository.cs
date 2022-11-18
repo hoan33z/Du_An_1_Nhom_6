@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class LoaiTKRepository : ILoaiTK
+    public class LoaiTkRepository : ILoaiTKRepository
     {
         VatLieuDbContext _vatLieuDbContext;
-        public LoaiTKRepository()
+        public LoaiTkRepository()
         {
             _vatLieuDbContext = new VatLieuDbContext();
         }
@@ -41,7 +41,7 @@ namespace _1.DAL.Repositories
         {
             if (obj == null) return false;
             var tempobj = _vatLieuDbContext.LoaiTKs.FirstOrDefault(c => c.IdLoaiTK == obj.IdLoaiTK);
-            tempobj.LoaiTk = obj.LoaiTk;
+            tempobj.TenLoaiTk = obj.TenLoaiTk;
             _vatLieuDbContext.LoaiTKs.Update(tempobj);
             _vatLieuDbContext.SaveChanges();
             return true;

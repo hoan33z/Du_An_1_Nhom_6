@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1.DAL.IRepositories
+namespace _2.BUS.IServices
 {
-    public interface ILoaiSp
+    public interface ILoaiSpService
     {
-        public bool Add(LoaiSp obj);
-        public bool Update(LoaiSp obj);
-        public bool Delete(LoaiSp obj);
+        public string Add(LoaiSp obj);
+        public string Update(LoaiSp obj);
+        public string Delete(LoaiSp obj);
         public List<LoaiSp> GetAll();
     }
 }

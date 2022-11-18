@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    public interface ITaiKhoan
+    public interface ITaiKhoanRepository
     {
         public bool Add(TaiKhoan obj);
         public bool Update(TaiKhoan obj);

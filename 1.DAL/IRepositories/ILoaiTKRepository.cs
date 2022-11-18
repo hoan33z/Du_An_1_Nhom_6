@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    public interface ILoaiTK
+    public interface ILoaiTKRepository
     {
         public bool Add(LoaiTK obj);
         public bool Update(LoaiTK obj);
