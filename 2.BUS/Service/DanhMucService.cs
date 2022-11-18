@@ -26,6 +26,7 @@ namespace _2.BUS.Service
 
         public string Delete(DanhMuc obj)
         {
+            if (obj == null) return "Xoa Khong Thanh Cong";
             if (_danhMucRepository.Delete(obj)) return "Xoa thanh cong";
             return "ok";
         }
