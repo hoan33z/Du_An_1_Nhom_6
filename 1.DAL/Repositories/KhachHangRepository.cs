@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class KhachHangRepository : IKhachHang
+    public class KhachHangRepository : IKhachHangRepository
     {
         VatLieuDbContext _vatLieuDbContext;
         public KhachHangRepository()
