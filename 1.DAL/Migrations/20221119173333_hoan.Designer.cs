@@ -10,8 +10,8 @@ using _1.DAL.Models;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(VatLieuDbContext))]
-    [Migration("20221118072443_hoan1")]
-    partial class hoan1
+    [Migration("20221119173333_hoan")]
+    partial class hoan
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,7 +82,8 @@ namespace _1.DAL.Migrations
                         .HasColumnName("GiaNhap");
 
                     b.Property<string>("HinhAnh")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("HinhAnh");
 
                     b.Property<Guid>("IdDanhMuc")
                         .HasColumnType("uniqueidentifier");
@@ -102,10 +103,6 @@ namespace _1.DAL.Migrations
                     b.Property<int>("SoLuong")
                         .HasColumnType("int")
                         .HasColumnName("SoLuong");
-
-                    b.Property<string>("Ten")
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("Ten");
 
                     b.HasKey("IdChiTietSP");
 
@@ -197,6 +194,9 @@ namespace _1.DAL.Migrations
                         .HasColumnType("datetime")
                         .HasColumnName("NgayNhan");
 
+                    b.Property<DateTime>("NgayTao")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("NgayThanhToan")
                         .HasColumnType("datetime")
                         .HasColumnName("NgayThanhToan");
@@ -270,7 +270,7 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("LoaiTk")
+                    b.Property<string>("TenLoaiTk")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("TenLoaiTK");

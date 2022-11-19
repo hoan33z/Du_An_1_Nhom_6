@@ -15,8 +15,7 @@ namespace _1.DAL.Models
         public Guid IdDanhMuc { get; set; }
         public Guid IdDonVi { get; set; }
 
-        public string Ten { get; set; }
-        public string HinhAnh { get; set; }
+        public byte[] HinhAnh { get; set; }
         public decimal GiaNhap { get; set; }
         public decimal GiaBan { get; set; }
         public int SoLuong { get; set; }
