@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class HoaDonRepository : IHoaDon
+    public class HoaDonRepository : IHoaDonRepository
     {
         VatLieuDbContext _vatLieuDbContext;
         public HoaDonRepository()

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    public interface IGioHang
+    public interface IGioHangRepository
     {
         public bool Add(GioHang obj);
         public bool Update(GioHang obj);

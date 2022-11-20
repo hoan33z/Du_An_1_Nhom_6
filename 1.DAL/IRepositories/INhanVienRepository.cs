@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    public interface INhanVien
+    public interface INhanVienRepository
     {
         public bool Add(NhanVien obj);
         public bool Update(NhanVien obj);
