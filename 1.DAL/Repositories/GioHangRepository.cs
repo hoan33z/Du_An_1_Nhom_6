@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class GioHangRepository : IGioHang
+    public class GioHangRepository : IGioHangRepository
     {
         VatLieuDbContext _vatLieuDbContext;
         public GioHangRepository()

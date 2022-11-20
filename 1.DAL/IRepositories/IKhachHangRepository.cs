@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    public interface IKhachHang
+    public interface IKhachHangRepository
     {
         public bool Add(KhachHang obj);
         public bool Update(KhachHang obj);
