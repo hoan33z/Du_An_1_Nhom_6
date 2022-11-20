@@ -79,8 +79,8 @@ namespace _1.DAL.Migrations
                         .HasColumnType("decimal")
                         .HasColumnName("GiaNhap");
 
-                    b.Property<string>("HinhAnh")
-                        .HasColumnType("nvarchar(max)")
+                    b.Property<byte[]>("HinhAnh")
+                        .HasColumnType("image")
                         .HasColumnName("HinhAnh");
 
                     b.Property<Guid>("IdDanhMuc")

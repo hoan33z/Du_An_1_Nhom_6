@@ -27,7 +27,7 @@ namespace _3.PL.Views
         Guid _idWhenclick;
         public FrmCTSanPham()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             _IcTSanPhamService = new CTSanPhamService();
             _IDanhMucService = new DanhMucService();
             _IdonViService = new DonViService();
@@ -72,7 +72,7 @@ namespace _3.PL.Views
         }
         public void LoadData()
         {
-            dgridCTSanPham.ColumnCount = 9;
+            dgridCTSanPham.ColumnCount = 10;
             dgridCTSanPham.Columns[0].Name = "ID";
             dgridCTSanPham.Columns[0].Visible = false;
             dgridCTSanPham.Columns[1].Name = "Tên Sản Phẩm";
@@ -83,10 +83,22 @@ namespace _3.PL.Views
             dgridCTSanPham.Columns[6].Name = "Giá Nhập";
             dgridCTSanPham.Columns[7].Name = "Giá Bán";
             dgridCTSanPham.Columns[8].Name = "Số Lượng";
+            dgridCTSanPham.Columns[9].Name = "Hình Ảnh";
             dgridCTSanPham.Rows.Clear();
             foreach (var x in _IcTSanPhamService.GetAll())
             {
-                dgridCTSanPham.Rows.Add(x.ChiTietSanPhams.IdChiTietSP, x.SanPhams.TenSp, x.LoaiSps.TenLoaiSp, x.NhaCungCaps.TenNhaCungCap, x.DanhMucs.TenDanhMuc, x.DonVis.TenDonVi, x.ChiTietSanPhams.GiaNhap, x.ChiTietSanPhams.GiaBan, x.ChiTietSanPhams.SoLuong);
+                dgridCTSanPham.Rows.Add(
+                    x.ChiTietSanPhams.IdChiTietSP,
+                    x.SanPhams.TenSp,
+                    x.LoaiSps.TenLoaiSp,
+                    x.NhaCungCaps.TenNhaCungCap,
+                    x.DanhMucs.TenDanhMuc,
+                    x.DonVis.TenDonVi,
+                    x.ChiTietSanPhams.GiaNhap,
+                    x.ChiTietSanPhams.GiaBan,
+                    x.ChiTietSanPhams.SoLuong, 
+                    convertByte(x.ChiTietSanPhams.HinhAnh)
+                    );
             }
         }
         public ChiTietSanPham GetDataFromGui()
@@ -162,18 +174,18 @@ namespace _3.PL.Views
         private void dgridCTSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            if (index == -1 || _IcTSanPhamService.GetAll().Count==index) return;
+            if (index == -1 || _IcTSanPhamService.GetAll().Count == index) return;
             _idWhenclick = Guid.Parse(dgridCTSanPham.Rows[index].Cells[0].Value.ToString());
             var ctSanPham = _IcTSanPhamService.GetAll().FirstOrDefault(c => c.ChiTietSanPhams.IdChiTietSP == _idWhenclick);
             pictureBox1.Image = convertByte(ctSanPham.ChiTietSanPhams.HinhAnh);
             txtGiaBan.Text = ctSanPham.ChiTietSanPhams.GiaBan.ToString();
             txtGiaNhap.Text = ctSanPham.ChiTietSanPhams.GiaNhap.ToString();
             txtSoLuong.Text = ctSanPham.ChiTietSanPhams.SoLuong.ToString();
-            cmbDanhMuc.SelectedIndex= cmbDanhMuc.FindStringExact(_IDanhMucService.GetAll().FirstOrDefault(c=>c.IdDanhMuc==ctSanPham.ChiTietSanPhams.IdDanhMuc).TenDanhMuc);
-            cmbDonVi.SelectedIndex= cmbDonVi.FindStringExact(_IdonViService.GetAll().FirstOrDefault(c=>c.IdDonVi==ctSanPham.ChiTietSanPhams.IdDonVi).TenDonVi);
-            cmbLoaiSp.SelectedIndex= cmbLoaiSp.FindStringExact(_IloaiSpService.GetAll().FirstOrDefault(c=>c.IdLoaiSp==ctSanPham.ChiTietSanPhams.IdLoaiSp).TenLoaiSp);
-            cmbNhaCC.SelectedIndex= cmbNhaCC.FindStringExact(_InhaCungCapService.GetAll().FirstOrDefault(c=>c.IdNhaCungCap==ctSanPham.ChiTietSanPhams.IdNhaCungCap).TenNhaCungCap);
-            cmbTenSP.SelectedIndex= cmbTenSP.FindStringExact(_IsanPhamService.GetAll().FirstOrDefault(c=>c.IdSp==ctSanPham.ChiTietSanPhams.IdSp).TenSp);
+            cmbDanhMuc.SelectedIndex = cmbDanhMuc.FindStringExact(_IDanhMucService.GetAll().FirstOrDefault(c => c.IdDanhMuc == ctSanPham.ChiTietSanPhams.IdDanhMuc).TenDanhMuc);
+            cmbDonVi.SelectedIndex = cmbDonVi.FindStringExact(_IdonViService.GetAll().FirstOrDefault(c => c.IdDonVi == ctSanPham.ChiTietSanPhams.IdDonVi).TenDonVi);
+            cmbLoaiSp.SelectedIndex = cmbLoaiSp.FindStringExact(_IloaiSpService.GetAll().FirstOrDefault(c => c.IdLoaiSp == ctSanPham.ChiTietSanPhams.IdLoaiSp).TenLoaiSp);
+            cmbNhaCC.SelectedIndex = cmbNhaCC.FindStringExact(_InhaCungCapService.GetAll().FirstOrDefault(c => c.IdNhaCungCap == ctSanPham.ChiTietSanPhams.IdNhaCungCap).TenNhaCungCap);
+            cmbTenSP.SelectedIndex = cmbTenSP.FindStringExact(_IsanPhamService.GetAll().FirstOrDefault(c => c.IdSp == ctSanPham.ChiTietSanPhams.IdSp).TenSp);
             lblChonAnh.Visible = true;
         }
 

@@ -22,7 +22,7 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.GiaBan).HasColumnName("GiaBan").HasColumnType("decimal");
             builder.Property(c => c.GiaNhap).HasColumnName("GiaNhap").HasColumnType("decimal");
             builder.Property(c => c.SoLuong).HasColumnName("SoLuong").HasColumnType("int");
-            builder.Property(c => c.HinhAnh).HasColumnName("HinhAnh").HasColumnType("nvarchar(max)");
+            builder.Property(c => c.HinhAnh).HasColumnName("HinhAnh").HasColumnType("image");
             builder.HasOne(c => c.LoaiSp).WithMany().HasForeignKey(c => c.IdLoaiSp);
             builder.HasOne(c => c.NhaCungCap).WithMany().HasForeignKey(c => c.IdNhaCungCap);
             builder.HasOne(c => c.SanPham).WithMany().HasForeignKey(c => c.IdSp);

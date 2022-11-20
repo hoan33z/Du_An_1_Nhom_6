@@ -146,7 +146,7 @@ namespace _1.DAL.Migrations
                     IdSp = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdDanhMuc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdDonVi = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    HinhAnh = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HinhAnh = table.Column<byte[]>(type: "image", nullable: true),
                     GiaNhap = table.Column<decimal>(type: "decimal", nullable: false),
                     GiaBan = table.Column<decimal>(type: "decimal", nullable: false),
                     SoLuong = table.Column<int>(type: "int", nullable: false)
