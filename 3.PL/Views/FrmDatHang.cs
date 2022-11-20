@@ -1,5 +1,6 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Service;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,23 @@ namespace _3.PL.Views
 {
     public partial class FrmDatHang : Form
     {
-        ICTSanPhamService  _IcTSanPhamService;
+        ICTSanPhamService _IcTSanPhamService;
+        Guid _idWhenClick;
+        int soLuong = 0;
         public FrmDatHang()
         {
             InitializeComponent();
             _IcTSanPhamService = new CTSanPhamService();
             LoadSanPham();
+            LoadGioHang();
+        }
+        public void LoadGioHang()
+        {
+            dgridGioHang.ColumnCount = 3;
+            dgridGioHang.Columns[0].Name = "Tên Sản Phẩm";
+            dgridGioHang.Columns[1].Name = "Giá Bán";
+            dgridGioHang.Columns[2].Name = "Số Lượng";
+            dgridGioHang.Rows.Clear();
         }
         public void LoadSanPham()
         {
@@ -38,7 +50,52 @@ namespace _3.PL.Views
             dgridTTSanPham.Rows.Clear();
             foreach (var x in _IcTSanPhamService.GetAll())
             {
-                dgridTTSanPham.Rows.Add(x.ChiTietSanPhams.IdChiTietSP, x.SanPhams.TenSp, x.LoaiSps.TenLoaiSp, x.NhaCungCaps.TenNhaCungCap, x.DanhMucs.TenDanhMuc, x.DonVis.TenDonVi, x.ChiTietSanPhams.GiaNhap, x.ChiTietSanPhams.GiaBan, x.ChiTietSanPhams.SoLuong,x.ChiTietSanPhams.HinhAnh);
+                dgridTTSanPham.Rows.Add(
+                    x.ChiTietSanPhams.IdChiTietSP,
+                    x.SanPhams.TenSp,
+                    x.LoaiSps.TenLoaiSp,
+                    x.NhaCungCaps.TenNhaCungCap,
+                    x.DanhMucs.TenDanhMuc,
+                    x.DonVis.TenDonVi,
+                    x.ChiTietSanPhams.GiaNhap,
+                    x.ChiTietSanPhams.GiaBan,
+                    x.ChiTietSanPhams.SoLuong,
+                    x.ChiTietSanPhams.HinhAnh);
+            }
+        }
+        public bool checkGioHang()
+        {
+            for (int i = 0; i < dgridGioHang.RowCount; i++)
+            {
+               return _IcTSanPhamService.GetAll().Any(c => c.SanPhams.TenSp == dgridGioHang.Rows[i].Cells[0].Value.ToString());
+            }
+            return false;
+        }
+        private void dgridTTSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index == -1 || _IcTSanPhamService.GetAll().Count == index) return;
+            _idWhenClick = Guid.Parse(dgridTTSanPham.Rows[index].Cells[0].Value.ToString());
+            var ttSanPham = _IcTSanPhamService.GetAll().FirstOrDefault(c => c.ChiTietSanPhams.IdChiTietSP == _idWhenClick);
+            if (dgridGioHang.Rows[0].Cells[0].Value == null)
+            {
+                soLuong = 1;
+                dgridGioHang.Rows.Add(ttSanPham.SanPhams.TenSp, ttSanPham.ChiTietSanPhams.GiaBan, soLuong);
+            }
+            else if (checkGioHang())
+            {
+                for (int j = 0; j < 1; j++)
+                { 
+                    dgridGioHang.Rows.Add(ttSanPham.SanPhams.TenSp, ttSanPham.ChiTietSanPhams.GiaBan, ++soLuong);
+                }
+            }
+            else
+            {
+                for (int k = 0; k < 1; k++)
+                {
+                    soLuong = 1;
+                    dgridGioHang.Rows.Add(ttSanPham.SanPhams.TenSp, ttSanPham.ChiTietSanPhams.GiaBan, soLuong);
+                }
             }
         }
     }

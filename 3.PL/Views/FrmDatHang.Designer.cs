@@ -78,6 +78,7 @@
             // 
             // dgridGioHang
             // 
+            this.dgridGioHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgridGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgridGioHang.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgridGioHang.Location = new System.Drawing.Point(4, 28);
@@ -125,7 +126,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(471, 238);
+            this.groupBox1.Size = new System.Drawing.Size(467, 238);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin Khách Hàng";
@@ -209,6 +210,7 @@
             this.dgridTTSanPham.RowTemplate.Height = 29;
             this.dgridTTSanPham.Size = new System.Drawing.Size(951, 239);
             this.dgridTTSanPham.TabIndex = 0;
+            this.dgridTTSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridTTSanPham_CellClick);
             // 
             // FrmDatHang
             // 
