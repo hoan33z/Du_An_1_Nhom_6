@@ -13,6 +13,8 @@ namespace _1.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<ChiTietSanPham> builder)
         {
+            builder.ToTable("ChiTietSP");
+
             builder.HasKey(c => c.IdChiTietSP);
             builder.Property(c => c.IdLoaiSp).IsRequired();
             builder.Property(c => c.IdNhaCungCap).IsRequired();

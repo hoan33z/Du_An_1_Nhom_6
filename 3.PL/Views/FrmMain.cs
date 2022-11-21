@@ -17,17 +17,5 @@ namespace _3.PL.Views
             InitializeComponent();
         }
 
-        private void btnDatHang_Click(object sender, EventArgs e)
-        {
-            FrmDatHang datHang = new FrmDatHang();
-            datHang.Show();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            FrmHoaDon hoaDon = new FrmHoaDon();
-            hoaDon.Show();
-        }
-
     }
 }

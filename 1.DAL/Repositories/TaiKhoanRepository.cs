@@ -28,7 +28,7 @@ namespace _1.DAL.Repositories
         public bool Delete(TaiKhoan obj)
         {
             if (obj == null) return false;
-            var tempobj = _vatLieuDbContext.TaiKhoans.FirstOrDefault(c => c.IdLoaiTk == obj.IdLoaiTk);
+            var tempobj = _vatLieuDbContext.TaiKhoans.FirstOrDefault(c => c.TenTaiKhoan == obj.TenTaiKhoan);
             _vatLieuDbContext.TaiKhoans.Remove(tempobj);
             _vatLieuDbContext.SaveChanges();
             return true;
@@ -44,12 +44,10 @@ namespace _1.DAL.Repositories
         public bool Update(TaiKhoan obj)
         {
             if (obj == null) return false;
-            var tempobj = _vatLieuDbContext.TaiKhoans.FirstOrDefault(c => c.IdLoaiTk == obj.IdLoaiTk);
+            var tempobj = _vatLieuDbContext.TaiKhoans.FirstOrDefault(c => c.TenTaiKhoan == obj.TenTaiKhoan);
             tempobj.TenTaiKhoan = obj.TenTaiKhoan;
-            tempobj.IdLoaiTk = obj.IdLoaiTk;
             tempobj.MatKhau = obj.MatKhau;
             tempobj.TrangThai = obj.TrangThai;
-            tempobj.TrangThaiPass = obj.TrangThaiPass;
             _vatLieuDbContext.TaiKhoans.Update(tempobj);
             _vatLieuDbContext.SaveChanges();
             return true;

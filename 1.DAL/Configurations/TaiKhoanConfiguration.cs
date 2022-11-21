@@ -13,14 +13,13 @@ namespace _1.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<TaiKhoan> builder)
         {
+            builder.ToTable("TaiKhoan");
 
             builder.HasKey(c => c.TenTaiKhoan);
-            builder.Property(c => c.IdLoaiTk).IsRequired();
             builder.Property(c => c.TenTaiKhoan).HasColumnName("TenTaiKhoan").HasColumnType("nvarchar(50)");
             builder.Property(c => c.MatKhau).HasColumnName("MatKhau").HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(c => c.TrangThai).HasColumnName("TrangThai").HasColumnType("int").IsRequired();
-            builder.Property(c => c.TrangThaiPass).HasColumnName("TrangThaiPass").HasColumnType("bit").IsRequired();
-            builder.HasOne(c=>c.LoaiTK).WithMany().HasForeignKey(c=>c.IdLoaiTk);
+            builder.Property(c => c.ChucVu).HasColumnName("ChucVu").HasColumnType("nvarchar(50)").IsRequired();
         }
     }
 }

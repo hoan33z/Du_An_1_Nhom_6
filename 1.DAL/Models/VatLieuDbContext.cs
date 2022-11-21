@@ -29,16 +29,13 @@ namespace _1.DAL.Models
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-        public DbSet<ChiTietGioHang> ChiTietGioHangs { get; set; } 
         public DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; } 
         public DbSet<ChiTietSanPham> ChiTietSanPhams { get; set; }         
         public DbSet<DanhMuc> DanhMucs { get; set; }
         public DbSet<DonVi> DonVis { get; set; }
-        public DbSet<GioHang> GioHangs { get; set; }
         public DbSet<HoaDon> HoaDons { get; set; }
         public DbSet<KhachHang> KhachHangs { get; set; }
         public DbSet<LoaiSp> LoaiSps { get; set; }
-        public DbSet<LoaiTK> LoaiTKs { get; set; }
         public DbSet<NhaCungCap> NhaCungCaps { get; set; }
         public DbSet<NhanVien> NhanViens { get; set; }
         public DbSet<SanPham> SanPhams { get; set; }

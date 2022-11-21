@@ -12,6 +12,8 @@ namespace _1.DAL.Models
         public string TenKh { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
-        public string Email { get; set; }
+        public int GioiTinh { get; set; }
+        public string DCNhanHang { get; set; }
+        public DateTime NgayNhan { get; set; }
     }
 }

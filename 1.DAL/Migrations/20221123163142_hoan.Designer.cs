@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1.DAL.Models;
 
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(VatLieuDbContext))]
-    partial class VatLieuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221123163142_hoan")]
+    partial class hoan
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +45,7 @@ namespace _1.DAL.Migrations
 
                     b.HasIndex("IdChiTietSP");
 
-                    b.ToTable("ChiTietHoaDon");
+                    b.ToTable("ChiTietHoaDons");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.ChiTietSanPham", b =>
@@ -95,7 +97,7 @@ namespace _1.DAL.Migrations
 
                     b.HasIndex("IdSp");
 
-                    b.ToTable("ChiTietSP");
+                    b.ToTable("ChiTietSanPhams");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.DanhMuc", b =>
@@ -126,7 +128,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("IdDonVi");
 
-                    b.ToTable("DonVi");
+                    b.ToTable("DonVis");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.HoaDon", b =>
@@ -155,7 +157,7 @@ namespace _1.DAL.Migrations
 
                     b.HasIndex("IdNhanVien");
 
-                    b.ToTable("HoaDon");
+                    b.ToTable("HoaDons");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.KhachHang", b =>
@@ -194,7 +196,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("IdKhachHang");
 
-                    b.ToTable("KhachHang");
+                    b.ToTable("KhachHangs");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.LoaiSp", b =>
@@ -210,7 +212,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("IdLoaiSp");
 
-                    b.ToTable("LoaiSanPham");
+                    b.ToTable("LoaiSps");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.NhaCungCap", b =>
@@ -226,7 +228,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("IdNhaCungCap");
 
-                    b.ToTable("NhaCungCap");
+                    b.ToTable("NhaCungCaps");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.NhanVien", b =>
@@ -267,7 +269,7 @@ namespace _1.DAL.Migrations
 
                     b.HasIndex("Email");
 
-                    b.ToTable("NhanVien");
+                    b.ToTable("NhanViens");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.SanPham", b =>
@@ -283,7 +285,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("IdSp");
 
-                    b.ToTable("SanPham");
+                    b.ToTable("SanPhams");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.TaiKhoan", b =>
@@ -308,7 +310,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("TenTaiKhoan");
 
-                    b.ToTable("TaiKhoan");
+                    b.ToTable("TaiKhoans");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.ChiTietHoaDon", b =>

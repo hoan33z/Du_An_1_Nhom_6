@@ -13,6 +13,8 @@ namespace _1.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<NhaCungCap> builder)
         {
+            builder.ToTable("NhaCungCap");
+
             builder.HasKey(c => c.IdNhaCungCap);
 
             builder.Property(c => c.TenNhaCungCap).HasColumnName("TenNhaCC").HasColumnType("nvarchar(100)").IsRequired();

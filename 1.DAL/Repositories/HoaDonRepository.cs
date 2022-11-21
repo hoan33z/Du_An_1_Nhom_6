@@ -42,8 +42,6 @@ namespace _1.DAL.Repositories
             if (obj == null) return false;
             var tempobj = _vatLieuDbContext.HoaDons.FirstOrDefault(c => c.IdHoaDon == obj.IdHoaDon);
             tempobj.NgayThanhToan = obj.NgayThanhToan;
-            tempobj.NgayNhan = obj.NgayNhan;
-            tempobj.NgayTao = obj.NgayTao;
             tempobj.TongTien = obj.TongTien;
             tempobj.IdNhanVien = obj.IdNhanVien;
             tempobj.IdKhachHang = obj.IdKhachHang;

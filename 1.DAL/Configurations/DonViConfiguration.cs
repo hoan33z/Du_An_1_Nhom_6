@@ -14,6 +14,8 @@ namespace _1.DAL.Configurations
 
         public void Configure(EntityTypeBuilder<DonVi> builder)
         {
+            builder.ToTable("DonVi");
+
             builder.HasKey(c => c.IdDonVi);
             builder.Property(c => c.TenDonVi).HasColumnName("TenDonVi").HasColumnType("nvarchar(50)");
         }
