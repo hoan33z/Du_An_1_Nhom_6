@@ -28,7 +28,7 @@ namespace _2.BUS.Service
             _IdonViRepository = new DonViRepository();
             _IdanhMucRepository = new DanhMucRepository();
         }
-        public string Add(CTSanPhamView obj)
+        public string Add(EditCTSanPhamView obj)
         {
             if (obj == null) return "them khong thanh cong";
             var ctSanPham = obj.ChiTietSanPhams;
@@ -37,7 +37,7 @@ namespace _2.BUS.Service
         }
 
 
-        public string Delete(CTSanPhamView obj)
+        public string Delete(EditCTSanPhamView obj)
         {
             if (obj == null) return "xoa khong thanh cong";
             var ctSanPham = obj.ChiTietSanPhams;
@@ -68,7 +68,7 @@ namespace _2.BUS.Service
             return LstcTSanPham;
         }
 
-        public string Update(CTSanPhamView obj)
+        public string Update(EditCTSanPhamView obj)
         {
             if (obj == null) return "sua khong thanh cong";
             var ctSanPham = obj.ChiTietSanPhams;

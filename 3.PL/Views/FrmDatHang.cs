@@ -19,7 +19,7 @@ namespace _3.PL.Views
         public FrmDatHang()
         {
             InitializeComponent();
-           _cTSanPhamService = new CTSanPhamService();
+            _cTSanPhamService = new CTSanPhamService();
             LoadDSSanPham();
         }
         public void LoadDSSanPham()
@@ -29,12 +29,12 @@ namespace _3.PL.Views
             dgridDSSanPham.Columns[0].Visible = false;
             dgridDSSanPham.Columns[1].Name = "Tên Sản Phẩm";
             dgridDSSanPham.Columns[2].Name = "Loại Sản Phẩm";
-            dgridDSSanPham.Columns[3].Name = "Nhà Cung Cấp";
-            dgridDSSanPham.Columns[4].Name = "Danh Mục";
-            dgridDSSanPham.Columns[5].Name = "Đơn Vị";
-            dgridDSSanPham.Columns[6].Name = "Giá Nhập";
-            dgridDSSanPham.Columns[7].Name = "Giá Bán";
-            dgridDSSanPham.Columns[8].Name = "Số Lượng";
+            dgridDSSanPham.Columns[3].Name = "Giá Bán";
+            dgridDSSanPham.Columns[4].Name = "Số Lượng";
+            dgridDSSanPham.Columns[5].Name = "Giá Nhập";
+            dgridDSSanPham.Columns[6].Name = "Nhà Cung Cấp";
+            dgridDSSanPham.Columns[7].Name = "Danh Mục";
+            dgridDSSanPham.Columns[8].Name = "Đơn Vị";
             dgridDSSanPham.Rows.Clear();
             foreach (var x in _cTSanPhamService.GetAll())
             {
@@ -42,15 +42,14 @@ namespace _3.PL.Views
                     x.ChiTietSanPhams.IdChiTietSP,
                     x.SanPhams.TenSp,
                     x.LoaiSps.TenLoaiSp,
+                    x.ChiTietSanPhams.GiaBan,
+                    x.ChiTietSanPhams.SoLuong,
+                    x.ChiTietSanPhams.GiaNhap,
                     x.NhaCungCaps.TenNhaCungCap,
                     x.DanhMucs.TenDanhMuc,
-                    x.DonVis.TenDonVi,
-                    x.ChiTietSanPhams.GiaNhap,
-                    x.ChiTietSanPhams.GiaBan,
-                    x.ChiTietSanPhams.SoLuong
+                    x.DonVis.TenDonVi
                     );
             }
-
         }
     }
 }

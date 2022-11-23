@@ -132,7 +132,7 @@ namespace _3.PL.Views
             }
             else
             {
-                CTSanPhamView ctSanPham = new CTSanPhamView();
+                EditCTSanPhamView ctSanPham = new EditCTSanPhamView();
                 ctSanPham.ChiTietSanPhams = GetDataFromGui();
                 MessageBox.Show(_IcTSanPhamService.Add(ctSanPham));
                 LoadData();
@@ -191,7 +191,7 @@ namespace _3.PL.Views
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            CTSanPhamView ctSanPham = new CTSanPhamView();
+            EditCTSanPhamView ctSanPham = new EditCTSanPhamView();
             ctSanPham.ChiTietSanPhams = GetDataFromGui();
             ctSanPham.ChiTietSanPhams.IdChiTietSP = _idWhenclick;
             MessageBox.Show(_IcTSanPhamService.Update(ctSanPham));
@@ -200,7 +200,7 @@ namespace _3.PL.Views
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            CTSanPhamView ctSanPham = new CTSanPhamView();
+            EditCTSanPhamView ctSanPham = new EditCTSanPhamView();
             ctSanPham.ChiTietSanPhams = GetDataFromGui();
             ctSanPham.ChiTietSanPhams.IdChiTietSP = _idWhenclick;
             MessageBox.Show(_IcTSanPhamService.Delete(ctSanPham));

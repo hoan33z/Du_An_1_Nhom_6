@@ -10,9 +10,9 @@ namespace _2.BUS.IServices
 {
     public interface ICTSanPhamService
     {
-        public string Add(CTSanPhamView obj);
-        public string Update(CTSanPhamView obj);
-        public string Delete(CTSanPhamView obj);
+        public string Add(EditCTSanPhamView obj);
+        public string Update(EditCTSanPhamView obj);
+        public string Delete(EditCTSanPhamView obj);
         public List<CTSanPhamView> GetAll();
 
     }
