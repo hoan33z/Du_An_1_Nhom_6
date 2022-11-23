@@ -104,6 +104,7 @@
             this.button3.TabIndex = 12;
             this.button3.Text = "Sửa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -114,6 +115,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Xoá";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -206,6 +208,7 @@
             this.dgridKhachHang.RowTemplate.Height = 33;
             this.dgridKhachHang.Size = new System.Drawing.Size(959, 207);
             this.dgridKhachHang.TabIndex = 8;
+            this.dgridKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridKhachHang_CellClick);
             // 
             // textBox1
             // 

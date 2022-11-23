@@ -18,16 +18,18 @@ namespace _3.PL.Views
     public partial class FrmTTKhachHang : Form
     {
         IKhachHangService _khachHangService;
+        Guid _id;
         public FrmTTKhachHang()
         {
             InitializeComponent();
             _khachHangService = new KhachHangService();
             LoadTTKhachHang();
         }
-        public KhachHang GetKhachHang()
+        public EditKhachHangView GetKhachHang()
         {
-            return new KhachHang()
+            return new EditKhachHangView()
             {
+                IdKhachHang = _id,
                 TenKh = txtTenKH.Text,
                 DiaChi = txtDiaChi.Text,
                 SDT = txtSDT.Text,
@@ -40,6 +42,7 @@ namespace _3.PL.Views
         {
             dgridKhachHang.ColumnCount = 7;
             dgridKhachHang.Columns[0].Name = "ID";
+            dgridKhachHang.Columns[0].Visible = false;
             dgridKhachHang.Columns[1].Name = "Tên Khách Hàng";
             dgridKhachHang.Columns[2].Name = "Địa Chỉ";
             dgridKhachHang.Columns[3].Name = "SDT";
@@ -49,15 +52,38 @@ namespace _3.PL.Views
             dgridKhachHang.Rows.Clear();
             foreach (var x in _khachHangService.GetAll())
             {
-                dgridKhachHang.Rows.Add(x.KhachHangs.IdKhachHang, x.KhachHangs.TenKh, x.KhachHangs.DiaChi, x.KhachHangs.SDT, x.KhachHangs.GioiTinh == 0 ? "Nam" : "Nữ", x.KhachHangs.DCNhanHang, x.KhachHangs.NgayNhan);
+                dgridKhachHang.Rows.Add(x.IdKhachHang, x.TenKh, x.DiaChi, x.SDT, x.GioiTinh == 0 ? "Nam" : "Nữ", x.DCNhanHang, x.NgayNhan);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EditKhachHangView editKH= new EditKhachHangView();
-            editKH.KhachHangs = GetKhachHang();
-           MessageBox.Show(_khachHangService.Add(editKH));
+           MessageBox.Show(_khachHangService.Add(GetKhachHang()));
+            LoadTTKhachHang();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(_khachHangService.Delete(GetKhachHang()));
+            LoadTTKhachHang();
+        }
+
+        private void dgridKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index =e.RowIndex;
+            if (index == -1 || _khachHangService.GetAll().Count == index) return;
+            _id = Guid.Parse(dgridKhachHang.Rows[index].Cells[0].Value.ToString());
+            var KH = _khachHangService.GetAll().FirstOrDefault(c => c.IdKhachHang == _id);
+            txtTenKH.Text = KH.TenKh;
+            txtDiaChi.Text = KH.DiaChi;
+            txtSDT.Text = KH.SDT;
+            rbtnNam.Checked = KH.GioiTinh == 0 ? true : false;
+            rbtnNu.Checked = KH.GioiTinh == 1 ? true : false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(_khachHangService.Update(GetKhachHang()));
             LoadTTKhachHang();
         }
     }

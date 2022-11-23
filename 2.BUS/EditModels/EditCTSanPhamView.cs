@@ -9,11 +9,16 @@ namespace _2.BUS.ViewModels
 {
     public class EditCTSanPhamView
     {
-        public SanPham SanPhams { get; set; }
-        public LoaiSp LoaiSps { get; set; }
-        public NhaCungCap NhaCungCaps { get; set; }
-        public DonVi DonVis { get; set; }
-        public DanhMuc DanhMucs { get; set; }
-        public ChiTietSanPham ChiTietSanPhams { get; set; }
+        public Guid IdChiTietSP { get; set; }
+        public Guid IdLoaiSp { get; set; }
+        public Guid IdNhaCungCap { get; set; }
+        public Guid IdSp { get; set; }
+        public Guid IdDanhMuc { get; set; }
+        public Guid IdDonVi { get; set; }
+
+        public byte[] HinhAnh { get; set; }
+        public decimal GiaNhap { get; set; }
+        public decimal GiaBan { get; set; }
+        public int SoLuong { get; set; }
     }
 }

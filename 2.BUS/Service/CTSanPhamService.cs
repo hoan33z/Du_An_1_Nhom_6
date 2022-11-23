@@ -28,20 +28,32 @@ namespace _2.BUS.Service
             _IdonViRepository = new DonViRepository();
             _IdanhMucRepository = new DanhMucRepository();
         }
-        public string Add(EditCTSanPhamView obj)
+        public string Add(EditCTSanPhamView SP)
         {
-            if (obj == null) return "them khong thanh cong";
-            var ctSanPham = obj.ChiTietSanPhams;
-            if (_IchiTietSanPhamRepository.Add(ctSanPham)) return "Them thanh cong";
+            if (SP == null) return "them khong thanh cong";
+            ChiTietSanPham obj = new ChiTietSanPham()
+            {
+                IdSp = SP.IdSp,
+                IdDanhMuc = SP.IdDanhMuc,
+                IdDonVi = SP.IdDonVi,
+                IdNhaCungCap = SP.IdNhaCungCap,
+                IdLoaiSp = SP.IdLoaiSp,
+                HinhAnh = SP.HinhAnh,
+                GiaBan = SP.GiaBan,
+                GiaNhap = SP.GiaNhap,
+                SoLuong = SP.SoLuong,
+            };
+            if (_IchiTietSanPhamRepository.Add(obj)) return "Them thanh cong";
             return "ok";
         }
-
-
-        public string Delete(EditCTSanPhamView obj)
+        public string Delete(EditCTSanPhamView SP)
         {
-            if (obj == null) return "xoa khong thanh cong";
-            var ctSanPham = obj.ChiTietSanPhams;
-            if (_IchiTietSanPhamRepository.Delete(ctSanPham)) return "xoa thanh cong";
+            if (SP == null) return "xoa khong thanh cong";
+            ChiTietSanPham obj = new ChiTietSanPham()
+            {
+                IdChiTietSP=SP.IdChiTietSP
+            };
+            if (_IchiTietSanPhamRepository.Delete(obj)) return "xoa thanh cong";
             return "ok";
         }
 
@@ -57,22 +69,56 @@ namespace _2.BUS.Service
                  join f in _IdonViRepository.GetAll() on a.IdDonVi equals f.IdDonVi
                  select new CTSanPhamView()
                  {
-                     ChiTietSanPhams = a,
-                     SanPhams = b,
-                     LoaiSps =c,
-                     NhaCungCaps = d,
-                     DanhMucs = e,
-                     DonVis = f
+                     IdChiTietSP= a.IdChiTietSP,
+                     TenDanhMuc=e.TenDanhMuc,
+                     TenDonVi=f.TenDonVi,
+                     TenLoaiSp=c.TenLoaiSp,
+                     TenNhaCungCap=d.TenNhaCungCap,
+                     TenSp=b.TenSp,
+                     HinhAnh=a.HinhAnh,
+                     GiaBan=a.GiaBan,
+                     GiaNhap=a.GiaNhap,
+                     SoLuong=a.SoLuong
                  }
                  ).ToList();
             return LstcTSanPham;
         }
 
-        public string Update(EditCTSanPhamView obj)
+        public EditCTSanPhamView GetEdit(Guid id)
         {
-            if (obj == null) return "sua khong thanh cong";
-            var ctSanPham = obj.ChiTietSanPhams;
-            if (_IchiTietSanPhamRepository.Update(ctSanPham)) return "sua thanh cong";
+            var SP = _IchiTietSanPhamRepository.GetAll().FirstOrDefault(c => c.IdChiTietSP == id);
+            return new EditCTSanPhamView()
+            {
+                IdChiTietSP = SP.IdChiTietSP,
+                IdSp = SP.IdSp,
+                IdDanhMuc = SP.IdDanhMuc,
+                IdDonVi = SP.IdDonVi,
+                IdLoaiSp = SP.IdLoaiSp,
+                IdNhaCungCap = SP.IdNhaCungCap,
+                HinhAnh= SP.HinhAnh,
+                GiaBan= SP.GiaBan,
+                GiaNhap= SP.GiaNhap,
+                SoLuong= SP.SoLuong
+            };
+        }
+
+        public string Update(EditCTSanPhamView SP)
+        {
+            if (SP == null) return "sua khong thanh cong";
+            ChiTietSanPham obj = new ChiTietSanPham()
+            {
+                IdChiTietSP= SP.IdChiTietSP,
+                IdSp = SP.IdSp,
+                IdDanhMuc = SP.IdDanhMuc,
+                IdDonVi = SP.IdDonVi,
+                IdNhaCungCap = SP.IdNhaCungCap,
+                IdLoaiSp = SP.IdLoaiSp,
+                HinhAnh = SP.HinhAnh,
+                GiaBan = SP.GiaBan,
+                GiaNhap = SP.GiaNhap,
+                SoLuong = SP.SoLuong,
+            };
+            if (_IchiTietSanPhamRepository.Update(obj)) return "sua thanh cong";
             return "ok";
         }
     }

@@ -35,7 +35,6 @@ namespace _1.DAL.Repositories
         public List<KhachHang> GetAll()
         {
             return _vatLieuDbContext.KhachHangs.ToList();
-
         }
 
         public bool Update(KhachHang obj)
@@ -45,6 +44,9 @@ namespace _1.DAL.Repositories
             tempobj.TenKh = obj.TenKh;
             tempobj.SDT = obj.SDT;
             tempobj.DiaChi = obj.DiaChi;
+            tempobj.GioiTinh= obj.GioiTinh;
+            tempobj.DCNhanHang=obj.DCNhanHang;
+            tempobj.NgayNhan=obj.NgayNhan;
             _vatLieuDbContext.KhachHangs.Update(tempobj);
             _vatLieuDbContext.SaveChanges();
             return true;

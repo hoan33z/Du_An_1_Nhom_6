@@ -14,6 +14,7 @@ namespace _2.BUS.IServices
         public string Update(EditCTSanPhamView obj);
         public string Delete(EditCTSanPhamView obj);
         public List<CTSanPhamView> GetAll();
-
+        public EditCTSanPhamView GetEdit(Guid id);
+         
     }
 }

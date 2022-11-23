@@ -9,6 +9,12 @@ namespace _2.BUS.ViewModels
 {
     public class EditKhachHangView
     {
-        public KhachHang KhachHangs { get; set; }
+        public Guid IdKhachHang { get; set; }
+        public string TenKh { get; set; }
+        public string DiaChi { get; set; }
+        public string SDT { get; set; }
+        public int GioiTinh { get; set; }
+        public string DCNhanHang { get; set; }
+        public DateTime NgayNhan { get; set; }
     }
 }

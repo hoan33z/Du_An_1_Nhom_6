@@ -18,34 +18,54 @@ namespace _2.BUS.Service
         {
             _IkhachHangRepository = new KhachHangRepository();
         }
-        public string Add(EditKhachHangView obj)
+        public string Add(EditKhachHangView KH)
         {
-            if (obj == null) return " thêm không thành công";
-            var tempobj = obj.KhachHangs;
-           if(_IkhachHangRepository.Add(tempobj)) return"thêm thành công";
+            if (KH == null) return " thêm không thành công";
+            KhachHang obj = new KhachHang()
+            {
+                TenKh = KH.TenKh,
+                DiaChi = KH.DiaChi,
+                SDT = KH.SDT,
+                GioiTinh = KH.GioiTinh,
+                DCNhanHang = KH.DCNhanHang,
+                NgayNhan = KH.NgayNhan
+            };
+            if (_IkhachHangRepository.Add(obj)) return "thêm thành công";
             return "ok";
         }
 
-        public string Delete(EditKhachHangView obj)
+        public string Delete(EditKhachHangView KH)
         {
-            if (obj == null) return " xóa không thành công";
-            var tempobj = _IkhachHangRepository.GetAll().FirstOrDefault(c => c.IdKhachHang == obj.KhachHangs.IdKhachHang);
-            if (_IkhachHangRepository.Delete(tempobj)) return "xóa thành công";
+            if (KH == null) return " xóa không thành công";
+            KhachHang obj = new KhachHang()
+            {
+                IdKhachHang = KH.IdKhachHang,
+            };
+            if (_IkhachHangRepository.Delete(obj)) return "xóa thành công";
             return "ok";
         }
 
         public List<KhachHangView> GetAll()
         {
-           List<KhachHangView> lstKhView = new List<KhachHangView>();
-            lstKhView = (from a in _IkhachHangRepository.GetAll() select new KhachHangView() { KhachHangs= a }).ToList();
+            List<KhachHangView> lstKhView = new List<KhachHangView>();
+            lstKhView = (from a in _IkhachHangRepository.GetAll() select new KhachHangView() {IdKhachHang=a.IdKhachHang, TenKh=a.TenKh,DiaChi=a.DiaChi,SDT=a.SDT,GioiTinh=a.GioiTinh,DCNhanHang=a.DCNhanHang,NgayNhan=a.NgayNhan }).ToList();
             return lstKhView;
         }
 
-        public string Update(EditKhachHangView obj)
+        public string Update(EditKhachHangView KH)
         {
-            if (obj == null) return " sửa không thành công";
-            var tempobj = _IkhachHangRepository.GetAll().FirstOrDefault(c => c.IdKhachHang == obj.KhachHangs.IdKhachHang);
-            if (_IkhachHangRepository.Update(tempobj)) return "sửa thành công";
+            if (KH == null) return " sửa không thành công";
+            KhachHang obj = new KhachHang()
+            {
+                IdKhachHang = KH.IdKhachHang,
+                TenKh = KH.TenKh,
+                DiaChi = KH.DiaChi,
+                SDT = KH.SDT,
+                GioiTinh = KH.GioiTinh,
+                DCNhanHang = KH.DCNhanHang,
+                NgayNhan = KH.NgayNhan
+            };
+            if (_IkhachHangRepository.Update(obj)) return "sửa thành công";
             return "ok";
         }
     }

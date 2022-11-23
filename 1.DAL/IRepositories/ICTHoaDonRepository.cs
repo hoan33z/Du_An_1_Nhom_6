@@ -13,6 +13,5 @@ namespace _1.DAL.IRepositories
         public bool Update(ChiTietHoaDon obj);
         public bool Delete(ChiTietHoaDon obj);
         public List<ChiTietHoaDon> GetAll();
-
     }
 }
