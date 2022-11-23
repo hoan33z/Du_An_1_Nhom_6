@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Configurations
 {
-    internal class ChiTietHoaDonConfiguration : IEntityTypeConfiguration<ChiTietHoaDon>
+    internal class CTHoaDonConfiguration : IEntityTypeConfiguration<ChiTietHoaDon>
     {
         public void Configure(EntityTypeBuilder<ChiTietHoaDon> builder)
         {

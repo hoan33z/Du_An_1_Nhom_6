@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class ChiTietHoaDonRepository : IChiTietHoaDonRepository
+    public class CTHoaDonRepository : ICTHoaDonRepository
     {
         VatLieuDbContext _vatLieuDbContext;
-        public ChiTietHoaDonRepository()
+        public CTHoaDonRepository()
         {
             _vatLieuDbContext = new VatLieuDbContext();
         }

@@ -13,7 +13,7 @@ namespace _2.BUS.Service
 {
     public class CTSanPhamService : ICTSanPhamService
     {
-        IChiTietSanPhamRepository _IchiTietSanPhamRepository;
+        ICTSanPhamRepository _IchiTietSanPhamRepository;
         ISanPhamRepository _IsanPhamRepository;
         ILoaiSpRepository _IloaiSpRepository;
         INhaCungCapRepository _InhaCungCapRepository;
@@ -21,7 +21,7 @@ namespace _2.BUS.Service
         IDanhMucRepository _IdanhMucRepository;
         public CTSanPhamService()
         {
-            _IchiTietSanPhamRepository = new ChiTietSanPhamRepository();
+            _IchiTietSanPhamRepository = new CTSanPhamRepository();
             _IsanPhamRepository = new SanPhamRepository();
             _IloaiSpRepository= new LoaiSpRepository();
             _InhaCungCapRepository = new NhaCungCapRepository();
