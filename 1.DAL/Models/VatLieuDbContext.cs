@@ -21,8 +21,7 @@ namespace _1.DAL.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder.
-                UseSqlServer("Data Source=DESKTOP-884QEIL\\SQLEXPRESS;Initial Catalog=Du_An_1_Nhom_6;" +
-                "Persist Security Info=True;User ID=hoanltph24402;Password=123456"));
+                UseSqlServer("Data Source=ADMIN\\SQLEXPRESS;Initial Catalog=DuAn1_Nhom6_sonqhph17134;Persist Security Info=True;User ID=sonqhph17134;Password=son24112002"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -39,7 +38,7 @@ namespace _1.DAL.Models
         public DbSet<NhaCungCap> NhaCungCaps { get; set; }
         public DbSet<NhanVien> NhanViens { get; set; }
         public DbSet<SanPham> SanPhams { get; set; }
-        public DbSet<TaiKhoan> TaiKhoans { get; set; }
+        
        
     }
 }

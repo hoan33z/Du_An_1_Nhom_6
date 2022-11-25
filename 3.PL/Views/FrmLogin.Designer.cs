@@ -28,60 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbHienMK = new System.Windows.Forms.CheckBox();
+            this.cbx_ghiNhoTk = new System.Windows.Forms.CheckBox();
+            this.txt_mk = new System.Windows.Forms.TextBox();
+            this.txt_tk = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 20);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Mật Khẩu";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Tài Khoản";
+            // 
+            // cbHienMK
+            // 
+            this.cbHienMK.AutoSize = true;
+            this.cbHienMK.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.cbHienMK.Location = new System.Drawing.Point(250, 146);
+            this.cbHienMK.Name = "cbHienMK";
+            this.cbHienMK.Size = new System.Drawing.Size(133, 24);
+            this.cbHienMK.TabIndex = 15;
+            this.cbHienMK.Text = "Hiện mật khẩu";
+            this.cbHienMK.UseVisualStyleBackColor = true;
+            this.cbHienMK.CheckedChanged += new System.EventHandler(this.cbHienMK_CheckedChanged);
+            // 
+            // cbx_ghiNhoTk
+            // 
+            this.cbx_ghiNhoTk.AutoSize = true;
+            this.cbx_ghiNhoTk.Location = new System.Drawing.Point(14, 146);
+            this.cbx_ghiNhoTk.Name = "cbx_ghiNhoTk";
+            this.cbx_ghiNhoTk.Size = new System.Drawing.Size(130, 24);
+            this.cbx_ghiNhoTk.TabIndex = 14;
+            this.cbx_ghiNhoTk.Text = "Nhớ tài khoản";
+            this.cbx_ghiNhoTk.UseVisualStyleBackColor = true;
+            // 
+            // txt_mk
+            // 
+            this.txt_mk.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txt_mk.Location = new System.Drawing.Point(14, 104);
+            this.txt_mk.Name = "txt_mk";
+            this.txt_mk.PasswordChar = '*';
+            this.txt_mk.Size = new System.Drawing.Size(438, 27);
+            this.txt_mk.TabIndex = 13;
+            // 
+            // txt_tk
+            // 
+            this.txt_tk.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txt_tk.Location = new System.Drawing.Point(14, 38);
+            this.txt_tk.Name = "txt_tk";
+            this.txt_tk.Size = new System.Drawing.Size(438, 27);
+            this.txt_tk.TabIndex = 12;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 133);
+            this.button1.Location = new System.Drawing.Point(66, 186);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(296, 34);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 11;
             this.button1.Text = "Đăng Nhập";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(14, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(438, 31);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Tên Tài Khoản";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(14, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(438, 31);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "Mật Khẩu";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(412, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 31);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 179);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(466, 240);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbHienMK);
+            this.Controls.Add(this.cbx_ghiNhoTk);
+            this.Controls.Add(this.txt_mk);
+            this.Controls.Add(this.txt_tk);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Name = "FrmLogin";
             this.Text = "FrmLogin";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,9 +126,12 @@
 
         #endregion
 
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox cbHienMK;
+        private System.Windows.Forms.CheckBox cbx_ghiNhoTk;
+        private System.Windows.Forms.TextBox txt_mk;
+        private System.Windows.Forms.TextBox txt_tk;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

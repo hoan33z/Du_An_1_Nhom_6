@@ -19,11 +19,15 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.Email).IsRequired();
             builder.Property(c => c.TenNv).HasColumnName("TenNhanVien").HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(c => c.NamSinh).HasColumnName("NamSinh").HasColumnType("datetime").IsRequired();
-            builder.Property(c => c.GioiTinh).HasColumnName("GioiTinh").HasColumnType("int").IsRequired();
+            builder.Property(c => c.GioiTinh).HasColumnName("GioiTinh").HasColumnType("bit").IsRequired();
             builder.Property(c => c.Email).HasColumnName("Email").HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(c => c.DiaChi).HasColumnName("ĐiaChi").HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(c => c.SDT).HasColumnName("SĐT").HasColumnType("nvarchar(10)").IsRequired();
-            builder.HasOne(c => c.TaiKhoan).WithMany().HasForeignKey(c => c.Email);
+            builder.Property(c => c.MatKhau).HasColumnName("MatKhau").HasColumnType("nvarchar(50)").IsRequired();
+            builder.Property(c => c.IdLoaiTk).HasColumnName("IdLoaiTk").HasColumnType("bit").IsRequired();
+            builder.Property(c => c.TrangThai).HasColumnName("TrangThaiTK").HasColumnType("bit").IsRequired();
+            builder.Property(c => c.TrangThaiPass).HasColumnName("TrangThaiPass").HasColumnType("bit").IsRequired();
+
         }
     }
 }

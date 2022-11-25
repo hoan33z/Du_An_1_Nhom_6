@@ -244,9 +244,18 @@ namespace _1.DAL.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("Email");
 
-                    b.Property<int>("GioiTinh")
-                        .HasColumnType("int")
+                    b.Property<bool>("GioiTinh")
+                        .HasColumnType("bit")
                         .HasColumnName("GioiTinh");
+
+                    b.Property<bool>("IdLoaiTk")
+                        .HasColumnType("bit")
+                        .HasColumnName("IdLoaiTk");
+
+                    b.Property<string>("MatKhau")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("MatKhau");
 
                     b.Property<DateTime>("NamSinh")
                         .HasColumnType("datetime")
@@ -262,9 +271,15 @@ namespace _1.DAL.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("TenNhanVien");
 
-                    b.HasKey("IdNhanVien");
+                    b.Property<bool>("TrangThai")
+                        .HasColumnType("bit")
+                        .HasColumnName("TrangThaiTK");
 
-                    b.HasIndex("Email");
+                    b.Property<bool>("TrangThaiPass")
+                        .HasColumnType("bit")
+                        .HasColumnName("TrangThaiPass");
+
+                    b.HasKey("IdNhanVien");
 
                     b.ToTable("NhanVien");
                 });
@@ -283,31 +298,6 @@ namespace _1.DAL.Migrations
                     b.HasKey("IdSp");
 
                     b.ToTable("SanPham");
-                });
-
-            modelBuilder.Entity("_1.DAL.Models.TaiKhoan", b =>
-                {
-                    b.Property<string>("TenTaiKhoan")
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("TenTaiKhoan");
-
-                    b.Property<string>("ChucVu")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("ChucVu");
-
-                    b.Property<string>("MatKhau")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("MatKhau");
-
-                    b.Property<int>("TrangThai")
-                        .HasColumnType("int")
-                        .HasColumnName("TrangThai");
-
-                    b.HasKey("TenTaiKhoan");
-
-                    b.ToTable("TaiKhoan");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.ChiTietHoaDon", b =>
@@ -389,17 +379,6 @@ namespace _1.DAL.Migrations
                     b.Navigation("KhachHang");
 
                     b.Navigation("NhanVien");
-                });
-
-            modelBuilder.Entity("_1.DAL.Models.NhanVien", b =>
-                {
-                    b.HasOne("_1.DAL.Models.TaiKhoan", "TaiKhoan")
-                        .WithMany()
-                        .HasForeignKey("Email")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TaiKhoan");
                 });
 #pragma warning restore 612, 618
         }

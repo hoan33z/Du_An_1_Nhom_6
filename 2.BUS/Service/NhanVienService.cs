@@ -12,36 +12,35 @@ namespace _2.BUS.Service
 {
     public class NhanVienService : INhanVienService
     {
-        INhanVienRepository _nhanVienRepository;
+       
+        INhanVienRepository _iNhanVien;
         public NhanVienService()
         {
-            _nhanVienRepository = new NhanVienRepository();
+            _iNhanVien = new NhanVienRepository();
         }
-        public string Add(NhanVien obj)
+        
+        public string AddNV(NhanVien _nv)
         {
-            if (obj == null) return "Thêm Khong Thanh Cong";
-            if (_nhanVienRepository.Add(obj)) return "Them thanh cong";
-            return "ok";
-        }
-
-        public string Delete(NhanVien obj)
-        {
-            if (obj == null) return "Xóa Khong Thanh Cong";
-            if (_nhanVienRepository.Delete(obj)) return "Xóa thanh cong";
-            return "ok";
+            return _iNhanVien.addNV(_nv);
         }
 
-        public List<NhanVien> GetAll()
+        public List<NhanVien> getlstNv()
         {
-            return _nhanVienRepository.GetAll().ToList();
+            return _iNhanVien.GetAll().ToList();
         }
 
-        public string Update(NhanVien obj)
+        public List<NhanVien> TimKiem(string text)
         {
+            return _iNhanVien.timKiem(text);
+        }
 
-            if (obj == null) return "Sửa Khong Thanh Cong";
-            if (_nhanVienRepository.Update(obj)) return "Sửa thanh cong";
-            return "ok";
+        public string UpdateNV(NhanVien _nv)
+        {
+            return _iNhanVien.SuaNV(_nv);
+        }
+        public string DeleteNV(NhanVien _nv)
+        {
+            return _iNhanVien.XoaNV(_nv);
         }
     }
 }

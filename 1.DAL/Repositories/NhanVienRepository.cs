@@ -15,41 +15,40 @@ namespace _1.DAL.Repositories
         {
             _vatLieuDbContext = new VatLieuDbContext();
         }
-        public bool Add(NhanVien obj)
-        {
-            if (obj == null) return false;
-            _vatLieuDbContext.NhanViens.Add(obj);
-            _vatLieuDbContext.SaveChanges();
-            return true;
-        }
 
-        public bool Delete(NhanVien obj)
-        {
-            if (obj == null) return false;
-            var tempobj = _vatLieuDbContext.NhanViens.FirstOrDefault(c => c.IdNhanVien == obj.IdNhanVien);
-            _vatLieuDbContext.NhanViens.Remove(tempobj);
-            _vatLieuDbContext.SaveChanges();
-            return true;
-        }
 
         public List<NhanVien> GetAll()
         {
             return _vatLieuDbContext.NhanViens.ToList();
         }
 
-        public bool Update(NhanVien obj)
+
+        public string addNV(NhanVien _nv)
         {
-            if (obj == null) return false;
-            var tempobj = _vatLieuDbContext.NhanViens.FirstOrDefault(c => c.IdNhanVien == obj.IdNhanVien);
-            tempobj.TenNv = obj.TenNv;
-            tempobj.NamSinh = obj.NamSinh;
-            tempobj.GioiTinh = obj.GioiTinh;
-            tempobj.Email = obj.Email;
-            tempobj.DiaChi = obj.DiaChi;
-            tempobj.SDT = obj.SDT;
-            _vatLieuDbContext.NhanViens.Update(tempobj);
+            _vatLieuDbContext.Add(_nv);
             _vatLieuDbContext.SaveChanges();
-            return true;
+            return "Thêm nhân viên thành công";
+        }
+
+        public string SuaNV(NhanVien _nv)
+        {
+            _vatLieuDbContext.Update(_nv);
+            _vatLieuDbContext.SaveChanges();
+            return "Sửa thành công";
+        }
+        public string XoaNV(NhanVien _nv)
+        {
+            _vatLieuDbContext.Update(_nv);
+            _vatLieuDbContext.SaveChanges();
+            return "Xóa thành công";
+        }
+
+
+
+
+        public List<NhanVien> timKiem(string text)
+        {
+            return _vatLieuDbContext.NhanViens.Where(c => c.TenNv.Contains(text) || c.SDT.Contains(text) || c.Email.Contains(text) || c.DiaChi.Contains(text)).ToList();
         }
     }
 }
