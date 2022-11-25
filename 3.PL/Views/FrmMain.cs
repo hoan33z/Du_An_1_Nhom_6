@@ -72,7 +72,60 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogin frm = new FrmLogin();
+            frm.ShowDialog();
+        }
+
+        private void btnKhachHang_Click(object sender, EventArgs e)
+        {
+            loadForm.Controls.Clear();
+            FrmTTKhachHang frm = new FrmTTKhachHang(_inFoNhanVien.IdNhanVien);
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            loadForm.Controls.Clear();
+            FrmThanhToan frm = new FrmThanhToan();
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void btnDatHang_Click(object sender, EventArgs e)
+        {
+            loadForm.Controls.Clear();
+            FrmDatHang frm = new FrmDatHang(_inFoNhanVien.IdNhanVien);
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+
+        }
+
+        private void btnSanPham_Click(object sender, EventArgs e)
+        {
+            loadForm.Controls.Clear();
+            FrmCTSanPham frm = new FrmCTSanPham();
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void btnDoiMK_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
             string title = _inFoNhanVien.Email;
@@ -84,16 +137,29 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnQLKhac_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmLogin frm = new FrmLogin();
-            frm.ShowDialog();
+            loadForm.Controls.Clear();
+            FrmDanhMuc dm = new FrmDanhMuc();
+            FrmDonVi dv = new FrmDonVi();
+            FrmLoaiSp lsp = new FrmLoaiSp();
+            FrmNhaCungCap ncc = new FrmNhaCungCap();
+            FrmSanPham sp = new FrmSanPham();
+            dm.TopLevel = false;
+            loadForm.Controls.Add(dm);
+            dm.Show();
+            dv.TopLevel = false;
+            loadForm.Controls.Add(dv);
+            dv.Show();
+            lsp.TopLevel = false;
+            loadForm.Controls.Add(lsp);
+            lsp.Show();
+            ncc.TopLevel = false;
+            loadForm.Controls.Add(ncc);
+            ncc.Show();
+            sp.TopLevel = false;
+            loadForm.Controls.Add(sp);
+            sp.Show();
         }
     }
 }

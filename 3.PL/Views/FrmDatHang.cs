@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace _3.PL.Views
 {
@@ -19,14 +20,19 @@ namespace _3.PL.Views
         ICTSanPhamService _cTSanPhamService;
         ICTHoaDonService _cTHoaDonService;
         IHoaDonService _hoaDonService;
+        IKhachHangService _khachHangService;
         Guid _id;
-        public FrmDatHang()
+        Guid _idnv;
+        public FrmDatHang(Guid idnv)
         {
             InitializeComponent();
             _cTSanPhamService = new CTSanPhamService();
             _cTHoaDonService = new CTHoaDonService();
             _hoaDonService = new HoaDonService();
+            _khachHangService = new KhachHangService();
+            _idnv = idnv;
             LoadDSSanPham();
+            loadKH();
         }
         public void LoadDSSanPham()
         {
@@ -57,6 +63,31 @@ namespace _3.PL.Views
                     );
             }
         }
+        public EditKhachHangView loadKH()
+        {
+            var KH = _khachHangService.GetAll().FindLast(c => c.IdKhachHang == _hoaDonService.GetEdit(_idnv).IdKhachHang);
+            if (KH == null)
+            {
+                return null;
+            }
+            else
+            {
+                txtTenKH.Text = KH.TenKh;
+                txtSDT.Text = KH.SDT.ToString();
+                txtGioiTinh.Text = KH.GioiTinh == 0 ? "Nam" : "Nữ";
+                txtTenKH.ReadOnly = true;
+                txtSDT.ReadOnly = true;
+                txtGioiTinh.ReadOnly = true;
+                EditKhachHangView editKH = new EditKhachHangView();
+                editKH.IdKhachHang= KH.IdKhachHang;
+                editKH.DiaChi = KH.DiaChi;
+                editKH.TenKh = KH.TenKh;
+                editKH.SDT = KH.SDT;
+                editKH.DCNhanHang = txtDCNhan.Text;
+                editKH.NgayNhan = dateNgayNhan.Value;
+                return editKH;
+            }
+        }
         public void LoadGioHang()
         {
             dgridGioHang.ColumnCount = 5;
@@ -70,10 +101,11 @@ namespace _3.PL.Views
             foreach (var x in _cTHoaDonService.GetAll())
             {
                 dgridGioHang.Rows.Add(
-                    x.IdChiTietSP,
-                    x.TenSP,
-                    x.DonGia
-                    //x.SoLuongMua + txtSoLuong.Text
+                    x.IdHoaDon,
+                    x.TenSp,
+                    x.DonGia,
+                    x.SoLuongMua,
+                    x.ThanhTien
                     );
             }
         }
@@ -87,23 +119,18 @@ namespace _3.PL.Views
             txtDonGia.Text = SP.GiaBan.ToString();
             txtTenSP.ReadOnly = true;
             txtDonGia.ReadOnly = true;
-            LoadGioHang();
         }
         public EditCTHoaDonView GetEditCTHoaDon(EditCTSanPhamView obj)
         {
-            return new EditCTHoaDonView() { IdChiTietSP = obj.IdChiTietSP, IdHoaDon = Guid.Parse("2ed47fb2-cdbe-408b-89ca-255f2301a924"), SoLuongMua = int.Parse(txtSoLuong.Text), DonGia = obj.GiaBan, ThanhTien = obj.GiaBan * decimal.Parse(txtSoLuong.Text) };
+            return new EditCTHoaDonView() { IdChiTietSP = obj.IdChiTietSP, IdHoaDon = _hoaDonService.GetEdit(_idnv).IdHoaDon, SoLuongMua = int.Parse(txtSoLuong.Text), DonGia = obj.GiaBan, ThanhTien = obj.GiaBan * decimal.Parse(txtSoLuong.Text) };
         }
-        //public EditHoaDonView getedithoadon()
-        //{
-        //    return new EditHoaDonView() { IdKhachHang = Guid.Parse("B64431E1-DD74-4159-5E9A-08DACD7E23CA"), IdNhanVien =Guid.Parse("c483503c-ce82-4edd-a234-049adf740b9a"), TongTien = 0, NgayThanhToan = DateTime.Now };
-        //}
         private void btnThemSP_Click(object sender, EventArgs e)
         {
-            //_hoaDonService.Add(getedithoadon());
             var edit = _cTSanPhamService.GetEdit(_id);
             edit.SoLuong = edit.SoLuong - int.Parse(txtSoLuong.Text);
             _cTSanPhamService.Update(edit);
-            //_cTHoaDonService.Add(GetEditCTHoaDon(edit));
+            _cTHoaDonService.Add(GetEditCTHoaDon(edit));
+            _khachHangService.Update(loadKH());
             LoadGioHang();
             LoadDSSanPham();
         }

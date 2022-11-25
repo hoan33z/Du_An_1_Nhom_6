@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtTenKH = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.dgridGioHang = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.dateNgayNhan = new System.Windows.Forms.DateTimePicker();
+            this.txtDCNhan = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtGioiTinh = new System.Windows.Forms.TextBox();
+            this.txtSDT = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,14 +65,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtTenKH);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.dateNgayNhan);
+            this.groupBox1.Controls.Add(this.txtDCNhan);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtGioiTinh);
+            this.groupBox1.Controls.Add(this.txtSDT);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -85,12 +85,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Khách Hàng";
             // 
-            // textBox6
+            // txtTenKH
             // 
-            this.textBox6.Location = new System.Drawing.Point(205, 34);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(353, 34);
-            this.textBox6.TabIndex = 21;
+            this.txtTenKH.Location = new System.Drawing.Point(205, 34);
+            this.txtTenKH.Name = "txtTenKH";
+            this.txtTenKH.Size = new System.Drawing.Size(353, 34);
+            this.txtTenKH.TabIndex = 21;
             // 
             // groupBox2
             // 
@@ -134,19 +134,19 @@
             this.button5.Text = "Thanh Toán";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // dateNgayNhan
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(205, 288);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(353, 34);
-            this.dateTimePicker1.TabIndex = 11;
+            this.dateNgayNhan.Location = new System.Drawing.Point(205, 288);
+            this.dateNgayNhan.Name = "dateNgayNhan";
+            this.dateNgayNhan.Size = new System.Drawing.Size(353, 34);
+            this.dateNgayNhan.TabIndex = 11;
             // 
-            // textBox2
+            // txtDCNhan
             // 
-            this.textBox2.Location = new System.Drawing.Point(205, 224);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(353, 34);
-            this.textBox2.TabIndex = 10;
+            this.txtDCNhan.Location = new System.Drawing.Point(205, 224);
+            this.txtDCNhan.Name = "txtDCNhan";
+            this.txtDCNhan.Size = new System.Drawing.Size(353, 34);
+            this.txtDCNhan.TabIndex = 10;
             // 
             // label6
             // 
@@ -166,19 +166,19 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Ngày Nhận:";
             // 
-            // textBox3
+            // txtGioiTinh
             // 
-            this.textBox3.Location = new System.Drawing.Point(205, 160);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(353, 34);
-            this.textBox3.TabIndex = 7;
+            this.txtGioiTinh.Location = new System.Drawing.Point(205, 160);
+            this.txtGioiTinh.Name = "txtGioiTinh";
+            this.txtGioiTinh.Size = new System.Drawing.Size(353, 34);
+            this.txtGioiTinh.TabIndex = 7;
             // 
-            // textBox1
+            // txtSDT
             // 
-            this.textBox1.Location = new System.Drawing.Point(205, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(353, 34);
-            this.textBox1.TabIndex = 5;
+            this.txtSDT.Location = new System.Drawing.Point(205, 96);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(353, 34);
+            this.txtSDT.TabIndex = 5;
             // 
             // label4
             // 
@@ -356,11 +356,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtGioiTinh;
+        private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDCNhan;
         private System.Windows.Forms.DataGridView dgridDSSanPham;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button4;
@@ -371,12 +371,12 @@
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtTenKH;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dgridGioHang;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateNgayNhan;
         private System.Windows.Forms.TextBox txtTenSP;
     }
 }

@@ -13,6 +13,7 @@ namespace _2.BUS.IServices
         public string Update(EditHoaDonView obj);
         public string Delete(EditHoaDonView obj);
         public List<HoaDonView> GetAll();
+        public EditHoaDonView GetEdit(Guid id);
 
     }
 }

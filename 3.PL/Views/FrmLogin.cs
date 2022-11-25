@@ -1,4 +1,5 @@
 ﻿using _2.BUS.IServices;
+using _2.BUS.Service;
 using _2_BUS_Layer.Utility;
 using _3_GUI_Layer;
 using System;
@@ -20,6 +21,8 @@ namespace _3.PL.Views
         public FrmLogin()
         {
             InitializeComponent();
+            _taiKhoanServices = new NhanVienService();
+            _Utility = new Utility();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,7 +41,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tài khoản đã ngừng hoạt động", "Thông báo");
                 }
-                else if (_taikhoan.MatKhau == _Utility.EncodePass(password))//password
+                else if (_taikhoan.MatKhau == password/*_Utility.EncodePass(password)*/)//password
                 {
                     if (_taikhoan.TrangThaiPass == false)
                     {
@@ -58,22 +61,17 @@ namespace _3.PL.Views
                         frm_Start.ShowDialog();
 
                     }
-
-
                 }
                 else
                 {
                     MessageBox.Show("Sai mật khẩu , mời bạn nhập lại!");
                 }
-
             }
             else
             {
                 MessageBox.Show("Đăng nhập lại .");
             }
-
         }
-
         private void cbHienMK_CheckedChanged(object sender, EventArgs e)
         {
             if (cbHienMK.Checked == true)

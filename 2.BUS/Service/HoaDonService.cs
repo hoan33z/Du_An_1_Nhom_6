@@ -66,6 +66,19 @@ namespace _2.BUS.Service
             return lstHoanDon;
         }
 
+        public EditHoaDonView GetEdit(Guid id)
+        {
+            var HD = _hoaDonRepository.GetAll().FindLast(c => c.IdNhanVien == id);
+            return new EditHoaDonView()
+            {
+                IdHoaDon = HD.IdHoaDon,
+                IdNhanVien = HD.IdNhanVien,
+                IdKhachHang = HD.IdKhachHang,
+                NgayThanhToan = HD.NgayThanhToan,
+                TongTien = HD.TongTien,
+            };
+        }
+
         public string Update(EditHoaDonView HD)
         {
             if (HD == null) return "sua không thành công";

@@ -18,11 +18,15 @@ namespace _3.PL.Views
     public partial class FrmTTKhachHang : Form
     {
         IKhachHangService _khachHangService;
+        IHoaDonService _hoaDonService;
         Guid _id;
-        public FrmTTKhachHang()
+        Guid _idnv;
+        public FrmTTKhachHang(Guid idnv)
         {
             InitializeComponent();
             _khachHangService = new KhachHangService();
+            _hoaDonService= new HoaDonService();
+            _idnv= idnv;
             LoadTTKhachHang();
         }
         public EditKhachHangView GetKhachHang()
@@ -55,11 +59,21 @@ namespace _3.PL.Views
                 dgridKhachHang.Rows.Add(x.IdKhachHang, x.TenKh, x.DiaChi, x.SDT, x.GioiTinh == 0 ? "Nam" : "Nữ", x.DCNhanHang, x.NgayNhan);
             }
         }
-
+        public EditHoaDonView GetEditHoaDonView()
+        {
+            return new EditHoaDonView()
+            {
+                IdKhachHang = _khachHangService.GetAll().FirstOrDefault(c => c.SDT == txtSDT.Text).IdKhachHang,
+                IdNhanVien = _idnv,
+                TongTien = 0,
+                NgayThanhToan = DateTime.Now
+            };
+        } 
         private void button1_Click(object sender, EventArgs e)
         {
            MessageBox.Show(_khachHangService.Add(GetKhachHang()));
             LoadTTKhachHang();
+            _hoaDonService.Add(GetEditHoaDonView());
         }
 
         private void button2_Click(object sender, EventArgs e)
