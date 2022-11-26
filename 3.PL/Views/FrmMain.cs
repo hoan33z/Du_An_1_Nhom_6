@@ -111,7 +111,6 @@ namespace _3.PL.Views
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
             frm.Show();
-
         }
 
         private void btnSanPham_Click(object sender, EventArgs e)

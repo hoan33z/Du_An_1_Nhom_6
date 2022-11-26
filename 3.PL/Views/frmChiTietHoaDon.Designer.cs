@@ -28,29 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.idhd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gia = new System.Windows.Forms.TextBox();
             this.sl = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.idsp = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgridGioHang = new System.Windows.Forms.DataGridView();
+            this.cmbhd = new System.Windows.Forms.ComboBox();
+            this.cmbctsp = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).BeginInit();
             this.SuspendLayout();
-            // 
-            // idhd
-            // 
-            this.idhd.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.idhd.Location = new System.Drawing.Point(196, 31);
-            this.idhd.Margin = new System.Windows.Forms.Padding(4);
-            this.idhd.Name = "idhd";
-            this.idhd.Size = new System.Drawing.Size(210, 44);
-            this.idhd.TabIndex = 42;
             // 
             // label1
             // 
@@ -91,15 +82,6 @@
             this.label3.Size = new System.Drawing.Size(130, 45);
             this.label3.TabIndex = 38;
             this.label3.Text = "IDHang";
-            // 
-            // idsp
-            // 
-            this.idsp.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.idsp.Location = new System.Drawing.Point(196, 122);
-            this.idsp.Margin = new System.Windows.Forms.Padding(4);
-            this.idsp.Name = "idsp";
-            this.idsp.Size = new System.Drawing.Size(210, 44);
-            this.idsp.TabIndex = 37;
             // 
             // label4
             // 
@@ -166,17 +148,33 @@
             this.dgridGioHang.Size = new System.Drawing.Size(1000, 217);
             this.dgridGioHang.TabIndex = 31;
             // 
+            // cmbhd
+            // 
+            this.cmbhd.FormattingEnabled = true;
+            this.cmbhd.Location = new System.Drawing.Point(189, 36);
+            this.cmbhd.Name = "cmbhd";
+            this.cmbhd.Size = new System.Drawing.Size(182, 33);
+            this.cmbhd.TabIndex = 42;
+            // 
+            // cmbctsp
+            // 
+            this.cmbctsp.FormattingEnabled = true;
+            this.cmbctsp.Location = new System.Drawing.Point(233, 133);
+            this.cmbctsp.Name = "cmbctsp";
+            this.cmbctsp.Size = new System.Drawing.Size(182, 33);
+            this.cmbctsp.TabIndex = 43;
+            // 
             // frmChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 562);
-            this.Controls.Add(this.idhd);
+            this.Controls.Add(this.cmbctsp);
+            this.Controls.Add(this.cmbhd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gia);
             this.Controls.Add(this.sl);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.idsp);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button3);
@@ -193,18 +191,17 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox idhd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox gia;
         private System.Windows.Forms.TextBox sl;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox idsp;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgridGioHang;
+        private System.Windows.Forms.ComboBox cmbhd;
+        private System.Windows.Forms.ComboBox cmbctsp;
     }
 }

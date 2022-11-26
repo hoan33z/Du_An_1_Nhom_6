@@ -44,8 +44,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSuaTT = new System.Windows.Forms.Button();
             this.btnThemSP = new System.Windows.Forms.Button();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -109,8 +109,9 @@
             this.dgridGioHang.Name = "dgridGioHang";
             this.dgridGioHang.RowHeadersWidth = 62;
             this.dgridGioHang.RowTemplate.Height = 33;
-            this.dgridGioHang.Size = new System.Drawing.Size(567, 297);
+            this.dgridGioHang.Size = new System.Drawing.Size(567, 284);
             this.dgridGioHang.TabIndex = 19;
+            this.dgridGioHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridGioHang_CellClick);
             // 
             // dateNgayNhan
             // 
@@ -200,8 +201,8 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtTenSP);
-            this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.btnXoa);
+            this.groupBox3.Controls.Add(this.btnSuaTT);
             this.groupBox3.Controls.Add(this.btnThemSP);
             this.groupBox3.Controls.Add(this.txtSoLuong);
             this.groupBox3.Controls.Add(this.label9);
@@ -224,23 +225,24 @@
             this.txtTenSP.Size = new System.Drawing.Size(300, 34);
             this.txtTenSP.TabIndex = 21;
             // 
-            // button4
+            // btnXoa
             // 
-            this.button4.Location = new System.Drawing.Point(324, 208);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(142, 56);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Xóa";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnXoa.Location = new System.Drawing.Point(324, 208);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(142, 56);
+            this.btnXoa.TabIndex = 20;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSuaTT
             // 
-            this.button2.Location = new System.Drawing.Point(165, 208);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 56);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Sửa SP";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSuaTT.Location = new System.Drawing.Point(165, 208);
+            this.btnSuaTT.Name = "btnSuaTT";
+            this.btnSuaTT.Size = new System.Drawing.Size(142, 56);
+            this.btnSuaTT.TabIndex = 18;
+            this.btnSuaTT.Text = "Sửa TT";
+            this.btnSuaTT.UseVisualStyleBackColor = true;
+            this.btnSuaTT.Click += new System.EventHandler(this.btnSuaTT_Click);
             // 
             // btnThemSP
             // 
@@ -341,8 +343,8 @@
         private System.Windows.Forms.TextBox txtDCNhan;
         private System.Windows.Forms.DataGridView dgridDSSanPham;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnSuaTT;
         private System.Windows.Forms.Button btnThemSP;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label label9;

@@ -14,11 +14,9 @@ namespace _1.DAL.Configurations
         public void Configure(EntityTypeBuilder<ChiTietHoaDon> builder)
         {
             builder.ToTable("ChiTietHoaDon");
-
-            builder.HasKey(c => c.IdChiTietSP);
-            builder.HasKey(c => c.IdHoaDon);
+            builder.HasKey(x => x.IdChiTietSP);
+            builder.HasKey(x => x.IdHoaDon);
             builder.Property(c => c.DonGia).HasColumnName("DonGia").HasColumnType("decimal");
-            builder.Property(c => c.ThanhTien).HasColumnName("ThanhTien").HasColumnType("decimal");
             builder.Property(c => c.SoLuongMua).HasColumnName("SoLuongMua").HasColumnType("int");
             builder.HasOne(c => c.ChiTietSanPham).WithMany().HasForeignKey(c => c.IdChiTietSP);
             builder.HasOne(c => c.HoaDon).WithMany().HasForeignKey(c => c.IdHoaDon);

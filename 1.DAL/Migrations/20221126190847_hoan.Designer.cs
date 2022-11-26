@@ -10,7 +10,7 @@ using _1.DAL.Models;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(VatLieuDbContext))]
-    [Migration("20221125152816_hoan")]
+    [Migration("20221126190847_hoan")]
     partial class hoan
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,27 +23,23 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.ChiTietHoaDon", b =>
                 {
-                    b.Property<Guid>("IdHoaDon")
+                    b.Property<Guid>("IdChiTietSP")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("DonGia")
                         .HasColumnType("decimal")
                         .HasColumnName("DonGia");
 
-                    b.Property<Guid>("IdChiTietSP")
+                    b.Property<Guid>("IdHoaDon")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("SoLuongMua")
                         .HasColumnType("int")
                         .HasColumnName("SoLuongMua");
 
-                    b.Property<decimal>("ThanhTien")
-                        .HasColumnType("decimal")
-                        .HasColumnName("ThanhTien");
+                    b.HasKey("IdChiTietSP");
 
-                    b.HasKey("IdHoaDon");
-
-                    b.HasIndex("IdChiTietSP");
+                    b.HasIndex("IdHoaDon");
 
                     b.ToTable("ChiTietHoaDon");
                 });
@@ -143,6 +139,10 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdNhanVien")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("NgayTao")
+                        .HasColumnType("datetime")
+                        .HasColumnName("NgayTao");
+
                     b.Property<DateTime>("NgayThanhToan")
                         .HasColumnType("datetime")
                         .HasColumnName("NgayThanhToan");
@@ -150,6 +150,10 @@ namespace _1.DAL.Migrations
                     b.Property<decimal>("TongTien")
                         .HasColumnType("decimal")
                         .HasColumnName("TongTien");
+
+                    b.Property<bool>("TrangThai")
+                        .HasColumnType("bit")
+                        .HasColumnName("TrangThai");
 
                     b.HasKey("IdHoaDon");
 

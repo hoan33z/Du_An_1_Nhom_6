@@ -113,7 +113,9 @@ namespace _1.DAL.Migrations
                     IdKhachHang = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdNhanVien = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TongTien = table.Column<decimal>(type: "decimal", nullable: false),
-                    NgayThanhToan = table.Column<DateTime>(type: "datetime", nullable: false)
+                    NgayThanhToan = table.Column<DateTime>(type: "datetime", nullable: false),
+                    NgayTao = table.Column<DateTime>(type: "datetime", nullable: false),
+                    TrangThai = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -186,15 +188,14 @@ namespace _1.DAL.Migrations
                 name: "ChiTietHoaDon",
                 columns: table => new
                 {
-                    IdHoaDon = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdChiTietSP = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdHoaDon = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DonGia = table.Column<decimal>(type: "decimal", nullable: false),
-                    SoLuongMua = table.Column<int>(type: "int", nullable: false),
-                    ThanhTien = table.Column<decimal>(type: "decimal", nullable: false)
+                    SoLuongMua = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChiTietHoaDon", x => x.IdHoaDon);
+                    table.PrimaryKey("PK_ChiTietHoaDon", x => x.IdChiTietSP);
                     table.ForeignKey(
                         name: "FK_ChiTietHoaDon_ChiTietSP_IdChiTietSP",
                         column: x => x.IdChiTietSP,
@@ -210,9 +211,9 @@ namespace _1.DAL.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChiTietHoaDon_IdChiTietSP",
+                name: "IX_ChiTietHoaDon_IdHoaDon",
                 table: "ChiTietHoaDon",
-                column: "IdChiTietSP");
+                column: "IdHoaDon");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ChiTietSP_IdDanhMuc",
