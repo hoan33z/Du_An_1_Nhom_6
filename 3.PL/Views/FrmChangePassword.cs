@@ -80,7 +80,7 @@ namespace _3_GUI_Layer
                 MessageBox.Show("Không được để trống!!","Thông báo");
                 return;
             }
-            if (acc.MatKhau !=_Utility.EncodePass(txtPass.Text))
+            if (acc.MatKhau != acc.MatKhau/*_Utility.EncodePass(txtPass.Text)*/)
             {
                 MessageBox.Show("Mật khẩu không chính xác!", "Thông báo");
                 return;
@@ -97,7 +97,7 @@ namespace _3_GUI_Layer
             }
             else
             {
-                acc.MatKhau=_Utility.EncodePass(txtPassNew.Text);
+                acc.MatKhau=txtPassNew.Text/*_Utility.EncodePass(txtPassNew.Text)*/;
                 acc.TrangThaiPass = true;
                 MessageBox.Show("Đổi mật khẩu thành công");
                 MessageBox.Show(_iTaiKhoan.UpdateNV(acc));

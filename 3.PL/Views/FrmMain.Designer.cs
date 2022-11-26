@@ -232,7 +232,7 @@
             // 
             this.loadForm.Controls.Add(this.btnSapXep);
             this.loadForm.Dock = System.Windows.Forms.DockStyle.Right;
-            this.loadForm.Location = new System.Drawing.Point(216, 0);
+            this.loadForm.Location = new System.Drawing.Point(126, 0);
             this.loadForm.Margin = new System.Windows.Forms.Padding(4);
             this.loadForm.Name = "loadForm";
             this.loadForm.Size = new System.Drawing.Size(1407, 722);
@@ -257,7 +257,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1623, 722);
+            this.ClientSize = new System.Drawing.Size(1533, 722);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.loadForm);
             this.Margin = new System.Windows.Forms.Padding(4);

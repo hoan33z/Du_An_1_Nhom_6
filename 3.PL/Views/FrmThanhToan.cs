@@ -23,7 +23,7 @@ namespace _3.PL.Views
             InitializeComponent();
             _hoaDonService = new HoaDonService();
             _cTHoaDonService = new CTHoaDonService();
-            loadDonHang();
+            loadDonHang(null);
         }
         public void loadgiohang(List<CTHoaDonView> obj)
         {
@@ -37,21 +37,48 @@ namespace _3.PL.Views
             {
                 dgridGioHang.Rows.Add(x.TenSp, x.DonGia, x.SoLuongMua, x.ThanhTien);
             }
-
         }
 
-        public void loadDonHang()
+        public void loadDonHang(string tennv)
         {
-            dgridHoaDon.ColumnCount = 5;
-            dgridHoaDon.Columns[0].Name= "IDHoaDon";
-            dgridHoaDon.Columns[1].Name= "Tên Khách hàng";
-            dgridHoaDon.Columns[2].Name= "Tổng tiền";
-            dgridHoaDon.Columns[3].Name= "Ngày thanh toán";
-            dgridHoaDon.Columns[4].Name= "NV Thanh toán";
-            dgridHoaDon.Rows.Clear();
-            foreach (var x in _hoaDonService.GetAll())
+            if (tennv == null)
             {
-                dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TongTien, x.NgayThanhToan, x.TenNhanVien);
+                dgridHoaDon.ColumnCount = 5;
+                dgridHoaDon.Columns[0].Name = "IDHoaDon";
+                dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
+                dgridHoaDon.Columns[2].Name = "Tổng tiền";
+                dgridHoaDon.Columns[3].Name = "Ngày thanh toán";
+                dgridHoaDon.Columns[4].Name = "NV Thanh toán";
+                dgridHoaDon.Rows.Clear();
+                foreach (var x in _hoaDonService.GetAll())
+                {
+                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TongTien, x.NgayThanhToan, x.TenNhanVien);
+                }
+
+            }
+            else
+            {
+                dgridHoaDon.ColumnCount = 5;
+                dgridHoaDon.Columns[0].Name = "IDHoaDon";
+                dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
+                dgridHoaDon.Columns[2].Name = "Tổng tiền";
+                dgridHoaDon.Columns[3].Name = "Ngày thanh toán";
+                dgridHoaDon.Columns[4].Name = "NV Thanh toán";
+                dgridHoaDon.Rows.Clear();
+                List<HoaDonView> lsthd = (from a in _hoaDonService.GetAll()
+                                          where a.TenNhanVien == tennv
+                                          select new HoaDonView()
+                                          {
+                                              IdHoaDon = a.IdHoaDon,
+                                              NgayThanhToan = a.NgayThanhToan,
+                                              TenKhachHang = a.TenKhachHang,
+                                              TenNhanVien = a.TenNhanVien,
+                                              TongTien = a.TongTien
+                                          }).ToList();
+                foreach (var x in lsthd)
+                {
+                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TongTien, x.NgayThanhToan, x.TenNhanVien);
+                }
             }
         }
 
@@ -63,7 +90,7 @@ namespace _3.PL.Views
         {
             int index = e.RowIndex;
             if (index == -1 || index == _hoaDonService.GetAll().Count) return;
-            _id =Guid.Parse( dgridHoaDon.Rows[index].Cells[0].Value.ToString());
+            _id = Guid.Parse(dgridHoaDon.Rows[index].Cells[0].Value.ToString());
             List<CTHoaDonView> lstcthd = (from a in _cTHoaDonService.GetAll()
                                           where a.IdHoaDon == _id
                                           select new CTHoaDonView()
@@ -73,6 +100,8 @@ namespace _3.PL.Views
                                               TenSp = a.TenSp,
                                               ThanhTien = a.ThanhTien
                                           }).ToList();
+            string tennv = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == _id).TenNhanVien;
+            loadDonHang(tennv);
             loadgiohang(lstcthd);
         }
     }

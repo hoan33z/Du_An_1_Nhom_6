@@ -65,7 +65,7 @@ namespace _3.PL.Views
         }
         public EditKhachHangView loadKH()
         {
-            var KH = _khachHangService.GetAll().FindLast(c => c.IdKhachHang == _hoaDonService.GetEdit(_idnv).IdKhachHang);
+            var KH = _khachHangService.GetAll().FirstOrDefault(c => c.IdKhachHang == _hoaDonService.GetEdit(_idnv).IdKhachHang);
             if (KH == null)
             {
                 return null;
@@ -88,7 +88,7 @@ namespace _3.PL.Views
                 return editKH;
             }
         }
-        public void LoadGioHang()
+        public void LoadGioHang(string tenkh)
         {
             dgridGioHang.ColumnCount = 5;
             dgridGioHang.Columns[0].Name = "ID";
@@ -98,7 +98,19 @@ namespace _3.PL.Views
             dgridGioHang.Columns[3].Name = "Số Lượng";
             dgridGioHang.Columns[4].Name = "Thành Tiền";
             dgridGioHang.Rows.Clear();
-            foreach (var x in _cTHoaDonService.GetAll())
+            List<CTHoaDonView> lstcthd = (
+                from a in _cTHoaDonService.GetAll() 
+                join b in _hoaDonService.GetAll() on a.IdHoaDon equals b.IdHoaDon
+                where b.TenKhachHang == tenkh
+                select new CTHoaDonView()
+                {
+                    IdHoaDon = a.IdHoaDon,
+                    TenSp = a.TenSp,
+                    DonGia= a.DonGia,
+                    SoLuongMua= a.SoLuongMua,
+                    ThanhTien = a.ThanhTien
+                }).ToList();
+            foreach (var x in lstcthd)
             {
                 dgridGioHang.Rows.Add(
                     x.IdHoaDon,
@@ -131,7 +143,7 @@ namespace _3.PL.Views
             _cTSanPhamService.Update(edit);
             _cTHoaDonService.Add(GetEditCTHoaDon(edit));
             _khachHangService.Update(loadKH());
-            LoadGioHang();
+            LoadGioHang(txtTenKH.Text);
             LoadDSSanPham();
         }
     }
