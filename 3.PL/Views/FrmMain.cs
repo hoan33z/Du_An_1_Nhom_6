@@ -15,33 +15,62 @@ using System.Windows.Forms;
 namespace _3.PL.Views
 {
     public partial class FrmMain : Form
+
     {
         INhanVienService _iNhanVien;
         public static NhanVien _inFoNhanVien;
+        
         public FrmMain(string title)
         {
             InitializeComponent();
             _iNhanVien = new NhanVienService();
             _inFoNhanVien = new NhanVien();
             _inFoNhanVien = _iNhanVien.getlstNv().FirstOrDefault(c => c.Email == title);
-            if (_inFoNhanVien.IdLoaiTk == false)
+            if (_inFoNhanVien.TrangThaiPass==false)
             {
-                btn_NhanVien.Enabled = false;
+                MessageBox.Show("Bạn phải đổi mật khẩu khi lần đầu đăng nhập vào hệ thông !!!", "Thông báo");
+                loadForm.Controls.Clear();
+                title = _inFoNhanVien.Email;
+                FrmChangePassword frm = new FrmChangePassword(title);
+                frm.TopLevel = false;
+                loadForm.Controls.Add(frm);
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+                frm.Show();
+                menu_quanLy.Enabled = false;
+                menu_thongKe.Enabled = false;
+            }
+            else 
+            {
+                loadForm.Controls.Clear();
+                FrmSanPham frm = new FrmSanPham();
+                frm.TopLevel = false;
+                loadForm.Controls.Add(frm);
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+                frm.Show();
+            }
+            
+            if (_inFoNhanVien.IdLoaiTk==false)
+            {
+                qlNhanVien.Enabled = false;
             }
             else
             {
-                btn_NhanVien.Enabled = true;
+                qlNhanVien.Enabled = true;
             }
-            load(loadForm);
+            
+           
         }
         public static NhanVien sendnhanvien()
         {
             return _inFoNhanVien;
         }
-        public static void load(Panel loadForm)
+                
+        private void menu_thongkeTonKho_Click(object sender, EventArgs e)
         {
-            loadForm.Controls.Clear();
-            FrmSanPham frm = new FrmSanPham();
+            loadForm.Controls.Clear();            
+            FrmThongKeTonKho frm = new FrmThongKeTonKho();
             frm.TopLevel = false;
             loadForm.Controls.Add(frm);
             frm.FormBorderStyle = FormBorderStyle.None;
@@ -49,10 +78,10 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-        private void btn_NhanVien_Click(object sender, EventArgs e)
+        private void ThongKeDoanhThu_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
-            FrmNhanVien frm = new FrmNhanVien();
+            FrmThongKeDoanhThu frm = new FrmThongKeDoanhThu();
             frm.TopLevel = false;
             loadForm.Controls.Add(frm);
             frm.FormBorderStyle = FormBorderStyle.None;
@@ -60,7 +89,7 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-        private void btn_hoSo_Click(object sender, EventArgs e)
+        private void menu_myInfor_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
             string title = _inFoNhanVien.Email;
@@ -72,15 +101,30 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-
-        private void button6_Click(object sender, EventArgs e)
+        private void menu_DoiMk_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmLogin frm = new FrmLogin();
-            frm.ShowDialog();
+            loadForm.Controls.Clear();
+            string title = _inFoNhanVien.Email;
+            FrmChangePassword frm = new FrmChangePassword(title);
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
 
-        private void btnKhachHang_Click(object sender, EventArgs e)
+        private void qlNhanVien_Click(object sender, EventArgs e)
+        {
+            loadForm.Controls.Clear();
+            FrmNhanVien frm = new FrmNhanVien();
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void qlKhachHang_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
             FrmTTKhachHang frm = new FrmTTKhachHang(_inFoNhanVien.IdNhanVien);
@@ -91,18 +135,7 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-        private void btnThanhToan_Click(object sender, EventArgs e)
-        {
-            loadForm.Controls.Clear();
-            FrmThanhToan frm = new FrmThanhToan(_inFoNhanVien.IdNhanVien);
-            frm.TopLevel = false;
-            loadForm.Controls.Add(frm);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Left;
-            frm.Show();
-        }
-
-        private void btnDatHang_Click(object sender, EventArgs e)
+        private void QLDatHang_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
             FrmDatHang frm = new FrmDatHang(_inFoNhanVien.IdNhanVien);
@@ -111,10 +144,9 @@ namespace _3.PL.Views
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
             frm.Show();
-
         }
 
-        private void btnSanPham_Click(object sender, EventArgs e)
+        private void qlSanPhamCT_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
             FrmCTSanPham frm = new FrmCTSanPham();
@@ -125,10 +157,10 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-        private void btnDoiMK_Click(object sender, EventArgs e)
+        private void QLLoaiSp_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
-            FrmChangePassword frm = new FrmChangePassword(_inFoNhanVien.Email);
+            FrmSanPham frm = new FrmSanPham();
             frm.TopLevel = false;
             loadForm.Controls.Add(frm);
             frm.FormBorderStyle = FormBorderStyle.None;
@@ -136,29 +168,26 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-        private void btnQLKhac_Click(object sender, EventArgs e)
+        private void loạiSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
-            FrmDanhMuc dm = new FrmDanhMuc();
-            FrmDonVi dv = new FrmDonVi();
-            FrmLoaiSp lsp = new FrmLoaiSp();
-            FrmNhaCungCap ncc = new FrmNhaCungCap();
-            FrmSanPham sp = new FrmSanPham();
-            dm.TopLevel = false;
-            loadForm.Controls.Add(dm);
-            dm.Show();
-            dv.TopLevel = false;
-            loadForm.Controls.Add(dv);
-            dv.Show();
-            lsp.TopLevel = false;
-            loadForm.Controls.Add(lsp);
-            lsp.Show();
-            ncc.TopLevel = false;
-            loadForm.Controls.Add(ncc);
-            ncc.Show();
-            sp.TopLevel = false;
-            loadForm.Controls.Add(sp);
-            sp.Show();
+            FrmLoaiSp frm = new FrmLoaiSp();
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void thanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm.Controls.Clear();
+            FrmThanhToan frm = new FrmThanhToan(_inFoNhanVien.IdNhanVien);
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Left;
+            frm.Show();
         }
     }
 }
