@@ -69,7 +69,7 @@ namespace _2.BUS.Service
 
         public EditHoaDonView GetEdit(Guid id)
         {
-            var HD = _hoaDonRepository.GetAll().FindLast(c => c.IdNhanVien == id);
+            var HD = _hoaDonRepository.GetAll().FirstOrDefault(c => c.IdNhanVien == id);
             return new EditHoaDonView()
             {
                 IdHoaDon = HD.IdHoaDon,

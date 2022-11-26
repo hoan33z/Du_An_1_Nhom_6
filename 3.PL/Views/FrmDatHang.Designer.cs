@@ -31,9 +31,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTenKH = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.dgridGioHang = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
             this.dateNgayNhan = new System.Windows.Forms.DateTimePicker();
             this.txtDCNhan = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -94,9 +92,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.dgridGioHang);
-            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(580, 30);
             this.groupBox2.Name = "groupBox2";
@@ -104,15 +100,6 @@
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giỏ Hàng";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(6, 265);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(185, 52);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "Hủy";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // dgridGioHang
             // 
@@ -122,17 +109,8 @@
             this.dgridGioHang.Name = "dgridGioHang";
             this.dgridGioHang.RowHeadersWidth = 62;
             this.dgridGioHang.RowTemplate.Height = 33;
-            this.dgridGioHang.Size = new System.Drawing.Size(567, 228);
+            this.dgridGioHang.Size = new System.Drawing.Size(567, 297);
             this.dgridGioHang.TabIndex = 19;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(229, 265);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(341, 52);
-            this.button5.TabIndex = 22;
-            this.button5.Text = "Thanh Toán";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // dateNgayNhan
             // 
@@ -373,9 +351,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTenKH;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dgridGioHang;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DateTimePicker dateNgayNhan;
         private System.Windows.Forms.TextBox txtTenSP;
     }

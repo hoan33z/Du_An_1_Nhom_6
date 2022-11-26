@@ -32,6 +32,7 @@ namespace _3.PL.Views
             _khachHangService = new KhachHangService();
             _idnv = idnv;
             LoadDSSanPham();
+            LoadGioHang(txtTenKH.Text);
             loadKH();
         }
         public void LoadDSSanPham()
@@ -98,19 +99,19 @@ namespace _3.PL.Views
             dgridGioHang.Columns[3].Name = "Số Lượng";
             dgridGioHang.Columns[4].Name = "Thành Tiền";
             dgridGioHang.Rows.Clear();
-            List<CTHoaDonView> lstcthd = (
-                from a in _cTHoaDonService.GetAll() 
-                join b in _hoaDonService.GetAll() on a.IdHoaDon equals b.IdHoaDon
-                where b.TenKhachHang == tenkh
-                select new CTHoaDonView()
-                {
-                    IdHoaDon = a.IdHoaDon,
-                    TenSp = a.TenSp,
-                    DonGia= a.DonGia,
-                    SoLuongMua= a.SoLuongMua,
-                    ThanhTien = a.ThanhTien
-                }).ToList();
-            foreach (var x in lstcthd)
+            //List<CTHoaDonView> lstcthd = (
+            //    from a in _cTHoaDonService.GetAll() 
+            //    join b in _hoaDonService.GetAll() on a.IdHoaDon equals b.IdHoaDon
+            //    where b.TenKhachHang == tenkh
+            //    select new CTHoaDonView()
+            //    {
+            //        IdHoaDon = a.IdHoaDon,
+            //        TenSp = a.TenSp,
+            //        DonGia= a.DonGia,
+            //        SoLuongMua= a.SoLuongMua,
+            //        ThanhTien = a.ThanhTien
+            //    }).ToList();
+            foreach (var x in /*lstcthd*/_cTHoaDonService.GetAll())
             {
                 dgridGioHang.Rows.Add(
                     x.IdHoaDon,
@@ -134,14 +135,26 @@ namespace _3.PL.Views
         }
         public EditCTHoaDonView GetEditCTHoaDon(EditCTSanPhamView obj)
         {
-            return new EditCTHoaDonView() { IdChiTietSP = obj.IdChiTietSP, IdHoaDon = _hoaDonService.GetEdit(_idnv).IdHoaDon, SoLuongMua = int.Parse(txtSoLuong.Text), DonGia = obj.GiaBan, ThanhTien = obj.GiaBan * decimal.Parse(txtSoLuong.Text) };
+            return new EditCTHoaDonView() { IdChiTietSP = obj.IdChiTietSP, IdHoaDon = _hoaDonService.GetEdit(_idnv).IdHoaDon, SoLuongMua = int.Parse(txtSoLuong.Text), DonGia = obj.GiaBan, ThanhTien =(obj.GiaBan * decimal.Parse(txtSoLuong.Text)) };
         }
         private void btnThemSP_Click(object sender, EventArgs e)
         {
             var edit = _cTSanPhamService.GetEdit(_id);
             edit.SoLuong = edit.SoLuong - int.Parse(txtSoLuong.Text);
             _cTSanPhamService.Update(edit);
-            _cTHoaDonService.Add(GetEditCTHoaDon(edit));
+            if (_cTHoaDonService.GetEdit(_id)==null)
+            {
+                _cTHoaDonService.Add(GetEditCTHoaDon(edit));
+
+            }
+            else if(_cTHoaDonService.GetEdit(_id).IdChiTietSP == _id)
+            {
+                MessageBox.Show("ok");
+                var cthd = _cTHoaDonService.GetEdit(_id);
+                cthd.SoLuongMua = cthd.SoLuongMua + int.Parse(txtSoLuong.Text);
+                _cTHoaDonService.Update(cthd);
+                LoadGioHang(txtTenKH.Text);
+            }
             _khachHangService.Update(loadKH());
             LoadGioHang(txtTenKH.Text);
             LoadDSSanPham();

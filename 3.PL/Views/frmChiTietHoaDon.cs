@@ -1,5 +1,6 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Service;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,14 @@ namespace _3.PL.Views
                     x.ThanhTien
                     );
             }
+        }
+        public EditCTHoaDonView Getdata()
+        {
+            return new EditCTHoaDonView() { IdHoaDon =Guid.Parse( idhd.Text), IdChiTietSP =Guid.Parse( idsp.Text), DonGia =decimal.Parse( gia.Text), SoLuongMua =int.Parse( sl.Text) };
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _cTHoaDonService.Add(Getdata());
         }
     }
 }

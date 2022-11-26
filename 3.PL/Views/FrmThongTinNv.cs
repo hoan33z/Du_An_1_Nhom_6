@@ -32,7 +32,5 @@ namespace _3.PL.Views
             cbx_gioiTinh.Text = acc.GioiTinh == true ? "Nam" : "Nữ";
             dateTimePicker1.Value = acc.NamSinh.Date;
         }
-
-
     }
 }

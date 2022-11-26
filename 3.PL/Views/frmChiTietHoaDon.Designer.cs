@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.idhd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.gia = new System.Windows.Forms.TextBox();
+            this.sl = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.idsp = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -43,14 +43,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox3
+            // idhd
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(196, 31);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(210, 44);
-            this.textBox3.TabIndex = 42;
+            this.idhd.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.idhd.Location = new System.Drawing.Point(196, 31);
+            this.idhd.Margin = new System.Windows.Forms.Padding(4);
+            this.idhd.Name = "idhd";
+            this.idhd.Size = new System.Drawing.Size(210, 44);
+            this.idhd.TabIndex = 42;
             // 
             // label1
             // 
@@ -63,23 +63,23 @@
             this.label1.TabIndex = 41;
             this.label1.Text = "IDHD";
             // 
-            // textBox2
+            // gia
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(720, 36);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 44);
-            this.textBox2.TabIndex = 40;
+            this.gia.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gia.Location = new System.Drawing.Point(720, 36);
+            this.gia.Margin = new System.Windows.Forms.Padding(4);
+            this.gia.Name = "gia";
+            this.gia.Size = new System.Drawing.Size(210, 44);
+            this.gia.TabIndex = 40;
             // 
-            // textBox1
+            // sl
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(720, 122);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 44);
-            this.textBox1.TabIndex = 39;
+            this.sl.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.sl.Location = new System.Drawing.Point(720, 122);
+            this.sl.Margin = new System.Windows.Forms.Padding(4);
+            this.sl.Name = "sl";
+            this.sl.Size = new System.Drawing.Size(210, 44);
+            this.sl.TabIndex = 39;
             // 
             // label3
             // 
@@ -92,14 +92,14 @@
             this.label3.TabIndex = 38;
             this.label3.Text = "IDHang";
             // 
-            // textBox4
+            // idsp
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(196, 122);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(210, 44);
-            this.textBox4.TabIndex = 37;
+            this.idsp.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.idsp.Location = new System.Drawing.Point(196, 122);
+            this.idsp.Margin = new System.Windows.Forms.Padding(4);
+            this.idsp.Name = "idsp";
+            this.idsp.Size = new System.Drawing.Size(210, 44);
+            this.idsp.TabIndex = 37;
             // 
             // label4
             // 
@@ -125,8 +125,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(661, 285);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Location = new System.Drawing.Point(649, 232);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 86);
             this.button3.TabIndex = 34;
@@ -135,8 +135,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(381, 285);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(385, 232);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 86);
             this.button2.TabIndex = 33;
@@ -145,45 +145,46 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(120, 285);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(159, 232);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 86);
             this.button1.TabIndex = 32;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgridGioHang
             // 
             this.dgridGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgridGioHang.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgridGioHang.Location = new System.Drawing.Point(0, 395);
-            this.dgridGioHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgridGioHang.Location = new System.Drawing.Point(0, 345);
+            this.dgridGioHang.Margin = new System.Windows.Forms.Padding(4);
             this.dgridGioHang.Name = "dgridGioHang";
             this.dgridGioHang.RowHeadersWidth = 51;
             this.dgridGioHang.RowTemplate.Height = 29;
-            this.dgridGioHang.Size = new System.Drawing.Size(1000, 167);
+            this.dgridGioHang.Size = new System.Drawing.Size(1000, 217);
             this.dgridGioHang.TabIndex = 31;
             // 
-            // ChiTietHoaDon
+            // frmChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 562);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.idhd);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.gia);
+            this.Controls.Add(this.sl);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.idsp);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgridGioHang);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "ChiTietHoaDon";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "frmChiTietHoaDon";
             this.Text = "ChiTietHoaDon";
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).EndInit();
             this.ResumeLayout(false);
@@ -193,12 +194,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox idhd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox gia;
+        private System.Windows.Forms.TextBox sl;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox idsp;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;

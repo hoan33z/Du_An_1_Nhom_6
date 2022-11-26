@@ -22,7 +22,7 @@ namespace _2.BUS.Service
             _cTHoaDonRepository = new CTHoaDonRepository();
             _cTSanPhamRepository = new CTSanPhamRepository();
             _hoaDonRepository = new HoaDonRepository();
-            _sanPhamService= new SanPhamService();
+            _sanPhamService = new SanPhamService();
         }
         public string Add(EditCTHoaDonView CTHD)
         {
@@ -52,14 +52,14 @@ namespace _2.BUS.Service
 
         public List<CTHoaDonView> GetAll()
         {
-            List<CTHoaDonView> lstCTHoaDon= new List<CTHoaDonView>();
+            List<CTHoaDonView> lstCTHoaDon = new List<CTHoaDonView>();
             lstCTHoaDon = (from a in _cTHoaDonRepository.GetAll()
                            join b in _hoaDonRepository.GetAll() on a.IdHoaDon equals b.IdHoaDon
                            join c in _cTSanPhamRepository.GetAll() on a.IdChiTietSP equals c.IdChiTietSP
                            join d in _sanPhamService.GetAll() on c.IdSp equals d.IdSp
                            select new CTHoaDonView()
                            {
-                               IdHoaDon= b.IdHoaDon,
+                               IdHoaDon = b.IdHoaDon,
                                TenSp = d.TenSp,
                                DonGia = c.GiaBan,
                                SoLuongMua = a.SoLuongMua,
@@ -70,14 +70,21 @@ namespace _2.BUS.Service
         public EditCTHoaDonView GetEdit(Guid id)
         {
             var editCTHD = _cTHoaDonRepository.GetAll().FirstOrDefault(c => c.IdChiTietSP == id);
-            return new EditCTHoaDonView()
+            if (editCTHD == null)
             {
-                IdChiTietSP = editCTHD.IdChiTietSP,
-                IdHoaDon = editCTHD.IdHoaDon,
-                SoLuongMua = editCTHD.SoLuongMua,
-                DonGia = editCTHD.DonGia,
-                ThanhTien = editCTHD.ThanhTien
-            };
+                return null;
+            }
+            else
+            {
+                return new EditCTHoaDonView()
+                {
+                    IdChiTietSP = editCTHD.IdChiTietSP,
+                    IdHoaDon = editCTHD.IdHoaDon,
+                    SoLuongMua = editCTHD.SoLuongMua,
+                    DonGia = editCTHD.DonGia,
+                    ThanhTien = editCTHD.ThanhTien
+                };
+            }
         }
 
         public string Update(EditCTHoaDonView CTHD)
