@@ -44,10 +44,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgridGioHang = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridHoaDon)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -77,7 +80,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.Location = new System.Drawing.Point(3, 443);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(483, 58);
+            this.button1.Size = new System.Drawing.Size(542, 58);
             this.button1.TabIndex = 3;
             this.button1.Text = "Thanh Toán";
             this.button1.UseVisualStyleBackColor = true;
@@ -100,7 +103,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(985, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(489, 504);
+            this.groupBox1.Size = new System.Drawing.Size(548, 504);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thanh Toán";
@@ -109,7 +112,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(200, 343);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(281, 39);
+            this.textBox3.Size = new System.Drawing.Size(336, 39);
             this.textBox3.TabIndex = 14;
             // 
             // radioButton2
@@ -138,14 +141,14 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(200, 189);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(281, 39);
+            this.dateTimePicker1.Size = new System.Drawing.Size(336, 39);
             this.dateTimePicker1.TabIndex = 11;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(200, 115);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 39);
+            this.textBox2.Size = new System.Drawing.Size(336, 39);
             this.textBox2.TabIndex = 10;
             // 
             // label5
@@ -188,7 +191,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(200, 39);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(281, 39);
+            this.textBox1.Size = new System.Drawing.Size(336, 39);
             this.textBox1.TabIndex = 5;
             // 
             // label1
@@ -206,16 +209,36 @@
             this.dgridGioHang.Location = new System.Drawing.Point(15, 274);
             this.dgridGioHang.Name = "dgridGioHang";
             this.dgridGioHang.RowHeadersWidth = 62;
-            this.dgridGioHang.Size = new System.Drawing.Size(824, 225);
+            this.dgridGioHang.Size = new System.Drawing.Size(964, 225);
             this.dgridGioHang.TabIndex = 5;
             this.dgridGioHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridGioHang_CellClick);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 33);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 44);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Xóa ";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Location = new System.Drawing.Point(845, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(134, 256);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Chức Năng";
             // 
             // FrmThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1474, 504);
+            this.ClientSize = new System.Drawing.Size(1533, 504);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgridGioHang);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
@@ -228,6 +251,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -250,5 +274,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dgridGioHang;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

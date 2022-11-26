@@ -94,11 +94,11 @@ namespace _3.PL.Views
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
-            FrmThanhToan frm = new FrmThanhToan();
+            FrmThanhToan frm = new FrmThanhToan(_inFoNhanVien.IdNhanVien);
             frm.TopLevel = false;
             loadForm.Controls.Add(frm);
             frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
+            frm.Dock = DockStyle.Left;
             frm.Show();
         }
 
@@ -128,8 +128,7 @@ namespace _3.PL.Views
         private void btnDoiMK_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
-            string title = _inFoNhanVien.Email;
-            FrmChangePassword frm = new FrmChangePassword(title);
+            FrmChangePassword frm = new FrmChangePassword(_inFoNhanVien.Email);
             frm.TopLevel = false;
             loadForm.Controls.Add(frm);
             frm.FormBorderStyle = FormBorderStyle.None;

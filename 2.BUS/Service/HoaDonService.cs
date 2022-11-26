@@ -60,7 +60,8 @@ namespace _2.BUS.Service
                     TenNhanVien = c.TenNv,
                     IdHoaDon = a.IdHoaDon,
                     TongTien = a.TongTien,
-                    NgayThanhToan = a.NgayThanhToan
+                    NgayThanhToan = a.NgayThanhToan,
+                    TrangThai = a.TrangThai
                 }
                 ).ToList();
             return lstHoanDon;

@@ -18,12 +18,14 @@ namespace _3.PL.Views
         IHoaDonService _hoaDonService;
         ICTHoaDonService _cTHoaDonService;
         Guid _id;
-        public FrmThanhToan()
+        Guid _idnv;
+        public FrmThanhToan(Guid idnv)
         {
             InitializeComponent();
             _hoaDonService = new HoaDonService();
             _cTHoaDonService = new CTHoaDonService();
-            loadDonHang(null);
+            _idnv=idnv;
+            loadDonHang();
         }
         public void loadgiohang(List<CTHoaDonView> obj)
         {
@@ -39,47 +41,30 @@ namespace _3.PL.Views
             }
         }
 
-        public void loadDonHang(string tennv)
+        public void loadDonHang()
         {
-            if (tennv == null)
-            {
                 dgridHoaDon.ColumnCount = 5;
                 dgridHoaDon.Columns[0].Name = "IDHoaDon";
                 dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
-                dgridHoaDon.Columns[2].Name = "Tổng tiền";
-                dgridHoaDon.Columns[3].Name = "Ngày thanh toán";
-                dgridHoaDon.Columns[4].Name = "NV Thanh toán";
+                dgridHoaDon.Columns[2].Name = "NV Thanh toán";
+                dgridHoaDon.Columns[3].Name = "Trạng thái";
                 dgridHoaDon.Rows.Clear();
-                foreach (var x in _hoaDonService.GetAll())
-                {
-                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TongTien, x.NgayThanhToan, x.TenNhanVien);
-                }
-
-            }
-            else
-            {
-                dgridHoaDon.ColumnCount = 5;
-                dgridHoaDon.Columns[0].Name = "IDHoaDon";
-                dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
-                dgridHoaDon.Columns[2].Name = "Tổng tiền";
-                dgridHoaDon.Columns[3].Name = "Ngày thanh toán";
-                dgridHoaDon.Columns[4].Name = "NV Thanh toán";
-                dgridHoaDon.Rows.Clear();
+            var idhd = _hoaDonService.GetEdit(_idnv);
+            string tenvn = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == idhd.IdHoaDon).TenNhanVien;
                 List<HoaDonView> lsthd = (from a in _hoaDonService.GetAll()
-                                          where a.TenNhanVien == tennv
+                                          where a.TenNhanVien == tenvn
                                           select new HoaDonView()
                                           {
                                               IdHoaDon = a.IdHoaDon,
-                                              NgayThanhToan = a.NgayThanhToan,
-                                              TenKhachHang = a.TenKhachHang,
+                                             TenKhachHang = a.TenKhachHang,
                                               TenNhanVien = a.TenNhanVien,
-                                              TongTien = a.TongTien
+                                              TrangThai= a.TrangThai
                                           }).ToList();
                 foreach (var x in lsthd)
                 {
-                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TongTien, x.NgayThanhToan, x.TenNhanVien);
+                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien,x.TrangThai==false?"Chưa thanh toán":"Đã thanh toán");
                 }
-            }
+            
         }
 
         private void dgridGioHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -100,8 +85,6 @@ namespace _3.PL.Views
                                               TenSp = a.TenSp,
                                               ThanhTien = a.ThanhTien
                                           }).ToList();
-            string tennv = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == _id).TenNhanVien;
-            loadDonHang(tennv);
             loadgiohang(lstcthd);
         }
     }

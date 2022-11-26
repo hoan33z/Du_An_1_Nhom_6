@@ -20,6 +20,7 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.IdNhanVien).IsRequired();
             builder.Property(c => c.TongTien).HasColumnName("TongTien").HasColumnType("decimal").IsRequired();
             builder.Property(c => c.NgayThanhToan).HasColumnName("NgayThanhToan").HasColumnType("datetime").IsRequired();
+            builder.Property(c => c.TrangThai).HasColumnName("TrangThai").HasColumnType("bit").IsRequired();
             builder.HasOne(c => c.KhachHang).WithMany().HasForeignKey(c => c.IdKhachHang);
             builder.HasOne(c => c.NhanVien).WithMany().HasForeignKey(c => c.IdNhanVien);
         }

@@ -40,7 +40,6 @@
             this.btnKhachHang = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnSanPham = new System.Windows.Forms.Button();
-            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.loadForm = new System.Windows.Forms.Panel();
             this.btnSapXep = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -65,7 +64,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(208, 722);
+            this.panel1.Size = new System.Drawing.Size(208, 672);
             this.panel1.TabIndex = 2;
             // 
             // btnQLKhac
@@ -221,21 +220,14 @@
             this.btnSanPham.UseVisualStyleBackColor = false;
             this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
             // 
-            // sqlCommand1
-            // 
-            this.sqlCommand1.CommandTimeout = 30;
-            this.sqlCommand1.Connection = null;
-            this.sqlCommand1.Notification = null;
-            this.sqlCommand1.Transaction = null;
-            // 
             // loadForm
             // 
             this.loadForm.Controls.Add(this.btnSapXep);
             this.loadForm.Dock = System.Windows.Forms.DockStyle.Right;
-            this.loadForm.Location = new System.Drawing.Point(126, 0);
+            this.loadForm.Location = new System.Drawing.Point(216, 0);
             this.loadForm.Margin = new System.Windows.Forms.Padding(4);
             this.loadForm.Name = "loadForm";
-            this.loadForm.Size = new System.Drawing.Size(1407, 722);
+            this.loadForm.Size = new System.Drawing.Size(1571, 672);
             this.loadForm.TabIndex = 3;
             // 
             // btnSapXep
@@ -257,13 +249,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1533, 722);
+            this.ClientSize = new System.Drawing.Size(1787, 672);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.loadForm);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.loadForm.ResumeLayout(false);

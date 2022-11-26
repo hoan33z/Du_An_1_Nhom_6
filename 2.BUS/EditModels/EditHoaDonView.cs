@@ -12,6 +12,7 @@ namespace _2.BUS.ViewModels
         public Guid IdHoaDon { get; set; }
         public Guid IdKhachHang { get; set; }
         public Guid IdNhanVien { get; set; }
+        public bool TrangThai { get; set; }
 
         public decimal TongTien { get; set; }
         public DateTime NgayThanhToan { get; set; }

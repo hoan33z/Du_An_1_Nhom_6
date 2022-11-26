@@ -66,7 +66,8 @@ namespace _3.PL.Views
                 IdKhachHang = _khachHangService.GetAll().FirstOrDefault(c => c.SDT == txtSDT.Text).IdKhachHang,
                 IdNhanVien = _idnv,
                 TongTien = 0,
-                NgayThanhToan = DateTime.Now
+                NgayThanhToan = DateTime.Now,
+                TrangThai = false
             };
         } 
         private void button1_Click(object sender, EventArgs e)
