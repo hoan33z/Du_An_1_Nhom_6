@@ -124,27 +124,9 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-        private void qlKhachHang_Click(object sender, EventArgs e)
-        {
-            loadForm.Controls.Clear();
-            FrmTTKhachHang frm = new FrmTTKhachHang(_inFoNhanVien.IdNhanVien);
-            frm.TopLevel = false;
-            loadForm.Controls.Add(frm);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
+        
 
-        private void QLDatHang_Click(object sender, EventArgs e)
-        {
-            loadForm.Controls.Clear();
-            FrmDatHang frm = new FrmDatHang(_inFoNhanVien.IdNhanVien);
-            frm.TopLevel = false;
-            loadForm.Controls.Add(frm);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
+        
 
         private void qlSanPhamCT_Click(object sender, EventArgs e)
         {
@@ -179,7 +161,30 @@ namespace _3.PL.Views
             frm.Show();
         }
 
-        private void thanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void quảnLýBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm.Controls.Clear();
+            FrmDatHang frm = new FrmDatHang(_inFoNhanVien.IdNhanVien);
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm.Controls.Clear();
+            FrmTTKhachHang frm = new FrmTTKhachHang(_inFoNhanVien.IdNhanVien);
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void thanhToánToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
             FrmThanhToan frm = new FrmThanhToan(_inFoNhanVien.IdNhanVien);
