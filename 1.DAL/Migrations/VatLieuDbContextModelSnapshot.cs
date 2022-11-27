@@ -21,7 +21,8 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.Models.ChiTietHoaDon", b =>
                 {
-                    b.Property<Guid>("IdHoaDon")
+                    b.Property<Guid>("IdCTHoaDon")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("DonGia")
@@ -31,17 +32,18 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdChiTietSP")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("IdHoaDon")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("SoLuongMua")
                         .HasColumnType("int")
                         .HasColumnName("SoLuongMua");
 
-                    b.Property<decimal>("ThanhTien")
-                        .HasColumnType("decimal")
-                        .HasColumnName("ThanhTien");
-
-                    b.HasKey("IdHoaDon");
+                    b.HasKey("IdCTHoaDon");
 
                     b.HasIndex("IdChiTietSP");
+
+                    b.HasIndex("IdHoaDon");
 
                     b.ToTable("ChiTietHoaDon");
                 });
@@ -140,6 +142,10 @@ namespace _1.DAL.Migrations
 
                     b.Property<Guid>("IdNhanVien")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("NgayTao")
+                        .HasColumnType("datetime")
+                        .HasColumnName("NgayTao");
 
                     b.Property<DateTime>("NgayThanhToan")
                         .HasColumnType("datetime")

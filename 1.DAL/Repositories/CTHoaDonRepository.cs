@@ -40,12 +40,11 @@ namespace _1.DAL.Repositories
         public bool Update(ChiTietHoaDon obj)
         {
             if (obj == null) return false;
-            var tempobj = _vatLieuDbContext.ChiTietHoaDons.FirstOrDefault(c => c.IdHoaDon == obj.IdHoaDon);
+            var tempobj = _vatLieuDbContext.ChiTietHoaDons.FirstOrDefault(c => c.IdChiTietSP == obj.IdChiTietSP);
             tempobj.DonGia = obj.DonGia;
             tempobj.SoLuongMua= obj.SoLuongMua;
-            tempobj.ThanhTien= obj.ThanhTien;
-            tempobj.IdChiTietSP=obj.IdChiTietSP;
-            tempobj.IdHoaDon=obj.IdHoaDon;
+            //tempobj.IdChiTietSP=obj.IdChiTietSP;
+           // tempobj.IdHoaDon=obj.IdHoaDon;
             _vatLieuDbContext.ChiTietHoaDons.Update(tempobj);
             _vatLieuDbContext.SaveChanges();
             return true;

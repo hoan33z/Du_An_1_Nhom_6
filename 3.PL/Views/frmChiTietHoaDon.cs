@@ -16,10 +16,15 @@ namespace _3.PL.Views
     public partial class frmChiTietHoaDon : Form
     {
         ICTHoaDonService _cTHoaDonService;
+        IHoaDonService _hoaDonService;
+        ICTSanPhamService _cTSanPhamService;
         public frmChiTietHoaDon()
         {
             InitializeComponent();
             _cTHoaDonService = new CTHoaDonService();
+            _cTSanPhamService =new  CTSanPhamService();
+            _hoaDonService = new HoaDonService();
+            loadcacloai();
             LoadGioHang();
         }
         public void LoadGioHang()
@@ -38,13 +43,26 @@ namespace _3.PL.Views
                     x.TenSp,
                     x.DonGia,
                     x.SoLuongMua,
-                    x.ThanhTien
+                    x.SoLuongMua*x.DonGia
                     );
+            }
+        }
+        public void loadcacloai()
+        {
+            foreach (var x in _hoaDonService.GetAll())
+            {
+                cmbhd.Items.Add(x.IdHoaDon);
+            }
+            foreach (var x in _cTSanPhamService.GetAll())
+            {
+                cmbctsp.Items.Add(x.IdChiTietSP);
             }
         }
         public EditCTHoaDonView Getdata()
         {
-            return new EditCTHoaDonView() { IdHoaDon =Guid.Parse( idhd.Text), IdChiTietSP =Guid.Parse( idsp.Text), DonGia =decimal.Parse( gia.Text), SoLuongMua =int.Parse( sl.Text) };
+            var idhd = _cTHoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == Guid.Parse(cmbhd.Text));
+            var idctsp = _cTSanPhamService.GetAll().FirstOrDefault(c => c.IdChiTietSP == Guid.Parse(cmbctsp.Text));
+            return new EditCTHoaDonView() { IdHoaDon = idhd.IdHoaDon  , IdChiTietSP =idctsp.IdChiTietSP, DonGia =decimal.Parse( gia.Text), SoLuongMua =int.Parse( sl.Text) };
         }
         private void button1_Click(object sender, EventArgs e)
         {
