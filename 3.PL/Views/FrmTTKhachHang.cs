@@ -94,17 +94,25 @@ namespace _3.PL.Views
             MessageBox.Show(_khachHangService.Update(GetKhachHang()));
             LoadTTKhachHang();
         }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            _hoaDonService.Add(GetEditHoaDonView());
-            MessageBox.Show("Tạo Hóa Đơn Thành Công");
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_khachHangService.Delete(GetKhachHang()));
             LoadTTKhachHang();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (txtSDT.Text=="")
+            {
+                MessageBox.Show("Chưa chọn khách hàng");
+            }
+            else
+            {
+                _hoaDonService.Add(GetEditHoaDonView());
+                MessageBox.Show("Tạo hóa đơn thành công");
+                FrmDatHang frmdh = new FrmDatHang(_id);
+                frmdh.ShowDialog();
+            }
         }
     }
 }

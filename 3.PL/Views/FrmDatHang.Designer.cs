@@ -31,6 +31,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTenKH = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.dgridGioHang = new System.Windows.Forms.DataGridView();
             this.dateNgayNhan = new System.Windows.Forms.DateTimePicker();
             this.txtDCNhan = new System.Windows.Forms.TextBox();
@@ -92,6 +94,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnThanhToan);
+            this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.dgridGioHang);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(580, 30);
@@ -101,6 +105,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giỏ Hàng";
             // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnThanhToan.Location = new System.Drawing.Point(271, 262);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(299, 55);
+            this.btnThanhToan.TabIndex = 23;
+            this.btnThanhToan.Text = "Thanh Toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnClear.Location = new System.Drawing.Point(3, 262);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(259, 55);
+            this.btnClear.TabIndex = 22;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
             // dgridGioHang
             // 
             this.dgridGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -109,7 +134,7 @@
             this.dgridGioHang.Name = "dgridGioHang";
             this.dgridGioHang.RowHeadersWidth = 62;
             this.dgridGioHang.RowTemplate.Height = 33;
-            this.dgridGioHang.Size = new System.Drawing.Size(567, 284);
+            this.dgridGioHang.Size = new System.Drawing.Size(567, 232);
             this.dgridGioHang.TabIndex = 19;
             this.dgridGioHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridGioHang_CellClick);
             // 
@@ -233,6 +258,7 @@
             this.btnXoa.TabIndex = 20;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSuaTT
             // 
@@ -356,5 +382,7 @@
         private System.Windows.Forms.DataGridView dgridGioHang;
         private System.Windows.Forms.DateTimePicker dateNgayNhan;
         private System.Windows.Forms.TextBox txtTenSP;
+        private System.Windows.Forms.Button btnThanhToan;
+        private System.Windows.Forms.Button btnClear;
     }
 }

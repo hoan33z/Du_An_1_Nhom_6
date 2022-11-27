@@ -73,23 +73,17 @@ namespace _2.BUS.Service
 
         public EditHoaDonView GetEdit(Guid id)
         {
-            var HDnv = _hoaDonRepository.GetAll().FindLast(c => c.IdNhanVien == id);
-            var HDkh = _hoaDonRepository.GetAll().FindLast(c => c.IdKhachHang == id);
-            if (HDnv == null) { return null; }
-            else
+            var Hd = _hoaDonRepository.GetAll().FindLast(c => c.IdKhachHang == id);
+            return new EditHoaDonView()
             {
-
-                return new EditHoaDonView()
-                {
-                    IdHoaDon = HDnv.IdHoaDon,
-                    IdNhanVien = HDnv.IdNhanVien,
-                    IdKhachHang = HDnv.IdKhachHang,
-                    NgayThanhToan = HDnv.NgayThanhToan,
-                    NgayTao = HDnv.NgayTao,
-                    TrangThai = HDnv.TrangThai,
-                    TongTien = HDnv.TongTien
-                };
-            }
+                IdHoaDon = Hd.IdHoaDon,
+                IdNhanVien = Hd.IdNhanVien,
+                IdKhachHang = Hd.IdKhachHang,
+                NgayThanhToan = Hd.NgayThanhToan,
+                NgayTao = Hd.NgayTao,
+                TrangThai = Hd.TrangThai,
+                TongTien = Hd.TongTien
+            };
 
         }
 

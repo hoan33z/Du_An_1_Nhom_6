@@ -39,7 +39,7 @@ namespace _3.PL.Views
             foreach (var x in _cTHoaDonService.GetAll())
             {
                 dgridGioHang.Rows.Add(
-                    x.IdHoaDon,
+                    x.IdCTHoaDon,
                     x.TenSp,
                     x.DonGia,
                     x.SoLuongMua,
@@ -60,9 +60,9 @@ namespace _3.PL.Views
         }
         public EditCTHoaDonView Getdata()
         {
-            var idhd = _cTHoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == Guid.Parse(cmbhd.Text));
+            var idhd = _cTHoaDonService.GetAll().FirstOrDefault(c => c.IdCTHoaDon == Guid.Parse(cmbhd.Text));
             var idctsp = _cTSanPhamService.GetAll().FirstOrDefault(c => c.IdChiTietSP == Guid.Parse(cmbctsp.Text));
-            return new EditCTHoaDonView() { IdHoaDon = idhd.IdHoaDon  , IdChiTietSP =idctsp.IdChiTietSP, DonGia =decimal.Parse( gia.Text), SoLuongMua =int.Parse( sl.Text) };
+            return new EditCTHoaDonView() { IdHoaDon = idhd.IdCTHoaDon  , IdChiTietSP =idctsp.IdChiTietSP, DonGia =decimal.Parse( gia.Text), SoLuongMua =int.Parse( sl.Text) };
         }
         private void button1_Click(object sender, EventArgs e)
         {

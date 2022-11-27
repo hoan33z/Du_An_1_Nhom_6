@@ -18,6 +18,7 @@ namespace _3.PL.Views
 
     {
         INhanVienService _iNhanVien;
+
         public static NhanVien _inFoNhanVien;
         
         public FrmMain(string title)
@@ -50,8 +51,8 @@ namespace _3.PL.Views
                 frm.Dock = DockStyle.Fill;
                 frm.Show();
             }
-            
-            if (_inFoNhanVien.IdLoaiTk==false)
+
+            if (_inFoNhanVien.IdLoaiTk == false)
             {
                 qlNhanVien.Enabled = false;
             }
@@ -59,8 +60,6 @@ namespace _3.PL.Views
             {
                 qlNhanVien.Enabled = true;
             }
-            
-           
         }
         public static NhanVien sendnhanvien()
         {
@@ -123,11 +122,6 @@ namespace _3.PL.Views
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }
-
-        
-
-        
-
         private void qlSanPhamCT_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
@@ -160,19 +154,6 @@ namespace _3.PL.Views
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }
-
-        
-        private void quảnLýBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            loadForm.Controls.Clear();
-            FrmDatHang frm = new FrmDatHang(_inFoNhanVien.IdNhanVien);
-            frm.TopLevel = false;
-            loadForm.Controls.Add(frm);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
         private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
@@ -183,16 +164,29 @@ namespace _3.PL.Views
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }
-
-        private void thanhToánToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void QLKhacToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
-            FrmThanhToan frm = new FrmThanhToan(_inFoNhanVien.IdNhanVien);
+            FrmDanhMuc frm = new FrmDanhMuc();
+            FrmSanPham frm1 = new FrmSanPham();
+            FrmLoaiSp frm2 = new FrmLoaiSp();
+            FrmNhaCungCap frm3 = new FrmNhaCungCap();
+            FrmDonVi frm4 = new FrmDonVi();
             frm.TopLevel = false;
+            frm1.TopLevel = false;
+            frm2.TopLevel = false;
+            frm3.TopLevel = false;
+            frm4.TopLevel = false;
             loadForm.Controls.Add(frm);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Left;
+            loadForm.Controls.Add(frm1);
+            loadForm.Controls.Add(frm2);
+            loadForm.Controls.Add(frm3);
+            loadForm.Controls.Add(frm4);
             frm.Show();
+            frm1.Show();
+            frm2.Show();
+            frm3.Show();
+            frm4.Show();
         }
     }
 }

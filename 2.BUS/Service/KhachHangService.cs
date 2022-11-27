@@ -48,8 +48,23 @@ namespace _2.BUS.Service
         public List<KhachHangView> GetAll()
         {
             List<KhachHangView> lstKhView = new List<KhachHangView>();
-            lstKhView = (from a in _IkhachHangRepository.GetAll() select new KhachHangView() {IdKhachHang=a.IdKhachHang, TenKh=a.TenKh,DiaChi=a.DiaChi,SDT=a.SDT,GioiTinh=a.GioiTinh,DCNhanHang=a.DCNhanHang,NgayNhan=a.NgayNhan }).ToList();
+            lstKhView = (from a in _IkhachHangRepository.GetAll() select new KhachHangView() { IdKhachHang = a.IdKhachHang, TenKh = a.TenKh, DiaChi = a.DiaChi, SDT = a.SDT, GioiTinh = a.GioiTinh, DCNhanHang = a.DCNhanHang, NgayNhan = a.NgayNhan }).ToList();
             return lstKhView;
+        }
+
+        public EditKhachHangView GetEdit(Guid id)
+        {
+            var kh = _IkhachHangRepository.GetAll().FirstOrDefault(c => c.IdKhachHang == id);
+            return new EditKhachHangView()
+            {
+                DCNhanHang = kh.DCNhanHang,
+                DiaChi = kh.DiaChi,
+                GioiTinh = kh.GioiTinh,
+                IdKhachHang = kh.IdKhachHang,
+                NgayNhan = kh.NgayNhan,
+                SDT = kh.SDT,
+                TenKh = kh.TenKh
+            };
         }
 
         public string Update(EditKhachHangView KH)

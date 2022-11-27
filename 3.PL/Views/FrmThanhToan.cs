@@ -18,16 +18,16 @@ namespace _3.PL.Views
         IHoaDonService _hoaDonService;
         ICTHoaDonService _cTHoaDonService;
         Guid _id;
-        Guid _idnv;
-        public FrmThanhToan(Guid idnv)
+        Guid _idkh;
+        public FrmThanhToan(Guid idkh)
         {
             InitializeComponent();
             _hoaDonService = new HoaDonService();
             _cTHoaDonService = new CTHoaDonService();
-            _idnv = idnv;
+            _idkh = idkh;
             loadDonHang();
         }
-        public void loadgiohang(List<CTHoaDonView> obj)
+        public void loadGioHang(List<CTHoaDonView> obj)
         {
             dgridGioHang.ColumnCount = 4;
             dgridGioHang.Columns[0].Name = "Tên Sản Phẩm";
@@ -49,29 +49,19 @@ namespace _3.PL.Views
             dgridHoaDon.Columns[2].Name = "NV Thanh toán";
             dgridHoaDon.Columns[3].Name = "Trạng thái";
             dgridHoaDon.Rows.Clear();
-            if (_hoaDonService.GetEdit(_idnv) == null) return;
-            var idhd = _hoaDonService.GetEdit(_idnv);
-            string tenvn = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == idhd.IdHoaDon).TenNhanVien;
-            List<HoaDonView> lsthd = (from a in _hoaDonService.GetAll()
-                                      where a.TenNhanVien == tenvn
-                                      select new HoaDonView()
-                                      {
-                                          IdHoaDon = a.IdHoaDon,
-                                          TenKhachHang = a.TenKhachHang,
-                                          TenNhanVien = a.TenNhanVien,
-                                          TrangThai = a.TrangThai
-                                      }).ToList();
-            foreach (var x in lsthd)
+            Guid idhd=_hoaDonService.GetEdit(_idkh).IdHoaDon;
+            foreach (var x in _hoaDonService.GetAll().Where(c=>c.IdHoaDon==idhd))
             {
-                dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán");
+                if (x.TrangThai=true)
+                {
+                    return;
+                }
+                else
+                {
+                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien,x.TrangThai==false?"Chưa thanh toán":"Đã thanh toán");
+                }
             }
-
         }
-
-        private void dgridGioHang_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
         private void dgridHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
@@ -81,20 +71,42 @@ namespace _3.PL.Views
                                           where a.IdHoaDon == _id
                                           select new CTHoaDonView()
                                           {
-                                              DonGia = a.DonGia,
-                                              SoLuongMua = a.SoLuongMua,
-                                              TenSp = a.TenSp,
+                                              TenSp=a.TenSp,
+                                              DonGia=a.DonGia,
+                                              SoLuongMua=a.SoLuongMua
                                           }).ToList();
-            loadgiohang(lstcthd);
-            var hd = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == _id);
-            txtNhanVienTT.Text = hd.TenNhanVien;
-            txtTenKH.Text = hd.TenKhachHang;
-            decimal tong = 0;
+            loadGioHang(lstcthd);
+           var edithd= _hoaDonService.GetAll().FirstOrDefault(c=>c.IdHoaDon==_id);
+            txtNhanVienTT.Text = edithd.TenNhanVien;
+            txtTenKH.Text = edithd.TenKhachHang;
+            decimal tong=0;
             foreach (var x in lstcthd)
             {
-                tong += x.SoLuongMua * x.DonGia;
+                tong += x.DonGia * x.SoLuongMua;
                 txtTongTien.Text = tong.ToString();
             }
+        }
+
+        private void btnHoaDon_Click(object sender, EventArgs e)
+        {
+            dgridHoaDon.ColumnCount = 5;
+            dgridHoaDon.Columns[0].Name = "IDHoaDon";
+            dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
+            dgridHoaDon.Columns[2].Name = "NV Thanh toán";
+            dgridHoaDon.Columns[3].Name = "Trạng thái";
+            dgridHoaDon.Rows.Clear();
+            foreach (var x in _hoaDonService.GetAll())
+            {
+                dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán");
+            }
+
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            var editcthd = _hoaDonService.GetEdit(_id);
+            editcthd.TrangThai = true;
+            _hoaDonService.Update(editcthd);
         }
     }
 }

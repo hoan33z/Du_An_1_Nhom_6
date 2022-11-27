@@ -46,7 +46,7 @@
             this.dgridGioHang = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHoaDon = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridHoaDon)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -85,6 +85,7 @@
             this.btnThanhToan.TabIndex = 3;
             this.btnThanhToan.Text = "Thanh Toán";
             this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // groupBox1
             // 
@@ -212,7 +213,6 @@
             this.dgridGioHang.RowHeadersWidth = 62;
             this.dgridGioHang.Size = new System.Drawing.Size(964, 225);
             this.dgridGioHang.TabIndex = 5;
-            this.dgridGioHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridGioHang_CellClick);
             // 
             // button2
             // 
@@ -225,7 +225,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnHoaDon);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Location = new System.Drawing.Point(845, 12);
             this.groupBox2.Name = "groupBox2";
@@ -234,14 +234,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức Năng";
             // 
-            // button1
+            // btnHoaDon
             // 
-            this.button1.Location = new System.Drawing.Point(6, 106);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 44);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Tính Tiền";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnHoaDon.Location = new System.Drawing.Point(6, 106);
+            this.btnHoaDon.Name = "btnHoaDon";
+            this.btnHoaDon.Size = new System.Drawing.Size(122, 44);
+            this.btnHoaDon.TabIndex = 7;
+            this.btnHoaDon.Text = "Tất cả Hóa Đơn";
+            this.btnHoaDon.UseVisualStyleBackColor = true;
+            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
             // 
             // FrmThanhToan
             // 
@@ -287,6 +288,6 @@
         private System.Windows.Forms.DataGridView dgridGioHang;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHoaDon;
     }
 }

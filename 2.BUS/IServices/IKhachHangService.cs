@@ -14,6 +14,8 @@ namespace _2.BUS.IServices
         public string Update(EditKhachHangView obj);
         public string Delete(EditKhachHangView obj);
         public List<KhachHangView> GetAll();
+        public EditKhachHangView GetEdit(Guid id);
+
 
     }
 }

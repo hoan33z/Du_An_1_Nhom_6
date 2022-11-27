@@ -9,9 +9,8 @@ namespace _2.BUS.ViewModels
 {
     public class CTHoaDonView
     {
-        public Guid IdHoaDon { get; set; }
         public Guid IdCTHoaDon { get; set; }
-        public Guid IdCTSP { get; set; }
+        public Guid IdHoaDon { get; set; }
         public string TenSp { get; set; }
         public decimal DonGia { get; set; }
         public int SoLuongMua { get; set; }

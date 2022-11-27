@@ -43,7 +43,7 @@ namespace _2.BUS.Service
             if (CTHD == null) return "xoa không thành công";
             ChiTietHoaDon obj = new ChiTietHoaDon()
             {
-                IdChiTietSP = CTHD.IdChiTietSP,
+                IdCTHoaDon = CTHD.IdCTHoaDon,
             };
             if (_cTHoaDonRepository.Delete(obj)) return "xoa thành công";
             return "xoa không thành công";
@@ -58,25 +58,25 @@ namespace _2.BUS.Service
                            join d in _sanPhamService.GetAll() on c.IdSp equals d.IdSp
                            select new CTHoaDonView()
                            {
-                               IdHoaDon = b.IdHoaDon,
+                               IdHoaDon=b.IdHoaDon,
+                               IdCTHoaDon = a.IdCTHoaDon,
                                TenSp = d.TenSp,
                                DonGia = c.GiaBan,
                                SoLuongMua = a.SoLuongMua,
-                               IdCTSP=c.IdChiTietSP
                            }).ToList();
             return lstCTHoaDon;
         }
         public EditCTHoaDonView GetEdit(Guid id)
         {
-            var editCTHD = _cTHoaDonRepository.GetAll().FirstOrDefault(c => c.IdChiTietSP == id);
+            var editCTHD = _cTHoaDonRepository.GetAll().FirstOrDefault(c => c.IdCTHoaDon == id);
             return new EditCTHoaDonView()
             {
+                IdCTHoaDon = editCTHD.IdCTHoaDon,
                 IdChiTietSP = editCTHD.IdChiTietSP,
                 IdHoaDon = editCTHD.IdHoaDon,
                 SoLuongMua = editCTHD.SoLuongMua,
                 DonGia = editCTHD.DonGia,
             };
-
         }
 
         public string Update(EditCTHoaDonView CTHD)
@@ -84,10 +84,8 @@ namespace _2.BUS.Service
             if (CTHD == null) return "Thêm không thành công";
             ChiTietHoaDon obj = new ChiTietHoaDon()
             {
-                IdChiTietSP = CTHD.IdChiTietSP,
-                IdHoaDon = CTHD.IdHoaDon,
+                IdCTHoaDon=CTHD.IdCTHoaDon,
                 SoLuongMua = CTHD.SoLuongMua,
-                DonGia = CTHD.DonGia,
             };
             if (_cTHoaDonRepository.Update(obj)) return "Thêm thành công";
             return "Thêm không thành công";

@@ -26,7 +26,7 @@ namespace _1.DAL.Repositories
         public bool Delete(ChiTietHoaDon obj)
         {
             if (obj == null) return false;
-            var tempobj = _vatLieuDbContext.ChiTietHoaDons.FirstOrDefault(c => c.IdHoaDon == obj.IdHoaDon);
+            var tempobj = _vatLieuDbContext.ChiTietHoaDons.FirstOrDefault(c => c.IdCTHoaDon == obj.IdCTHoaDon);
             _vatLieuDbContext.ChiTietHoaDons.Remove(tempobj);
             _vatLieuDbContext.SaveChanges();
             return true;
@@ -40,11 +40,8 @@ namespace _1.DAL.Repositories
         public bool Update(ChiTietHoaDon obj)
         {
             if (obj == null) return false;
-            var tempobj = _vatLieuDbContext.ChiTietHoaDons.FirstOrDefault(c => c.IdChiTietSP == obj.IdChiTietSP);
-            tempobj.DonGia = obj.DonGia;
+            var tempobj = _vatLieuDbContext.ChiTietHoaDons.FirstOrDefault(c => c.IdCTHoaDon == obj.IdCTHoaDon);
             tempobj.SoLuongMua= obj.SoLuongMua;
-            //tempobj.IdChiTietSP=obj.IdChiTietSP;
-           // tempobj.IdHoaDon=obj.IdHoaDon;
             _vatLieuDbContext.ChiTietHoaDons.Update(tempobj);
             _vatLieuDbContext.SaveChanges();
             return true;
