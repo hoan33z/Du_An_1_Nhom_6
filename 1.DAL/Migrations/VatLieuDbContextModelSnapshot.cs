@@ -35,10 +35,6 @@ namespace _1.DAL.Migrations
                         .HasColumnType("int")
                         .HasColumnName("SoLuongMua");
 
-                    b.Property<decimal>("ThanhTien")
-                        .HasColumnType("decimal")
-                        .HasColumnName("ThanhTien");
-
                     b.HasKey("IdHoaDon");
 
                     b.HasIndex("IdChiTietSP");
@@ -140,6 +136,10 @@ namespace _1.DAL.Migrations
 
                     b.Property<Guid>("IdNhanVien")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("NgayTao")
+                        .HasColumnType("datetime")
+                        .HasColumnName("NgayTao");
 
                     b.Property<DateTime>("NgayThanhToan")
                         .HasColumnType("datetime")

@@ -33,7 +33,6 @@ namespace _2.BUS.Service
                 IdHoaDon = CTHD.IdHoaDon,
                 SoLuongMua = CTHD.SoLuongMua,
                 DonGia = CTHD.DonGia,
-                ThanhTien = CTHD.ThanhTien
             };
             if (_cTHoaDonRepository.Add(obj)) return "Thêm thành công";
             return "Thêm không thành công";
@@ -63,28 +62,21 @@ namespace _2.BUS.Service
                                TenSp = d.TenSp,
                                DonGia = c.GiaBan,
                                SoLuongMua = a.SoLuongMua,
-                               ThanhTien = a.ThanhTien
+                               IdCTSP=c.IdChiTietSP
                            }).ToList();
             return lstCTHoaDon;
         }
         public EditCTHoaDonView GetEdit(Guid id)
         {
             var editCTHD = _cTHoaDonRepository.GetAll().FirstOrDefault(c => c.IdChiTietSP == id);
-            if (editCTHD == null)
+            return new EditCTHoaDonView()
             {
-                return null;
-            }
-            else
-            {
-                return new EditCTHoaDonView()
-                {
-                    IdChiTietSP = editCTHD.IdChiTietSP,
-                    IdHoaDon = editCTHD.IdHoaDon,
-                    SoLuongMua = editCTHD.SoLuongMua,
-                    DonGia = editCTHD.DonGia,
-                    ThanhTien = editCTHD.ThanhTien
-                };
-            }
+                IdChiTietSP = editCTHD.IdChiTietSP,
+                IdHoaDon = editCTHD.IdHoaDon,
+                SoLuongMua = editCTHD.SoLuongMua,
+                DonGia = editCTHD.DonGia,
+            };
+
         }
 
         public string Update(EditCTHoaDonView CTHD)
@@ -96,7 +88,6 @@ namespace _2.BUS.Service
                 IdHoaDon = CTHD.IdHoaDon,
                 SoLuongMua = CTHD.SoLuongMua,
                 DonGia = CTHD.DonGia,
-                ThanhTien = CTHD.ThanhTien
             };
             if (_cTHoaDonRepository.Update(obj)) return "Thêm thành công";
             return "Thêm không thành công";

@@ -25,8 +25,8 @@ namespace _3.PL.Views
         {
             InitializeComponent();
             _khachHangService = new KhachHangService();
-            _hoaDonService= new HoaDonService();
-            _idnv= idnv;
+            _hoaDonService = new HoaDonService();
+            _idnv = idnv;
             LoadTTKhachHang();
         }
         public EditKhachHangView GetKhachHang()
@@ -38,8 +38,8 @@ namespace _3.PL.Views
                 DiaChi = txtDiaChi.Text,
                 SDT = txtSDT.Text,
                 GioiTinh = rbtnNam.Checked == true ? 0 : 1,
-                DCNhanHang=null,
-                NgayNhan=DateTime.Now
+                DCNhanHang = null,
+                NgayNhan = DateTime.Now
             };
         }
         public void LoadTTKhachHang()
@@ -63,29 +63,22 @@ namespace _3.PL.Views
         {
             return new EditHoaDonView()
             {
-                IdKhachHang = _khachHangService.GetAll().FirstOrDefault(c => c.SDT == txtSDT.Text).IdKhachHang,
+                IdKhachHang = _khachHangService.GetAll().FirstOrDefault(c=>c.SDT==txtSDT.Text).IdKhachHang,
                 IdNhanVien = _idnv,
                 TongTien = 0,
                 NgayThanhToan = DateTime.Now,
+                NgayTao = DateTime.Now,
                 TrangThai = false
             };
-        } 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-           MessageBox.Show(_khachHangService.Add(GetKhachHang()));
-            LoadTTKhachHang();
-            _hoaDonService.Add(GetEditHoaDonView());
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(_khachHangService.Delete(GetKhachHang()));
+            MessageBox.Show(_khachHangService.Add(GetKhachHang()));
             LoadTTKhachHang();
         }
-
         private void dgridKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index =e.RowIndex;
+            int index = e.RowIndex;
             if (index == -1 || _khachHangService.GetAll().Count == index) return;
             _id = Guid.Parse(dgridKhachHang.Rows[index].Cells[0].Value.ToString());
             var KH = _khachHangService.GetAll().FirstOrDefault(c => c.IdKhachHang == _id);
@@ -99,6 +92,18 @@ namespace _3.PL.Views
         private void button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_khachHangService.Update(GetKhachHang()));
+            LoadTTKhachHang();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            _hoaDonService.Add(GetEditHoaDonView());
+            MessageBox.Show("Tạo Hóa Đơn Thành Công");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(_khachHangService.Delete(GetKhachHang()));
             LoadTTKhachHang();
         }
     }
