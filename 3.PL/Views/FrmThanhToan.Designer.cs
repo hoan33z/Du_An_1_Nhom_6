@@ -44,9 +44,9 @@
             this.txtNhanVienTT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgridGioHang = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnHoaDon = new System.Windows.Forms.Button();
+            this.btnQuayLai = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridHoaDon)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -59,7 +59,7 @@
             this.groupBox4.Controls.Add(this.dgridHoaDon);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(827, 259);
+            this.groupBox4.Size = new System.Drawing.Size(779, 259);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hóa Đơn";
@@ -72,7 +72,7 @@
             this.dgridHoaDon.Name = "dgridHoaDon";
             this.dgridHoaDon.RowHeadersWidth = 62;
             this.dgridHoaDon.RowTemplate.Height = 33;
-            this.dgridHoaDon.Size = new System.Drawing.Size(821, 226);
+            this.dgridHoaDon.Size = new System.Drawing.Size(773, 226);
             this.dgridHoaDon.TabIndex = 0;
             this.dgridHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridHoaDon_CellClick);
             // 
@@ -214,35 +214,37 @@
             this.dgridGioHang.Size = new System.Drawing.Size(964, 225);
             this.dgridGioHang.TabIndex = 5;
             // 
-            // button2
+            // btnHuy
             // 
-            this.button2.Location = new System.Drawing.Point(6, 33);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 44);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Xóa ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHuy.Location = new System.Drawing.Point(6, 33);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(178, 44);
+            this.btnHuy.TabIndex = 6;
+            this.btnHuy.Text = "Hủy Hóa Đơn";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnHoaDon);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(845, 12);
+            this.groupBox2.Controls.Add(this.btnQuayLai);
+            this.groupBox2.Controls.Add(this.btnHuy);
+            this.groupBox2.Location = new System.Drawing.Point(797, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(134, 256);
+            this.groupBox2.Size = new System.Drawing.Size(182, 259);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức Năng";
             // 
-            // btnHoaDon
+            // btnQuayLai
             // 
-            this.btnHoaDon.Location = new System.Drawing.Point(6, 106);
-            this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(122, 44);
-            this.btnHoaDon.TabIndex = 7;
-            this.btnHoaDon.Text = "Tất cả Hóa Đơn";
-            this.btnHoaDon.UseVisualStyleBackColor = true;
-            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
+            this.btnQuayLai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnQuayLai.Location = new System.Drawing.Point(4, 83);
+            this.btnQuayLai.Name = "btnQuayLai";
+            this.btnQuayLai.Size = new System.Drawing.Size(178, 44);
+            this.btnQuayLai.TabIndex = 9;
+            this.btnQuayLai.Text = "Quay Lại";
+            this.btnQuayLai.UseVisualStyleBackColor = true;
             // 
             // FrmThanhToan
             // 
@@ -286,8 +288,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtTenKH;
         private System.Windows.Forms.DataGridView dgridGioHang;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnHoaDon;
+        private System.Windows.Forms.Button btnQuayLai;
     }
 }

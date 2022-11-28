@@ -46,7 +46,7 @@ namespace _2.BUS.Service
             {
                 IdHoaDon = HD.IdHoaDon
             };
-            if (_hoaDonRepository.Add(obj)) return "xoa thành công";
+            if (_hoaDonRepository.Delete(obj)) return "xoa thành công";
             return "xoa không thành công";
         }
 
@@ -73,18 +73,36 @@ namespace _2.BUS.Service
 
         public EditHoaDonView GetEdit(Guid id)
         {
-            var Hd = _hoaDonRepository.GetAll().FindLast(c => c.IdKhachHang == id);
-            return new EditHoaDonView()
+            if (_hoaDonRepository.GetAll().FirstOrDefault(c=>c.IdKhachHang==id)!=null)
             {
-                IdHoaDon = Hd.IdHoaDon,
-                IdNhanVien = Hd.IdNhanVien,
-                IdKhachHang = Hd.IdKhachHang,
-                NgayThanhToan = Hd.NgayThanhToan,
-                NgayTao = Hd.NgayTao,
-                TrangThai = Hd.TrangThai,
-                TongTien = Hd.TongTien
-            };
-
+                var Hdidkh = _hoaDonRepository.GetAll().FindLast(c => c.IdKhachHang == id); 
+                return new EditHoaDonView()
+                {
+                    IdHoaDon = Hdidkh.IdHoaDon,
+                    IdNhanVien = Hdidkh.IdNhanVien,
+                    IdKhachHang = Hdidkh.IdKhachHang,
+                    NgayThanhToan = Hdidkh.NgayThanhToan,
+                    NgayTao = Hdidkh.NgayTao,
+                    TrangThai = Hdidkh.TrangThai,
+                    TongTien = Hdidkh.TongTien
+                };
+            }
+            else
+            {
+                var Hdidhd = _hoaDonRepository.GetAll().FirstOrDefault(c => c.IdHoaDon == id);
+                if (Hdidhd == null) return null;
+                else {
+                    return new EditHoaDonView()
+                    {
+                        IdHoaDon = Hdidhd.IdHoaDon,
+                        IdNhanVien = Hdidhd.IdNhanVien,
+                        IdKhachHang = Hdidhd.IdKhachHang,
+                        NgayThanhToan = Hdidhd.NgayThanhToan,
+                        NgayTao = Hdidhd.NgayTao,
+                        TrangThai = Hdidhd.TrangThai,
+                        TongTien = Hdidhd.TongTien
+                    }; }
+            }
         }
 
         public string Update(EditHoaDonView HD)
@@ -100,7 +118,7 @@ namespace _2.BUS.Service
                 TrangThai = HD.TrangThai,
                 NgayTao = HD.NgayTao
             };
-            if (_hoaDonRepository.Add(obj)) return "sua thành công";
+            if (_hoaDonRepository.Update(obj)) return "sua thành công";
             return "sua không thành công";
         }
     }

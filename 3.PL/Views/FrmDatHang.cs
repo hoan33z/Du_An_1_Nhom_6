@@ -141,8 +141,15 @@ namespace _3.PL.Views
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            FrmThanhToan frmtt = new FrmThanhToan(_idkh);
-            frmtt.ShowDialog();
+            if (dgridGioHang.Rows[0].Cells[0].Value==null)
+            {
+                MessageBox.Show("Chưa chọn sản phẩm");
+            }
+            else
+            {
+                FrmThanhToan frmtt = new FrmThanhToan(_idkh);
+                frmtt.ShowDialog();
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

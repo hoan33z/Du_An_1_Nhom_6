@@ -188,5 +188,20 @@ namespace _3.PL.Views
             frm3.Show();
             frm4.Show();
         }
+
+        private void DangXuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLogin frmlg = new FrmLogin();
+            frmlg.Show();
+        }
+
+        private void thanhtoanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmThanhToan frmtt = new FrmThanhToan(Guid.Empty);
+            frmtt.TopLevel = false;
+            loadForm.Controls.Add(frmtt);
+            frmtt.Show();
+        }
     }
 }

@@ -43,22 +43,25 @@ namespace _3.PL.Views
 
         public void loadDonHang()
         {
-            dgridHoaDon.ColumnCount = 5;
+            dgridHoaDon.ColumnCount = 6;
             dgridHoaDon.Columns[0].Name = "IDHoaDon";
+            dgridHoaDon.Columns[0].Visible = false;
             dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
             dgridHoaDon.Columns[2].Name = "NV Thanh toán";
             dgridHoaDon.Columns[3].Name = "Trạng thái";
+            dgridHoaDon.Columns[4].Name = "Tổng Tiền";
             dgridHoaDon.Rows.Clear();
-            Guid idhd=_hoaDonService.GetEdit(_idkh).IdHoaDon;
-            foreach (var x in _hoaDonService.GetAll().Where(c=>c.IdHoaDon==idhd))
+            Guid idhd = _hoaDonService.GetEdit(_idkh).IdHoaDon;
+            if (idhd == null) return;
+            foreach (var x in _hoaDonService.GetAll().Where(c => c.IdHoaDon == idhd))
             {
-                if (x.TrangThai=true)
+                if (x.TrangThai == true)
                 {
                     return;
                 }
                 else
                 {
-                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien,x.TrangThai==false?"Chưa thanh toán":"Đã thanh toán");
+                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
                 }
             }
         }
@@ -71,15 +74,15 @@ namespace _3.PL.Views
                                           where a.IdHoaDon == _id
                                           select new CTHoaDonView()
                                           {
-                                              TenSp=a.TenSp,
-                                              DonGia=a.DonGia,
-                                              SoLuongMua=a.SoLuongMua
+                                              TenSp = a.TenSp,
+                                              DonGia = a.DonGia,
+                                              SoLuongMua = a.SoLuongMua
                                           }).ToList();
             loadGioHang(lstcthd);
-           var edithd= _hoaDonService.GetAll().FirstOrDefault(c=>c.IdHoaDon==_id);
+            var edithd = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == _id);
             txtNhanVienTT.Text = edithd.TenNhanVien;
             txtTenKH.Text = edithd.TenKhachHang;
-            decimal tong=0;
+            decimal tong = 0;
             foreach (var x in lstcthd)
             {
                 tong += x.DonGia * x.SoLuongMua;
@@ -87,26 +90,21 @@ namespace _3.PL.Views
             }
         }
 
-        private void btnHoaDon_Click(object sender, EventArgs e)
-        {
-            dgridHoaDon.ColumnCount = 5;
-            dgridHoaDon.Columns[0].Name = "IDHoaDon";
-            dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
-            dgridHoaDon.Columns[2].Name = "NV Thanh toán";
-            dgridHoaDon.Columns[3].Name = "Trạng thái";
-            dgridHoaDon.Rows.Clear();
-            foreach (var x in _hoaDonService.GetAll())
-            {
-                dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán");
-            }
-
-        }
-
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             var editcthd = _hoaDonService.GetEdit(_id);
             editcthd.TrangThai = true;
+            editcthd.TongTien = decimal.Parse(txtTongTien.Text);
+            editcthd.NgayThanhToan = DateTime.Now;
             _hoaDonService.Update(editcthd);
+            MessageBox.Show("Đã Thanh Toán");
+        }
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            var editcthd = _hoaDonService.GetEdit(_id);
+            editcthd.IdHoaDon = _id;
+            _hoaDonService.Delete(editcthd);
+            MessageBox.Show("Đã Hủy");
         }
     }
 }

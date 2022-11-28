@@ -59,7 +59,6 @@ namespace _3.PL.Views
                         this.Hide();
                         FrmMain frm_Start = new FrmMain(title);
                         frm_Start.ShowDialog();
-
                     }
                 }
                 else
