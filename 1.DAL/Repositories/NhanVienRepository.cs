@@ -48,7 +48,7 @@ namespace _1.DAL.Repositories
 
         public List<NhanVien> timKiem(string text)
         {
-            return _vatLieuDbContext.NhanViens.Where(c => c.TenNv.Contains(text) || c.SDT.Contains(text) || c.Email.Contains(text) || c.DiaChi.Contains(text)).ToList();
+            return _vatLieuDbContext.NhanViens.Where(c => c.TenNv.Contains(text) || c.SDT.Contains(text) || c.DiaChi.Contains(text)).ToList();
         }
     }
 }
