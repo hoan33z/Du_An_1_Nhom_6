@@ -128,6 +128,8 @@ namespace _3.PL.Views
             FrmCTSanPham frm = new FrmCTSanPham();
             frm.TopLevel = false;
             loadForm.Controls.Add(frm);
+            loadForm.Height= frm.Height;
+            loadForm.Width= frm.Width;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
             frm.Show();
