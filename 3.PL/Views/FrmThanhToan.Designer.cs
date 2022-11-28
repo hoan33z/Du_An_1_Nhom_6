@@ -130,12 +130,10 @@
             // rbtnCo
             // 
             this.rbtnCo.AutoSize = true;
-            this.rbtnCo.Checked = true;
             this.rbtnCo.Location = new System.Drawing.Point(200, 268);
             this.rbtnCo.Name = "rbtnCo";
             this.rbtnCo.Size = new System.Drawing.Size(69, 36);
             this.rbtnCo.TabIndex = 12;
-            this.rbtnCo.TabStop = true;
             this.rbtnCo.Text = "Có";
             this.rbtnCo.UseVisualStyleBackColor = true;
             // 

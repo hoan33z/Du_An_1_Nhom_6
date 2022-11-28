@@ -19,6 +19,7 @@ namespace _3.PL.Views
         ICTHoaDonService _cTHoaDonService;
         Guid _id;
         Guid _idkh;
+
         public FrmThanhToan(Guid idkh)
         {
             InitializeComponent();
@@ -85,8 +86,16 @@ namespace _3.PL.Views
             decimal tong = 0;
             foreach (var x in lstcthd)
             {
-                tong += x.DonGia * x.SoLuongMua;
-                txtTongTien.Text = tong.ToString();
+                if (rbtnCo.Checked == true)
+                {
+                    tong += x.DonGia * x.SoLuongMua + 30000;
+                    txtTongTien.Text = tong.ToString();
+                }
+                else
+                {
+                    tong += x.DonGia * x.SoLuongMua;
+                    txtTongTien.Text = tong.ToString();
+                }
             }
         }
 

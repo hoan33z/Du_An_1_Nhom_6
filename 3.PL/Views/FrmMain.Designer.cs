@@ -55,10 +55,11 @@
             // 
             // loadForm
             // 
-            this.loadForm.Location = new System.Drawing.Point(0, 39);
+            this.loadForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loadForm.Location = new System.Drawing.Point(0, 0);
             this.loadForm.Margin = new System.Windows.Forms.Padding(4);
             this.loadForm.Name = "loadForm";
-            this.loadForm.Size = new System.Drawing.Size(1771, 678);
+            this.loadForm.Size = new System.Drawing.Size(1483, 589);
             this.loadForm.TabIndex = 1;
             // 
             // menuStrip1

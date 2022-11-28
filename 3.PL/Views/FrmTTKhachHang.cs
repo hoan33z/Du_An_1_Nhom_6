@@ -76,19 +76,6 @@ namespace _3.PL.Views
             MessageBox.Show(_khachHangService.Add(GetKhachHang()));
             LoadTTKhachHang();
         }
-        private void dgridKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = e.RowIndex;
-            if (index == -1 || _khachHangService.GetAll().Count == index) return;
-            _id = Guid.Parse(dgridKhachHang.Rows[index].Cells[0].Value.ToString());
-            var KH = _khachHangService.GetAll().FirstOrDefault(c => c.IdKhachHang == _id);
-            txtTenKH.Text = KH.TenKh;
-            txtDiaChi.Text = KH.DiaChi;
-            txtSDT.Text = KH.SDT;
-            rbtnNam.Checked = KH.GioiTinh == 0 ? true : false;
-            rbtnNu.Checked = KH.GioiTinh == 1 ? true : false;
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_khachHangService.Update(GetKhachHang()));
@@ -113,6 +100,19 @@ namespace _3.PL.Views
                 FrmDatHang frmdh = new FrmDatHang(_id);
                 frmdh.ShowDialog();
             }
+        }
+
+        private void dgridKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index == -1 || _khachHangService.GetAll().Count == index) return;
+            _id = Guid.Parse(dgridKhachHang.Rows[index].Cells[0].Value.ToString());
+            var KH = _khachHangService.GetAll().FirstOrDefault(c => c.IdKhachHang == _id);
+            txtTenKH.Text = KH.TenKh;
+            txtDiaChi.Text = KH.DiaChi;
+            txtSDT.Text = KH.SDT;
+            rbtnNam.Checked = KH.GioiTinh == 0 ? true : false;
+            rbtnNu.Checked = KH.GioiTinh == 1 ? true : false;
         }
     }
 }

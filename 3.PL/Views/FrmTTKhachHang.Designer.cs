@@ -41,9 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgridKhachHang = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.dgridKhachHang = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridKhachHang)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +69,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(964, 202);
+            this.groupBox1.Size = new System.Drawing.Size(1120, 202);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin Khách Hàng";
@@ -92,13 +92,13 @@
             this.rbtnNu.Name = "rbtnNu";
             this.rbtnNu.Size = new System.Drawing.Size(63, 29);
             this.rbtnNu.TabIndex = 14;
-            this.rbtnNu.TabStop = true;
             this.rbtnNu.Text = "Nữ";
             this.rbtnNu.UseVisualStyleBackColor = true;
             // 
             // rbtnNam
             // 
             this.rbtnNam.AutoSize = true;
+            this.rbtnNam.Checked = true;
             this.rbtnNam.Location = new System.Drawing.Point(614, 39);
             this.rbtnNam.Name = "rbtnNam";
             this.rbtnNam.Size = new System.Drawing.Size(77, 29);
@@ -197,50 +197,51 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên:";
             // 
-            // dgridKhachHang
-            // 
-            this.dgridKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgridKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgridKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgridKhachHang.Location = new System.Drawing.Point(0, 202);
-            this.dgridKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgridKhachHang.Name = "dgridKhachHang";
-            this.dgridKhachHang.RowHeadersWidth = 62;
-            this.dgridKhachHang.RowTemplate.Height = 33;
-            this.dgridKhachHang.Size = new System.Drawing.Size(964, 306);
-            this.dgridKhachHang.TabIndex = 8;
-            this.dgridKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridKhachHang_CellClick);
-            // 
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox1.Location = new System.Drawing.Point(0, 202);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(964, 29);
+            this.textBox1.Size = new System.Drawing.Size(1120, 29);
             this.textBox1.TabIndex = 15;
             this.textBox1.Text = "Tìm Kiếm...";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(826, 457);
+            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button2.Location = new System.Drawing.Point(0, 540);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 51);
+            this.button2.Size = new System.Drawing.Size(1120, 51);
             this.button2.TabIndex = 15;
             this.button2.Text = "Tạo Hóa Đơn";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dgridKhachHang
+            // 
+            this.dgridKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgridKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgridKhachHang.Location = new System.Drawing.Point(0, 231);
+            this.dgridKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgridKhachHang.Name = "dgridKhachHang";
+            this.dgridKhachHang.RowHeadersWidth = 62;
+            this.dgridKhachHang.RowTemplate.Height = 33;
+            this.dgridKhachHang.Size = new System.Drawing.Size(1120, 309);
+            this.dgridKhachHang.TabIndex = 16;
+            this.dgridKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridKhachHang_CellClick);
             // 
             // FrmTTKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(964, 508);
+            this.ClientSize = new System.Drawing.Size(1120, 591);
+            this.Controls.Add(this.dgridKhachHang);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dgridKhachHang);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.Red;
@@ -264,7 +265,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dgridKhachHang;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
@@ -272,5 +272,6 @@
         private System.Windows.Forms.RadioButton rbtnNam;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dgridKhachHang;
     }
 }
