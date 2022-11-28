@@ -33,7 +33,6 @@
             this.btn_clear = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btn_timKiem = new System.Windows.Forms.Button();
             this.cbx_chucVu = new System.Windows.Forms.ComboBox();
             this.txt_DiaChi = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -106,16 +105,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(347, 30);
             this.dateTimePicker1.TabIndex = 60;
             // 
-            // btn_timKiem
-            // 
-            this.btn_timKiem.Location = new System.Drawing.Point(956, 267);
-            this.btn_timKiem.Name = "btn_timKiem";
-            this.btn_timKiem.Size = new System.Drawing.Size(111, 29);
-            this.btn_timKiem.TabIndex = 59;
-            this.btn_timKiem.Text = "Tìm Kiếm";
-            this.btn_timKiem.UseVisualStyleBackColor = true;
-            this.btn_timKiem.Click += new System.EventHandler(this.btn_timKiem_Click);
-            // 
             // cbx_chucVu
             // 
             this.cbx_chucVu.FormattingEnabled = true;
@@ -148,9 +137,10 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(588, 266);
+            this.textBox5.Location = new System.Drawing.Point(588, 257);
+            this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(362, 30);
+            this.textBox5.Size = new System.Drawing.Size(463, 40);
             this.textBox5.TabIndex = 55;
             // 
             // txt_Email
@@ -278,7 +268,7 @@
             this.dgr_nhanVien.Name = "dgr_nhanVien";
             this.dgr_nhanVien.RowHeadersWidth = 51;
             this.dgr_nhanVien.RowTemplate.Height = 29;
-            this.dgr_nhanVien.Size = new System.Drawing.Size(1080, 195);
+            this.dgr_nhanVien.Size = new System.Drawing.Size(1057, 195);
             this.dgr_nhanVien.TabIndex = 42;
             this.dgr_nhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgr_nhanVien_CellContentClick);
             // 
@@ -286,13 +276,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 498);
+            this.ClientSize = new System.Drawing.Size(1057, 498);
             this.Controls.Add(this.cbx_trangThaiTk);
             this.Controls.Add(this.cbx_gioiTinh);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.btn_timKiem);
             this.Controls.Add(this.cbx_chucVu);
             this.Controls.Add(this.txt_DiaChi);
             this.Controls.Add(this.label7);
@@ -326,7 +315,6 @@
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button btn_timKiem;
         private System.Windows.Forms.ComboBox cbx_chucVu;
         private System.Windows.Forms.TextBox txt_DiaChi;
         private System.Windows.Forms.Label label7;

@@ -75,6 +75,7 @@ namespace _3.PL.Views
         {
             MessageBox.Show(_khachHangService.Add(GetKhachHang()));
             LoadTTKhachHang();
+            ClearForm();
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -85,6 +86,7 @@ namespace _3.PL.Views
         {
             MessageBox.Show(_khachHangService.Delete(GetKhachHang()));
             LoadTTKhachHang();
+            ClearForm();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -113,6 +115,12 @@ namespace _3.PL.Views
             txtSDT.Text = KH.SDT;
             rbtnNam.Checked = KH.GioiTinh == 0 ? true : false;
             rbtnNu.Checked = KH.GioiTinh == 1 ? true : false;
+        }
+        public void ClearForm()
+        {
+            txtTenKH.Text = "";
+            txtSDT.Text = "";
+            txtDiaChi.Text = "";
         }
     }
 }

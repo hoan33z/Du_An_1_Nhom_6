@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.loadForm = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.QLBanHangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_thongKe = new System.Windows.Forms.ToolStripMenuItem();
             this.ThongKeDoanhThu = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,39 +41,18 @@
             this.menu_myInfor = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_DoiMk = new System.Windows.Forms.ToolStripMenuItem();
             this.DangXuat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // sqlCommand1
-            // 
-            this.sqlCommand1.CommandTimeout = 30;
-            this.sqlCommand1.Connection = null;
-            this.sqlCommand1.Notification = null;
-            this.sqlCommand1.Transaction = null;
-            // 
             // loadForm
             // 
-            this.loadForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loadForm.Location = new System.Drawing.Point(0, 0);
+            this.loadForm.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.loadForm.Location = new System.Drawing.Point(0, 39);
             this.loadForm.Margin = new System.Windows.Forms.Padding(4);
             this.loadForm.Name = "loadForm";
-            this.loadForm.Size = new System.Drawing.Size(1483, 589);
+            this.loadForm.Size = new System.Drawing.Size(1483, 739);
             this.loadForm.TabIndex = 1;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.QLBanHangToolStripMenuItem,
-            this.menu_thongKe,
-            this.menu_quanLy,
-            this.menu_heThong});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1483, 33);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // QLBanHangToolStripMenuItem
             // 
@@ -173,12 +150,27 @@
             this.DangXuat.Text = "Đăng xuất";
             this.DangXuat.Click += new System.EventHandler(this.DangXuat_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.QLBanHangToolStripMenuItem,
+            this.menu_thongKe,
+            this.menu_quanLy,
+            this.menu_heThong});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1483, 33);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1483, 589);
+            this.ClientSize = new System.Drawing.Size(1483, 778);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.loadForm);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -192,7 +184,6 @@
         }
 
         #endregion
-        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         public System.Windows.Forms.Panel loadForm;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menu_heThong;

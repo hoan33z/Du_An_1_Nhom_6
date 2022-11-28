@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dgridKhachHang = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
@@ -69,7 +69,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(1120, 202);
+            this.groupBox1.Size = new System.Drawing.Size(949, 202);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin Khách Hàng";
@@ -197,15 +197,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên:";
             // 
-            // textBox1
+            // txtTimKiem
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(0, 202);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1120, 29);
-            this.textBox1.TabIndex = 15;
-            this.textBox1.Text = "Tìm Kiếm...";
+            this.txtTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtTimKiem.Location = new System.Drawing.Point(0, 202);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtTimKiem.Multiline = true;
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(949, 36);
+            this.txtTimKiem.TabIndex = 15;
+            this.txtTimKiem.Text = "Tìm Kiếm...";
             // 
             // button2
             // 
@@ -213,7 +215,7 @@
             this.button2.Location = new System.Drawing.Point(0, 540);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(1120, 51);
+            this.button2.Size = new System.Drawing.Size(949, 51);
             this.button2.TabIndex = 15;
             this.button2.Text = "Tạo Hóa Đơn";
             this.button2.UseVisualStyleBackColor = true;
@@ -224,12 +226,12 @@
             this.dgridKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgridKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgridKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgridKhachHang.Location = new System.Drawing.Point(0, 231);
+            this.dgridKhachHang.Location = new System.Drawing.Point(0, 238);
             this.dgridKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgridKhachHang.Name = "dgridKhachHang";
             this.dgridKhachHang.RowHeadersWidth = 62;
             this.dgridKhachHang.RowTemplate.Height = 33;
-            this.dgridKhachHang.Size = new System.Drawing.Size(1120, 309);
+            this.dgridKhachHang.Size = new System.Drawing.Size(949, 302);
             this.dgridKhachHang.TabIndex = 16;
             this.dgridKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridKhachHang_CellClick);
             // 
@@ -238,10 +240,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1120, 591);
+            this.ClientSize = new System.Drawing.Size(949, 591);
             this.Controls.Add(this.dgridKhachHang);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.Red;
@@ -267,7 +269,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.RadioButton rbtnNu;
         private System.Windows.Forms.RadioButton rbtnNam;
         private System.Windows.Forms.Button button4;
