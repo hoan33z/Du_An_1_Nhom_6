@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -83,20 +84,6 @@ namespace _3.PL.Views
             var edithd = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == _id);
             txtNhanVienTT.Text = edithd.TenNhanVien;
             txtTenKH.Text = edithd.TenKhachHang;
-            decimal tong = 0;
-            foreach (var x in lstcthd)
-            {
-                if (rbtnCo.Checked == true)
-                {
-                    tong += x.DonGia * x.SoLuongMua + 30000;
-                    txtTongTien.Text = tong.ToString();
-                }
-                else
-                {
-                    tong += x.DonGia * x.SoLuongMua;
-                    txtTongTien.Text = tong.ToString();
-                }
-            }
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
@@ -114,6 +101,11 @@ namespace _3.PL.Views
             editcthd.IdHoaDon = _id;
             _hoaDonService.Delete(editcthd);
             MessageBox.Show("Đã Hủy");
+        }
+
+        private void FrmThanhToan_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

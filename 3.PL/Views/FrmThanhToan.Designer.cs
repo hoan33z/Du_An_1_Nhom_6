@@ -258,6 +258,7 @@
             this.ForeColor = System.Drawing.Color.Red;
             this.Name = "FrmThanhToan";
             this.Text = "FormHoaDon";
+            this.Load += new System.EventHandler(this.FrmThanhToan_Load);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgridHoaDon)).EndInit();
             this.groupBox1.ResumeLayout(false);
