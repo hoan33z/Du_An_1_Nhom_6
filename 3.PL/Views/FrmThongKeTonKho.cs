@@ -14,24 +14,28 @@ namespace _3.PL.Views
 {
     public partial class FrmThongKeTonKho : Form
     {
-        //IThongKeTonKho _iTkTon;
-        //public FrmThongKeTonKho()
-        //{
-        //    InitializeComponent();
-        //    _iTkTon = new ThongKeTonKhoService();
-        //    LoadData();
-        //}
-        //private void LoadData()
-        //{
-        //    dataGridView1.ColumnCount = 3;
-        //    dataGridView1.Columns[0].Name = "Tên Sản Phẩm";
-        //    dataGridView1.Columns[1].Name = "Số lượng tồn bán";
-        //    dataGridView1.Columns[2].Name = "Số lượng tồn kho";
-        //    dataGridView1.Rows.Clear();
-        //    foreach (var x in _iTkTon.lst_thongKeTonKho())
-        //    {
-        //        dataGridView1.Rows.Add(x.tenSp,x.soLuongBan, x.soLuongTon);
-        //    }
-        //}
+        ICTSanPhamService _IcTSanPhamService;
+        public FrmThongKeTonKho()
+        {
+            InitializeComponent();
+            _IcTSanPhamService = new CTSanPhamService();
+            dgrid_TonKho.Enabled = false;
+            LoadData();
+        }
+        private void LoadData()
+        {
+            dgrid_TonKho.ColumnCount = 5;
+            dgrid_TonKho.Columns[0].Name = "Tên Sản Phẩm";
+            dgrid_TonKho.Columns[1].Name = "Danh Mục";
+            dgrid_TonKho.Columns[2].Name = "Thể Loại";
+            dgrid_TonKho.Columns[3].Name = "Nhà Cung Cấp";
+            dgrid_TonKho.Columns[4].Name = "Số lượng hàng tồn ";
+            dgrid_TonKho.Rows.Clear();
+            foreach (var x in _IcTSanPhamService.GetAll())
+            {
+                dgrid_TonKho.Rows.Add(x.TenSp, x.TenDanhMuc, x.TenLoaiSp, x.TenNhaCungCap, x.SoLuong);
+            }
+        }
+
     }
 }
