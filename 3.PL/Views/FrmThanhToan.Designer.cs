@@ -74,7 +74,6 @@
             this.dgridHoaDon.RowTemplate.Height = 33;
             this.dgridHoaDon.Size = new System.Drawing.Size(773, 226);
             this.dgridHoaDon.TabIndex = 0;
-            this.dgridHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridHoaDon_CellClick);
             // 
             // btnThanhToan
             // 
@@ -237,12 +236,13 @@
             // btnQuayLai
             // 
             this.btnQuayLai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnQuayLai.Location = new System.Drawing.Point(4, 83);
+            this.btnQuayLai.Location = new System.Drawing.Point(-2, 209);
             this.btnQuayLai.Name = "btnQuayLai";
             this.btnQuayLai.Size = new System.Drawing.Size(178, 44);
-            this.btnQuayLai.TabIndex = 9;
+            this.btnQuayLai.TabIndex = 7;
             this.btnQuayLai.Text = "Quay Lại";
             this.btnQuayLai.UseVisualStyleBackColor = true;
+            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
             // 
             // FrmThanhToan
             // 

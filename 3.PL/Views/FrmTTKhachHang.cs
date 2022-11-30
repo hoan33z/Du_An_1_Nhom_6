@@ -115,6 +115,7 @@ namespace _3.PL.Views
             else
             {
                 _hoaDonService.Add(GetEditHoaDonView());
+
                 MessageBox.Show("Tạo hóa đơn thành công");
                 FrmDatHang frmdh = new FrmDatHang(_id);
                 frmdh.ShowDialog();
@@ -134,6 +135,13 @@ namespace _3.PL.Views
             rbtnNu.Checked = KH.GioiTinh == 1 ? true : false;
         }
         public void ClearForm()
+        {
+            txtTenKH.Text = "";
+            txtSDT.Text = "";
+            txtDiaChi.Text = "";
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
         {
             txtTenKH.Text = "";
             txtSDT.Text = "";

@@ -72,6 +72,7 @@ namespace _3.PL.Views
             txtSDT.Text = kh.SDT;
             txtGioiTinh.Text = kh.GioiTinh == 0 ? "Nam" : "Nữ";
             txtDCNhan.Text = kh.DCNhanHang;
+            dateNgayNhan.Value = kh.NgayNhan;
         }
         public void LoadGioHang()
         {
@@ -100,11 +101,21 @@ namespace _3.PL.Views
             txtDonGia.Text = SP.GiaBan.ToString();
             txtTenSP.ReadOnly = true;
             txtDonGia.ReadOnly = true;
+            btnThemSP.Visible = true;
         }
 
         private void btnThemSP_Click(object sender, EventArgs e)
         {
             var editsp = _cTSanPhamService.GetEdit(_idsp);
+            for (int i = 0; i < dgridGioHang.RowCount - 1; i++)
+            {
+                Guid idhd = Guid.Parse(dgridGioHang.Rows[i].Cells[0].Value.ToString());
+                if (_cTHoaDonService.GetEdit(idhd).IdChiTietSP == _idsp)
+                {
+                    MessageBox.Show("Sản phẩm đã có trong giỏ hàng");
+                    return;
+                }
+            }
             if (txtSoLuong.Text == "") MessageBox.Show("Chưa nhập số lượng");
             else
             {
@@ -113,6 +124,7 @@ namespace _3.PL.Views
                 _cTHoaDonService.Add(GetEditCTHoaDonView(editsp));
                 LoadDSSanPham();
                 LoadGioHang();
+                ClearSl();
             }
         }
         public EditCTHoaDonView GetEditCTHoaDonView(EditCTSanPhamView editsp)
@@ -130,10 +142,10 @@ namespace _3.PL.Views
             txtDonGia.Text = SP.DonGia.ToString();
             txtTenSP.ReadOnly = true;
             txtDonGia.ReadOnly = true;
+            btnThemSP.Visible = false;
         }
         private void btnSuaTT_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_idgh.ToString());
             var edithdct = _cTHoaDonService.GetEdit(_idgh);
             edithdct.SoLuongMua = int.Parse(txtSoLuong.Text);
             _cTHoaDonService.Update(edithdct);
@@ -141,12 +153,17 @@ namespace _3.PL.Views
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (dgridGioHang.Rows[0].Cells[0].Value==null)
+            this.Hide();  
+            if (dgridGioHang.Rows[0].Cells[0].Value == null || txtDCNhan.Text == "")
             {
-                MessageBox.Show("Chưa chọn sản phẩm");
+                MessageBox.Show("Chưa đủ thông tin");
             }
             else
             {
+                var kh = _khachHangService.GetEdit(_idkh);
+                kh.DCNhanHang = txtDCNhan.Text;
+                kh.NgayNhan = dateNgayNhan.Value;
+                _khachHangService.Update(kh);
                 FrmThanhToan frmtt = new FrmThanhToan(_idkh);
                 frmtt.ShowDialog();
             }
@@ -155,10 +172,38 @@ namespace _3.PL.Views
         private void btnXoa_Click(object sender, EventArgs e)
         {
             var edithdct = _cTHoaDonService.GetEdit(_idgh);
-            edithdct.IdCTHoaDon=_idgh;
+            edithdct.IdCTHoaDon = _idgh;
             edithdct.SoLuongMua = int.Parse(txtSoLuong.Text);
             _cTHoaDonService.Delete(edithdct);
             LoadGioHang();
+            ClearSl();
+        }
+
+        private void FrmDatHang_Load(object sender, EventArgs e)
+        {
+            LoadDSSanPham();
+            loadKH();
+            LoadGioHang();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= dgridGioHang.RowCount * 16; i++)
+            {
+                if (dgridGioHang.Rows[0].Cells[0].Value == null) return;
+                else
+                {
+                    Guid idcthd = Guid.Parse(dgridGioHang.Rows[0].Cells[0].Value.ToString());
+                    var cthd = _cTHoaDonService.GetEdit(idcthd);
+                    _cTHoaDonService.Delete(cthd);
+                    LoadGioHang();
+                    ClearSl();
+                }
+            }
+        }
+        public void ClearSl()
+        {
+            txtSoLuong.Text = "";
         }
     }
 }

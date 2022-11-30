@@ -125,6 +125,7 @@
             this.btnClear.TabIndex = 22;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // dgridGioHang
             // 
@@ -344,6 +345,7 @@
             this.ForeColor = System.Drawing.Color.Red;
             this.Name = "FrmDatHang";
             this.Text = "FrmDatHang";
+            this.Load += new System.EventHandler(this.FrmDatHang_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

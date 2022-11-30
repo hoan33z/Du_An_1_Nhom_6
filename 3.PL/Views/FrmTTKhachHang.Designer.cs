@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.rbtnNu = new System.Windows.Forms.RadioButton();
             this.rbtnNam = new System.Windows.Forms.RadioButton();
@@ -51,6 +52,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.rbtnNu);
             this.groupBox1.Controls.Add(this.rbtnNam);
@@ -69,10 +71,21 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(949, 202);
+            this.groupBox1.Size = new System.Drawing.Size(1081, 202);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin Khách Hàng";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(938, 141);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(138, 51);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // button4
             // 
@@ -98,12 +111,10 @@
             // rbtnNam
             // 
             this.rbtnNam.AutoSize = true;
-            this.rbtnNam.Checked = true;
             this.rbtnNam.Location = new System.Drawing.Point(614, 39);
             this.rbtnNam.Name = "rbtnNam";
             this.rbtnNam.Size = new System.Drawing.Size(77, 29);
             this.rbtnNam.TabIndex = 13;
-            this.rbtnNam.TabStop = true;
             this.rbtnNam.Text = "Nam";
             this.rbtnNam.UseVisualStyleBackColor = true;
             // 
@@ -205,7 +216,7 @@
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTimKiem.Multiline = true;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(949, 36);
+            this.txtTimKiem.Size = new System.Drawing.Size(1081, 36);
             this.txtTimKiem.TabIndex = 15;
             this.txtTimKiem.Text = "Tìm Kiếm...";
             // 
@@ -215,7 +226,7 @@
             this.button2.Location = new System.Drawing.Point(0, 540);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(949, 51);
+            this.button2.Size = new System.Drawing.Size(1081, 51);
             this.button2.TabIndex = 15;
             this.button2.Text = "Tạo Hóa Đơn";
             this.button2.UseVisualStyleBackColor = true;
@@ -231,7 +242,7 @@
             this.dgridKhachHang.Name = "dgridKhachHang";
             this.dgridKhachHang.RowHeadersWidth = 62;
             this.dgridKhachHang.RowTemplate.Height = 33;
-            this.dgridKhachHang.Size = new System.Drawing.Size(949, 302);
+            this.dgridKhachHang.Size = new System.Drawing.Size(1081, 302);
             this.dgridKhachHang.TabIndex = 16;
             this.dgridKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridKhachHang_CellClick);
             // 
@@ -240,7 +251,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(949, 591);
+            this.ClientSize = new System.Drawing.Size(1081, 591);
             this.Controls.Add(this.dgridKhachHang);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtTimKiem);
@@ -275,5 +286,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dgridKhachHang;
+        private System.Windows.Forms.Button btnClear;
     }
 }

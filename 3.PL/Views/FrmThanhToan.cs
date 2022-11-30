@@ -3,13 +3,8 @@ using _2.BUS.Service;
 using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _3.PL.Views
@@ -18,16 +13,17 @@ namespace _3.PL.Views
     {
         IHoaDonService _hoaDonService;
         ICTHoaDonService _cTHoaDonService;
-        Guid _id;
         Guid _idkh;
-
+        Guid _idhd;
         public FrmThanhToan(Guid idkh)
         {
             InitializeComponent();
             _hoaDonService = new HoaDonService();
             _cTHoaDonService = new CTHoaDonService();
             _idkh = idkh;
+            _idhd = _hoaDonService.GetEdit(_idkh).IdHoaDon;
             loadDonHang();
+            loadcthd();
         }
         public void loadGioHang(List<CTHoaDonView> obj)
         {
@@ -53,9 +49,7 @@ namespace _3.PL.Views
             dgridHoaDon.Columns[3].Name = "Trạng thái";
             dgridHoaDon.Columns[4].Name = "Tổng Tiền";
             dgridHoaDon.Rows.Clear();
-            Guid idhd = _hoaDonService.GetEdit(_idkh).IdHoaDon;
-            if (idhd == null) return;
-            foreach (var x in _hoaDonService.GetAll().Where(c => c.IdHoaDon == idhd))
+            foreach (var x in _hoaDonService.GetAll().Where(c => c.IdHoaDon == _idhd))
             {
                 if (x.TrangThai == true)
                 {
@@ -67,13 +61,10 @@ namespace _3.PL.Views
                 }
             }
         }
-        private void dgridHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        public void loadcthd()
         {
-            int index = e.RowIndex;
-            if (index == -1 || index == _hoaDonService.GetAll().Count) return;
-            _id = Guid.Parse(dgridHoaDon.Rows[index].Cells[0].Value.ToString());
             List<CTHoaDonView> lstcthd = (from a in _cTHoaDonService.GetAll()
-                                          where a.IdHoaDon == _id
+                                          where a.IdHoaDon == _idhd
                                           select new CTHoaDonView()
                                           {
                                               TenSp = a.TenSp,
@@ -81,31 +72,55 @@ namespace _3.PL.Views
                                               SoLuongMua = a.SoLuongMua
                                           }).ToList();
             loadGioHang(lstcthd);
-            var edithd = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == _id);
+            var edithd = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == _idhd);
             txtNhanVienTT.Text = edithd.TenNhanVien;
             txtTenKH.Text = edithd.TenKhachHang;
+            decimal tong = 0;
+            foreach (var x in lstcthd)
+            {
+                tong += x.DonGia * x.SoLuongMua;
+                txtTongTien.Text = tong.ToString();
+            }
         }
-
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            var editcthd = _hoaDonService.GetEdit(_id);
+            var editcthd = _hoaDonService.GetEdit(_idhd);
             editcthd.TrangThai = true;
             editcthd.TongTien = decimal.Parse(txtTongTien.Text);
             editcthd.NgayThanhToan = DateTime.Now;
             _hoaDonService.Update(editcthd);
             MessageBox.Show("Đã Thanh Toán");
+            dgridGioHang.Rows.Clear();
+            dgridHoaDon.Rows.Clear();
+            Clear();
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            var editcthd = _hoaDonService.GetEdit(_id);
-            editcthd.IdHoaDon = _id;
+            var editcthd = _hoaDonService.GetEdit(_idhd);
+            editcthd.IdHoaDon = _idhd;
             _hoaDonService.Delete(editcthd);
             MessageBox.Show("Đã Hủy");
+            this.Hide();
         }
 
         private void FrmThanhToan_Load(object sender, EventArgs e)
         {
-            
+
+            loadDonHang();
+            loadcthd();
+        }
+        public void Clear()
+        {
+            txtNhanVienTT.Text = "";
+            txtTenKH.Text = "";
+            txtTongTien.Text = "";
+        }
+
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmDatHang frmdh = new FrmDatHang(_idkh);
+            frmdh.ShowDialog();
         }
     }
 }

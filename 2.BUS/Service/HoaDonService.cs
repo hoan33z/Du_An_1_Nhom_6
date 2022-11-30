@@ -73,9 +73,9 @@ namespace _2.BUS.Service
 
         public EditHoaDonView GetEdit(Guid id)
         {
-            if (_hoaDonRepository.GetAll().FirstOrDefault(c=>c.IdKhachHang==id)!=null)
+            if (_hoaDonRepository.GetAll().FirstOrDefault(c => c.IdKhachHang == id) != null)
             {
-                var Hdidkh = _hoaDonRepository.GetAll().FindLast(c => c.IdKhachHang == id); 
+                var Hdidkh = _hoaDonRepository.GetAll().FindLast(c => c.IdKhachHang == id);
                 return new EditHoaDonView()
                 {
                     IdHoaDon = Hdidkh.IdHoaDon,
@@ -87,11 +87,12 @@ namespace _2.BUS.Service
                     TongTien = Hdidkh.TongTien
                 };
             }
-            else
+            else if (_hoaDonRepository.GetAll().FirstOrDefault(c => c.IdHoaDon == id) != null)
             {
                 var Hdidhd = _hoaDonRepository.GetAll().FirstOrDefault(c => c.IdHoaDon == id);
                 if (Hdidhd == null) return null;
-                else {
+                else
+                {
                     return new EditHoaDonView()
                     {
                         IdHoaDon = Hdidhd.IdHoaDon,
@@ -101,8 +102,24 @@ namespace _2.BUS.Service
                         NgayTao = Hdidhd.NgayTao,
                         TrangThai = Hdidhd.TrangThai,
                         TongTien = Hdidhd.TongTien
-                    }; }
-            }
+                    };
+                }
+                
+            }return null;
+            //else
+            //{
+            //    var Hdidkh = _hoaDonRepository.GetAll().FirstOrDefault(c => c.IdKhachHang == id);
+            //    return new EditHoaDonView()
+            //    {
+            //        IdHoaDon = Hdidkh.IdHoaDon,
+            //        IdNhanVien = Hdidkh.IdNhanVien,
+            //        IdKhachHang = Hdidkh.IdKhachHang,
+            //        NgayThanhToan = Hdidkh.NgayThanhToan,
+            //        NgayTao = Hdidkh.NgayTao,
+            //        TrangThai = Hdidkh.TrangThai,
+            //        TongTien = Hdidkh.TongTien
+            //    };
+            //};
         }
 
         public string Update(EditHoaDonView HD)
