@@ -219,6 +219,7 @@
             this.txtTimKiem.Size = new System.Drawing.Size(1081, 36);
             this.txtTimKiem.TabIndex = 15;
             this.txtTimKiem.Text = "Tìm Kiếm...";
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // button2
             // 
