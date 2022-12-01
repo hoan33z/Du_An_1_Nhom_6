@@ -86,13 +86,14 @@ namespace _3.PL.Views
             hoi = MessageBox.Show("Bạn có muốn thêm không", "Thông báo", MessageBoxButtons.YesNo);
             if (hoi == DialogResult.Yes)
             {
+                if (txt_Email.Text == "" || txt_Name.Text == "" || txt_DiaChi.Text == "" || txt_SDT.Text == "")
+                {
+                    MessageBox.Show("Không được để trống thông tin!!", "Thông báo");
+                    return;
+                }
                 if (regex.IsMatch(txt_Email.Text))
                 {
-                    if (txt_Email.Text == "" || txt_Name.Text == "" || txt_DiaChi.Text == "" || txt_SDT.Text == "")
-                    {
-                        MessageBox.Show("Không được để trống thông tin!!", "Thông báo");
-                        return;
-                    }
+                  
                     if (_iNhanVien.getlstNv().FirstOrDefault(c => c.Email == txt_Email.Text) != null)
                     {
                         MessageBox.Show("Email nhân viên đã tồn tại");
@@ -200,5 +201,17 @@ namespace _3.PL.Views
         {
             loadDataTimKiem();
         }
+
+        private void txt_SDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        
+        }
     }
-}
+

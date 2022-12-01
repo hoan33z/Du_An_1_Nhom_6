@@ -101,8 +101,13 @@ namespace _3_GUI_Layer
                 acc.TrangThaiPass = true;
                 MessageBox.Show("Đổi mật khẩu thành công");
                 MessageBox.Show(_iTaiKhoan.UpdateNV(acc));
+                this.Close();
+                string email = txtMail.Text;
+                FrmMain frm = new FrmMain(email);
+                frm.Show();
             }
             ClearForm();
+            
         }
     }
 }
