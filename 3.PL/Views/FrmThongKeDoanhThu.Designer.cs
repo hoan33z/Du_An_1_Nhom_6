@@ -49,7 +49,7 @@
             this.btn_thongKe.TabIndex = 40;
             this.btn_thongKe.Text = "Thống kê";
             this.btn_thongKe.UseVisualStyleBackColor = true;
-            this.btn_thongKe.Click += new System.EventHandler(this.btn_thongKe_Click);
+            
             // 
             // label5
             // 
