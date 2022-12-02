@@ -203,5 +203,16 @@ namespace _3.PL.Views
             loadForm.Controls.Add(frmtt);
             frmtt.Show();
         }
+
+        private void thốngKêHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm.Controls.Clear();
+            FrmQuanLyHoaDon frm = new FrmQuanLyHoaDon();
+            frm.TopLevel = false;
+            loadForm.Controls.Add(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
     }
 }
