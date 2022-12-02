@@ -86,8 +86,6 @@
             this.dt_denNgay.Name = "dt_denNgay";
             this.dt_denNgay.Size = new System.Drawing.Size(150, 27);
             this.dt_denNgay.TabIndex = 36;
-            this.dt_denNgay.ValueChanged += new System.EventHandler(this.dt_denNgay_ValueChanged);
-            this.dt_denNgay.Leave += new System.EventHandler(this.dt_denNgay_Leave);
             // 
             // label3
             // 
@@ -106,8 +104,6 @@
             this.dt_tuNgay.Name = "dt_tuNgay";
             this.dt_tuNgay.Size = new System.Drawing.Size(150, 27);
             this.dt_tuNgay.TabIndex = 34;
-            this.dt_tuNgay.ValueChanged += new System.EventHandler(this.dt_tuNgay_ValueChanged);
-            this.dt_tuNgay.Leave += new System.EventHandler(this.dt_tuNgay_Leave);
             // 
             // dgrid_doanhThu
             // 
@@ -146,7 +142,6 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmThongKeDoanhThu";
             this.Text = "FrmThongKeDoanhThu";
-            this.Load += new System.EventHandler(this.FrmThongKeDoanhThu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_doanhThu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
