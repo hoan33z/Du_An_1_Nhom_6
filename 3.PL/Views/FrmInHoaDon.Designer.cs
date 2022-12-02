@@ -44,7 +44,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Red;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(645, 150);
+            this.groupBox1.Size = new System.Drawing.Size(805, 150);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -94,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 704);
+            this.ClientSize = new System.Drawing.Size(805, 704);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

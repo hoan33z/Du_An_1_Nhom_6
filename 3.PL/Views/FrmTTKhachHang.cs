@@ -36,19 +36,17 @@ namespace _3.PL.Views
         }
         public void LoadTTKhachHang()
         {
-            dgridKhachHang.ColumnCount = 7;
+            dgridKhachHang.ColumnCount = 5;
             dgridKhachHang.Columns[0].Name = "ID";
             dgridKhachHang.Columns[0].Visible = false;
             dgridKhachHang.Columns[1].Name = "Tên Khách Hàng";
             dgridKhachHang.Columns[2].Name = "Địa Chỉ";
             dgridKhachHang.Columns[3].Name = "SDT";
             dgridKhachHang.Columns[4].Name = "Giới Tính";
-            dgridKhachHang.Columns[5].Name = "DC Nhận Hàng";
-            dgridKhachHang.Columns[6].Name = "Ngày Nhận";
             dgridKhachHang.Rows.Clear();
             foreach (var x in _khachHangService.GetAll())
             {
-                dgridKhachHang.Rows.Add(x.IdKhachHang, x.TenKh, x.DiaChi, x.SDT, x.GioiTinh == 0 ? "Nam" : "Nữ", x.DCNhanHang, x.NgayNhan);
+                dgridKhachHang.Rows.Add(x.IdKhachHang, x.TenKh, x.DiaChi, x.SDT, x.GioiTinh == 0 ? "Nam" : "Nữ");
             }
         }
         public EditHoaDonView GetEditHoaDonView()
@@ -146,6 +144,14 @@ namespace _3.PL.Views
             txtTenKH.Text = "";
             txtSDT.Text = "";
             txtDiaChi.Text = "";
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "") LoadTTKhachHang();
+            else
+            {
+            }
         }
     }
 }
