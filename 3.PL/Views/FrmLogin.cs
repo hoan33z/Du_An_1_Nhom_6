@@ -41,7 +41,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Tài khoản đã ngừng hoạt động", "Thông báo");
                 }
-                else if (_taikhoan.MatKhau == /*password*/_Utility.EncodePass(password))//password
+                else if (_taikhoan.MatKhau == password/*_Utility.EncodePass(password)*/)//password
                 {
                     if (_taikhoan.TrangThaiPass == false)
                     {

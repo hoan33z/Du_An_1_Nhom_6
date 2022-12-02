@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1.DAL.Migrations
 {
-    public partial class a : Migration
+    public partial class hoan : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

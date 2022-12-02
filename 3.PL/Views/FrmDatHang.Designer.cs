@@ -44,6 +44,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbDanhMuc = new System.Windows.Forms.ComboBox();
+            this.cmbLocLsp = new System.Windows.Forms.ComboBox();
+            this.dgridDSSanPham = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -54,13 +58,12 @@
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgridDSSanPham = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).BeginInit();
             this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridDSSanPham)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -80,7 +83,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1156, 353);
+            this.groupBox1.Size = new System.Drawing.Size(1156, 367);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Khách Hàng";
@@ -100,7 +103,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(580, 30);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(573, 320);
+            this.groupBox2.Size = new System.Drawing.Size(573, 334);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giỏ Hàng";
@@ -110,7 +113,7 @@
             this.btnThanhToan.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnThanhToan.Location = new System.Drawing.Point(271, 262);
             this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(299, 55);
+            this.btnThanhToan.Size = new System.Drawing.Size(299, 69);
             this.btnThanhToan.TabIndex = 23;
             this.btnThanhToan.Text = "Thanh Toán";
             this.btnThanhToan.UseVisualStyleBackColor = true;
@@ -121,7 +124,7 @@
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnClear.Location = new System.Drawing.Point(3, 262);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(259, 55);
+            this.btnClear.Size = new System.Drawing.Size(259, 69);
             this.btnClear.TabIndex = 22;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -214,15 +217,55 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.groupBox3);
+            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.cmbDanhMuc);
+            this.groupBox4.Controls.Add(this.cmbLocLsp);
             this.groupBox4.Controls.Add(this.dgridDSSanPham);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox4.Location = new System.Drawing.Point(0, 363);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox4.Location = new System.Drawing.Point(0, 367);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1156, 320);
+            this.groupBox4.Size = new System.Drawing.Size(674, 355);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh Sách Sản Phẩm";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(286, 34);
+            this.textBox1.TabIndex = 22;
+            // 
+            // cmbDanhMuc
+            // 
+            this.cmbDanhMuc.FormattingEnabled = true;
+            this.cmbDanhMuc.Location = new System.Drawing.Point(486, 25);
+            this.cmbDanhMuc.Name = "cmbDanhMuc";
+            this.cmbDanhMuc.Size = new System.Drawing.Size(182, 36);
+            this.cmbDanhMuc.TabIndex = 21;
+            this.cmbDanhMuc.SelectedIndexChanged += new System.EventHandler(this.cmbDanhMuc_SelectedIndexChanged);
+            // 
+            // cmbLocLsp
+            // 
+            this.cmbLocLsp.FormattingEnabled = true;
+            this.cmbLocLsp.Location = new System.Drawing.Point(298, 25);
+            this.cmbLocLsp.Name = "cmbLocLsp";
+            this.cmbLocLsp.Size = new System.Drawing.Size(182, 36);
+            this.cmbLocLsp.TabIndex = 20;
+            this.cmbLocLsp.SelectedIndexChanged += new System.EventHandler(this.cmbLocLsp_SelectedIndexChanged);
+            // 
+            // dgridDSSanPham
+            // 
+            this.dgridDSSanPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgridDSSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridDSSanPham.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgridDSSanPham.Location = new System.Drawing.Point(3, 67);
+            this.dgridDSSanPham.Name = "dgridDSSanPham";
+            this.dgridDSSanPham.RowHeadersWidth = 62;
+            this.dgridDSSanPham.RowTemplate.Height = 33;
+            this.dgridDSSanPham.Size = new System.Drawing.Size(668, 285);
+            this.dgridDSSanPham.TabIndex = 19;
+            this.dgridDSSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDSSanPham_CellClick);
             // 
             // groupBox3
             // 
@@ -237,9 +280,9 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(686, 30);
+            this.groupBox3.Location = new System.Drawing.Point(683, 367);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(467, 287);
+            this.groupBox3.Size = new System.Drawing.Size(473, 355);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Đặt Hàng";
@@ -273,7 +316,7 @@
             // 
             // btnThemSP
             // 
-            this.btnThemSP.Location = new System.Drawing.Point(6, 208);
+            this.btnThemSP.Location = new System.Drawing.Point(7, 208);
             this.btnThemSP.Name = "btnThemSP";
             this.btnThemSP.Size = new System.Drawing.Size(142, 56);
             this.btnThemSP.TabIndex = 17;
@@ -323,23 +366,12 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Tên Sản Phẩm:";
             // 
-            // dgridDSSanPham
-            // 
-            this.dgridDSSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgridDSSanPham.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dgridDSSanPham.Location = new System.Drawing.Point(3, 30);
-            this.dgridDSSanPham.Name = "dgridDSSanPham";
-            this.dgridDSSanPham.RowHeadersWidth = 62;
-            this.dgridDSSanPham.RowTemplate.Height = 33;
-            this.dgridDSSanPham.Size = new System.Drawing.Size(677, 287);
-            this.dgridDSSanPham.TabIndex = 19;
-            this.dgridDSSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDSSanPham_CellClick);
-            // 
             // FrmDatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 683);
+            this.ClientSize = new System.Drawing.Size(1156, 722);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -352,9 +384,10 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridDSSanPham)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgridDSSanPham)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,5 +420,8 @@
         private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbDanhMuc;
+        private System.Windows.Forms.ComboBox cmbLocLsp;
     }
 }

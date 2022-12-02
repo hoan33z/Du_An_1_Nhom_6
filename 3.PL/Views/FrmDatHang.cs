@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -35,6 +36,7 @@ namespace _3.PL.Views
             LoadDSSanPham();
             loadKH();
             LoadGioHang();
+            LoadLoc();
         }
         public void LoadDSSanPham()
         {
@@ -94,7 +96,7 @@ namespace _3.PL.Views
         private void dgridDSSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            if (index == -1 || _cTSanPhamService.GetAll().Count+1 == index) return;
+            if (index == -1 || _cTSanPhamService.GetAll().Count == index) return;
             _idsp = Guid.Parse(dgridDSSanPham.Rows[index].Cells[0].Value.ToString());
             var SP = _cTSanPhamService.GetAll().FirstOrDefault(c => c.IdChiTietSP == _idsp);
             txtTenSP.Text = SP.TenSp;
@@ -213,6 +215,137 @@ namespace _3.PL.Views
                 e.Handled = true;
             }
 
+        }
+
+        private void cmbLocLsp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbLocLsp.Text == "Lọc Theo Loại Sản Phẩm")
+            {
+                LoadDSSanPham();
+            }
+            else if (cmbDanhMuc.Text != "Lọc Theo Danh Mục" && cmbLocLsp.Text != "Lọc Theo Loại Sản Phẩm")
+            {
+                dgridDSSanPham.Rows.Clear();
+                List<CTSanPhamView> lstctsp = (from a in _cTSanPhamService.GetAll()
+                                               where a.TenDanhMuc == cmbDanhMuc.Text && a.TenLoaiSp == cmbLocLsp.Text
+                                               select new CTSanPhamView()
+                                               {
+                                                   IdChiTietSP = a.IdChiTietSP,
+                                                   TenSp = a.TenSp,
+                                                   TenLoaiSp = a.TenLoaiSp,
+                                                   GiaBan = a.GiaBan,
+                                                   SoLuong = a.SoLuong,
+                                                   GiaNhap = a.GiaNhap,
+                                                   TenNhaCungCap = a.TenNhaCungCap,
+                                                   TenDanhMuc = a.TenDanhMuc,
+                                                   TenDonVi = a.TenDonVi
+                                               }).ToList();
+                foreach (var x in lstctsp)
+                {
+                    dgridDSSanPham.Rows.Add(
+                        x.IdChiTietSP,
+                        x.TenSp,
+                        x.TenLoaiSp,
+                        x.GiaBan,
+                        x.SoLuong,
+                        x.GiaNhap,
+                        x.TenNhaCungCap,
+                        x.TenDanhMuc,
+                        x.TenDonVi
+                        );
+                }
+            }
+            else
+            {
+                dgridDSSanPham.Rows.Clear();
+                foreach (var x in _cTSanPhamService.GetAll().Where(c => c.TenLoaiSp == cmbLocLsp.Text))
+                {
+                    dgridDSSanPham.Rows.Add(
+                        x.IdChiTietSP,
+                        x.TenSp,
+                        x.TenLoaiSp,
+                        x.GiaBan,
+                        x.SoLuong,
+                        x.GiaNhap,
+                        x.TenNhaCungCap,
+                        x.TenDanhMuc,
+                        x.TenDonVi
+                        );
+                }
+            }
+        }
+
+        private void cmbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbDanhMuc.Text == "Lọc Theo Danh Mục")
+            {
+                LoadDSSanPham();
+            }
+            else if (cmbDanhMuc.Text != "Lọc Theo Danh Mục" && cmbLocLsp.Text != "Lọc Theo Loại Sản Phẩm")
+            {
+                dgridDSSanPham.Rows.Clear();
+                List<CTSanPhamView> lstctsp = (from a in _cTSanPhamService.GetAll()
+                                               where a.TenDanhMuc == cmbDanhMuc.Text && a.TenLoaiSp == cmbLocLsp.Text
+                                               select new CTSanPhamView()
+                                               {
+                                                   IdChiTietSP=a.IdChiTietSP,
+                                                   TenSp=a.TenSp,
+                                                   TenLoaiSp=a.TenLoaiSp,
+                                                   GiaBan=a.GiaBan,
+                                                   SoLuong=a.SoLuong,
+                                                   GiaNhap=a.GiaNhap,
+                                                   TenNhaCungCap=a.TenNhaCungCap,
+                                                   TenDanhMuc=a.TenDanhMuc,
+                                                   TenDonVi=a.TenDonVi
+                                               }).ToList();
+                foreach (var x in lstctsp)
+                {
+                    dgridDSSanPham.Rows.Add(
+                        x.IdChiTietSP,
+                        x.TenSp,
+                        x.TenLoaiSp,
+                        x.GiaBan,
+                        x.SoLuong,
+                        x.GiaNhap,
+                        x.TenNhaCungCap,
+                        x.TenDanhMuc,
+                        x.TenDonVi
+                        );
+                }
+            }
+            else
+            {
+                dgridDSSanPham.Rows.Clear();
+                foreach (var x in _cTSanPhamService.GetAll().Where(c => c.TenDanhMuc == cmbDanhMuc.Text))
+                {
+                    dgridDSSanPham.Rows.Add(
+                        x.IdChiTietSP,
+                        x.TenSp,
+                        x.TenLoaiSp,
+                        x.GiaBan,
+                        x.SoLuong,
+                        x.GiaNhap,
+                        x.TenNhaCungCap,
+                        x.TenDanhMuc,
+                        x.TenDonVi
+                        );
+                }
+            }
+        }
+        public void LoadLoc()
+        {
+            cmbDanhMuc.Items.Add("Lọc Theo Danh Mục");
+            cmbLocLsp.Items.Add("Lọc Theo Loại Sản Phẩm");
+            foreach (var x in _cTSanPhamService.GetAll())
+            {
+                cmbDanhMuc.Items.Add(x.TenDanhMuc);
+            }
+            foreach (var x in _cTSanPhamService.GetAll())
+            {
+                cmbLocLsp.Items.Add(x.TenLoaiSp);
+            }
+            cmbLocLsp.SelectedIndex = 0;
+            cmbDanhMuc.SelectedIndex = 0;
         }
     }
 }
