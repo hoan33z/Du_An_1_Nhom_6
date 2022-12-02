@@ -26,6 +26,10 @@ namespace _3.PL.Views
             dgrid_doanhThu.Enabled = false;
             _ISanPhamService = new SanPhamService();
             _IHoaDonService = new HoaDonService();
+            _db = new VatLieuDbContext();
+            LoadCBB();
+            LoadData();
+            LoadAll();
         }
         private void LoadCBB()
         {
@@ -33,6 +37,25 @@ namespace _3.PL.Views
             foreach (var x in _ISanPhamService.GetAll())
             {
                 comboBox1.Items.Add(x.TenSp);
+            }
+        }
+        public void LoadAll()
+        {
+            dgrid_doanhThu.ColumnCount = 4;
+            dgrid_doanhThu.Columns[0].Name = "Tên Sản Phẩm";
+            dgrid_doanhThu.Columns[1].Name = "Giá Bán";
+            dgrid_doanhThu.Columns[2].Name = "Số Lượng Đã bán";
+            dgrid_doanhThu.Columns[3].Name = "Tổng Thu";
+            dgrid_doanhThu.Rows.Clear();
+            int tong = 0;
+            foreach (var x in _ICtHoaDon.GetAll())
+            {
+                for (int i = 0; i <= _ICtHoaDon.GetAll().Count-1; i++)
+                {
+                    tong += x.SoLuongMua;
+                }
+                dgrid_doanhThu.Rows.Add(x.TenSp, x.DonGia,tong,x.DonGia*x.SoLuongMua);
+                return;
             }
         }
         private void LoadData()
@@ -52,7 +75,16 @@ namespace _3.PL.Views
                      Tong = ct.DonGia * ct.SoLuongMua
                  }).ToList();
 
-                dgrid_doanhThu.DataSource = data;
+                dgrid_doanhThu.ColumnCount = 4;
+                dgrid_doanhThu.Columns[0].Name = "Tên Sản Phẩm";
+                dgrid_doanhThu.Columns[1].Name = "Giá Bán";
+                dgrid_doanhThu.Columns[2].Name = "Số Lượng Đã bán";
+                dgrid_doanhThu.Columns[3].Name = "Tổng Thu";
+                dgrid_doanhThu.Rows.Clear();
+                foreach (var x in data)
+                {
+                    dgrid_doanhThu.Rows.Add(x.tenSp, x.DonGia, x.SoLuong, x.Tong);
+                }
             }
             catch (Exception)
             {

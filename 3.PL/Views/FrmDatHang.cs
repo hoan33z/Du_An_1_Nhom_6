@@ -94,7 +94,7 @@ namespace _3.PL.Views
         private void dgridDSSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            if (index == -1 || _cTSanPhamService.GetAll().Count == index) return;
+            if (index == -1 || _cTSanPhamService.GetAll().Count+1 == index) return;
             _idsp = Guid.Parse(dgridDSSanPham.Rows[index].Cells[0].Value.ToString());
             var SP = _cTSanPhamService.GetAll().FirstOrDefault(c => c.IdChiTietSP == _idsp);
             txtTenSP.Text = SP.TenSp;
@@ -153,13 +153,13 @@ namespace _3.PL.Views
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            this.Hide();  
             if (dgridGioHang.Rows[0].Cells[0].Value == null || txtDCNhan.Text == "")
             {
                 MessageBox.Show("Chưa đủ thông tin");
             }
             else
             {
+                this.Hide();
                 var kh = _khachHangService.GetEdit(_idkh);
                 kh.DCNhanHang = txtDCNhan.Text;
                 kh.NgayNhan = dateNgayNhan.Value;
@@ -188,7 +188,7 @@ namespace _3.PL.Views
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i <= dgridGioHang.RowCount * 16; i++)
+            while (true)
             {
                 if (dgridGioHang.Rows[0].Cells[0].Value == null) return;
                 else
@@ -204,6 +204,15 @@ namespace _3.PL.Views
         public void ClearSl()
         {
             txtSoLuong.Text = "";
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

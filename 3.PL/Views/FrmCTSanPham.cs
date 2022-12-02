@@ -72,7 +72,7 @@ namespace _3.PL.Views
         }
         public void LoadData()
         {
-            dgridCTSanPham.ColumnCount = 10;
+            dgridCTSanPham.ColumnCount = 9;
             dgridCTSanPham.Columns[0].Name = "ID";
             dgridCTSanPham.Columns[0].Visible = false;
             dgridCTSanPham.Columns[1].Name = "Tên Sản Phẩm";
@@ -83,7 +83,6 @@ namespace _3.PL.Views
             dgridCTSanPham.Columns[6].Name = "Giá Nhập";
             dgridCTSanPham.Columns[7].Name = "Giá Bán";
             dgridCTSanPham.Columns[8].Name = "Số Lượng";
-            dgridCTSanPham.Columns[9].Name = "Hình Ảnh";
             dgridCTSanPham.Rows.Clear();
             foreach (var x in _IcTSanPhamService.GetAll())
             {
@@ -96,8 +95,7 @@ namespace _3.PL.Views
                     x.TenDonVi,
                     x.GiaNhap,
                     x.GiaBan,
-                    x.SoLuong,
-                    convertByte(x.HinhAnh)
+                    x.SoLuong
                     );
             }
         }

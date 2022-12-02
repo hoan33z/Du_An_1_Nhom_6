@@ -168,9 +168,6 @@ namespace _3.PL.Views
                 nv.GioiTinh = cbx_gioiTinh.Text == "Nam" ? true : false;
                 nv.TrangThai = cbx_trangThaiTk.Text == "Hoạt Động" ? true : false;
                 nv.IdLoaiTk = cbx_chucVu.Text == "Admin" ? true : false;
-
-
-
                 MessageBox.Show(_iNhanVien.UpdateNV(nv).ToString());
                 loadData();
                 ClearForm();

@@ -151,7 +151,27 @@ namespace _3.PL.Views
             if (txtTimKiem.Text == "") LoadTTKhachHang();
             else
             {
+                dgridKhachHang.Rows.Clear();
+                foreach (var x in _khachHangService.GetAll().Where(c => c.SDT.Contains(txtTimKiem.Text)))
+                {
+                    dgridKhachHang.Rows.Add(x.IdKhachHang, x.TenKh, x.DiaChi, x.SDT, x.GioiTinh == 0 ? "Nam" : "Nữ");
+                }
             }
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTimKiem_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTimKiem.Text = "";
+            txtTimKiem.ReadOnly = false;
+
         }
     }
 }
