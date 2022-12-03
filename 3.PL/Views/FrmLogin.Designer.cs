@@ -61,25 +61,29 @@
             // 
             // txt_mk
             // 
+            this.txt_mk.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_mk.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txt_mk.Location = new System.Drawing.Point(78, 179);
             this.txt_mk.Margin = new System.Windows.Forms.Padding(4);
             this.txt_mk.Multiline = true;
             this.txt_mk.Name = "txt_mk";
-            this.txt_mk.PasswordChar = '*';
-            this.txt_mk.Size = new System.Drawing.Size(582, 58);
+            this.txt_mk.Size = new System.Drawing.Size(582, 51);
             this.txt_mk.TabIndex = 13;
+            this.txt_mk.Text = "Mật Khẩu";
+            this.txt_mk.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_mk.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_mk_MouseClick);
+            this.txt_mk.TextChanged += new System.EventHandler(this.txt_mk_TextChanged);
             // 
             // txt_tk
             // 
             this.txt_tk.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_tk.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_tk.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txt_tk.Location = new System.Drawing.Point(78, 102);
+            this.txt_tk.Location = new System.Drawing.Point(78, 111);
             this.txt_tk.Margin = new System.Windows.Forms.Padding(4);
             this.txt_tk.Multiline = true;
             this.txt_tk.Name = "txt_tk";
-            this.txt_tk.Size = new System.Drawing.Size(582, 69);
+            this.txt_tk.Size = new System.Drawing.Size(582, 60);
             this.txt_tk.TabIndex = 12;
             this.txt_tk.Text = "Tài Khoản";
             this.txt_tk.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -87,6 +91,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(191, 298);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";

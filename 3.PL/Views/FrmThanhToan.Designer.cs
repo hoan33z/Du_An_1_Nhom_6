@@ -30,55 +30,72 @@
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgridHoaDon = new System.Windows.Forms.DataGridView();
+            this.dgridGioHang = new System.Windows.Forms.DataGridView();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTongTien = new System.Windows.Forms.TextBox();
-            this.rbtnKhong = new System.Windows.Forms.RadioButton();
-            this.rbtnCo = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtTenKH = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNhanVienTT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgridGioHang = new System.Windows.Forms.DataGridView();
             this.btnHuy = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnQuayLai = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTienKhachTra = new System.Windows.Forms.TextBox();
+            this.txtTienThua = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridHoaDon)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dgridHoaDon);
+            this.groupBox4.Controls.Add(this.dgridGioHang);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(779, 259);
+            this.groupBox4.Size = new System.Drawing.Size(897, 457);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Hóa Đơn";
+            this.groupBox4.Text = "Thông Tin Đơn Hàng";
             // 
             // dgridHoaDon
             // 
+            this.dgridHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgridHoaDon.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgridHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgridHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgridHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgridHoaDon.Location = new System.Drawing.Point(3, 30);
             this.dgridHoaDon.Name = "dgridHoaDon";
+            this.dgridHoaDon.ReadOnly = true;
             this.dgridHoaDon.RowHeadersWidth = 62;
             this.dgridHoaDon.RowTemplate.Height = 33;
-            this.dgridHoaDon.Size = new System.Drawing.Size(773, 226);
+            this.dgridHoaDon.Size = new System.Drawing.Size(891, 112);
             this.dgridHoaDon.TabIndex = 0;
+            // 
+            // dgridGioHang
+            // 
+            this.dgridGioHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgridGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridGioHang.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgridGioHang.Location = new System.Drawing.Point(3, 148);
+            this.dgridGioHang.Name = "dgridGioHang";
+            this.dgridGioHang.ReadOnly = true;
+            this.dgridGioHang.RowHeadersWidth = 62;
+            this.dgridGioHang.Size = new System.Drawing.Size(891, 306);
+            this.dgridGioHang.TabIndex = 5;
             // 
             // btnThanhToan
             // 
             this.btnThanhToan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnThanhToan.Location = new System.Drawing.Point(3, 443);
+            this.btnThanhToan.Location = new System.Drawing.Point(3, 399);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(542, 58);
             this.btnThanhToan.TabIndex = 3;
@@ -88,53 +105,33 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtTienThua);
+            this.groupBox1.Controls.Add(this.txtTienKhachTra);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtTongTien);
-            this.groupBox1.Controls.Add(this.rbtnKhong);
-            this.groupBox1.Controls.Add(this.rbtnCo);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.txtTenKH);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNhanVienTT);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnThanhToan);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(985, 0);
+            this.groupBox1.Location = new System.Drawing.Point(1194, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(548, 504);
+            this.groupBox1.Size = new System.Drawing.Size(548, 460);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thanh Toán";
             // 
             // txtTongTien
             // 
-            this.txtTongTien.Location = new System.Drawing.Point(200, 343);
+            this.txtTongTien.Location = new System.Drawing.Point(200, 246);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(336, 39);
             this.txtTongTien.TabIndex = 14;
-            // 
-            // rbtnKhong
-            // 
-            this.rbtnKhong.AutoSize = true;
-            this.rbtnKhong.Location = new System.Drawing.Point(275, 268);
-            this.rbtnKhong.Name = "rbtnKhong";
-            this.rbtnKhong.Size = new System.Drawing.Size(114, 36);
-            this.rbtnKhong.TabIndex = 13;
-            this.rbtnKhong.Text = "Không";
-            this.rbtnKhong.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCo
-            // 
-            this.rbtnCo.AutoSize = true;
-            this.rbtnCo.Location = new System.Drawing.Point(200, 268);
-            this.rbtnCo.Name = "rbtnCo";
-            this.rbtnCo.Size = new System.Drawing.Size(69, 36);
-            this.rbtnCo.TabIndex = 12;
-            this.rbtnCo.Text = "Có";
-            this.rbtnCo.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
@@ -150,15 +147,6 @@
             this.txtTenKH.Size = new System.Drawing.Size(336, 39);
             this.txtTenKH.TabIndex = 10;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 270);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(177, 32);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Phí Giao Hàng";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -171,7 +159,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 346);
+            this.label3.Location = new System.Drawing.Point(6, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 32);
             this.label3.TabIndex = 7;
@@ -202,21 +190,12 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "NV Thanh Toán";
             // 
-            // dgridGioHang
-            // 
-            this.dgridGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgridGioHang.Location = new System.Drawing.Point(15, 274);
-            this.dgridGioHang.Name = "dgridGioHang";
-            this.dgridGioHang.RowHeadersWidth = 62;
-            this.dgridGioHang.Size = new System.Drawing.Size(964, 225);
-            this.dgridGioHang.TabIndex = 5;
-            // 
             // btnHuy
             // 
             this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnHuy.Location = new System.Drawing.Point(6, 33);
+            this.btnHuy.Location = new System.Drawing.Point(6, 349);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(178, 44);
+            this.btnHuy.Size = new System.Drawing.Size(264, 44);
             this.btnHuy.TabIndex = 6;
             this.btnHuy.Text = "Hủy Hóa Đơn";
             this.btnHuy.UseVisualStyleBackColor = true;
@@ -226,9 +205,9 @@
             // 
             this.groupBox2.Controls.Add(this.btnQuayLai);
             this.groupBox2.Controls.Add(this.btnHuy);
-            this.groupBox2.Location = new System.Drawing.Point(797, 12);
+            this.groupBox2.Location = new System.Drawing.Point(912, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(182, 259);
+            this.groupBox2.Size = new System.Drawing.Size(276, 454);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức Năng";
@@ -236,34 +215,67 @@
             // btnQuayLai
             // 
             this.btnQuayLai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnQuayLai.Location = new System.Drawing.Point(6, 212);
+            this.btnQuayLai.Location = new System.Drawing.Point(6, 399);
             this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Size = new System.Drawing.Size(178, 44);
+            this.btnQuayLai.Size = new System.Drawing.Size(264, 44);
             this.btnQuayLai.TabIndex = 7;
             this.btnQuayLai.Text = "Quay Lại";
             this.btnQuayLai.UseVisualStyleBackColor = true;
             this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 309);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(181, 32);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Tiền Khách Trả";
+            // 
+            // txtTienKhachTra
+            // 
+            this.txtTienKhachTra.Location = new System.Drawing.Point(200, 302);
+            this.txtTienKhachTra.Name = "txtTienKhachTra";
+            this.txtTienKhachTra.Size = new System.Drawing.Size(336, 39);
+            this.txtTienKhachTra.TabIndex = 16;
+            this.txtTienKhachTra.TextChanged += new System.EventHandler(this.txtTienKhachTra_TextChanged);
+            // 
+            // txtTienThua
+            // 
+            this.txtTienThua.Location = new System.Drawing.Point(200, 350);
+            this.txtTienThua.Name = "txtTienThua";
+            this.txtTienThua.Size = new System.Drawing.Size(336, 39);
+            this.txtTienThua.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 357);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(127, 32);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Tiền Thừa";
             // 
             // FrmThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1533, 504);
+            this.ClientSize = new System.Drawing.Size(1754, 484);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dgridGioHang);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.Red;
             this.Name = "FrmThanhToan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormHoaDon";
             this.Load += new System.EventHandler(this.FrmThanhToan_Load);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgridHoaDon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -280,15 +292,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNhanVienTT;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTongTien;
-        private System.Windows.Forms.RadioButton rbtnKhong;
-        private System.Windows.Forms.RadioButton rbtnCo;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtTenKH;
         private System.Windows.Forms.DataGridView dgridGioHang;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnQuayLai;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtTienThua;
+        private System.Windows.Forms.TextBox txtTienKhachTra;
+        private System.Windows.Forms.Label label5;
     }
 }

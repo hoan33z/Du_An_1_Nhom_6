@@ -243,6 +243,7 @@
             this.dgridKhachHang.Location = new System.Drawing.Point(0, 238);
             this.dgridKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgridKhachHang.Name = "dgridKhachHang";
+            this.dgridKhachHang.ReadOnly = true;
             this.dgridKhachHang.RowHeadersWidth = 62;
             this.dgridKhachHang.RowTemplate.Height = 33;
             this.dgridKhachHang.Size = new System.Drawing.Size(1081, 302);

@@ -41,7 +41,7 @@ namespace _3.PL.Views
 
         public void loadDonHang()
         {
-            dgridHoaDon.ColumnCount = 6;
+            dgridHoaDon.ColumnCount = 5;
             dgridHoaDon.Columns[0].Name = "IDHoaDon";
             dgridHoaDon.Columns[0].Visible = false;
             dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
@@ -84,15 +84,22 @@ namespace _3.PL.Views
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            var editcthd = _hoaDonService.GetEdit(_idhd);
-            editcthd.TrangThai = true;
-            editcthd.TongTien = decimal.Parse(txtTongTien.Text);
-            editcthd.NgayThanhToan = DateTime.Now;
-            _hoaDonService.Update(editcthd);
-            MessageBox.Show("Đã Thanh Toán");
-            dgridGioHang.Rows.Clear();
-            dgridHoaDon.Rows.Clear();
-            Clear();
+            if (int.Parse(txtTienThua.Text) < 0)
+            {
+                MessageBox.Show("Không Đủ Tiền Để Thanh Toán");
+            }
+            else
+            {
+                var editcthd = _hoaDonService.GetEdit(_idhd);
+                editcthd.TrangThai = true;
+                editcthd.TongTien = decimal.Parse(txtTongTien.Text);
+                editcthd.NgayThanhToan = DateTime.Now;
+                _hoaDonService.Update(editcthd);
+                MessageBox.Show("Đã Thanh Toán");
+                this.Hide();
+                FrmInHoaDon frmin = new FrmInHoaDon(_idkh);
+                frmin.Show();
+            }
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
@@ -123,6 +130,18 @@ namespace _3.PL.Views
             _hoaDonService.Update(editcthd);
             FrmDatHang frmdh = new FrmDatHang(_idkh);
             frmdh.ShowDialog();
+        }
+
+        private void txtTienKhachTra_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTienKhachTra.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                txtTienThua.Text = (decimal.Parse(txtTienKhachTra.Text) - decimal.Parse(txtTongTien.Text)).ToString();
+            }
         }
     }
 }

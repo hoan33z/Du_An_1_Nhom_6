@@ -87,5 +87,15 @@ namespace _3.PL.Views
         {
             txt_tk.Text = "";
         }
+
+        private void txt_mk_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_mk.Text = "";
+        }
+
+        private void txt_mk_TextChanged(object sender, EventArgs e)
+        {
+            txt_mk.PasswordChar = '*';
+        }
     }
 }
