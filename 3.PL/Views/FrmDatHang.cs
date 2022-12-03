@@ -96,7 +96,7 @@ namespace _3.PL.Views
         private void dgridDSSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            if (index == -1 || _cTSanPhamService.GetAll().Count == index) return;
+            if (index == -1 || _cTSanPhamService.GetAll().Count== index) return;
             _idsp = Guid.Parse(dgridDSSanPham.Rows[index].Cells[0].Value.ToString());
             var SP = _cTSanPhamService.GetAll().FirstOrDefault(c => c.IdChiTietSP == _idsp);
             txtTenSP.Text = SP.TenSp;
@@ -339,13 +339,40 @@ namespace _3.PL.Views
             foreach (var x in _cTSanPhamService.GetAll())
             {
                 cmbDanhMuc.Items.Add(x.TenDanhMuc);
-            }
-            foreach (var x in _cTSanPhamService.GetAll())
-            {
-                cmbLocLsp.Items.Add(x.TenLoaiSp);
+                cmbLocLsp.Items.Add(x.TenLoaiSp);        
             }
             cmbLocLsp.SelectedIndex = 0;
             cmbDanhMuc.SelectedIndex = 0;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text=="")
+            {
+                LoadDSSanPham();
+            }
+            else
+            {
+                dgridDSSanPham.Rows.Clear();
+                foreach (var x in _cTSanPhamService.GetAll().Where(c => c.TenSp == txtTimKiem.Text))
+                {
+                    dgridDSSanPham.Rows.Add(
+                        x.IdChiTietSP,
+                        x.TenSp,
+                        x.TenLoaiSp,
+                        x.GiaBan,
+                        x.SoLuong,
+                        x.GiaNhap,
+                        x.TenNhaCungCap,
+                        x.TenDanhMuc,
+                        x.TenDonVi
+                        );
+                }
+            }
+        }
+        private void txtTimKiem_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTimKiem.Text = "";
         }
     }
 }

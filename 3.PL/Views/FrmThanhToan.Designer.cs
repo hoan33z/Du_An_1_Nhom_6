@@ -236,7 +236,7 @@
             // btnQuayLai
             // 
             this.btnQuayLai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnQuayLai.Location = new System.Drawing.Point(-2, 209);
+            this.btnQuayLai.Location = new System.Drawing.Point(6, 212);
             this.btnQuayLai.Name = "btnQuayLai";
             this.btnQuayLai.Size = new System.Drawing.Size(178, 44);
             this.btnQuayLai.TabIndex = 7;

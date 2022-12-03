@@ -144,6 +144,8 @@ namespace _3.PL.Views
             txtTenKH.Text = "";
             txtSDT.Text = "";
             txtDiaChi.Text = "";
+            rbtnNam.Checked = false;
+            rbtnNu.Checked = false;
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -170,8 +172,6 @@ namespace _3.PL.Views
         private void txtTimKiem_MouseClick(object sender, MouseEventArgs e)
         {
             txtTimKiem.Text = "";
-            txtTimKiem.ReadOnly = false;
-
         }
     }
 }

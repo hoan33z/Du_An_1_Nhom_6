@@ -217,7 +217,6 @@
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTimKiem.Multiline = true;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.ReadOnly = true;
             this.txtTimKiem.Size = new System.Drawing.Size(1081, 36);
             this.txtTimKiem.TabIndex = 15;
             this.txtTimKiem.Text = "Tìm Kiếm...";

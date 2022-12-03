@@ -44,7 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.cmbDanhMuc = new System.Windows.Forms.ComboBox();
             this.cmbLocLsp = new System.Windows.Forms.ComboBox();
             this.dgridDSSanPham = new System.Windows.Forms.DataGridView();
@@ -83,7 +83,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1156, 367);
+            this.groupBox1.Size = new System.Drawing.Size(1156, 349);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Khách Hàng";
@@ -103,7 +103,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(580, 30);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(573, 334);
+            this.groupBox2.Size = new System.Drawing.Size(573, 316);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giỏ Hàng";
@@ -113,7 +113,7 @@
             this.btnThanhToan.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnThanhToan.Location = new System.Drawing.Point(271, 262);
             this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(299, 69);
+            this.btnThanhToan.Size = new System.Drawing.Size(299, 51);
             this.btnThanhToan.TabIndex = 23;
             this.btnThanhToan.Text = "Thanh Toán";
             this.btnThanhToan.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnClear.Location = new System.Drawing.Point(3, 262);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(259, 69);
+            this.btnClear.Size = new System.Drawing.Size(259, 51);
             this.btnClear.TabIndex = 22;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -217,24 +217,27 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.txtTimKiem);
             this.groupBox4.Controls.Add(this.cmbDanhMuc);
             this.groupBox4.Controls.Add(this.cmbLocLsp);
             this.groupBox4.Controls.Add(this.dgridDSSanPham);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox4.Location = new System.Drawing.Point(0, 367);
+            this.groupBox4.Location = new System.Drawing.Point(0, 349);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(674, 355);
+            this.groupBox4.Size = new System.Drawing.Size(674, 373);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh Sách Sản Phẩm";
             // 
-            // textBox1
+            // txtTimKiem
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(286, 34);
-            this.textBox1.TabIndex = 22;
+            this.txtTimKiem.Location = new System.Drawing.Point(6, 25);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(286, 34);
+            this.txtTimKiem.TabIndex = 22;
+            this.txtTimKiem.Text = "Tìm Kiếm...";
+            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTimKiem_MouseClick);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cmbDanhMuc
             // 
@@ -263,7 +266,7 @@
             this.dgridDSSanPham.Name = "dgridDSSanPham";
             this.dgridDSSanPham.RowHeadersWidth = 62;
             this.dgridDSSanPham.RowTemplate.Height = 33;
-            this.dgridDSSanPham.Size = new System.Drawing.Size(668, 285);
+            this.dgridDSSanPham.Size = new System.Drawing.Size(668, 303);
             this.dgridDSSanPham.TabIndex = 19;
             this.dgridDSSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDSSanPham_CellClick);
             // 
@@ -280,9 +283,9 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(683, 367);
+            this.groupBox3.Location = new System.Drawing.Point(683, 349);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(473, 355);
+            this.groupBox3.Size = new System.Drawing.Size(473, 373);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Đặt Hàng";
@@ -420,7 +423,7 @@
         private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.ComboBox cmbDanhMuc;
         private System.Windows.Forms.ComboBox cmbLocLsp;
     }

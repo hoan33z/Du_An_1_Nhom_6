@@ -105,7 +105,6 @@ namespace _3.PL.Views
 
         private void FrmThanhToan_Load(object sender, EventArgs e)
         {
-
             loadDonHang();
             loadcthd();
         }
@@ -119,6 +118,9 @@ namespace _3.PL.Views
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
             this.Hide();
+            var editcthd = _hoaDonService.GetEdit(_idhd);
+            editcthd.TrangThai = false;
+            _hoaDonService.Update(editcthd);
             FrmDatHang frmdh = new FrmDatHang(_idkh);
             frmdh.ShowDialog();
         }
