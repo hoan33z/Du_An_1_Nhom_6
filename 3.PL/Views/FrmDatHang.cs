@@ -54,17 +54,21 @@ namespace _3.PL.Views
             dgridDSSanPham.Rows.Clear();
             foreach (var x in _cTSanPhamService.GetAll())
             {
-                dgridDSSanPham.Rows.Add(
-                    x.IdChiTietSP,
-                    x.TenSp,
-                    x.TenLoaiSp,
-                    x.GiaBan,
-                    x.SoLuong,
-                    x.GiaNhap,
-                    x.TenNhaCungCap,
-                    x.TenDanhMuc,
-                    x.TenDonVi
-                    );
+                if (x.SoLuong <= 0) return;
+                else
+                {
+                    dgridDSSanPham.Rows.Add(
+                        x.IdChiTietSP,
+                        x.TenSp,
+                        x.TenLoaiSp,
+                        x.GiaBan,
+                        x.SoLuong,
+                        x.GiaNhap,
+                        x.TenNhaCungCap,
+                        x.TenDanhMuc,
+                        x.TenDonVi
+                        );
+                }
             }
         }
         public void loadKH()

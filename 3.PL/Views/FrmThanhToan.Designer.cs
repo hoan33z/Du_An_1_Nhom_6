@@ -33,6 +33,10 @@
             this.dgridGioHang = new System.Windows.Forms.DataGridView();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTienThua = new System.Windows.Forms.TextBox();
+            this.txtTienKhachTra = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtTenKH = new System.Windows.Forms.TextBox();
@@ -44,10 +48,6 @@
             this.btnHuy = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnQuayLai = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtTienKhachTra = new System.Windows.Forms.TextBox();
-            this.txtTienThua = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).BeginInit();
@@ -126,6 +126,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thanh Toán";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 357);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(127, 32);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Tiền Thừa";
+            // 
+            // txtTienThua
+            // 
+            this.txtTienThua.Location = new System.Drawing.Point(200, 350);
+            this.txtTienThua.Name = "txtTienThua";
+            this.txtTienThua.Size = new System.Drawing.Size(336, 39);
+            this.txtTienThua.TabIndex = 17;
+            // 
+            // txtTienKhachTra
+            // 
+            this.txtTienKhachTra.Location = new System.Drawing.Point(200, 302);
+            this.txtTienKhachTra.Name = "txtTienKhachTra";
+            this.txtTienKhachTra.Size = new System.Drawing.Size(336, 39);
+            this.txtTienKhachTra.TabIndex = 16;
+            this.txtTienKhachTra.TextChanged += new System.EventHandler(this.txtTienKhachTra_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 309);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(181, 32);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Tiền Khách Trả";
+            // 
             // txtTongTien
             // 
             this.txtTongTien.Location = new System.Drawing.Point(200, 246);
@@ -193,7 +226,7 @@
             // btnHuy
             // 
             this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnHuy.Location = new System.Drawing.Point(6, 349);
+            this.btnHuy.Location = new System.Drawing.Point(6, 33);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(264, 44);
             this.btnHuy.TabIndex = 6;
@@ -205,9 +238,9 @@
             // 
             this.groupBox2.Controls.Add(this.btnQuayLai);
             this.groupBox2.Controls.Add(this.btnHuy);
-            this.groupBox2.Location = new System.Drawing.Point(912, 12);
+            this.groupBox2.Location = new System.Drawing.Point(912, 334);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(276, 454);
+            this.groupBox2.Size = new System.Drawing.Size(276, 132);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức Năng";
@@ -215,46 +248,13 @@
             // btnQuayLai
             // 
             this.btnQuayLai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnQuayLai.Location = new System.Drawing.Point(6, 399);
+            this.btnQuayLai.Location = new System.Drawing.Point(6, 83);
             this.btnQuayLai.Name = "btnQuayLai";
             this.btnQuayLai.Size = new System.Drawing.Size(264, 44);
             this.btnQuayLai.TabIndex = 7;
             this.btnQuayLai.Text = "Quay Lại";
             this.btnQuayLai.UseVisualStyleBackColor = true;
             this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 309);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(181, 32);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Tiền Khách Trả";
-            // 
-            // txtTienKhachTra
-            // 
-            this.txtTienKhachTra.Location = new System.Drawing.Point(200, 302);
-            this.txtTienKhachTra.Name = "txtTienKhachTra";
-            this.txtTienKhachTra.Size = new System.Drawing.Size(336, 39);
-            this.txtTienKhachTra.TabIndex = 16;
-            this.txtTienKhachTra.TextChanged += new System.EventHandler(this.txtTienKhachTra_TextChanged);
-            // 
-            // txtTienThua
-            // 
-            this.txtTienThua.Location = new System.Drawing.Point(200, 350);
-            this.txtTienThua.Name = "txtTienThua";
-            this.txtTienThua.Size = new System.Drawing.Size(336, 39);
-            this.txtTienThua.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 357);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 32);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Tiền Thừa";
             // 
             // FrmThanhToan
             // 

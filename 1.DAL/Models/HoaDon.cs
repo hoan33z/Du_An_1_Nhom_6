@@ -11,7 +11,6 @@ namespace _1.DAL.Models
         public Guid IdHoaDon { get; set; }
         public Guid IdKhachHang { get; set; }
         public Guid IdNhanVien { get; set; }
-
         public decimal TongTien { get; set; }
         public DateTime NgayThanhToan { get; set; }
         public DateTime NgayTao { get; set; }

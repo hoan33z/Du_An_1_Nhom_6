@@ -18,8 +18,6 @@ namespace _3.PL.Views
     {
         private VatLieuDbContext _db;
         IHoaDonService _hoaDonService;
-
-
         public FrmQuanLyHoaDon()
         {
             InitializeComponent();
@@ -39,9 +37,9 @@ namespace _3.PL.Views
             dgrid_hoaDon.Columns[5].Name = "Trạng thái";
             dgrid_hoaDon.Columns[6].Name = "Tổng Tiền";
             dgrid_hoaDon.Rows.Clear();
-            foreach (var x in _hoaDonService.GetAll())
+            foreach (var x in _db.HoaDons)
             {
-                dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.NgayTao, x.NgayThanhToan, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
+                dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.IdKhachHang, x.IdNhanVien, x.NgayTao, x.NgayThanhToan, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
             }
         }
         public void loadDataTimKiem()
