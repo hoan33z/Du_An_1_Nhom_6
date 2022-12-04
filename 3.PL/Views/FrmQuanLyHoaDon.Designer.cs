@@ -43,6 +43,7 @@
             this.dgrid_hoaDon.RowTemplate.Height = 29;
             this.dgrid_hoaDon.Size = new System.Drawing.Size(800, 338);
             this.dgrid_hoaDon.TabIndex = 25;
+            this.dgrid_hoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hoaDon_CellClick);
             // 
             // label1
             // 
@@ -56,10 +57,11 @@
             // 
             // txt_timKiem
             // 
-            this.txt_timKiem.Location = new System.Drawing.Point(521, 76);
+            this.txt_timKiem.Location = new System.Drawing.Point(12, 76);
             this.txt_timKiem.Name = "txt_timKiem";
             this.txt_timKiem.Size = new System.Drawing.Size(278, 27);
             this.txt_timKiem.TabIndex = 26;
+            this.txt_timKiem.TextChanged += new System.EventHandler(this.txt_timKiem_TextChanged);
             // 
             // FrmQuanLyHoaDon
             // 
