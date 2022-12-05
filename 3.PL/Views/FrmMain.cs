@@ -206,8 +206,9 @@ namespace _3.PL.Views
 
         private void thốngKêHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Guid idnv = _inFoNhanVien.IdNhanVien;
             loadForm.Controls.Clear();
-            FrmQuanLyHoaDon frm = new FrmQuanLyHoaDon();
+            FrmQuanLyHoaDon frm = new FrmQuanLyHoaDon(idnv);
             frm.TopLevel = false;
             loadForm.Controls.Add(frm);
             frm.FormBorderStyle = FormBorderStyle.None;

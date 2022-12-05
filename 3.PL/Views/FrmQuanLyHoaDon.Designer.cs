@@ -31,6 +31,9 @@
             this.dgrid_hoaDon = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_timKiem = new System.Windows.Forms.TextBox();
+            this.cbx_trangThai = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnHuy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hoaDon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +44,7 @@
             this.dgrid_hoaDon.Name = "dgrid_hoaDon";
             this.dgrid_hoaDon.RowHeadersWidth = 51;
             this.dgrid_hoaDon.RowTemplate.Height = 29;
-            this.dgrid_hoaDon.Size = new System.Drawing.Size(800, 338);
+            this.dgrid_hoaDon.Size = new System.Drawing.Size(953, 338);
             this.dgrid_hoaDon.TabIndex = 25;
             this.dgrid_hoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hoaDon_CellClick);
             // 
@@ -63,11 +66,47 @@
             this.txt_timKiem.TabIndex = 26;
             this.txt_timKiem.TextChanged += new System.EventHandler(this.txt_timKiem_TextChanged);
             // 
+            // cbx_trangThai
+            // 
+            this.cbx_trangThai.FormattingEnabled = true;
+            this.cbx_trangThai.Items.AddRange(new object[] {
+            "Tất cả",
+            "Đã thanh toán",
+            "Chưa thanh toán"});
+            this.cbx_trangThai.Location = new System.Drawing.Point(769, 75);
+            this.cbx_trangThai.Name = "cbx_trangThai";
+            this.cbx_trangThai.Size = new System.Drawing.Size(183, 28);
+            this.cbx_trangThai.TabIndex = 36;
+            this.cbx_trangThai.SelectedIndexChanged += new System.EventHandler(this.cbx_trangThai_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(629, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 20);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "Trạng thái hóa đơn";
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHuy.Location = new System.Drawing.Point(688, 453);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(264, 44);
+            this.btnHuy.TabIndex = 38;
+            this.btnHuy.Text = "Hủy Hóa Đơn";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // FrmQuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(954, 502);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbx_trangThai);
             this.Controls.Add(this.txt_timKiem);
             this.Controls.Add(this.dgrid_hoaDon);
             this.Controls.Add(this.label1);
@@ -85,5 +124,8 @@
         private System.Windows.Forms.DataGridView dgrid_hoaDon;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_timKiem;
+        private System.Windows.Forms.ComboBox cbx_trangThai;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnHuy;
     }
 }
