@@ -57,7 +57,7 @@
             // 
             // txt_timKiem
             // 
-            this.txt_timKiem.Location = new System.Drawing.Point(12, 76);
+            this.txt_timKiem.Location = new System.Drawing.Point(-1, 76);
             this.txt_timKiem.Name = "txt_timKiem";
             this.txt_timKiem.Size = new System.Drawing.Size(278, 27);
             this.txt_timKiem.TabIndex = 26;
