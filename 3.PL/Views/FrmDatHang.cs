@@ -108,6 +108,8 @@ namespace _3.PL.Views
             txtTenSP.ReadOnly = true;
             txtDonGia.ReadOnly = true;
             btnThemSP.Visible = true;
+            btnSuaTT.Visible = false;
+            btnXoa.Visible = false;
         }
 
         private void btnThemSP_Click(object sender, EventArgs e)
@@ -149,6 +151,9 @@ namespace _3.PL.Views
             txtTenSP.ReadOnly = true;
             txtDonGia.ReadOnly = true;
             btnThemSP.Visible = false;
+            btnSuaTT.Visible = true;
+            btnXoa.Visible = true;
+
         }
         private void btnSuaTT_Click(object sender, EventArgs e)
         {

@@ -10,7 +10,7 @@ using _1.DAL.Models;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(VatLieuDbContext))]
-    [Migration("20221203085300_hoan")]
+    [Migration("20221207082453_hoan")]
     partial class hoan
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

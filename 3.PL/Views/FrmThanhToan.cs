@@ -84,7 +84,11 @@ namespace _3.PL.Views
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (int.Parse(txtTienThua.Text) < 0)
+            if (txtTienThua.Text == "")
+            {
+                MessageBox.Show("Chưa Nhập Tiền Để Thanh Toán");
+            }
+         else   if (int.Parse(txtTienThua.Text) < 0)
             {
                 MessageBox.Show("Không Đủ Tiền Để Thanh Toán");
             }
@@ -98,7 +102,7 @@ namespace _3.PL.Views
                 MessageBox.Show("Đã Thanh Toán");
                 this.Hide();
                 FrmInHoaDon frmin = new FrmInHoaDon(_idkh);
-                frmin.Show();
+                frmin.ShowDialog();
             }
         }
         private void btnHuy_Click(object sender, EventArgs e)

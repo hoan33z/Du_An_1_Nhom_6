@@ -26,6 +26,11 @@ namespace _3.PL.Views
             _ISanPhamService = new SanPhamService();
             _db = new VatLieuDbContext();
         }
+
+        private void FrmThongKeDoanhThu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

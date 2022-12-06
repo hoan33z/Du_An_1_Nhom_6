@@ -68,5 +68,10 @@ namespace _3.PL.Views
             lblThanhChu.MaximumSize = new Size(470, 0);
             lblThanhChu.Text = TT;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
