@@ -13,12 +13,12 @@ namespace _3.PL.Views
         IHoaDonService _hoaDonService;
         Guid _id;
         Guid _idnv;
-        public FrmTTKhachHang(Guid idnv)
+        public FrmTTKhachHang(Guid id)
         {
             InitializeComponent();
             _khachHangService = new KhachHangService();
             _hoaDonService = new HoaDonService();
-            _idnv = idnv;
+            _idnv = id;
             LoadTTKhachHang();
         }
         public EditKhachHangView GetKhachHang()
@@ -103,7 +103,7 @@ namespace _3.PL.Views
             LoadTTKhachHang();
             ClearForm();
         }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
             if (txtSDT.Text == "")
@@ -113,10 +113,8 @@ namespace _3.PL.Views
             else
             {
                 _hoaDonService.Add(GetEditHoaDonView());
-
                 MessageBox.Show("Tạo hóa đơn thành công");
-                FrmDatHang frmdh = new FrmDatHang(_id);
-                frmdh.ShowDialog();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -168,7 +166,6 @@ namespace _3.PL.Views
                 e.Handled = true;
             }
         }
-
         private void txtTimKiem_MouseClick(object sender, MouseEventArgs e)
         {
             txtTimKiem.Text = "";

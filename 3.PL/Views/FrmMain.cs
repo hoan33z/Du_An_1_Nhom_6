@@ -156,13 +156,8 @@ namespace _3.PL.Views
         }
         private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm.Controls.Clear();
-            FrmTTKhachHang frm = new FrmTTKhachHang(_inFoNhanVien.IdNhanVien);
-            frm.TopLevel = false;
-            loadForm.Controls.Add(frm);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            FrmDatHang frm = new FrmDatHang(_inFoNhanVien.IdNhanVien);
+            frm.ShowDialog();
         }
         private void QLKhacToolStripMenuItem_Click(object sender, EventArgs e)
         {

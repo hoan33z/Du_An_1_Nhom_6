@@ -24,19 +24,20 @@ namespace _3.PL.Views
         IKhachHangService _khachHangService;
         Guid _idgh;
         Guid _idsp;
-        Guid _idkh;
-        public FrmDatHang(Guid idkh)
+        Guid _idnv;
+        public FrmDatHang(Guid id)
         {
             InitializeComponent();
             _cTSanPhamService = new CTSanPhamService();
             _cTHoaDonService = new CTHoaDonService();
             _hoaDonService = new HoaDonService();
             _khachHangService = new KhachHangService();
-            _idkh = idkh;
+            _idnv = id;
             LoadDSSanPham();
-            loadKH();
             LoadGioHang();
             LoadLoc();
+            LoadHoaDon();
+            loadKH();
         }
         public void LoadDSSanPham()
         {
@@ -73,12 +74,15 @@ namespace _3.PL.Views
         }
         public void loadKH()
         {
-            var kh = _khachHangService.GetEdit(_idkh);
-            txtTenKH.Text = kh.TenKh;
-            txtSDT.Text = kh.SDT;
-            txtGioiTinh.Text = kh.GioiTinh == 0 ? "Nam" : "Nữ";
-            txtDCNhan.Text = kh.DCNhanHang;
-            dateNgayNhan.Value = kh.NgayNhan;
+            if (_khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang)!= null)
+            {
+                var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang);
+                txtTenKH.Text = kh.TenKh;
+                txtSDT.Text = kh.SDT;
+                txtGioiTinh.Text = kh.GioiTinh == 0 ? "Nam" : "Nữ";
+                txtDCNhan.Text = kh.DCNhanHang;
+                dateNgayNhan.Value = kh.NgayNhan;
+            }
         }
         public void LoadGioHang()
         {
@@ -90,17 +94,24 @@ namespace _3.PL.Views
             dgridGioHang.Columns[3].Name = "Số Lượng";
             dgridGioHang.Columns[4].Name = "Thành Tiền";
             dgridGioHang.Rows.Clear();
-            Guid idhd = _hoaDonService.GetEdit(_idkh).IdHoaDon;
-            List<CTHoaDonView> lsteditcthd = (from a in _cTHoaDonService.GetAll() where a.IdHoaDon == idhd select a).ToList();
-            foreach (var x in lsteditcthd)
+            if (_hoaDonService.GetEdit(_idnv) != null)
             {
-                dgridGioHang.Rows.Add(x.IdCTHoaDon, x.TenSp, x.DonGia, x.SoLuongMua, x.DonGia * x.SoLuongMua);
+                Guid idhd = _hoaDonService.GetEdit(_idnv).IdHoaDon;
+                List<CTHoaDonView> lsteditcthd = (from a in _cTHoaDonService.GetAll() where a.IdHoaDon == idhd select a).ToList();
+                foreach (var x in lsteditcthd)
+                {
+                    dgridGioHang.Rows.Add(x.IdCTHoaDon, x.TenSp, x.DonGia, x.SoLuongMua, x.DonGia * x.SoLuongMua);
+                }
+            }
+            else
+            {
+                return;
             }
         }
         private void dgridDSSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            if (index == -1 || _cTSanPhamService.GetAll().Count== index) return;
+            if (index == -1 || _cTSanPhamService.GetAll().Count == index) return;
             _idsp = Guid.Parse(dgridDSSanPham.Rows[index].Cells[0].Value.ToString());
             var SP = _cTSanPhamService.GetAll().FirstOrDefault(c => c.IdChiTietSP == _idsp);
             txtTenSP.Text = SP.TenSp;
@@ -137,7 +148,7 @@ namespace _3.PL.Views
         }
         public EditCTHoaDonView GetEditCTHoaDonView(EditCTSanPhamView editsp)
         {
-            var hd = _hoaDonService.GetEdit(_idkh);
+            var hd = _hoaDonService.GetEdit(_idnv);
             return new EditCTHoaDonView() { IdHoaDon = hd.IdHoaDon, IdChiTietSP = editsp.IdChiTietSP, DonGia = editsp.GiaBan, SoLuongMua = int.Parse(txtSoLuong.Text) };
         }
         private void dgridGioHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -171,11 +182,11 @@ namespace _3.PL.Views
             else
             {
                 this.Hide();
-                var kh = _khachHangService.GetEdit(_idkh);
+                var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang);
                 kh.DCNhanHang = txtDCNhan.Text;
                 kh.NgayNhan = dateNgayNhan.Value;
                 _khachHangService.Update(kh);
-                FrmThanhToan frmtt = new FrmThanhToan(_idkh);
+                FrmThanhToan frmtt = new FrmThanhToan(_idnv);
                 frmtt.ShowDialog();
             }
         }
@@ -193,7 +204,6 @@ namespace _3.PL.Views
         private void FrmDatHang_Load(object sender, EventArgs e)
         {
             LoadDSSanPham();
-            loadKH();
             LoadGioHang();
         }
 
@@ -297,15 +307,15 @@ namespace _3.PL.Views
                                                where a.TenDanhMuc == cmbDanhMuc.Text && a.TenLoaiSp == cmbLocLsp.Text
                                                select new CTSanPhamView()
                                                {
-                                                   IdChiTietSP=a.IdChiTietSP,
-                                                   TenSp=a.TenSp,
-                                                   TenLoaiSp=a.TenLoaiSp,
-                                                   GiaBan=a.GiaBan,
-                                                   SoLuong=a.SoLuong,
-                                                   GiaNhap=a.GiaNhap,
-                                                   TenNhaCungCap=a.TenNhaCungCap,
-                                                   TenDanhMuc=a.TenDanhMuc,
-                                                   TenDonVi=a.TenDonVi
+                                                   IdChiTietSP = a.IdChiTietSP,
+                                                   TenSp = a.TenSp,
+                                                   TenLoaiSp = a.TenLoaiSp,
+                                                   GiaBan = a.GiaBan,
+                                                   SoLuong = a.SoLuong,
+                                                   GiaNhap = a.GiaNhap,
+                                                   TenNhaCungCap = a.TenNhaCungCap,
+                                                   TenDanhMuc = a.TenDanhMuc,
+                                                   TenDonVi = a.TenDonVi
                                                }).ToList();
                 foreach (var x in lstctsp)
                 {
@@ -348,7 +358,7 @@ namespace _3.PL.Views
             foreach (var x in _cTSanPhamService.GetAll())
             {
                 cmbDanhMuc.Items.Add(x.TenDanhMuc);
-                cmbLocLsp.Items.Add(x.TenLoaiSp);        
+                cmbLocLsp.Items.Add(x.TenLoaiSp);
             }
             cmbLocLsp.SelectedIndex = 0;
             cmbDanhMuc.SelectedIndex = 0;
@@ -356,7 +366,7 @@ namespace _3.PL.Views
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (txtTimKiem.Text=="")
+            if (txtTimKiem.Text == "")
             {
                 LoadDSSanPham();
             }
@@ -382,6 +392,41 @@ namespace _3.PL.Views
         private void txtTimKiem_MouseClick(object sender, MouseEventArgs e)
         {
             txtTimKiem.Text = "";
+        }
+        public void LoadHoaDon()
+        {
+            dgridHoaDon.ColumnCount = 3;
+            dgridHoaDon.Columns[0].Name = "IDHoaDon";
+            dgridHoaDon.Columns[0].Visible = false;
+            dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
+            dgridHoaDon.Columns[2].Name = "Trạng thái";
+            dgridHoaDon.Rows.Clear();
+            foreach (var x in _hoaDonService.GetAll().OrderBy(c => c.TrangThai))
+            {
+                dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán");
+            }
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (_hoaDonService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang) == null)
+            {
+                FrmTTKhachHang frm = new FrmTTKhachHang(_idnv);
+                DialogResult frmok = frm.ShowDialog();
+                if (frmok == DialogResult.OK)
+                {
+                    LoadHoaDon();
+                }
+            }
+            else
+            {
+                FrmTTKhachHang frm = new FrmTTKhachHang(_idnv);
+                DialogResult frmok = frm.ShowDialog();
+                if (frmok == DialogResult.OK)
+                {
+                    LoadHoaDon();
+                }
+            }
         }
     }
 }

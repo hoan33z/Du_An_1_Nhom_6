@@ -58,6 +58,7 @@ namespace _2.BUS.Service
                            join d in _sanPhamService.GetAll() on c.IdSp equals d.IdSp
                            select new CTHoaDonView()
                            {
+                               IdChiTietSP= c.IdChiTietSP,
                                IdHoaDon=b.IdHoaDon,
                                IdCTHoaDon = a.IdCTHoaDon,
                                TenSp = d.TenSp,

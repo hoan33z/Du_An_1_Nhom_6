@@ -43,6 +43,7 @@
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.dgridGioHang = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
@@ -58,12 +59,16 @@
             this.cmbDanhMuc = new System.Windows.Forms.ComboBox();
             this.cmbLocLsp = new System.Windows.Forms.ComboBox();
             this.dgridDSSanPham = new System.Windows.Forms.DataGridView();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dgridHoaDon = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridGioHang)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridDSSanPham)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -171,9 +176,9 @@
             this.groupBox2.Controls.Add(this.btnThanhToan);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.dgridGioHang);
-            this.groupBox2.Location = new System.Drawing.Point(921, 12);
+            this.groupBox2.Location = new System.Drawing.Point(1127, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(806, 328);
+            this.groupBox2.Size = new System.Drawing.Size(600, 328);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giỏ Hàng";
@@ -181,7 +186,7 @@
             // btnThanhToan
             // 
             this.btnThanhToan.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnThanhToan.Location = new System.Drawing.Point(504, 262);
+            this.btnThanhToan.Location = new System.Drawing.Point(298, 262);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(299, 63);
             this.btnThanhToan.TabIndex = 23;
@@ -210,12 +215,23 @@
             this.dgridGioHang.ReadOnly = true;
             this.dgridGioHang.RowHeadersWidth = 62;
             this.dgridGioHang.RowTemplate.Height = 33;
-            this.dgridGioHang.Size = new System.Drawing.Size(800, 232);
+            this.dgridGioHang.Size = new System.Drawing.Size(594, 232);
             this.dgridGioHang.TabIndex = 19;
             this.dgridGioHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridGioHang_CellClick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1089, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(163, 38);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Thêm HĐ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button1);
             this.groupBox4.Controls.Add(this.groupBox3);
             this.groupBox4.Controls.Add(this.txtTimKiem);
             this.groupBox4.Controls.Add(this.cmbDanhMuc);
@@ -370,12 +386,34 @@
             this.dgridDSSanPham.TabIndex = 19;
             this.dgridDSSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDSSanPham_CellClick);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dgridHoaDon);
+            this.groupBox5.Location = new System.Drawing.Point(585, 12);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(536, 330);
+            this.groupBox5.TabIndex = 21;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Hóa Đơn";
+            // 
+            // dgridHoaDon
+            // 
+            this.dgridHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgridHoaDon.Location = new System.Drawing.Point(3, 30);
+            this.dgridHoaDon.Name = "dgridHoaDon";
+            this.dgridHoaDon.RowHeadersWidth = 62;
+            this.dgridHoaDon.RowTemplate.Height = 33;
+            this.dgridHoaDon.Size = new System.Drawing.Size(530, 297);
+            this.dgridHoaDon.TabIndex = 0;
+            // 
             // FrmDatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1727, 725);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -394,6 +432,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridDSSanPham)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgridHoaDon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -429,5 +469,8 @@
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.ComboBox cmbDanhMuc;
         private System.Windows.Forms.ComboBox cmbLocLsp;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView dgridHoaDon;
     }
 }

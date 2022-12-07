@@ -40,11 +40,12 @@
             // dgrid_hoaDon
             // 
             this.dgrid_hoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_hoaDon.Location = new System.Drawing.Point(-1, 109);
+            this.dgrid_hoaDon.Location = new System.Drawing.Point(-1, 136);
+            this.dgrid_hoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgrid_hoaDon.Name = "dgrid_hoaDon";
             this.dgrid_hoaDon.RowHeadersWidth = 51;
             this.dgrid_hoaDon.RowTemplate.Height = 29;
-            this.dgrid_hoaDon.Size = new System.Drawing.Size(953, 338);
+            this.dgrid_hoaDon.Size = new System.Drawing.Size(1191, 422);
             this.dgrid_hoaDon.TabIndex = 25;
             this.dgrid_hoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hoaDon_CellClick);
             // 
@@ -52,17 +53,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(271, 9);
+            this.label1.Location = new System.Drawing.Point(339, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 38);
+            this.label1.Size = new System.Drawing.Size(313, 45);
             this.label1.TabIndex = 24;
             this.label1.Text = "Thống Kê Hóa Đơn";
             // 
             // txt_timKiem
             // 
-            this.txt_timKiem.Location = new System.Drawing.Point(-1, 76);
+            this.txt_timKiem.Location = new System.Drawing.Point(13, 94);
+            this.txt_timKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_timKiem.Name = "txt_timKiem";
-            this.txt_timKiem.Size = new System.Drawing.Size(278, 27);
+            this.txt_timKiem.Size = new System.Drawing.Size(346, 31);
             this.txt_timKiem.TabIndex = 26;
             this.txt_timKiem.TextChanged += new System.EventHandler(this.txt_timKiem_TextChanged);
             // 
@@ -73,27 +76,30 @@
             "Tất cả",
             "Đã thanh toán",
             "Chưa thanh toán"});
-            this.cbx_trangThai.Location = new System.Drawing.Point(769, 75);
+            this.cbx_trangThai.Location = new System.Drawing.Point(961, 94);
+            this.cbx_trangThai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbx_trangThai.Name = "cbx_trangThai";
-            this.cbx_trangThai.Size = new System.Drawing.Size(183, 28);
+            this.cbx_trangThai.Size = new System.Drawing.Size(228, 33);
             this.cbx_trangThai.TabIndex = 36;
             this.cbx_trangThai.SelectedIndexChanged += new System.EventHandler(this.cbx_trangThai_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(629, 79);
+            this.label2.Location = new System.Drawing.Point(786, 99);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 20);
+            this.label2.Size = new System.Drawing.Size(161, 25);
             this.label2.TabIndex = 37;
             this.label2.Text = "Trạng thái hóa đơn";
             // 
             // btnHuy
             // 
             this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnHuy.Location = new System.Drawing.Point(688, 453);
+            this.btnHuy.Location = new System.Drawing.Point(860, 566);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(264, 44);
+            this.btnHuy.Size = new System.Drawing.Size(330, 55);
             this.btnHuy.TabIndex = 38;
             this.btnHuy.Text = "Hủy Hóa Đơn";
             this.btnHuy.UseVisualStyleBackColor = true;
@@ -101,15 +107,16 @@
             // 
             // FrmQuanLyHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 502);
+            this.ClientSize = new System.Drawing.Size(1192, 628);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbx_trangThai);
             this.Controls.Add(this.txt_timKiem);
             this.Controls.Add(this.dgrid_hoaDon);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmQuanLyHoaDon";
             this.Text = "FrmQuanLyHoaDon";
             this.Load += new System.EventHandler(this.FrmQuanLyHoaDon_Load);

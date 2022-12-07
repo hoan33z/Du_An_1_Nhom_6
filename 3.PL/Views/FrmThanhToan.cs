@@ -13,15 +13,15 @@ namespace _3.PL.Views
     {
         IHoaDonService _hoaDonService;
         ICTHoaDonService _cTHoaDonService;
-        Guid _idkh;
         Guid _idhd;
-        public FrmThanhToan(Guid idkh)
+        Guid _idnv;
+        public FrmThanhToan(Guid idnv)
         {
             InitializeComponent();
             _hoaDonService = new HoaDonService();
             _cTHoaDonService = new CTHoaDonService();
-            _idkh = idkh;
-            _idhd = _hoaDonService.GetEdit(_idkh).IdHoaDon;
+            _idnv = idnv;
+            _idhd = _hoaDonService.GetEdit(idnv).IdHoaDon;
             loadDonHang();
             loadcthd();
         }
@@ -88,7 +88,7 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Chưa Nhập Tiền Để Thanh Toán");
             }
-         else   if (int.Parse(txtTienThua.Text) < 0)
+            else if (int.Parse(txtTienThua.Text) < 0)
             {
                 MessageBox.Show("Không Đủ Tiền Để Thanh Toán");
             }
@@ -101,7 +101,7 @@ namespace _3.PL.Views
                 _hoaDonService.Update(editcthd);
                 MessageBox.Show("Đã Thanh Toán");
                 this.Hide();
-                FrmInHoaDon frmin = new FrmInHoaDon(_idkh);
+                FrmInHoaDon frmin = new FrmInHoaDon(_idnv);
                 frmin.ShowDialog();
             }
         }
@@ -132,7 +132,7 @@ namespace _3.PL.Views
             var editcthd = _hoaDonService.GetEdit(_idhd);
             editcthd.TrangThai = false;
             _hoaDonService.Update(editcthd);
-            FrmDatHang frmdh = new FrmDatHang(_idkh);
+            FrmDatHang frmdh = new FrmDatHang(_idnv);
             frmdh.ShowDialog();
         }
 

@@ -49,10 +49,10 @@
             // loadForm
             // 
             this.loadForm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.loadForm.Location = new System.Drawing.Point(0, -59);
-            this.loadForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loadForm.Location = new System.Drawing.Point(0, 37);
+            this.loadForm.Margin = new System.Windows.Forms.Padding(4);
             this.loadForm.Name = "loadForm";
-            this.loadForm.Size = new System.Drawing.Size(1156, 741);
+            this.loadForm.Size = new System.Drawing.Size(1156, 645);
             this.loadForm.TabIndex = 1;
             // 
             // QLBanHangToolStripMenuItem
@@ -183,7 +183,7 @@
             this.ClientSize = new System.Drawing.Size(1156, 682);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.loadForm);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
