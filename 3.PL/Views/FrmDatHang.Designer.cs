@@ -402,10 +402,12 @@
             this.dgridHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgridHoaDon.Location = new System.Drawing.Point(3, 30);
             this.dgridHoaDon.Name = "dgridHoaDon";
+            this.dgridHoaDon.ReadOnly = true;
             this.dgridHoaDon.RowHeadersWidth = 62;
             this.dgridHoaDon.RowTemplate.Height = 33;
             this.dgridHoaDon.Size = new System.Drawing.Size(530, 297);
             this.dgridHoaDon.TabIndex = 0;
+            this.dgridHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridHoaDon_CellClick);
             // 
             // FrmDatHang
             // 

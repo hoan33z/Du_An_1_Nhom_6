@@ -139,6 +139,7 @@
             // 
             this.txtTienThua.Location = new System.Drawing.Point(200, 349);
             this.txtTienThua.Name = "txtTienThua";
+            this.txtTienThua.ReadOnly = true;
             this.txtTienThua.Size = new System.Drawing.Size(336, 39);
             this.txtTienThua.TabIndex = 17;
             // 
@@ -163,6 +164,7 @@
             // 
             this.txtTongTien.Location = new System.Drawing.Point(200, 225);
             this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.ReadOnly = true;
             this.txtTongTien.Size = new System.Drawing.Size(336, 39);
             this.txtTongTien.TabIndex = 14;
             // 
@@ -177,6 +179,7 @@
             // 
             this.txtTenKH.Location = new System.Drawing.Point(200, 101);
             this.txtTenKH.Name = "txtTenKH";
+            this.txtTenKH.ReadOnly = true;
             this.txtTenKH.Size = new System.Drawing.Size(336, 39);
             this.txtTenKH.TabIndex = 10;
             // 
@@ -211,6 +214,7 @@
             // 
             this.txtNhanVienTT.Location = new System.Drawing.Point(200, 39);
             this.txtNhanVienTT.Name = "txtNhanVienTT";
+            this.txtNhanVienTT.ReadOnly = true;
             this.txtNhanVienTT.Size = new System.Drawing.Size(336, 39);
             this.txtNhanVienTT.TabIndex = 5;
             // 
@@ -226,7 +230,7 @@
             // btnHuy
             // 
             this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnHuy.Location = new System.Drawing.Point(6, 134);
+            this.btnHuy.Location = new System.Drawing.Point(6, 33);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(264, 44);
             this.btnHuy.TabIndex = 6;
@@ -238,9 +242,9 @@
             // 
             this.groupBox2.Controls.Add(this.btnQuayLai);
             this.groupBox2.Controls.Add(this.btnHuy);
-            this.groupBox2.Location = new System.Drawing.Point(912, 222);
+            this.groupBox2.Location = new System.Drawing.Point(912, 329);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(276, 244);
+            this.groupBox2.Size = new System.Drawing.Size(276, 137);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức Năng";
@@ -248,7 +252,7 @@
             // btnQuayLai
             // 
             this.btnQuayLai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnQuayLai.Location = new System.Drawing.Point(6, 189);
+            this.btnQuayLai.Location = new System.Drawing.Point(6, 83);
             this.btnQuayLai.Name = "btnQuayLai";
             this.btnQuayLai.Size = new System.Drawing.Size(264, 44);
             this.btnQuayLai.TabIndex = 7;

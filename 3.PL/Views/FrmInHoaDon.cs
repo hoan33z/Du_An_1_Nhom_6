@@ -72,10 +72,10 @@ namespace _3.PL.Views
             foreach (var x in lstcthd)
             {
                 tong += x.SoLuongMua * x.DonGia;
-                lblTongTien.Text = tong.ToString();
+                lblTongTien.Text = tong.ToString()+ "VNĐ";
             }
             var TT = Utility.NumberToText(tong);
-            lblThanhChu.MaximumSize = new Size(470, 0);
+            lblThanhChu.MaximumSize = new Size(266, 0);
             lblThanhChu.Text = TT;
         }
         private void button1_Click(object sender, EventArgs e)

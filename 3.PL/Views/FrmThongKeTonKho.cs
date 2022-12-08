@@ -3,12 +3,8 @@ using _2.BUS.Service;
 using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _3.PL.Views
@@ -38,6 +34,7 @@ namespace _3.PL.Views
         }
         private void LoadData()
         {
+            dgrid_TonKho.ColumnCount = 7;
             dgrid_TonKho.Columns[0].Name = "IdSp";
             dgrid_TonKho.Columns[0].Visible = false;
             dgrid_TonKho.Columns[1].Name = "Tên Sản Phẩm";
@@ -87,9 +84,7 @@ namespace _3.PL.Views
                                                }).ToList();
                 foreach (var x in lstctsp)
                 {
-                    dgrid_TonKho.Rows.Add(
-                             x.IdChiTietSP, x.TenSp, x.TenDanhMuc, x.TenLoaiSp, x.TenNhaCungCap, x.TenDonVi, x.SoLuong
-                        );
+                    dgrid_TonKho.Rows.Add(x.IdChiTietSP, x.TenSp, x.TenDanhMuc, x.TenLoaiSp, x.TenNhaCungCap, x.TenDonVi, x.SoLuong);
                 }
             }
             else
@@ -97,9 +92,7 @@ namespace _3.PL.Views
                 dgrid_TonKho.Rows.Clear();
                 foreach (var x in _IcTSanPhamService.GetAll().Where(c => c.TenDanhMuc == cbx_danhMuc.Text))
                 {
-                    dgrid_TonKho.Rows.Add(
-                        x.IdChiTietSP, x.TenSp, x.TenDanhMuc, x.TenLoaiSp, x.TenNhaCungCap, x.TenDonVi, x.SoLuong
-                        );
+                    dgrid_TonKho.Rows.Add(x.IdChiTietSP, x.TenSp, x.TenDanhMuc, x.TenLoaiSp, x.TenNhaCungCap, x.TenDonVi, x.SoLuong);
                 }
             }
         }
@@ -129,9 +122,7 @@ namespace _3.PL.Views
                                                }).ToList();
                 foreach (var x in lstctsp)
                 {
-                    dgrid_TonKho.Rows.Add(
-                       x.IdChiTietSP, x.TenSp, x.TenDanhMuc, x.TenLoaiSp, x.TenNhaCungCap, x.TenDonVi, x.SoLuong
-                        );
+                    dgrid_TonKho.Rows.Add(x.IdChiTietSP, x.TenSp, x.TenDanhMuc, x.TenLoaiSp, x.TenNhaCungCap, x.TenDonVi, x.SoLuong);
                 }
             }
             else
@@ -139,9 +130,7 @@ namespace _3.PL.Views
                 dgrid_TonKho.Rows.Clear();
                 foreach (var x in _IcTSanPhamService.GetAll().Where(c => c.TenLoaiSp == cbx_danhMuc.Text))
                 {
-                    dgrid_TonKho.Rows.Add(
-                        x.IdChiTietSP, x.TenSp, x.TenDanhMuc, x.TenLoaiSp, x.TenNhaCungCap, x.TenDonVi, x.SoLuong
-                        );
+                    dgrid_TonKho.Rows.Add(x.IdChiTietSP, x.TenSp, x.TenDanhMuc, x.TenLoaiSp, x.TenNhaCungCap, x.TenDonVi, x.SoLuong);
                 }
             }
         }

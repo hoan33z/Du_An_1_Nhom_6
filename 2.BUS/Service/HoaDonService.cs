@@ -73,9 +73,9 @@ namespace _2.BUS.Service
 
         public EditHoaDonView GetEdit(Guid id)
         {
-            if (_hoaDonRepository.GetAll().FirstOrDefault(c => c.IdKhachHang == id) != null)
+            if (_hoaDonRepository.GetAll().FirstOrDefault(c => c.IdNhanVien == id) != null)
             {
-                var Hdidkh = _hoaDonRepository.GetAll().FindLast(c => c.IdKhachHang == id);
+                var Hdidkh = _hoaDonRepository.GetAll().FindLast(c => c.IdNhanVien == id);
                 return new EditHoaDonView()
                 {
                     IdHoaDon = Hdidkh.IdHoaDon,

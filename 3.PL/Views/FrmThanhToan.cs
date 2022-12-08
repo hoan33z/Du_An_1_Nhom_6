@@ -1,6 +1,7 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Service;
 using _2.BUS.ViewModels;
+using Microsoft.Office.Core;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -109,9 +110,18 @@ namespace _3.PL.Views
         {
             var editcthd = _hoaDonService.GetEdit(_idhd);
             editcthd.IdHoaDon = _idhd;
-            _hoaDonService.Delete(editcthd);
-            MessageBox.Show("Đã Hủy");
-            this.Hide();
+            DialogResult lkResult = MessageBox.Show("Bạn có chắc muốn hủy ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            if (lkResult == DialogResult.Yes)
+            {
+                _hoaDonService.Delete(editcthd);
+                MessageBox.Show("Đã Hủy");
+                this.Hide();
+                return;
+            }
+            if (lkResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void FrmThanhToan_Load(object sender, EventArgs e)
@@ -129,9 +139,6 @@ namespace _3.PL.Views
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var editcthd = _hoaDonService.GetEdit(_idhd);
-            editcthd.TrangThai = false;
-            _hoaDonService.Update(editcthd);
             FrmDatHang frmdh = new FrmDatHang(_idnv);
             frmdh.ShowDialog();
         }

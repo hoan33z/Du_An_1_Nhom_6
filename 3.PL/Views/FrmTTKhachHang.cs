@@ -63,13 +63,16 @@ namespace _3.PL.Views
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtSDT.Text == "")
+            if (txtDiaChi.Text == "" || txtSDT.Text == "" || txtTenKH.Text == "")
             {
-                MessageBox.Show("Chưa chọn khách hàng");
+                MessageBox.Show("Chưa Nhập Đủ Thông Tin");
+            }
+            else if (_khachHangService.GetAll().FirstOrDefault(c => c.SDT == GetKhachHang().SDT) != null)
+            {
+                MessageBox.Show("Khách Hàng Đã Tồn Tại");
             }
             else
             {
-
                 MessageBox.Show(_khachHangService.Add(GetKhachHang()));
             }
             LoadTTKhachHang();
@@ -96,14 +99,20 @@ namespace _3.PL.Views
             }
             else
             {
-
-                MessageBox.Show(_khachHangService.Delete(GetKhachHang()));
+                DialogResult lkResult = MessageBox.Show("Bạn có chắc muốn xóa ?", "Cảnh báo", MessageBoxButtons.YesNo);
+                if (lkResult == DialogResult.Yes)
+                {
+                    MessageBox.Show(_khachHangService.Delete(GetKhachHang()));
+                    LoadTTKhachHang();
+                    ClearForm();
+                }
+                if (lkResult == DialogResult.No)
+                {
+                    return;
+                }
             }
-
-            LoadTTKhachHang();
-            ClearForm();
         }
-        
+
         private void button2_Click(object sender, EventArgs e)
         {
             if (txtSDT.Text == "")
@@ -135,6 +144,8 @@ namespace _3.PL.Views
             txtTenKH.Text = "";
             txtSDT.Text = "";
             txtDiaChi.Text = "";
+            rbtnNam.Checked = false;
+            rbtnNu.Checked = false;
         }
 
         private void btnClear_Click(object sender, EventArgs e)

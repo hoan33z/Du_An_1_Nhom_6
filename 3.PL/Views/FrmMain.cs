@@ -44,7 +44,7 @@ namespace _3.PL.Views
             else 
             {
                 loadForm.Controls.Clear();
-                FrmTTKhachHang frm = new FrmTTKhachHang(_inFoNhanVien.IdNhanVien);
+                FrmThongTinNv frm = new FrmThongTinNv(title);
                 frm.TopLevel = false;
                 loadForm.Controls.Add(frm);
                 frm.FormBorderStyle = FormBorderStyle.None;

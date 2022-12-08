@@ -25,6 +25,7 @@ namespace _3.PL.Views
         Guid _idgh;
         Guid _idsp;
         Guid _idnv;
+        Guid _idhd;
         public FrmDatHang(Guid id)
         {
             InitializeComponent();
@@ -34,10 +35,8 @@ namespace _3.PL.Views
             _khachHangService = new KhachHangService();
             _idnv = id;
             LoadDSSanPham();
-            LoadGioHang();
             LoadLoc();
             LoadHoaDon();
-            loadKH();
         }
         public void LoadDSSanPham()
         {
@@ -72,11 +71,11 @@ namespace _3.PL.Views
                 }
             }
         }
-        public void loadKH()
+        public void loadKH(Guid idhd)
         {
-            if (_khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang)!= null)
+            if (_khachHangService.GetEdit(_hoaDonService.GetEdit(idhd).IdKhachHang) != null)
             {
-                var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang);
+                var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(idhd).IdKhachHang);
                 txtTenKH.Text = kh.TenKh;
                 txtSDT.Text = kh.SDT;
                 txtGioiTinh.Text = kh.GioiTinh == 0 ? "Nam" : "Nữ";
@@ -84,7 +83,7 @@ namespace _3.PL.Views
                 dateNgayNhan.Value = kh.NgayNhan;
             }
         }
-        public void LoadGioHang()
+        public void LoadGioHang(Guid idhd)
         {
             dgridGioHang.ColumnCount = 5;
             dgridGioHang.Columns[0].Name = "IDCTHD";
@@ -96,7 +95,6 @@ namespace _3.PL.Views
             dgridGioHang.Rows.Clear();
             if (_hoaDonService.GetEdit(_idnv) != null)
             {
-                Guid idhd = _hoaDonService.GetEdit(_idnv).IdHoaDon;
                 List<CTHoaDonView> lsteditcthd = (from a in _cTHoaDonService.GetAll() where a.IdHoaDon == idhd select a).ToList();
                 foreach (var x in lsteditcthd)
                 {
@@ -135,20 +133,26 @@ namespace _3.PL.Views
                     return;
                 }
             }
+
             if (txtSoLuong.Text == "") MessageBox.Show("Chưa nhập số lượng");
+            else if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+            {
+                return;
+            }
+
             else
             {
                 editsp.SoLuong = editsp.SoLuong - int.Parse(txtSoLuong.Text);
                 _cTSanPhamService.Update(editsp);
                 _cTHoaDonService.Add(GetEditCTHoaDonView(editsp));
                 LoadDSSanPham();
-                LoadGioHang();
+                LoadGioHang(_idhd);
                 ClearSl();
             }
         }
         public EditCTHoaDonView GetEditCTHoaDonView(EditCTSanPhamView editsp)
         {
-            var hd = _hoaDonService.GetEdit(_idnv);
+            var hd = _hoaDonService.GetEdit(_idhd);
             return new EditCTHoaDonView() { IdHoaDon = hd.IdHoaDon, IdChiTietSP = editsp.IdChiTietSP, DonGia = editsp.GiaBan, SoLuongMua = int.Parse(txtSoLuong.Text) };
         }
         private void dgridGioHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -164,20 +168,37 @@ namespace _3.PL.Views
             btnThemSP.Visible = false;
             btnSuaTT.Visible = true;
             btnXoa.Visible = true;
+            txtSoLuong.Text = SP.SoLuongMua.ToString();
 
         }
         private void btnSuaTT_Click(object sender, EventArgs e)
         {
-            var edithdct = _cTHoaDonService.GetEdit(_idgh);
-            edithdct.SoLuongMua = int.Parse(txtSoLuong.Text);
-            _cTHoaDonService.Update(edithdct);
-            LoadGioHang();
+            if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+            {
+                return;
+            }
+            else
+            {
+                var edithdct = _cTHoaDonService.GetEdit(_idgh);
+                var editsp = _cTSanPhamService.GetEdit(_cTHoaDonService.GetEdit(_idgh).IdChiTietSP);
+                edithdct.SoLuongMua = int.Parse(txtSoLuong.Text);
+                _cTHoaDonService.Update(edithdct);
+                editsp.SoLuong = editsp.SoLuong + int.Parse(txtSoLuong.Text);
+                _cTSanPhamService.Update(editsp);
+                LoadGioHang(_idhd);
+                LoadDSSanPham();
+                ClearSl();
+            }
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             if (dgridGioHang.Rows[0].Cells[0].Value == null || txtDCNhan.Text == "")
             {
                 MessageBox.Show("Chưa đủ thông tin");
+            }
+            else if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+            {
+                return;
             }
             else
             {
@@ -193,32 +214,58 @@ namespace _3.PL.Views
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            var edithdct = _cTHoaDonService.GetEdit(_idgh);
-            edithdct.IdCTHoaDon = _idgh;
-            edithdct.SoLuongMua = int.Parse(txtSoLuong.Text);
-            _cTHoaDonService.Delete(edithdct);
-            LoadGioHang();
-            ClearSl();
+            DialogResult lkResult = MessageBox.Show("Bạn có chắc muốn hủy ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            if (lkResult == DialogResult.Yes)
+            {
+                if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+                {
+                    return;
+                }
+                else
+                {
+                    var edithdct = _cTHoaDonService.GetEdit(_idgh);
+                    var editsp = _cTSanPhamService.GetEdit(_cTHoaDonService.GetEdit(_idgh).IdChiTietSP);
+                    _cTHoaDonService.Delete(edithdct);
+                    editsp.SoLuong = editsp.SoLuong + int.Parse(txtSoLuong.Text);
+                    _cTSanPhamService.Update(editsp);
+                    LoadDSSanPham();
+                    LoadGioHang(_idhd);
+                    ClearSl();
+                }
+            }
+            if (lkResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void FrmDatHang_Load(object sender, EventArgs e)
         {
-            LoadDSSanPham();
-            LoadGioHang();
+            LoadGioHang(_idhd);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            while (true)
+            if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
             {
-                if (dgridGioHang.Rows[0].Cells[0].Value == null) return;
-                else
+                return;
+            }
+            else
+            {
+                while (true)
                 {
-                    Guid idcthd = Guid.Parse(dgridGioHang.Rows[0].Cells[0].Value.ToString());
-                    var cthd = _cTHoaDonService.GetEdit(idcthd);
-                    _cTHoaDonService.Delete(cthd);
-                    LoadGioHang();
-                    ClearSl();
+                    if (dgridGioHang.Rows[0].Cells[0].Value == null) return;
+                    else
+                    {
+                        Guid idcthd = Guid.Parse(dgridGioHang.Rows[0].Cells[0].Value.ToString());
+                        var cthd = _cTHoaDonService.GetEdit(idcthd);
+                        var editsp = _cTSanPhamService.GetEdit(_idsp);
+                        _cTHoaDonService.Delete(cthd);
+                        editsp.SoLuong = editsp.SoLuong + int.Parse(dgridGioHang.Rows[0].Cells[4].Value.ToString());
+                        _cTSanPhamService.Update(editsp);
+                        LoadGioHang(_idhd);
+                        ClearSl();
+                    }
                 }
             }
         }
@@ -235,7 +282,6 @@ namespace _3.PL.Views
             }
 
         }
-
         private void cmbLocLsp_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbLocLsp.Text == "Lọc Theo Loại Sản Phẩm")
@@ -395,15 +441,16 @@ namespace _3.PL.Views
         }
         public void LoadHoaDon()
         {
-            dgridHoaDon.ColumnCount = 3;
+            dgridHoaDon.ColumnCount = 4;
             dgridHoaDon.Columns[0].Name = "IDHoaDon";
             dgridHoaDon.Columns[0].Visible = false;
             dgridHoaDon.Columns[1].Name = "Tên Khách hàng";
             dgridHoaDon.Columns[2].Name = "Trạng thái";
+            dgridHoaDon.Columns[3].Name = "Tổng tiền";
             dgridHoaDon.Rows.Clear();
             foreach (var x in _hoaDonService.GetAll().OrderBy(c => c.TrangThai))
             {
-                dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán");
+                dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
             }
 
         }
@@ -427,6 +474,14 @@ namespace _3.PL.Views
                     LoadHoaDon();
                 }
             }
+        }
+        private void dgridHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index == -1 || _hoaDonService.GetAll().Count == index) return;
+            _idhd = Guid.Parse(dgridHoaDon.Rows[index].Cells[0].Value.ToString());
+            loadKH(_idhd);
+            LoadGioHang(_idhd);
         }
     }
 }
