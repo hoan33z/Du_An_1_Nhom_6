@@ -61,11 +61,12 @@
             // 
             this.dgridCTSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgridCTSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridCTSanPham.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgridCTSanPham.Location = new System.Drawing.Point(0, 270);
             this.dgridCTSanPham.Name = "dgridCTSanPham";
             this.dgridCTSanPham.RowHeadersWidth = 51;
             this.dgridCTSanPham.RowTemplate.Height = 29;
-            this.dgridCTSanPham.Size = new System.Drawing.Size(898, 188);
+            this.dgridCTSanPham.Size = new System.Drawing.Size(1097, 274);
             this.dgridCTSanPham.TabIndex = 0;
             this.dgridCTSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridCTSanPham_CellClick);
             // 
@@ -292,7 +293,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 458);
+            this.ClientSize = new System.Drawing.Size(1097, 544);
             this.Controls.Add(this.lblChonAnh);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.pictureBox1);

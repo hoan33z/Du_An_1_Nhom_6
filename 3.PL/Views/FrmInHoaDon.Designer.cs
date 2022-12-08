@@ -73,10 +73,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(274, 560);
+            this.button2.Location = new System.Drawing.Point(263, 562);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 37);
+            this.button2.Size = new System.Drawing.Size(104, 37);
             this.button2.TabIndex = 4;
             this.button2.Text = "In Hóa Đơn";
             this.button2.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@
             this.button1.Location = new System.Drawing.Point(7, 562);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 37);
+            this.button1.Size = new System.Drawing.Size(104, 37);
             this.button1.TabIndex = 13;
             this.button1.Text = "Cài Đặt Trang";
             this.button1.UseVisualStyleBackColor = true;
@@ -115,10 +115,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(144, 560);
+            this.button3.Location = new System.Drawing.Point(129, 562);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(124, 37);
+            this.button3.Size = new System.Drawing.Size(104, 37);
             this.button3.TabIndex = 14;
             this.button3.Text = "Xem Trước";
             this.button3.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@
             this.panelPrint.Location = new System.Drawing.Point(10, 9);
             this.panelPrint.Margin = new System.Windows.Forms.Padding(2);
             this.panelPrint.Name = "panelPrint";
-            this.panelPrint.Size = new System.Drawing.Size(342, 547);
+            this.panelPrint.Size = new System.Drawing.Size(368, 547);
             this.panelPrint.TabIndex = 15;
             // 
             // label8
@@ -165,7 +165,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(329, 110);
+            this.groupBox1.Size = new System.Drawing.Size(360, 110);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Khách Hàng";
@@ -254,7 +254,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(329, 143);
+            this.groupBox3.Size = new System.Drawing.Size(362, 143);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông Tin Hóa Đơn";
@@ -333,7 +333,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(336, 207);
+            this.groupBox2.Size = new System.Drawing.Size(362, 207);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "---------------------------------------------------------------------------------" +
@@ -363,7 +363,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(332, 99);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(358, 99);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
             // label12
@@ -379,7 +379,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(140, 0);
+            this.label13.Location = new System.Drawing.Point(155, 0);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(82, 21);
@@ -389,7 +389,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(232, 0);
+            this.label14.Location = new System.Drawing.Point(257, 0);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(95, 21);
@@ -450,7 +450,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 607);
+            this.ClientSize = new System.Drawing.Size(378, 607);
             this.Controls.Add(this.panelPrint);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
@@ -461,6 +461,7 @@
             this.Name = "FrmInHoaDon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmInHoaDon";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmInHoaDon_FormClosed);
             this.panelPrint.ResumeLayout(false);
             this.panelPrint.PerformLayout();
             this.groupBox1.ResumeLayout(false);

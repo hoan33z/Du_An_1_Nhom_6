@@ -99,15 +99,11 @@ namespace _3_GUI_Layer
             {
                 acc.MatKhau=txtPassNew.Text/*_Utility.EncodePass(txtPassNew.Text)*/;
                 acc.TrangThaiPass = true;
-                MessageBox.Show("Đổi mật khẩu thành công");
                 MessageBox.Show(_iTaiKhoan.UpdateNV(acc));
-                this.Close();
-                string email = txtMail.Text;
-                FrmMain frm = new FrmMain(email);
-                frm.Show();
+                FrmMain frm = new FrmMain(txtMail.Text);
+                frm.ShowDialog();
             }
             ClearForm();
-            
         }
     }
 }

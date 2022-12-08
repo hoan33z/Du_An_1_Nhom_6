@@ -1,5 +1,4 @@
-﻿using _1.DAL.Models;
-using _2.BUS.IServices;
+﻿using _2.BUS.IServices;
 using _2.BUS.Service;
 using _2.BUS.ViewModels;
 using _2_BUS_Layer.Utility;
@@ -102,6 +101,12 @@ namespace _3.PL.Views
             Rectangle recSource = new Rectangle(0, 0, (int)this.panelPrint.Width, (int)this.panelPrint.Height);
             Rectangle recDest = new Rectangle((int)x, (int)y, (int)this.panelPrint.Width * 2, (int)this.panelPrint.Height * 2);
             e.Graphics.DrawImage((Image)bmp, recDest, recSource, GraphicsUnit.Pixel);
+        }
+
+        private void FrmInHoaDon_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmDatHang frm = new FrmDatHang(_idnv);
+            frm.ShowDialog();
         }
     }
 }

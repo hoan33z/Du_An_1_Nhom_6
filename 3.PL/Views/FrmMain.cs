@@ -3,13 +3,7 @@ using _2.BUS.IServices;
 using _2.BUS.Service;
 using _3_GUI_Layer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _3.PL.Views
@@ -87,19 +81,6 @@ namespace _3.PL.Views
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }
-
-        private void menu_myInfor_Click(object sender, EventArgs e)
-        {
-            loadForm.Controls.Clear();
-            string title = _inFoNhanVien.Email;
-            FrmThongTinNv frm = new FrmThongTinNv(title);
-            frm.TopLevel = false;
-            loadForm.Controls.Add(frm);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
         private void menu_DoiMk_Click(object sender, EventArgs e)
         {
             loadForm.Controls.Clear();
@@ -156,6 +137,7 @@ namespace _3.PL.Views
         }
         private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FrmDatHang frm = new FrmDatHang(_inFoNhanVien.IdNhanVien);
             frm.ShowDialog();
         }

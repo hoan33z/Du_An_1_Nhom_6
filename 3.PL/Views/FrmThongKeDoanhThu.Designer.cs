@@ -50,13 +50,13 @@
             this.Column2,
             this.Column3});
             this.dgridDoanhThu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgridDoanhThu.Location = new System.Drawing.Point(0, 135);
+            this.dgridDoanhThu.Location = new System.Drawing.Point(0, 110);
             this.dgridDoanhThu.Margin = new System.Windows.Forms.Padding(4);
             this.dgridDoanhThu.Name = "dgridDoanhThu";
             this.dgridDoanhThu.ReadOnly = true;
             this.dgridDoanhThu.RowHeadersWidth = 51;
             this.dgridDoanhThu.RowTemplate.Height = 29;
-            this.dgridDoanhThu.Size = new System.Drawing.Size(655, 289);
+            this.dgridDoanhThu.Size = new System.Drawing.Size(655, 314);
             this.dgridDoanhThu.TabIndex = 33;
             // 
             // Column1

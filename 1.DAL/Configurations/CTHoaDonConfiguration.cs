@@ -18,7 +18,7 @@ namespace _1.DAL.Configurations
             builder.Property(x => x.IdChiTietSP).IsRequired();
             builder.Property(x => x.IdHoaDon).IsRequired();
             builder.Property(c => c.DonGia).HasColumnName("DonGia").HasColumnType("decimal");
-            builder.Property(c => c.SoLuongMua).HasColumnName("SoLuongMua").HasColumnType("int");
+            builder.Property(c => c.SoLuongMua).HasColumnName("SoLuongMua").HasColumnType("decimal");
             builder.HasOne(c => c.ChiTietSanPham).WithMany().HasForeignKey(c => c.IdChiTietSP);
             builder.HasOne(c => c.HoaDon).WithMany().HasForeignKey(c => c.IdHoaDon);
         }

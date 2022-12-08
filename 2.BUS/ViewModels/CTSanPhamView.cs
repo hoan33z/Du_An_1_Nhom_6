@@ -20,6 +20,6 @@ namespace _2.BUS.ViewModels
         public byte[] HinhAnh { get; set; }
         public decimal GiaNhap { get; set; }
         public decimal GiaBan { get; set; }
-        public int SoLuong { get; set; }
+        public decimal SoLuong { get; set; }
     }
 }

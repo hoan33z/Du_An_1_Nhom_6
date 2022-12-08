@@ -115,8 +115,6 @@ namespace _3.PL.Views
             {
                 _hoaDonService.Delete(editcthd);
                 MessageBox.Show("Đã Hủy");
-                this.Hide();
-                return;
             }
             if (lkResult == DialogResult.No)
             {

@@ -86,20 +86,24 @@ namespace _2.BUS.Service
 
         public EditCTSanPhamView GetEdit(Guid id)
         {
-            var SP = _IchiTietSanPhamRepository.GetAll().FirstOrDefault(c => c.IdChiTietSP == id);
-            return new EditCTSanPhamView()
+            if (id!=Guid.Empty)
             {
-                IdChiTietSP = SP.IdChiTietSP,
-                IdSp = SP.IdSp,
-                IdDanhMuc = SP.IdDanhMuc,
-                IdDonVi = SP.IdDonVi,
-                IdLoaiSp = SP.IdLoaiSp,
-                IdNhaCungCap = SP.IdNhaCungCap,
-                HinhAnh= SP.HinhAnh,
-                GiaBan= SP.GiaBan,
-                GiaNhap= SP.GiaNhap,
-                SoLuong= SP.SoLuong
-            };
+                var SP = _IchiTietSanPhamRepository.GetAll().FirstOrDefault(c => c.IdChiTietSP == id);
+                return new EditCTSanPhamView()
+                {
+                    IdChiTietSP = SP.IdChiTietSP,
+                    IdSp = SP.IdSp,
+                    IdDanhMuc = SP.IdDanhMuc,
+                    IdDonVi = SP.IdDonVi,
+                    IdLoaiSp = SP.IdLoaiSp,
+                    IdNhaCungCap = SP.IdNhaCungCap,
+                    HinhAnh = SP.HinhAnh,
+                    GiaBan = SP.GiaBan,
+                    GiaNhap = SP.GiaNhap,
+                    SoLuong = SP.SoLuong
+                };
+            }
+            return null;
         }
 
         public string Update(EditCTSanPhamView SP)

@@ -4,15 +4,9 @@ using _2.BUS.Service;
 using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace _3.PL.Views
 {
@@ -22,6 +16,8 @@ namespace _3.PL.Views
         ICTHoaDonService _cTHoaDonService;
         IHoaDonService _hoaDonService;
         IKhachHangService _khachHangService;
+        INhanVienService _nhanVienService;
+        IDanhMucService _danhMucService;
         Guid _idgh;
         Guid _idsp;
         Guid _idnv;
@@ -33,6 +29,8 @@ namespace _3.PL.Views
             _cTHoaDonService = new CTHoaDonService();
             _hoaDonService = new HoaDonService();
             _khachHangService = new KhachHangService();
+            _nhanVienService = new NhanVienService();
+            _danhMucService = new DanhMucService();
             _idnv = id;
             LoadDSSanPham();
             LoadLoc();
@@ -40,17 +38,16 @@ namespace _3.PL.Views
         }
         public void LoadDSSanPham()
         {
-            dgridDSSanPham.ColumnCount = 9;
+            dgridDSSanPham.ColumnCount = 8;
             dgridDSSanPham.Columns[0].Name = "ID";
             dgridDSSanPham.Columns[0].Visible = false;
             dgridDSSanPham.Columns[1].Name = "Tên Sản Phẩm";
             dgridDSSanPham.Columns[2].Name = "Loại Sản Phẩm";
             dgridDSSanPham.Columns[3].Name = "Giá Bán";
             dgridDSSanPham.Columns[4].Name = "Số Lượng";
-            dgridDSSanPham.Columns[5].Name = "Giá Nhập";
-            dgridDSSanPham.Columns[6].Name = "Nhà Cung Cấp";
-            dgridDSSanPham.Columns[7].Name = "Danh Mục";
-            dgridDSSanPham.Columns[8].Name = "Đơn Vị";
+            dgridDSSanPham.Columns[5].Name = "Nhà Cung Cấp";
+            dgridDSSanPham.Columns[6].Name = "Danh Mục";
+            dgridDSSanPham.Columns[7].Name = "Đơn Vị";
             dgridDSSanPham.Rows.Clear();
             foreach (var x in _cTSanPhamService.GetAll())
             {
@@ -63,7 +60,6 @@ namespace _3.PL.Views
                         x.TenLoaiSp,
                         x.GiaBan,
                         x.SoLuong,
-                        x.GiaNhap,
                         x.TenNhaCungCap,
                         x.TenDanhMuc,
                         x.TenDonVi
@@ -135,14 +131,14 @@ namespace _3.PL.Views
             }
 
             if (txtSoLuong.Text == "") MessageBox.Show("Chưa nhập số lượng");
-            else if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+            else if (_idhd == Guid.Empty || _hoaDonService.GetEdit(_idhd).TrangThai == true)
             {
                 return;
             }
 
             else
             {
-                editsp.SoLuong = editsp.SoLuong - int.Parse(txtSoLuong.Text);
+                editsp.SoLuong = editsp.SoLuong - decimal.Parse(txtSoLuong.Text);
                 _cTSanPhamService.Update(editsp);
                 _cTHoaDonService.Add(GetEditCTHoaDonView(editsp));
                 LoadDSSanPham();
@@ -153,7 +149,7 @@ namespace _3.PL.Views
         public EditCTHoaDonView GetEditCTHoaDonView(EditCTSanPhamView editsp)
         {
             var hd = _hoaDonService.GetEdit(_idhd);
-            return new EditCTHoaDonView() { IdHoaDon = hd.IdHoaDon, IdChiTietSP = editsp.IdChiTietSP, DonGia = editsp.GiaBan, SoLuongMua = int.Parse(txtSoLuong.Text) };
+            return new EditCTHoaDonView() { IdHoaDon = hd.IdHoaDon, IdChiTietSP = editsp.IdChiTietSP, DonGia = editsp.GiaBan, SoLuongMua = decimal.Parse(txtSoLuong.Text) };
         }
         private void dgridGioHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -173,7 +169,7 @@ namespace _3.PL.Views
         }
         private void btnSuaTT_Click(object sender, EventArgs e)
         {
-            if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+            if (_idhd == Guid.Empty || _hoaDonService.GetEdit(_idhd).TrangThai == true)
             {
                 return;
             }
@@ -181,10 +177,10 @@ namespace _3.PL.Views
             {
                 var edithdct = _cTHoaDonService.GetEdit(_idgh);
                 var editsp = _cTSanPhamService.GetEdit(_cTHoaDonService.GetEdit(_idgh).IdChiTietSP);
-                edithdct.SoLuongMua = int.Parse(txtSoLuong.Text);
-                _cTHoaDonService.Update(edithdct);
-                editsp.SoLuong = editsp.SoLuong + int.Parse(txtSoLuong.Text);
+                editsp.SoLuong = editsp.SoLuong + (edithdct.SoLuongMua - decimal.Parse(txtSoLuong.Text));
                 _cTSanPhamService.Update(editsp);
+                edithdct.SoLuongMua = decimal.Parse(txtSoLuong.Text);
+                _cTHoaDonService.Update(edithdct);
                 LoadGioHang(_idhd);
                 LoadDSSanPham();
                 ClearSl();
@@ -214,7 +210,7 @@ namespace _3.PL.Views
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            DialogResult lkResult = MessageBox.Show("Bạn có chắc muốn hủy ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult lkResult = MessageBox.Show("Bạn có chắc muốn xóa ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (lkResult == DialogResult.Yes)
             {
                 if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
@@ -225,9 +221,9 @@ namespace _3.PL.Views
                 {
                     var edithdct = _cTHoaDonService.GetEdit(_idgh);
                     var editsp = _cTSanPhamService.GetEdit(_cTHoaDonService.GetEdit(_idgh).IdChiTietSP);
-                    _cTHoaDonService.Delete(edithdct);
-                    editsp.SoLuong = editsp.SoLuong + int.Parse(txtSoLuong.Text);
+                    editsp.SoLuong = editsp.SoLuong + decimal.Parse(txtSoLuong.Text);
                     _cTSanPhamService.Update(editsp);
+                    _cTHoaDonService.Delete(edithdct);
                     LoadDSSanPham();
                     LoadGioHang(_idhd);
                     ClearSl();
@@ -241,6 +237,7 @@ namespace _3.PL.Views
 
         private void FrmDatHang_Load(object sender, EventArgs e)
         {
+            LoadDSSanPham();
             LoadGioHang(_idhd);
         }
 
@@ -252,20 +249,17 @@ namespace _3.PL.Views
             }
             else
             {
-                while (true)
+                while (dgridGioHang.Rows[0].Cells[0].Value != null)
                 {
-                    if (dgridGioHang.Rows[0].Cells[0].Value == null) return;
-                    else
-                    {
-                        Guid idcthd = Guid.Parse(dgridGioHang.Rows[0].Cells[0].Value.ToString());
-                        var cthd = _cTHoaDonService.GetEdit(idcthd);
-                        var editsp = _cTSanPhamService.GetEdit(_idsp);
-                        _cTHoaDonService.Delete(cthd);
-                        editsp.SoLuong = editsp.SoLuong + int.Parse(dgridGioHang.Rows[0].Cells[4].Value.ToString());
-                        _cTSanPhamService.Update(editsp);
-                        LoadGioHang(_idhd);
-                        ClearSl();
-                    }
+                    Guid idcthd = Guid.Parse(dgridGioHang.Rows[0].Cells[0].Value.ToString());
+                    var cthd = _cTHoaDonService.GetEdit(idcthd);
+                    var editsp = _cTSanPhamService.GetEdit(cthd.IdChiTietSP);
+                    editsp.SoLuong = editsp.SoLuong + decimal.Parse(dgridGioHang.Rows[0].Cells[3].Value.ToString());
+                    _cTSanPhamService.Update(editsp);
+                    _cTHoaDonService.Delete(cthd);
+                    LoadGioHang(_idhd);
+                    ClearSl();
+                    LoadDSSanPham();
                 }
             }
         }
@@ -282,75 +276,17 @@ namespace _3.PL.Views
             }
 
         }
-        private void cmbLocLsp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbLocLsp.Text == "Lọc Theo Loại Sản Phẩm")
-            {
-                LoadDSSanPham();
-            }
-            else if (cmbDanhMuc.Text != "Lọc Theo Danh Mục" && cmbLocLsp.Text != "Lọc Theo Loại Sản Phẩm")
-            {
-                dgridDSSanPham.Rows.Clear();
-                List<CTSanPhamView> lstctsp = (from a in _cTSanPhamService.GetAll()
-                                               where a.TenDanhMuc == cmbDanhMuc.Text && a.TenLoaiSp == cmbLocLsp.Text
-                                               select new CTSanPhamView()
-                                               {
-                                                   IdChiTietSP = a.IdChiTietSP,
-                                                   TenSp = a.TenSp,
-                                                   TenLoaiSp = a.TenLoaiSp,
-                                                   GiaBan = a.GiaBan,
-                                                   SoLuong = a.SoLuong,
-                                                   GiaNhap = a.GiaNhap,
-                                                   TenNhaCungCap = a.TenNhaCungCap,
-                                                   TenDanhMuc = a.TenDanhMuc,
-                                                   TenDonVi = a.TenDonVi
-                                               }).ToList();
-                foreach (var x in lstctsp)
-                {
-                    dgridDSSanPham.Rows.Add(
-                        x.IdChiTietSP,
-                        x.TenSp,
-                        x.TenLoaiSp,
-                        x.GiaBan,
-                        x.SoLuong,
-                        x.GiaNhap,
-                        x.TenNhaCungCap,
-                        x.TenDanhMuc,
-                        x.TenDonVi
-                        );
-                }
-            }
-            else
-            {
-                dgridDSSanPham.Rows.Clear();
-                foreach (var x in _cTSanPhamService.GetAll().Where(c => c.TenLoaiSp == cmbLocLsp.Text))
-                {
-                    dgridDSSanPham.Rows.Add(
-                        x.IdChiTietSP,
-                        x.TenSp,
-                        x.TenLoaiSp,
-                        x.GiaBan,
-                        x.SoLuong,
-                        x.GiaNhap,
-                        x.TenNhaCungCap,
-                        x.TenDanhMuc,
-                        x.TenDonVi
-                        );
-                }
-            }
-        }
-
         private void cmbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbDanhMuc.Text == "Lọc Theo Danh Mục")
             {
                 LoadDSSanPham();
             }
-            else if (cmbDanhMuc.Text != "Lọc Theo Danh Mục" && cmbLocLsp.Text != "Lọc Theo Loại Sản Phẩm")
+            else if (cmbDanhMuc.Text != "Lọc Theo Danh Mục")
             {
                 dgridDSSanPham.Rows.Clear();
                 List<CTSanPhamView> lstctsp = (from a in _cTSanPhamService.GetAll()
-                                               where a.TenDanhMuc == cmbDanhMuc.Text && a.TenLoaiSp == cmbLocLsp.Text
+                                               where a.TenDanhMuc == cmbDanhMuc.Text
                                                select new CTSanPhamView()
                                                {
                                                    IdChiTietSP = a.IdChiTietSP,
@@ -364,24 +300,6 @@ namespace _3.PL.Views
                                                    TenDonVi = a.TenDonVi
                                                }).ToList();
                 foreach (var x in lstctsp)
-                {
-                    dgridDSSanPham.Rows.Add(
-                        x.IdChiTietSP,
-                        x.TenSp,
-                        x.TenLoaiSp,
-                        x.GiaBan,
-                        x.SoLuong,
-                        x.GiaNhap,
-                        x.TenNhaCungCap,
-                        x.TenDanhMuc,
-                        x.TenDonVi
-                        );
-                }
-            }
-            else
-            {
-                dgridDSSanPham.Rows.Clear();
-                foreach (var x in _cTSanPhamService.GetAll().Where(c => c.TenDanhMuc == cmbDanhMuc.Text))
                 {
                     dgridDSSanPham.Rows.Add(
                         x.IdChiTietSP,
@@ -400,13 +318,11 @@ namespace _3.PL.Views
         public void LoadLoc()
         {
             cmbDanhMuc.Items.Add("Lọc Theo Danh Mục");
-            cmbLocLsp.Items.Add("Lọc Theo Loại Sản Phẩm");
-            foreach (var x in _cTSanPhamService.GetAll())
+            foreach (var x in _danhMucService.GetAll())
             {
                 cmbDanhMuc.Items.Add(x.TenDanhMuc);
-                cmbLocLsp.Items.Add(x.TenLoaiSp);
             }
-            cmbLocLsp.SelectedIndex = 0;
+
             cmbDanhMuc.SelectedIndex = 0;
         }
 
@@ -419,7 +335,7 @@ namespace _3.PL.Views
             else
             {
                 dgridDSSanPham.Rows.Clear();
-                foreach (var x in _cTSanPhamService.GetAll().Where(c => c.TenSp == txtTimKiem.Text))
+                foreach (var x in _cTSanPhamService.GetAll().Where(c => c.TenSp.Contains(txtTimKiem.Text)))
                 {
                     dgridDSSanPham.Rows.Add(
                         x.IdChiTietSP,
@@ -456,23 +372,31 @@ namespace _3.PL.Views
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (_hoaDonService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang) == null)
+            try
             {
-                FrmTTKhachHang frm = new FrmTTKhachHang(_idnv);
-                DialogResult frmok = frm.ShowDialog();
-                if (frmok == DialogResult.OK)
+                if (_hoaDonService.GetEdit(_idnv) == null)
                 {
-                    LoadHoaDon();
+                    FrmTTKhachHang frm = new FrmTTKhachHang(_idnv);
+                    DialogResult frmok = frm.ShowDialog();
+                    if (frmok == DialogResult.OK)
+                    {
+                        LoadHoaDon();
+                    }
+                }
+                else
+                {
+                    FrmTTKhachHang frm = new FrmTTKhachHang(_idnv);
+                    DialogResult frmok = frm.ShowDialog();
+                    if (frmok == DialogResult.OK)
+                    {
+                        LoadHoaDon();
+                    }
                 }
             }
-            else
+            catch (Exception)
             {
-                FrmTTKhachHang frm = new FrmTTKhachHang(_idnv);
-                DialogResult frmok = frm.ShowDialog();
-                if (frmok == DialogResult.OK)
-                {
-                    LoadHoaDon();
-                }
+
+                throw;
             }
         }
         private void dgridHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -482,6 +406,13 @@ namespace _3.PL.Views
             _idhd = Guid.Parse(dgridHoaDon.Rows[index].Cells[0].Value.ToString());
             loadKH(_idhd);
             LoadGioHang(_idhd);
+        }
+
+        private void FrmDatHang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            FrmMain frm = new FrmMain(_nhanVienService.getlstNv().FirstOrDefault(c=>c.IdNhanVien==_idnv).Email);
+            frm.ShowDialog();
         }
     }
 }

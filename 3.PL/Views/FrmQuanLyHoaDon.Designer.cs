@@ -39,10 +39,11 @@
             // 
             // dgrid_hoaDon
             // 
-            this.dgrid_hoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrid_hoaDon.ColumnHeadersHeight = 34;
             this.dgrid_hoaDon.Location = new System.Drawing.Point(-1, 136);
-            this.dgrid_hoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgrid_hoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.dgrid_hoaDon.Name = "dgrid_hoaDon";
+            this.dgrid_hoaDon.ReadOnly = true;
             this.dgrid_hoaDon.RowHeadersWidth = 51;
             this.dgrid_hoaDon.RowTemplate.Height = 29;
             this.dgrid_hoaDon.Size = new System.Drawing.Size(1191, 422);
@@ -63,7 +64,7 @@
             // txt_timKiem
             // 
             this.txt_timKiem.Location = new System.Drawing.Point(13, 94);
-            this.txt_timKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_timKiem.Margin = new System.Windows.Forms.Padding(4);
             this.txt_timKiem.Name = "txt_timKiem";
             this.txt_timKiem.Size = new System.Drawing.Size(346, 31);
             this.txt_timKiem.TabIndex = 26;
@@ -77,7 +78,7 @@
             "Đã thanh toán",
             "Chưa thanh toán"});
             this.cbx_trangThai.Location = new System.Drawing.Point(961, 94);
-            this.cbx_trangThai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbx_trangThai.Margin = new System.Windows.Forms.Padding(4);
             this.cbx_trangThai.Name = "cbx_trangThai";
             this.cbx_trangThai.Size = new System.Drawing.Size(228, 33);
             this.cbx_trangThai.TabIndex = 36;
@@ -97,7 +98,7 @@
             // 
             this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnHuy.Location = new System.Drawing.Point(860, 566);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(330, 55);
             this.btnHuy.TabIndex = 38;
@@ -116,7 +117,7 @@
             this.Controls.Add(this.txt_timKiem);
             this.Controls.Add(this.dgrid_hoaDon);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmQuanLyHoaDon";
             this.Text = "FrmQuanLyHoaDon";
             this.Load += new System.EventHandler(this.FrmQuanLyHoaDon_Load);

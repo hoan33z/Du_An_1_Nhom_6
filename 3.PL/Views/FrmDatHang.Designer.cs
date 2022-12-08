@@ -57,7 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.cmbDanhMuc = new System.Windows.Forms.ComboBox();
-            this.cmbLocLsp = new System.Windows.Forms.ComboBox();
             this.dgridDSSanPham = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgridHoaDon = new System.Windows.Forms.DataGridView();
@@ -235,7 +234,6 @@
             this.groupBox4.Controls.Add(this.groupBox3);
             this.groupBox4.Controls.Add(this.txtTimKiem);
             this.groupBox4.Controls.Add(this.cmbDanhMuc);
-            this.groupBox4.Controls.Add(this.cmbLocLsp);
             this.groupBox4.Controls.Add(this.dgridDSSanPham);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox4.Location = new System.Drawing.Point(0, 346);
@@ -363,15 +361,6 @@
             this.cmbDanhMuc.TabIndex = 21;
             this.cmbDanhMuc.SelectedIndexChanged += new System.EventHandler(this.cmbDanhMuc_SelectedIndexChanged);
             // 
-            // cmbLocLsp
-            // 
-            this.cmbLocLsp.FormattingEnabled = true;
-            this.cmbLocLsp.Location = new System.Drawing.Point(426, 25);
-            this.cmbLocLsp.Name = "cmbLocLsp";
-            this.cmbLocLsp.Size = new System.Drawing.Size(325, 36);
-            this.cmbLocLsp.TabIndex = 20;
-            this.cmbLocLsp.SelectedIndexChanged += new System.EventHandler(this.cmbLocLsp_SelectedIndexChanged);
-            // 
             // dgridDSSanPham
             // 
             this.dgridDSSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -424,6 +413,7 @@
             this.Name = "FrmDatHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDatHang";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDatHang_FormClosed);
             this.Load += new System.EventHandler(this.FrmDatHang_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -470,7 +460,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.ComboBox cmbDanhMuc;
-        private System.Windows.Forms.ComboBox cmbLocLsp;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dgridHoaDon;

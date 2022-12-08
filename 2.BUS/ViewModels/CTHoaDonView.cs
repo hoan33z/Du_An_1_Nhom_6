@@ -14,6 +14,6 @@ namespace _2.BUS.ViewModels
         public Guid IdChiTietSP { get; set; }
         public string TenSp { get; set; }
         public decimal DonGia { get; set; }
-        public int SoLuongMua { get; set; }
+        public decimal SoLuongMua { get; set; }
     }
 }

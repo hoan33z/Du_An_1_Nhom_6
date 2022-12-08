@@ -59,9 +59,9 @@
             this.cbx_trangThaiTk.Items.AddRange(new object[] {
             "Hoạt Động",
             "Không Hoạt Động"});
-            this.cbx_trangThaiTk.Location = new System.Drawing.Point(704, 207);
+            this.cbx_trangThaiTk.Location = new System.Drawing.Point(668, 207);
             this.cbx_trangThaiTk.Name = "cbx_trangThaiTk";
-            this.cbx_trangThaiTk.Size = new System.Drawing.Size(347, 27);
+            this.cbx_trangThaiTk.Size = new System.Drawing.Size(347, 32);
             this.cbx_trangThaiTk.TabIndex = 64;
             // 
             // cbx_gioiTinh
@@ -70,9 +70,9 @@
             this.cbx_gioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbx_gioiTinh.Location = new System.Drawing.Point(704, 144);
+            this.cbx_gioiTinh.Location = new System.Drawing.Point(668, 144);
             this.cbx_gioiTinh.Name = "cbx_gioiTinh";
-            this.cbx_gioiTinh.Size = new System.Drawing.Size(347, 27);
+            this.cbx_gioiTinh.Size = new System.Drawing.Size(347, 32);
             this.cbx_gioiTinh.TabIndex = 63;
             // 
             // btn_clear
@@ -89,20 +89,20 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(579, 209);
+            this.label8.Location = new System.Drawing.Point(543, 209);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 19);
+            this.label8.Size = new System.Drawing.Size(119, 24);
             this.label8.TabIndex = 61;
             this.label8.Text = "Trạng Thái:";
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(704, 20);
+            this.dateTimePicker1.Location = new System.Drawing.Point(668, 20);
             this.dateTimePicker1.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(347, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(347, 30);
             this.dateTimePicker1.TabIndex = 60;
             // 
             // cbx_chucVu
@@ -111,9 +111,9 @@
             this.cbx_chucVu.Items.AddRange(new object[] {
             "Admin",
             "Nhân Viên"});
-            this.cbx_chucVu.Location = new System.Drawing.Point(704, 81);
+            this.cbx_chucVu.Location = new System.Drawing.Point(668, 81);
             this.cbx_chucVu.Name = "cbx_chucVu";
-            this.cbx_chucVu.Size = new System.Drawing.Size(347, 27);
+            this.cbx_chucVu.Size = new System.Drawing.Size(347, 32);
             this.cbx_chucVu.TabIndex = 58;
             // 
             // txt_DiaChi
@@ -129,15 +129,15 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(579, 85);
+            this.label7.Location = new System.Drawing.Point(543, 85);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 19);
+            this.label7.Size = new System.Drawing.Size(105, 24);
             this.label7.TabIndex = 56;
             this.label7.Text = "Chức Vụ :";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(588, 257);
+            this.textBox5.Location = new System.Drawing.Point(552, 257);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(463, 40);
@@ -166,9 +166,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(579, 147);
+            this.label6.Location = new System.Drawing.Point(543, 147);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 19);
+            this.label6.Size = new System.Drawing.Size(106, 24);
             this.label6.TabIndex = 52;
             this.label6.Text = "Giới Tính:";
             // 
@@ -178,7 +178,7 @@
             this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(12, 227);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 19);
+            this.label5.Size = new System.Drawing.Size(68, 24);
             this.label5.TabIndex = 51;
             this.label5.Text = "Email:";
             // 
@@ -188,7 +188,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(13, 152);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
+            this.label4.Size = new System.Drawing.Size(84, 24);
             this.label4.TabIndex = 50;
             this.label4.Text = "Địa Chỉ:";
             // 
@@ -198,7 +198,7 @@
             this.label3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(13, 84);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 19);
+            this.label3.Size = new System.Drawing.Size(55, 24);
             this.label3.TabIndex = 49;
             this.label3.Text = "SĐT:";
             // 
@@ -206,9 +206,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(579, 23);
+            this.label2.Location = new System.Drawing.Point(543, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 19);
+            this.label2.Size = new System.Drawing.Size(105, 24);
             this.label2.TabIndex = 48;
             this.label2.Text = "Năm sinh:";
             // 
@@ -227,7 +227,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 19);
+            this.label1.Size = new System.Drawing.Size(155, 24);
             this.label1.TabIndex = 46;
             this.label1.Text = "Tên Nhân Viên:";
             // 
@@ -269,15 +269,15 @@
             this.dgr_nhanVien.Name = "dgr_nhanVien";
             this.dgr_nhanVien.RowHeadersWidth = 51;
             this.dgr_nhanVien.RowTemplate.Height = 29;
-            this.dgr_nhanVien.Size = new System.Drawing.Size(1057, 195);
+            this.dgr_nhanVien.Size = new System.Drawing.Size(1020, 195);
             this.dgr_nhanVien.TabIndex = 42;
             this.dgr_nhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgr_nhanVien_CellContentClick);
             // 
             // FrmNhanVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1057, 498);
+            this.ClientSize = new System.Drawing.Size(1020, 498);
             this.Controls.Add(this.cbx_trangThaiTk);
             this.Controls.Add(this.cbx_gioiTinh);
             this.Controls.Add(this.btn_clear);

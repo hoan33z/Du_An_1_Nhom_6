@@ -113,6 +113,7 @@ namespace _3.PL.Views
             _hoaDon.IdHoaDon = _idHd;
             _hoaDonService.Delete(_hoaDon);
             MessageBox.Show("Đã Hủy");
+            loadDonHang();
         }
     }
 }

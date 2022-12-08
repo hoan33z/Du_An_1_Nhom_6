@@ -39,7 +39,6 @@
             this.qlSanPhamCT = new System.Windows.Forms.ToolStripMenuItem();
             this.QLKhacToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_heThong = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_myInfor = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_DoiMk = new System.Windows.Forms.ToolStripMenuItem();
             this.DangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -131,31 +130,23 @@
             // 
             this.menu_heThong.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menu_heThong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menu_myInfor,
             this.menu_DoiMk,
             this.DangXuat});
             this.menu_heThong.Name = "menu_heThong";
             this.menu_heThong.Size = new System.Drawing.Size(103, 29);
             this.menu_heThong.Text = "Hệ thống";
             // 
-            // menu_myInfor
-            // 
-            this.menu_myInfor.Name = "menu_myInfor";
-            this.menu_myInfor.Size = new System.Drawing.Size(248, 34);
-            this.menu_myInfor.Text = "Thông tin của tôi";
-            this.menu_myInfor.Click += new System.EventHandler(this.menu_myInfor_Click);
-            // 
             // menu_DoiMk
             // 
             this.menu_DoiMk.Name = "menu_DoiMk";
-            this.menu_DoiMk.Size = new System.Drawing.Size(248, 34);
+            this.menu_DoiMk.Size = new System.Drawing.Size(270, 34);
             this.menu_DoiMk.Text = "Đổi mật khẩu";
             this.menu_DoiMk.Click += new System.EventHandler(this.menu_DoiMk_Click);
             // 
             // DangXuat
             // 
             this.DangXuat.Name = "DangXuat";
-            this.DangXuat.Size = new System.Drawing.Size(248, 34);
+            this.DangXuat.Size = new System.Drawing.Size(270, 34);
             this.DangXuat.Text = "Đăng xuất";
             this.DangXuat.Click += new System.EventHandler(this.DangXuat_Click);
             // 
@@ -198,7 +189,6 @@
         public System.Windows.Forms.Panel loadForm;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menu_heThong;
-        private System.Windows.Forms.ToolStripMenuItem menu_myInfor;
         private System.Windows.Forms.ToolStripMenuItem menu_DoiMk;
         private System.Windows.Forms.ToolStripMenuItem DangXuat;
         private System.Windows.Forms.ToolStripMenuItem menu_quanLy;
