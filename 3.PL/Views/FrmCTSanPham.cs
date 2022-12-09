@@ -187,20 +187,34 @@ namespace _3.PL.Views
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            EditCTSanPhamView ctSanPham = new EditCTSanPhamView();
-            ctSanPham = GetDataFromGui();
-            ctSanPham.IdChiTietSP = _idWhenclick;
-            MessageBox.Show(_IcTSanPhamService.Update(ctSanPham));
-            LoadData();
+            if (_idWhenclick==Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                EditCTSanPhamView ctSanPham = new EditCTSanPhamView();
+                ctSanPham = GetDataFromGui();
+                ctSanPham.IdChiTietSP = _idWhenclick;
+                MessageBox.Show(_IcTSanPhamService.Update(ctSanPham));
+                LoadData();
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            EditCTSanPhamView ctSanPham = new EditCTSanPhamView();
-            ctSanPham = GetDataFromGui();
-            ctSanPham.IdChiTietSP = _idWhenclick;
-            MessageBox.Show(_IcTSanPhamService.Delete(ctSanPham));
-            LoadData();
+            if (_idWhenclick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                EditCTSanPhamView ctSanPham = new EditCTSanPhamView();
+                ctSanPham = GetDataFromGui();
+                ctSanPham.IdChiTietSP = _idWhenclick;
+                MessageBox.Show(_IcTSanPhamService.Delete(ctSanPham));
+                LoadData();
+            }
         }
     }
 }

@@ -42,19 +42,32 @@ namespace _3.PL.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var sanPham = GetDataFromDb();
-            sanPham.IdSp = _idWhenClick;
-            MessageBox.Show(_IsanPhamService.Delete(sanPham));
-            LoadData();
-
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var sanPham = GetDataFromDb();
+                sanPham.IdSp = _idWhenClick;
+                MessageBox.Show(_IsanPhamService.Delete(sanPham));
+                LoadData();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var sanPham = GetDataFromDb();
-            sanPham.IdSp = _idWhenClick;
-            MessageBox.Show(_IsanPhamService.Update(sanPham));
-            LoadData();
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var sanPham = GetDataFromDb();
+                sanPham.IdSp = _idWhenClick;
+                MessageBox.Show(_IsanPhamService.Update(sanPham));
+                LoadData();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

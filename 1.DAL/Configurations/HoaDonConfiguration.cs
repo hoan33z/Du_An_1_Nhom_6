@@ -21,7 +21,7 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.TongTien).HasColumnName("TongTien").HasColumnType("decimal").IsRequired();
             builder.Property(c => c.NgayThanhToan).HasColumnName("NgayThanhToan").HasColumnType("datetime").IsRequired();
             builder.Property(c => c.NgayTao).HasColumnName("NgayTao").HasColumnType("datetime").IsRequired();
-            builder.Property(c => c.TrangThai).HasColumnName("TrangThai").HasColumnType("bit").IsRequired();
+            builder.Property(c => c.TrangThai).HasColumnName("TrangThai").HasColumnType("bit");
             builder.HasOne(c => c.KhachHang).WithMany().HasForeignKey(c => c.IdKhachHang);
             builder.HasOne(c => c.NhanVien).WithMany().HasForeignKey(c => c.IdNhanVien);
         }

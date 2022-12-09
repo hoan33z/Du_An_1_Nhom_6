@@ -48,20 +48,33 @@ namespace _3.PL.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var loaiSp = GetLoaiSp();
-            loaiSp.IdLoaiSp = _idWhenClick;
-            MessageBox.Show(_IloaiSpService.Update(loaiSp));
-            LoadData();
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var loaiSp = GetLoaiSp();
+                loaiSp.IdLoaiSp = _idWhenClick;
+                MessageBox.Show(_IloaiSpService.Update(loaiSp));
+                LoadData();
+            }
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var loaiSp = GetLoaiSp();
-            loaiSp.IdLoaiSp = _idWhenClick;
-            MessageBox.Show(_IloaiSpService.Delete(loaiSp));
-            LoadData();
-
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var loaiSp = GetLoaiSp();
+                loaiSp.IdLoaiSp = _idWhenClick;
+                MessageBox.Show(_IloaiSpService.Delete(loaiSp));
+                LoadData();
+            }
         }
 
         private void dgridLoaiSp_CellClick(object sender, DataGridViewCellEventArgs e)

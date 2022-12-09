@@ -17,23 +17,24 @@ namespace _3.PL.Views
         ICTHoaDonService _cTHoaDonService;
         IHoaDonService _hoaDonService;
         ICTSanPhamService _cTSanPhamService;
-        Guid _idnv;
+       // Guid _idnv;
         Guid _idhd;
-        public FrmInHoaDon(Guid idnv)
+        public FrmInHoaDon(Guid idhd)
         {
             InitializeComponent();
             _khachHangService = new KhachHangService();
             _cTHoaDonService = new CTHoaDonService();
             _hoaDonService = new HoaDonService();
             _cTSanPhamService = new CTSanPhamService();
-            _idnv = idnv;
-            _idhd = _hoaDonService.GetEdit(_idnv).IdHoaDon;
+            //_idnv = idnv;
+            //_idhd = _hoaDonService.GetEdit(_idnv).IdHoaDon;
+            _idhd = idhd;
             LoadCTHD();
             LoadGioHang();
         }
         public void LoadCTHD()
         {
-            var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang);
+            var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(_idhd).IdKhachHang);
             var hd = _hoaDonService.GetAll().FirstOrDefault(c => c.IdHoaDon == _idhd);
             lblDiaChi.Text = kh.DiaChi;
             lblSDT.Text = kh.SDT;
@@ -105,7 +106,7 @@ namespace _3.PL.Views
 
         private void FrmInHoaDon_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FrmDatHang frm = new FrmDatHang(_idnv);
+            FrmDatHang frm = new FrmDatHang(_hoaDonService.GetEdit(_idhd).IdNhanVien);
             frm.ShowDialog();
         }
     }

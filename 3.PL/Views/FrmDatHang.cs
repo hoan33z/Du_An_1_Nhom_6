@@ -75,8 +75,6 @@ namespace _3.PL.Views
                 txtTenKH.Text = kh.TenKh;
                 txtSDT.Text = kh.SDT;
                 txtGioiTinh.Text = kh.GioiTinh == 0 ? "Nam" : "Nữ";
-                txtDCNhan.Text = kh.DCNhanHang;
-                dateNgayNhan.Value = kh.NgayNhan;
             }
         }
         public void LoadGioHang(Guid idhd)
@@ -155,17 +153,23 @@ namespace _3.PL.Views
         {
             int index = e.RowIndex;
             if (index == -1 || _cTHoaDonService.GetAll().Count == index) return;
-            _idgh = Guid.Parse(dgridGioHang.Rows[index].Cells[0].Value.ToString());
-            var SP = _cTHoaDonService.GetAll().FirstOrDefault(c => c.IdCTHoaDon == _idgh);
-            txtTenSP.Text = SP.TenSp;
-            txtDonGia.Text = SP.DonGia.ToString();
-            txtTenSP.ReadOnly = true;
-            txtDonGia.ReadOnly = true;
-            btnThemSP.Visible = false;
-            btnSuaTT.Visible = true;
-            btnXoa.Visible = true;
-            txtSoLuong.Text = SP.SoLuongMua.ToString();
-
+            if (_idgh == Guid.Empty)
+            {
+                return;
+            }
+            else
+            {
+                _idgh = Guid.Parse(dgridGioHang.Rows[index].Cells[0].Value.ToString());
+                var SP = _cTHoaDonService.GetAll().FirstOrDefault(c => c.IdCTHoaDon == _idgh);
+                txtTenSP.Text = SP.TenSp;
+                txtDonGia.Text = SP.DonGia.ToString();
+                txtTenSP.ReadOnly = true;
+                txtDonGia.ReadOnly = true;
+                btnThemSP.Visible = false;
+                btnSuaTT.Visible = true;
+                btnXoa.Visible = true;
+                txtSoLuong.Text = SP.SoLuongMua.ToString();
+            }
         }
         private void btnSuaTT_Click(object sender, EventArgs e)
         {
@@ -188,7 +192,7 @@ namespace _3.PL.Views
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (dgridGioHang.Rows[0].Cells[0].Value == null || txtDCNhan.Text == "")
+            if (dgridGioHang.Rows[0].Cells[0].Value == null)
             {
                 MessageBox.Show("Chưa đủ thông tin");
             }
@@ -200,10 +204,8 @@ namespace _3.PL.Views
             {
                 this.Hide();
                 var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang);
-                kh.DCNhanHang = txtDCNhan.Text;
-                kh.NgayNhan = dateNgayNhan.Value;
                 _khachHangService.Update(kh);
-                FrmThanhToan frmtt = new FrmThanhToan(_idnv);
+                FrmThanhToan frmtt = new FrmThanhToan(_idhd);
                 frmtt.ShowDialog();
             }
         }
@@ -213,7 +215,11 @@ namespace _3.PL.Views
             DialogResult lkResult = MessageBox.Show("Bạn có chắc muốn xóa ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (lkResult == DialogResult.Yes)
             {
-                if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+                if (txtSoLuong.Text == "")
+                {
+                    MessageBox.Show("Không có sản phẩm để xóa");
+                }
+                else if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
                 {
                     return;
                 }
@@ -243,7 +249,7 @@ namespace _3.PL.Views
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+            if (_hoaDonService.GetEdit(_idhd) == null || _hoaDonService.GetEdit(_idhd).TrangThai == true || dgridGioHang.Rows[0].Cells[0].Value == null)
             {
                 return;
             }
@@ -366,7 +372,14 @@ namespace _3.PL.Views
             dgridHoaDon.Rows.Clear();
             foreach (var x in _hoaDonService.GetAll().OrderBy(c => c.TrangThai))
             {
-                dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
+                if (x.TrangThai == true)
+                {
+                    break;
+                }
+                else
+                {
+                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
+                }
             }
 
         }
@@ -411,7 +424,7 @@ namespace _3.PL.Views
         private void FrmDatHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            FrmMain frm = new FrmMain(_nhanVienService.getlstNv().FirstOrDefault(c=>c.IdNhanVien==_idnv).Email);
+            FrmMain frm = new FrmMain(_nhanVienService.getlstNv().FirstOrDefault(c => c.IdNhanVien == _idnv).Email);
             frm.ShowDialog();
         }
     }

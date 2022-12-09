@@ -20,14 +20,14 @@ namespace _3.PL.Views
         IHoaDonService _hoaDonService;
         Guid _idHd;
         INhanVienService _inv;
-
+        Guid _idnv;
         public FrmQuanLyHoaDon(Guid idnv)
         {
             InitializeComponent();           
             _hoaDonService = new HoaDonService();
             _inv = new NhanVienService();
             var nv = _inv.getlstNv().FirstOrDefault(c => c.IdNhanVien == idnv);
-
+            _idnv = _inv.getlstNv().FirstOrDefault(c => c.IdNhanVien == idnv).IdNhanVien;
             if (nv.IdLoaiTk == false)
             {
                 btnHuy.Hide();
@@ -109,11 +109,32 @@ namespace _3.PL.Views
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            var _hoaDon = _hoaDonService.GetEdit(_idHd);
-            _hoaDon.IdHoaDon = _idHd;
-            _hoaDonService.Delete(_hoaDon);
-            MessageBox.Show("Đã Hủy");
-            loadDonHang();
+            if (dgrid_hoaDon.Rows[0].Cells[0].Value == null)
+            {
+                return;
+            }
+            else
+            {
+                var _hoaDon = _hoaDonService.GetEdit(_idHd);
+                _hoaDon.IdHoaDon = _idHd;
+                _hoaDonService.Delete(_hoaDon);
+                MessageBox.Show("Đã Hủy");
+                loadDonHang();
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgrid_hoaDon.Rows[0].Cells[0].Value==null)
+            {
+                return;
+            }
+            else
+            {
+                FrmInHoaDon frm = new FrmInHoaDon(_idnv);
+                frm.ShowDialog();
+            }
         }
     }
 }

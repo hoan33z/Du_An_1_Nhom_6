@@ -48,18 +48,32 @@ namespace _3.PL.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var DonVi = GetDataFromDb();
-            DonVi.IdDonVi = _idWhenClick;
-            MessageBox.Show(_IdonViService.Update(DonVi));
-            LoadData();
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var DonVi = GetDataFromDb();
+                DonVi.IdDonVi = _idWhenClick;
+                MessageBox.Show(_IdonViService.Update(DonVi));
+                LoadData();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var DonVi = GetDataFromDb();
-            DonVi.IdDonVi = _idWhenClick;
-            MessageBox.Show(_IdonViService.Delete(DonVi));
-            LoadData();
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var DonVi = GetDataFromDb();
+                DonVi.IdDonVi = _idWhenClick;
+                MessageBox.Show(_IdonViService.Delete(DonVi));
+                LoadData();
+            }
         }
 
         private void dgriDonVi_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1.DAL.Migrations
 {
-    public partial class hoan : Migration
+    public partial class hoN : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -147,7 +147,7 @@ namespace _1.DAL.Migrations
                     HinhAnh = table.Column<byte[]>(type: "image", nullable: true),
                     GiaNhap = table.Column<decimal>(type: "decimal", nullable: false),
                     GiaBan = table.Column<decimal>(type: "decimal", nullable: false),
-                    SoLuong = table.Column<int>(type: "int", nullable: false)
+                    SoLuong = table.Column<decimal>(type: "decimal", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -192,7 +192,7 @@ namespace _1.DAL.Migrations
                     IdHoaDon = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdChiTietSP = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DonGia = table.Column<decimal>(type: "decimal", nullable: false),
-                    SoLuongMua = table.Column<int>(type: "int", nullable: false)
+                    SoLuongMua = table.Column<decimal>(type: "decimal", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -210,6 +210,11 @@ namespace _1.DAL.Migrations
                         principalColumn: "IdHoaDon",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "NhanVien",
+                columns: new[] { "IdNhanVien", "ĐiaChi", "Email", "GioiTinh", "IdLoaiTk", "MatKhau", "NamSinh", "SĐT", "TenNhanVien", "TrangThaiTK", "TrangThaiPass" },
+                values: new object[] { new Guid("1ab623c4-9afc-4f78-bddd-fe7d01862113"), "ninh bình", "1", true, true, "1", new DateTime(2003, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), "1", "1", true, true });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ChiTietHoaDon_IdChiTietSP",

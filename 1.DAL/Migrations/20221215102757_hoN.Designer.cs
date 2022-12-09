@@ -10,8 +10,8 @@ using _1.DAL.Models;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(VatLieuDbContext))]
-    [Migration("20221209020352_hoan1")]
-    partial class hoan1
+    [Migration("20221215102757_hoN")]
+    partial class hoN
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,8 +37,8 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdHoaDon")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("SoLuongMua")
-                        .HasColumnType("int")
+                    b.Property<decimal>("SoLuongMua")
+                        .HasColumnType("decimal")
                         .HasColumnName("SoLuongMua");
 
                     b.HasKey("IdCTHoaDon");
@@ -294,6 +294,22 @@ namespace _1.DAL.Migrations
                     b.HasKey("IdNhanVien");
 
                     b.ToTable("NhanVien");
+
+                    b.HasData(
+                        new
+                        {
+                            IdNhanVien = new Guid("1ab623c4-9afc-4f78-bddd-fe7d01862113"),
+                            DiaChi = "ninh bình",
+                            Email = "1",
+                            GioiTinh = true,
+                            IdLoaiTk = true,
+                            MatKhau = "1",
+                            NamSinh = new DateTime(2003, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "1",
+                            TenNv = "1",
+                            TrangThai = true,
+                            TrangThaiPass = true
+                        });
                 });
 
             modelBuilder.Entity("_1.DAL.Models.SanPham", b =>

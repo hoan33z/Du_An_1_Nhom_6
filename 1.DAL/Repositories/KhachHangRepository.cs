@@ -45,8 +45,6 @@ namespace _1.DAL.Repositories
             tempobj.SDT = obj.SDT;
             tempobj.DiaChi = obj.DiaChi;
             tempobj.GioiTinh= obj.GioiTinh;
-            tempobj.DCNhanHang=obj.DCNhanHang;
-            tempobj.NgayNhan=obj.NgayNhan;
             _vatLieuDbContext.KhachHangs.Update(tempobj);
             _vatLieuDbContext.SaveChanges();
             return true;

@@ -49,20 +49,32 @@ namespace _3.PL.Views
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            var NhaCC = getNhaCC();
-            NhaCC.IdNhaCungCap = _idWhenClick;
-            MessageBox.Show(_InhaCungCapService.Update(NhaCC));
-            LoadData();
-
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var NhaCC = getNhaCC();
+                NhaCC.IdNhaCungCap = _idWhenClick;
+                MessageBox.Show(_InhaCungCapService.Update(NhaCC));
+                LoadData();
+            }
         }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            var NhaCC = getNhaCC();
-            NhaCC.IdNhaCungCap = _idWhenClick;
-            MessageBox.Show(_InhaCungCapService.Delete(NhaCC));
-            LoadData();
-
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var NhaCC = getNhaCC();
+                NhaCC.IdNhaCungCap = _idWhenClick;
+                MessageBox.Show(_InhaCungCapService.Delete(NhaCC));
+                LoadData();
+            }
         }
 
         private void dgridNhaCC_CellClick(object sender, DataGridViewCellEventArgs e)

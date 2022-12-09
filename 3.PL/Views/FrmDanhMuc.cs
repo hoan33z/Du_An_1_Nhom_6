@@ -1,6 +1,7 @@
 ﻿using _1.DAL.Models;
 using _2.BUS.IServices;
 using _2.BUS.Service;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,15 +45,20 @@ namespace _3.PL.Views
             MessageBox.Show(_IdanhMucService.Add(GetDataFromDb()));
             LoadData();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            var danhMuc = GetDataFromDb();
-            danhMuc.IdDanhMuc = _idWhenClick;
-            MessageBox.Show(_IdanhMucService.Delete(danhMuc));
-            LoadData();
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var danhMuc = GetDataFromDb();
+                danhMuc.IdDanhMuc = _idWhenClick;
+                MessageBox.Show(_IdanhMucService.Delete(danhMuc));
+                LoadData();
+            }
         }
-
         private void dgridDanhMuc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowindex = e.RowIndex;
@@ -61,13 +67,19 @@ namespace _3.PL.Views
             var danhMuc = _IdanhMucService.GetAll().FirstOrDefault(c => c.IdDanhMuc == _idWhenClick);
             txtDanhMuc.Text = danhMuc.TenDanhMuc;
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            var danhMuc = GetDataFromDb();
-            danhMuc.IdDanhMuc = _idWhenClick;
-            MessageBox.Show(_IdanhMucService.Update(danhMuc));
-            LoadData();
+            if (_idWhenClick == Guid.Empty)
+            {
+                MessageBox.Show("không tìm thấy sản phẩm");
+            }
+            else
+            {
+                var danhMuc = GetDataFromDb();
+                danhMuc.IdDanhMuc = _idWhenClick;
+                MessageBox.Show(_IdanhMucService.Update(danhMuc));
+                LoadData();
+            }
         }
     }
 }

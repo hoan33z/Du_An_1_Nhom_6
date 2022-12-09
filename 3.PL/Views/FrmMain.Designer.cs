@@ -51,7 +51,7 @@
             this.loadForm.Location = new System.Drawing.Point(0, 37);
             this.loadForm.Margin = new System.Windows.Forms.Padding(4);
             this.loadForm.Name = "loadForm";
-            this.loadForm.Size = new System.Drawing.Size(1156, 645);
+            this.loadForm.Size = new System.Drawing.Size(1317, 645);
             this.loadForm.TabIndex = 1;
             // 
             // QLBanHangToolStripMenuItem
@@ -139,14 +139,14 @@
             // menu_DoiMk
             // 
             this.menu_DoiMk.Name = "menu_DoiMk";
-            this.menu_DoiMk.Size = new System.Drawing.Size(270, 34);
+            this.menu_DoiMk.Size = new System.Drawing.Size(221, 34);
             this.menu_DoiMk.Text = "Đổi mật khẩu";
             this.menu_DoiMk.Click += new System.EventHandler(this.menu_DoiMk_Click);
             // 
             // DangXuat
             // 
             this.DangXuat.Name = "DangXuat";
-            this.DangXuat.Size = new System.Drawing.Size(270, 34);
+            this.DangXuat.Size = new System.Drawing.Size(221, 34);
             this.DangXuat.Text = "Đăng xuất";
             this.DangXuat.Click += new System.EventHandler(this.DangXuat_Click);
             // 
@@ -161,7 +161,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1156, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1317, 33);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -171,7 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1156, 682);
+            this.ClientSize = new System.Drawing.Size(1317, 682);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.loadForm);
             this.Margin = new System.Windows.Forms.Padding(4);

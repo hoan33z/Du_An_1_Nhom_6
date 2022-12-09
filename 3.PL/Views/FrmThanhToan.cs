@@ -15,14 +15,15 @@ namespace _3.PL.Views
         IHoaDonService _hoaDonService;
         ICTHoaDonService _cTHoaDonService;
         Guid _idhd;
-        Guid _idnv;
-        public FrmThanhToan(Guid idnv)
+        //Guid _idnv;
+        public FrmThanhToan(Guid idhd)
         {
             InitializeComponent();
             _hoaDonService = new HoaDonService();
             _cTHoaDonService = new CTHoaDonService();
-            _idnv = idnv;
-            _idhd = _hoaDonService.GetEdit(idnv).IdHoaDon;
+            //_idnv = idnv;
+            //_idhd = _hoaDonService.GetEdit(idnv).IdHoaDon;
+            _idhd = idhd;
             loadDonHang();
             loadcthd();
         }
@@ -102,7 +103,7 @@ namespace _3.PL.Views
                 _hoaDonService.Update(editcthd);
                 MessageBox.Show("Đã Thanh Toán");
                 this.Hide();
-                FrmInHoaDon frmin = new FrmInHoaDon(_idnv);
+                FrmInHoaDon frmin = new FrmInHoaDon(/*_hoaDonService.GetEdit(_idhd).IdNhanVien*/_idhd);
                 frmin.ShowDialog();
             }
         }
@@ -115,6 +116,7 @@ namespace _3.PL.Views
             {
                 _hoaDonService.Delete(editcthd);
                 MessageBox.Show("Đã Hủy");
+                this.Hide();
             }
             if (lkResult == DialogResult.No)
             {
@@ -137,7 +139,7 @@ namespace _3.PL.Views
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmDatHang frmdh = new FrmDatHang(_idnv);
+            FrmDatHang frmdh = new FrmDatHang(_hoaDonService.GetEdit(_idhd).IdNhanVien);
             frmdh.ShowDialog();
         }
 

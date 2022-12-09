@@ -174,10 +174,6 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("DCNhanHang")
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("ĐCNhanHang");
-
                     b.Property<string>("DiaChi")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
@@ -186,10 +182,6 @@ namespace _1.DAL.Migrations
                     b.Property<int>("GioiTinh")
                         .HasColumnType("int")
                         .HasColumnName("GioiTinh");
-
-                    b.Property<DateTime>("NgayNhan")
-                        .HasColumnType("datetime")
-                        .HasColumnName("NgayNhan");
 
                     b.Property<string>("SDT")
                         .IsRequired()
@@ -292,6 +284,22 @@ namespace _1.DAL.Migrations
                     b.HasKey("IdNhanVien");
 
                     b.ToTable("NhanVien");
+
+                    b.HasData(
+                        new
+                        {
+                            IdNhanVien = new Guid("1ab623c4-9afc-4f78-bddd-fe7d01862113"),
+                            DiaChi = "ninh bình",
+                            Email = "1",
+                            GioiTinh = true,
+                            IdLoaiTk = true,
+                            MatKhau = "1",
+                            NamSinh = new DateTime(2003, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "1",
+                            TenNv = "1",
+                            TrangThai = true,
+                            TrangThaiPass = true
+                        });
                 });
 
             modelBuilder.Entity("_1.DAL.Models.SanPham", b =>

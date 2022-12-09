@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.cbHienMK = new System.Windows.Forms.CheckBox();
-            this.cbx_ghiNhoTk = new System.Windows.Forms.CheckBox();
             this.txt_mk = new System.Windows.Forms.TextBox();
             this.txt_tk = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -38,8 +37,8 @@
             // cbHienMK
             // 
             this.cbHienMK.AutoSize = true;
-            this.cbHienMK.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.cbHienMK.Location = new System.Drawing.Point(470, 256);
+            this.cbHienMK.ForeColor = System.Drawing.Color.Red;
+            this.cbHienMK.Location = new System.Drawing.Point(405, 189);
             this.cbHienMK.Margin = new System.Windows.Forms.Padding(4);
             this.cbHienMK.Name = "cbHienMK";
             this.cbHienMK.Size = new System.Drawing.Size(190, 34);
@@ -48,22 +47,11 @@
             this.cbHienMK.UseVisualStyleBackColor = true;
             this.cbHienMK.CheckedChanged += new System.EventHandler(this.cbHienMK_CheckedChanged);
             // 
-            // cbx_ghiNhoTk
-            // 
-            this.cbx_ghiNhoTk.AutoSize = true;
-            this.cbx_ghiNhoTk.Location = new System.Drawing.Point(78, 256);
-            this.cbx_ghiNhoTk.Margin = new System.Windows.Forms.Padding(4);
-            this.cbx_ghiNhoTk.Name = "cbx_ghiNhoTk";
-            this.cbx_ghiNhoTk.Size = new System.Drawing.Size(185, 34);
-            this.cbx_ghiNhoTk.TabIndex = 14;
-            this.cbx_ghiNhoTk.Text = "Nhớ tài khoản";
-            this.cbx_ghiNhoTk.UseVisualStyleBackColor = true;
-            // 
             // txt_mk
             // 
             this.txt_mk.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_mk.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txt_mk.Location = new System.Drawing.Point(78, 179);
+            this.txt_mk.Location = new System.Drawing.Point(13, 100);
             this.txt_mk.Margin = new System.Windows.Forms.Padding(4);
             this.txt_mk.Multiline = true;
             this.txt_mk.Name = "txt_mk";
@@ -79,7 +67,7 @@
             this.txt_tk.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_tk.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_tk.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txt_tk.Location = new System.Drawing.Point(78, 111);
+            this.txt_tk.Location = new System.Drawing.Point(13, 32);
             this.txt_tk.Margin = new System.Windows.Forms.Padding(4);
             this.txt_tk.Multiline = true;
             this.txt_tk.Name = "txt_tk";
@@ -92,7 +80,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(191, 298);
+            this.button1.Location = new System.Drawing.Point(13, 159);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(368, 64);
@@ -105,13 +93,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 402);
+            this.ClientSize = new System.Drawing.Size(607, 247);
             this.Controls.Add(this.cbHienMK);
-            this.Controls.Add(this.cbx_ghiNhoTk);
             this.Controls.Add(this.txt_mk);
             this.Controls.Add(this.txt_tk);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ForeColor = System.Drawing.Color.Red;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -123,7 +111,6 @@
 
         #endregion
         private System.Windows.Forms.CheckBox cbHienMK;
-        private System.Windows.Forms.CheckBox cbx_ghiNhoTk;
         private System.Windows.Forms.TextBox txt_mk;
         private System.Windows.Forms.TextBox txt_tk;
         private System.Windows.Forms.Button button1;

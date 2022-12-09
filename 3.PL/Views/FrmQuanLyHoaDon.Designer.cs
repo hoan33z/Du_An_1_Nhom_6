@@ -34,6 +34,7 @@
             this.cbx_trangThai = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnHuy = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hoaDon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,11 +107,24 @@
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(522, 566);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(330, 55);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "In hóa đơn";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmQuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1192, 628);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbx_trangThai);
@@ -135,5 +149,6 @@
         private System.Windows.Forms.ComboBox cbx_trangThai;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button button1;
     }
 }

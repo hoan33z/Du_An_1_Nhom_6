@@ -14,7 +14,5 @@ namespace _2.BUS.ViewModels
         public string DiaChi { get; set; }
         public string SDT { get; set; }
         public int GioiTinh { get; set; }
-        public string DCNhanHang { get; set; }
-        public DateTime NgayNhan { get; set; }
     }
 }

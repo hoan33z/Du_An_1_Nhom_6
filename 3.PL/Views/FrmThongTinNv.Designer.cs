@@ -45,9 +45,10 @@
             // 
             // txt_Name
             // 
+            this.txt_Name.Enabled = false;
             this.txt_Name.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_Name.Location = new System.Drawing.Point(241, 82);
-            this.txt_Name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_Name.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Name.Multiline = true;
             this.txt_Name.Name = "txt_Name";
             this.txt_Name.Size = new System.Drawing.Size(462, 30);
@@ -55,9 +56,10 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(241, 144);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -66,42 +68,49 @@
             // 
             // txt_Email
             // 
+            this.txt_Email.Enabled = false;
             this.txt_Email.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_Email.Location = new System.Drawing.Point(241, 208);
-            this.txt_Email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_Email.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Email.Multiline = true;
             this.txt_Email.Name = "txt_Email";
+            this.txt_Email.ReadOnly = true;
             this.txt_Email.Size = new System.Drawing.Size(462, 30);
             this.txt_Email.TabIndex = 37;
             // 
             // txt_DiaChi
             // 
+            this.txt_DiaChi.Enabled = false;
             this.txt_DiaChi.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_DiaChi.Location = new System.Drawing.Point(241, 274);
-            this.txt_DiaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_DiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txt_DiaChi.Multiline = true;
             this.txt_DiaChi.Name = "txt_DiaChi";
+            this.txt_DiaChi.ReadOnly = true;
             this.txt_DiaChi.Size = new System.Drawing.Size(462, 30);
             this.txt_DiaChi.TabIndex = 38;
             // 
             // txt_SDT
             // 
+            this.txt_SDT.Enabled = false;
             this.txt_SDT.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_SDT.Location = new System.Drawing.Point(241, 341);
-            this.txt_SDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_SDT.Margin = new System.Windows.Forms.Padding(4);
             this.txt_SDT.Multiline = true;
             this.txt_SDT.Name = "txt_SDT";
+            this.txt_SDT.ReadOnly = true;
             this.txt_SDT.Size = new System.Drawing.Size(462, 30);
             this.txt_SDT.TabIndex = 39;
             // 
             // cbx_gioiTinh
             // 
+            this.cbx_gioiTinh.Enabled = false;
             this.cbx_gioiTinh.FormattingEnabled = true;
             this.cbx_gioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
             this.cbx_gioiTinh.Location = new System.Drawing.Point(241, 409);
-            this.cbx_gioiTinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbx_gioiTinh.Margin = new System.Windows.Forms.Padding(4);
             this.cbx_gioiTinh.Name = "cbx_gioiTinh";
             this.cbx_gioiTinh.Size = new System.Drawing.Size(462, 33);
             this.cbx_gioiTinh.TabIndex = 41;
@@ -201,7 +210,7 @@
             this.Controls.Add(this.txt_Email);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txt_Name);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmThongTinNv";
             this.Text = "FrmThongTinNv";
             this.ResumeLayout(false);

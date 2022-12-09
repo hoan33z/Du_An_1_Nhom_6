@@ -26,7 +26,23 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.IdLoaiTk).HasColumnName("IdLoaiTk").HasColumnType("bit").IsRequired();
             builder.Property(c => c.TrangThai).HasColumnName("TrangThaiTK").HasColumnType("bit").IsRequired();
             builder.Property(c => c.TrangThaiPass).HasColumnName("TrangThaiPass").HasColumnType("bit").IsRequired();
-
+            builder.HasData
+                (
+                new NhanVien()
+                {
+                    IdNhanVien =Guid.Parse( "1ab623c4-9afc-4f78-bddd-fe7d01862113"),
+                    DiaChi = "ninh bình",
+                    Email = "1",
+                    GioiTinh = true,
+                    MatKhau = "1",
+                    NamSinh = DateTime.Parse("2003-01-26"),
+                    SDT= "1",
+                    TenNv= "1",
+                    TrangThai=true,
+                    TrangThaiPass=true,
+                    IdLoaiTk=true
+                }
+                ) ;
         }
     }
 }

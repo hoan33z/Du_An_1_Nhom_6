@@ -27,8 +27,6 @@ namespace _2.BUS.Service
                 DiaChi = KH.DiaChi,
                 SDT = KH.SDT,
                 GioiTinh = KH.GioiTinh,
-                DCNhanHang = KH.DCNhanHang,
-                NgayNhan = KH.NgayNhan
             };
             if (_IkhachHangRepository.Add(obj)) return "thêm thành công";
             return "ok";
@@ -48,7 +46,7 @@ namespace _2.BUS.Service
         public List<KhachHangView> GetAll()
         {
             List<KhachHangView> lstKhView = new List<KhachHangView>();
-            lstKhView = (from a in _IkhachHangRepository.GetAll() select new KhachHangView() { IdKhachHang = a.IdKhachHang, TenKh = a.TenKh, DiaChi = a.DiaChi, SDT = a.SDT, GioiTinh = a.GioiTinh, DCNhanHang = a.DCNhanHang, NgayNhan = a.NgayNhan }).ToList();
+            lstKhView = (from a in _IkhachHangRepository.GetAll() select new KhachHangView() { IdKhachHang = a.IdKhachHang, TenKh = a.TenKh, DiaChi = a.DiaChi, SDT = a.SDT, GioiTinh = a.GioiTinh}).ToList();
             return lstKhView;
         }
 
@@ -57,11 +55,9 @@ namespace _2.BUS.Service
             var kh = _IkhachHangRepository.GetAll().FirstOrDefault(c => c.IdKhachHang == id);
             return new EditKhachHangView()
             {
-                DCNhanHang = kh.DCNhanHang,
                 DiaChi = kh.DiaChi,
                 GioiTinh = kh.GioiTinh,
                 IdKhachHang = kh.IdKhachHang,
-                NgayNhan = kh.NgayNhan,
                 SDT = kh.SDT,
                 TenKh = kh.TenKh
             };
@@ -77,8 +73,6 @@ namespace _2.BUS.Service
                 DiaChi = KH.DiaChi,
                 SDT = KH.SDT,
                 GioiTinh = KH.GioiTinh,
-                DCNhanHang = KH.DCNhanHang,
-                NgayNhan = KH.NgayNhan
             };
             if (_IkhachHangRepository.Update(obj)) return "sửa thành công";
             return "ok";

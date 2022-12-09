@@ -30,8 +30,6 @@ namespace _3.PL.Views
                 DiaChi = txtDiaChi.Text,
                 SDT = txtSDT.Text,
                 GioiTinh = rbtnNam.Checked == true ? 0 : 1,
-                DCNhanHang = null,
-                NgayNhan = DateTime.Now
             };
         }
         public void LoadTTKhachHang()

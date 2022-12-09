@@ -155,6 +155,7 @@ namespace _3.PL.Views
             frm3.TopLevel = false;
             frm4.TopLevel = false;
             loadForm.Controls.Add(frm);
+            //frm.
             loadForm.Controls.Add(frm1);
             loadForm.Controls.Add(frm2);
             loadForm.Controls.Add(frm3);

@@ -31,13 +31,13 @@ namespace _3.PL.Views
         }
         private void radioButton1_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (this.monthOrYear == 0)return;
+            if (this.monthOrYear == 0) return;
             this.monthOrYear = 0;
             this.LoadData();
         }
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.monthOrYear == 1)return;
+            if (this.monthOrYear == 1) return;
             this.monthOrYear = 1;
             this.LoadData();
         }
@@ -49,39 +49,45 @@ namespace _3.PL.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.saveFileDialog.ShowDialog();
-            if (this.saveFileDialog.FileName != "")
+            if (dgridDoanhThu.Rows[0].Cells[0].Value == null)
             {
-                Excel.Application application = new Microsoft.Office.Interop.Excel.Application();
-                Excel.Workbook wb = application.Workbooks.Add(Type.Missing);
-                try
+                return;
+            }
+            else
+            {
+                this.saveFileDialog.ShowDialog();
+                if (this.saveFileDialog.FileName != "")
                 {
-                    Excel.Worksheet sheet = wb.ActiveSheet;
-                    sheet.Name = "Report";
-
-                    sheet.Cells[1, 1].Value = "Ngày";
-                    sheet.Cells[1, 2].Value = "Tổng doanh thu";
-                    sheet.Cells[1, 3].Value = "Số lượng đơn hàng";
-
-                    for (int i = 0; i < this.reports.Count; i++)
+                    Excel.Application application = new Microsoft.Office.Interop.Excel.Application();
+                    Excel.Workbook wb = application.Workbooks.Add(Type.Missing);
+                    try
                     {
-                        sheet.Cells[i + 2, 1].Value = this.reports[i].ngaychon1;
-                        sheet.Cells[i + 2, 2].Value = this.reports[i].doanhthu1;
-                        sheet.Cells[i + 2, 3].Value = this.reports[i].sodon1;
+                        Excel.Worksheet sheet = wb.ActiveSheet;
+                        sheet.Name = "Report";
+
+                        sheet.Cells[1, 1].Value = "Ngày";
+                        sheet.Cells[1, 2].Value = "Tổng doanh thu";
+                        sheet.Cells[1, 3].Value = "Số lượng đơn hàng";
+
+                        for (int i = 0; i < this.reports.Count; i++)
+                        {
+                            sheet.Cells[i + 2, 1].Value = this.reports[i].ngaychon1;
+                            sheet.Cells[i + 2, 2].Value = this.reports[i].doanhthu1;
+                            sheet.Cells[i + 2, 3].Value = this.reports[i].sodon1;
+                        }
+                        wb.SaveAs(this.saveFileDialog.FileName);
                     }
-                    wb.SaveAs(this.saveFileDialog.FileName);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
-                finally
-                {
-                    application.Quit();
-                    wb = null;
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error");
+                    }
+                    finally
+                    {
+                        application.Quit();
+                        wb = null;
+                    }
                 }
             }
-
         }
     }
 }

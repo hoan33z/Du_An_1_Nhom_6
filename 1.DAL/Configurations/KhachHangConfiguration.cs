@@ -19,9 +19,7 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.TenKh).HasColumnName("TenKhachHang").HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(c => c.SDT).HasColumnName("SDT").HasColumnType("nvarchar(10)").IsRequired();
             builder.Property(c => c.DiaChi).HasColumnName("ĐiaChi").HasColumnType("nvarchar(100)").IsRequired();
-            builder.Property(c => c.DCNhanHang).HasColumnName("ĐCNhanHang").HasColumnType("nvarchar(100)");
             builder.Property(c => c.GioiTinh).HasColumnName("GioiTinh").HasColumnType("int").IsRequired();
-            builder.Property(c => c.NgayNhan).HasColumnName("NgayNhan").HasColumnType("datetime");
         }
     }
 }
