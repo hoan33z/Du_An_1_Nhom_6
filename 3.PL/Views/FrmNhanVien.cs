@@ -28,7 +28,7 @@ namespace _3.PL.Views
         }
         public void loadData()
         {
-            dgr_nhanVien.ColumnCount = 8;
+            dgr_nhanVien.ColumnCount = 9;
             dgr_nhanVien.Columns[0].Name = "Tên Nhân Viên";
             dgr_nhanVien.Columns[1].Name = "Năm sinh";
             dgr_nhanVien.Columns[2].Name = "Giới tính";
@@ -37,6 +37,8 @@ namespace _3.PL.Views
             dgr_nhanVien.Columns[5].Name = "Địa Chỉ";
             dgr_nhanVien.Columns[6].Name = "Chức Vụ";
             dgr_nhanVien.Columns[7].Name = "Tình trạng tài khoản";
+            dgr_nhanVien.Columns[8].Name = "id";
+            dgr_nhanVien.Columns[8].Visible = false;
             dgr_nhanVien.Rows.Clear();
             foreach (var x in _iNhanVien.getlstNv())
             {
