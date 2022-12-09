@@ -97,11 +97,14 @@ namespace _3_GUI_Layer
             }
             else
             {
-                acc.MatKhau=txtPassNew.Text/*_Utility.EncodePass(txtPassNew.Text)*/;
-                acc.TrangThaiPass = true;
-                MessageBox.Show(_iTaiKhoan.UpdateNV(acc));
-                FrmMain frm = new FrmMain(txtMail.Text);
-                frm.ShowDialog();
+                DialogResult lkResult = MessageBox.Show("Xác nhận đổi?", "Cảnh báo", MessageBoxButtons.YesNo);
+                if (lkResult==DialogResult.Yes)
+                {
+                    acc.MatKhau = txtPassNew.Text/*_Utility.EncodePass(txtPassNew.Text)*/;
+                    acc.TrangThaiPass = true;
+                    MessageBox.Show(_iTaiKhoan.UpdateNV(acc));
+                }
+                else { return; }
             }
             ClearForm();
         }
