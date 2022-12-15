@@ -20,8 +20,6 @@ namespace _3_GUI_Layer
         private Utility _Utility = new Utility();
         private string _PassRandom;
        
-
-
         public FrmChangePassword(string title)
         {
             InitializeComponent();
@@ -29,8 +27,6 @@ namespace _3_GUI_Layer
             txtMail.Text = title;
             _iTaiKhoan = new NhanVienService();                                 
         }
-
-
 
         private void cbHienMK_CheckedChanged(object sender, EventArgs e)
         {

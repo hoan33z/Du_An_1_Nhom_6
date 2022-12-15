@@ -155,8 +155,8 @@ namespace _1.DAL.Migrations
                         .HasColumnType("decimal")
                         .HasColumnName("TongTien");
 
-                    b.Property<bool>("TrangThai")
-                        .HasColumnType("bit")
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int")
                         .HasColumnName("TrangThai");
 
                     b.HasKey("IdHoaDon");

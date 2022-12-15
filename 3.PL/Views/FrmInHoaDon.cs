@@ -104,7 +104,9 @@ namespace _3.PL.Views
         private void FrmInHoaDon_FormClosed(object sender, FormClosedEventArgs e)
         {
             FrmDatHang frm = new FrmDatHang(_hoaDonService.GetEdit(_idhd).IdNhanVien);
-            frm.ShowDialog();
+            this.Hide();
+            frm.Closed += (s, args) => this.Close();
+            frm.Show();
         }
     }
 }

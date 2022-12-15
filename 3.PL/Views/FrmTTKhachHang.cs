@@ -56,7 +56,7 @@ namespace _3.PL.Views
                 TongTien = 0,
                 NgayThanhToan = DateTime.Now,
                 NgayTao = DateTime.Now,
-                TrangThai = false
+                TrangThai = 1
             };
         }
         private void button1_Click(object sender, EventArgs e)

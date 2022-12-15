@@ -45,10 +45,22 @@ namespace _3.PL.Views
                 frm.Dock = DockStyle.Fill;
                 frm.Show();
             }
-
             if (_inFoNhanVien.IdLoaiTk == false)
             {
-                qlNhanVien.Enabled = false;
+                if (_inFoNhanVien.TrangThaiPass == false)
+                {
+                    MessageBox.Show("Bạn hãy đổi mật khẩu để sử dụng phần mềm", "Thông báo");
+                    this.Hide();
+                    string title1 = _inFoNhanVien.Email;
+                    FrmMain frm = new FrmMain(title1);
+                    //DialogResult frmok = frm.ShowDialog();
+                    //if (frmok == DialogResult.OK)
+                    //{
+                    //    frm.ShowDialog();
+                    //}
+                    frm.Show();
+                }
+                    qlNhanVien.Enabled = false;
             }
             else
             {
@@ -91,6 +103,7 @@ namespace _3.PL.Views
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
             frm.Show();
+            DialogResult ok = DialogResult.OK;
         }
 
         private void qlNhanVien_Click(object sender, EventArgs e)

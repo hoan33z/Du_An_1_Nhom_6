@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1.DAL.Migrations
 {
-    public partial class hoN : Migration
+    public partial class hoan : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,9 +39,7 @@ namespace _1.DAL.Migrations
                     TenKhachHang = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     ĐiaChi = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     SDT = table.Column<string>(type: "nvarchar(10)", nullable: false),
-                    GioiTinh = table.Column<int>(type: "int", nullable: false),
-                    ĐCNhanHang = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    NgayNhan = table.Column<DateTime>(type: "datetime", nullable: false)
+                    GioiTinh = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -115,7 +113,7 @@ namespace _1.DAL.Migrations
                     TongTien = table.Column<decimal>(type: "decimal", nullable: false),
                     NgayThanhToan = table.Column<DateTime>(type: "datetime", nullable: false),
                     NgayTao = table.Column<DateTime>(type: "datetime", nullable: false),
-                    TrangThai = table.Column<bool>(type: "bit", nullable: false)
+                    TrangThai = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

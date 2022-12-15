@@ -43,24 +43,11 @@ namespace _3.PL.Views
                 }
                 else if (_taikhoan.MatKhau == password/*_Utility.EncodePass(password)*/)//password
                 {
-                    if (_taikhoan.TrangThaiPass == false)
-                    {
-                        MessageBox.Show("Bạn hãy đổi mật khẩu để sử dụng phần mềm", "Thông báo");
-                        this.Hide();
-                        string title = txt_tk.Text;
-                        FrmChangePassword frm = new FrmChangePassword(title);
-                        frm.ShowDialog();
-
-                    }
-                    else
-                    {
-                        string title = txt_tk.Text;
-                       MessageBox.Show("Đăng nhập thành công", "Thông báo");
-                        this.Hide();
-                        FrmMain frm_Start = new FrmMain(title);
-                        frm_Start.Closed += (s, args) => this.Close();
-                        frm_Start.Show();
-                    }
+                    string title = txt_tk.Text;
+                    this.Hide();
+                    FrmMain frm_Start = new FrmMain(title);
+                    frm_Start.Closed += (s, args) => this.Close();
+                    frm_Start.Show();
                 }
                 else
                 {

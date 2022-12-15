@@ -61,7 +61,7 @@ namespace _3.PL.Views
             dgridHDCT.Columns[3].Name = "Số Lượng Mua";
             dgridHDCT.Columns[4].Name = "Đơn Giá";
             dgridHDCT.Columns[5].Name = "Tổng Tiền";
-
+            dgridHDCT.AllowUserToAddRows = false;
             dgridHDCT.Rows.Clear();
             foreach (var x in data)
             {

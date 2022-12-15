@@ -50,8 +50,15 @@ namespace _3.PL.Views
             dgrid_hoaDon.Columns[6].Name = "Tổng Tiền";
             dgrid_hoaDon.Rows.Clear();
             foreach (var x in _hoaDonService.GetAll())
-            {                              
-                    dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien,x.NgayTao,x.NgayThanhToan, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);                
+            {
+                if (x.TrangThai==2)
+                {
+                    dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.NgayTao, x.NgayThanhToan, "Đã hủy", x.TongTien);
+                }
+                else
+                {
+                    dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.NgayTao, x.NgayThanhToan, x.TrangThai == 1 ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
+                }
             }
         }
         public void loadDataTimKiem()
@@ -59,7 +66,7 @@ namespace _3.PL.Views
             dgrid_hoaDon.Rows.Clear();
             foreach (var x in _hoaDonService.GetAll().Where(c => c.TenKhachHang.Contains(txt_timKiem.Text)))
             {
-                dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.NgayTao, x.NgayThanhToan, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
+                dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.NgayTao, x.NgayThanhToan, x.TrangThai == 1 ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
             }
         }
 
@@ -92,17 +99,17 @@ namespace _3.PL.Views
             else if (cbx_trangThai.Text == "Đã thanh toán")
             {
                 dgrid_hoaDon.Rows.Clear();
-                foreach (var x in _hoaDonService.GetAll().Where(c => c.TrangThai == true))
+                foreach (var x in _hoaDonService.GetAll().Where(c => c.TrangThai == 0))
                 {
-                    dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.NgayTao, x.NgayThanhToan, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
+                    dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.NgayTao, x.NgayThanhToan, x.TrangThai == 1 ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
                 }
             }
             else
             {
                 dgrid_hoaDon.Rows.Clear();
-                foreach (var x in _hoaDonService.GetAll().Where(c => c.TrangThai == false))
+                foreach (var x in _hoaDonService.GetAll().Where(c => c.TrangThai == 1))
                 {
-                    dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.NgayTao, x.NgayThanhToan, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
+                    dgrid_hoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.NgayTao, x.NgayThanhToan, x.TrangThai == 1 ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
                 }
             }
         }
@@ -117,7 +124,8 @@ namespace _3.PL.Views
             {
                 var _hoaDon = _hoaDonService.GetEdit(_idHd);
                 _hoaDon.IdHoaDon = _idHd;
-                _hoaDonService.Delete(_hoaDon);
+                _hoaDon.TrangThai = 2;
+                _hoaDonService.Update(_hoaDon);
                 MessageBox.Show("Đã Hủy");
                 loadDonHang();
             }

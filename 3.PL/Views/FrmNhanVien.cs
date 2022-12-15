@@ -23,6 +23,8 @@ namespace _3.PL.Views
             _utility = new Utility();
             _nv = new NhanVien();
             loadData();
+            btn_sua.Enabled = false;
+            btn_xoa.Enabled = false;
         }
         public void loadData()
         {
@@ -111,7 +113,7 @@ namespace _3.PL.Views
                         _nv.TenNv = txt_Name.Text;
                         _nv.GioiTinh = cbx_gioiTinh.Text == "Nam" ? true : false;
                         _passRandom = _utility.PassRandom(6);
-                        _nv.MatKhau = _utility.EncodePass(_passRandom);
+                        _nv.MatKhau =_passRandom /*_utility.EncodePass(_passRandom)*/;
                         _nv.IdLoaiTk = cbx_chucVu.Text == "Admin" ? true : false;
                         _nv.TrangThaiPass = false;
                         _nv.TrangThai = cbx_trangThaiTk.Text == "Hoạt Động" ? true : false;
@@ -145,6 +147,8 @@ namespace _3.PL.Views
             cbx_trangThaiTk.Text = row.Cells[7].Value + "";
             _id = Guid.Parse(dgr_nhanVien.Rows[indexRow].Cells[8].Value.ToString());
             btn_them.Enabled = false;
+            btn_sua.Enabled = true;
+            btn_xoa.Enabled = true;
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
@@ -206,7 +210,10 @@ namespace _3.PL.Views
 
         }
 
-        
+        private void FrmNhanVien_Load(object sender, EventArgs e)
+        {
+            loadData();
         }
+    }
     }
 

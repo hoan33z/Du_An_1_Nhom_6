@@ -10,8 +10,8 @@ using _1.DAL.Models;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(VatLieuDbContext))]
-    [Migration("20221215123353_hoan1")]
-    partial class hoan1
+    [Migration("20221216033308_hoan")]
+    partial class hoan
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -157,8 +157,8 @@ namespace _1.DAL.Migrations
                         .HasColumnType("decimal")
                         .HasColumnName("TongTien");
 
-                    b.Property<bool>("TrangThai")
-                        .HasColumnType("bit")
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int")
                         .HasColumnName("TrangThai");
 
                     b.HasKey("IdHoaDon");

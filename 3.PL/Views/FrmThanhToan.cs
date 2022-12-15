@@ -15,14 +15,11 @@ namespace _3.PL.Views
         IHoaDonService _hoaDonService;
         ICTHoaDonService _cTHoaDonService;
         Guid _idhd;
-        //Guid _idnv;
         public FrmThanhToan(Guid idhd)
         {
             InitializeComponent();
             _hoaDonService = new HoaDonService();
             _cTHoaDonService = new CTHoaDonService();
-            //_idnv = idnv;
-            //_idhd = _hoaDonService.GetEdit(idnv).IdHoaDon;
             _idhd = idhd;
             loadDonHang();
             loadcthd();
@@ -53,13 +50,13 @@ namespace _3.PL.Views
             dgridHoaDon.Rows.Clear();
             foreach (var x in _hoaDonService.GetAll().Where(c => c.IdHoaDon == _idhd))
             {
-                if (x.TrangThai == true)
+                if (x.TrangThai == 0)
                 {
                     return;
                 }
                 else
                 {
-                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
+                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TenNhanVien, x.TrangThai == 1 ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
                 }
             }
         }
@@ -97,13 +94,13 @@ namespace _3.PL.Views
             else
             {
                 var editcthd = _hoaDonService.GetEdit(_idhd);
-                editcthd.TrangThai = true;
+                editcthd.TrangThai = 0;
                 editcthd.TongTien = decimal.Parse(txtTongTien.Text);
                 editcthd.NgayThanhToan = DateTime.Now;
                 _hoaDonService.Update(editcthd);
                 MessageBox.Show("Đã Thanh Toán");
                 this.Hide();
-                FrmInHoaDon frmin = new FrmInHoaDon(/*_hoaDonService.GetEdit(_idhd).IdNhanVien*/_idhd);
+                FrmInHoaDon frmin = new FrmInHoaDon(_idhd);
                 frmin.ShowDialog();
             }
         }
@@ -111,12 +108,16 @@ namespace _3.PL.Views
         {
             var editcthd = _hoaDonService.GetEdit(_idhd);
             editcthd.IdHoaDon = _idhd;
+            editcthd.TrangThai = 2;
             DialogResult lkResult = MessageBox.Show("Bạn có chắc muốn hủy ?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (lkResult == DialogResult.Yes)
             {
-                _hoaDonService.Delete(editcthd);
+                _hoaDonService.Update(editcthd);
                 MessageBox.Show("Đã Hủy");
                 this.Hide();
+                FrmDatHang frm = new FrmDatHang(_hoaDonService.GetEdit(_idhd).IdNhanVien);
+                frm.Closed += (s, args) => this.Close();
+                frm.Show();
             }
             if (lkResult == DialogResult.No)
             {

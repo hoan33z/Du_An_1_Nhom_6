@@ -40,7 +40,6 @@ namespace _3_GUI_Layer
             this.txtPassNew = new System.Windows.Forms.TextBox();
             this.txtPassNew2 = new System.Windows.Forms.TextBox();
             this.btnChangePass = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.cbHienMK = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -170,18 +169,6 @@ namespace _3_GUI_Layer
             this.btnChangePass.UseWaitCursor = true;
             this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(41, 544);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(175, 54);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.UseWaitCursor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
             // cbHienMK
             // 
             this.cbHienMK.AutoSize = true;
@@ -203,7 +190,6 @@ namespace _3_GUI_Layer
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(499, 601);
             this.Controls.Add(this.cbHienMK);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnChangePass);
             this.Controls.Add(this.txtPassNew2);
             this.Controls.Add(this.txtPassNew);
@@ -241,7 +227,6 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.TextBox txtPassNew;
         private System.Windows.Forms.TextBox txtPassNew2;
         private System.Windows.Forms.Button btnChangePass;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.CheckBox cbHienMK;
     }
 }

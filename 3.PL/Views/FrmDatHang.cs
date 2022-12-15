@@ -49,6 +49,7 @@ namespace _3.PL.Views
             dgridDSSanPham.Columns[6].Name = "Danh Mục";
             dgridDSSanPham.Columns[7].Name = "Đơn Vị";
             dgridDSSanPham.Rows.Clear();
+            dgridDSSanPham.AllowUserToAddRows = false;
             foreach (var x in _cTSanPhamService.GetAll())
             {
                 if (x.SoLuong <= 0) return;
@@ -75,6 +76,7 @@ namespace _3.PL.Views
                 txtTenKH.Text = kh.TenKh;
                 txtSDT.Text = kh.SDT;
                 txtGioiTinh.Text = kh.GioiTinh == 0 ? "Nam" : "Nữ";
+                txtDiaChi.Text = kh.DiaChi;
             }
         }
         public void LoadGioHang(Guid idhd)
@@ -87,6 +89,7 @@ namespace _3.PL.Views
             dgridGioHang.Columns[3].Name = "Số Lượng";
             dgridGioHang.Columns[4].Name = "Thành Tiền";
             dgridGioHang.Rows.Clear();
+            dgridGioHang.AllowUserToAddRows = false;
             if (_hoaDonService.GetEdit(_idnv) != null)
             {
                 List<CTHoaDonView> lsteditcthd = (from a in _cTHoaDonService.GetAll() where a.IdHoaDon == idhd select a).ToList();
@@ -129,7 +132,7 @@ namespace _3.PL.Views
             }
 
             if (txtSoLuong.Text == "") MessageBox.Show("Chưa nhập số lượng");
-            else if (_idhd == Guid.Empty || _hoaDonService.GetEdit(_idhd).TrangThai == true)
+            else if (_idhd == Guid.Empty || _hoaDonService.GetEdit(_idhd).TrangThai == 0)
             {
                 return;
             }
@@ -153,13 +156,13 @@ namespace _3.PL.Views
         {
             int index = e.RowIndex;
             if (index == -1 || _cTHoaDonService.GetAll().Count == index) return;
-            if (_idgh == Guid.Empty)
+            _idgh = Guid.Parse(dgridGioHang.Rows[index].Cells[0].Value.ToString());
+             if (_idgh == Guid.Empty)
             {
                 return;
             }
             else
             {
-                _idgh = Guid.Parse(dgridGioHang.Rows[index].Cells[0].Value.ToString());
                 var SP = _cTHoaDonService.GetAll().FirstOrDefault(c => c.IdCTHoaDon == _idgh);
                 txtTenSP.Text = SP.TenSp;
                 txtDonGia.Text = SP.DonGia.ToString();
@@ -173,7 +176,7 @@ namespace _3.PL.Views
         }
         private void btnSuaTT_Click(object sender, EventArgs e)
         {
-            if (_idhd == Guid.Empty || _hoaDonService.GetEdit(_idhd).TrangThai == true)
+            if (_idhd == Guid.Empty || _hoaDonService.GetEdit(_idhd).TrangThai == 0)
             {
                 return;
             }
@@ -192,21 +195,30 @@ namespace _3.PL.Views
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (dgridGioHang.Rows[0].Cells[0].Value == null)
+            try
             {
-                MessageBox.Show("Chưa đủ thông tin");
+                if (dgridGioHang.Rows[0].Cells[0].Value == null)
+                {
+                    MessageBox.Show("Chưa đủ thông tin");
+                }
+                else if (_hoaDonService.GetEdit(_idhd).TrangThai == 0)
+                {
+                    return;
+                }
+                else
+                {
+                    this.Hide();
+                    var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang);
+                    _khachHangService.Update(kh);
+                    FrmThanhToan frmtt = new FrmThanhToan(_idhd);
+                    frmtt.Closed += (s, args) => this.Close();
+                    frmtt.Show();
+                }
             }
-            else if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+            catch (Exception)
             {
                 return;
-            }
-            else
-            {
-                this.Close();
-                var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang);
-                _khachHangService.Update(kh);
-                FrmThanhToan frmtt = new FrmThanhToan(_idhd);
-                frmtt.ShowDialog();
+                throw;
             }
         }
 
@@ -219,7 +231,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Không có sản phẩm để xóa");
                 }
-                else if (_hoaDonService.GetEdit(_idhd).TrangThai == true)
+                else if (_hoaDonService.GetEdit(_idhd).TrangThai == 0)
                 {
                     return;
                 }
@@ -249,7 +261,7 @@ namespace _3.PL.Views
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (_hoaDonService.GetEdit(_idhd) == null || _hoaDonService.GetEdit(_idhd).TrangThai == true || dgridGioHang.Rows[0].Cells[0].Value == null)
+            if (_hoaDonService.GetEdit(_idhd) == null || _hoaDonService.GetEdit(_idhd).TrangThai == 0 || dgridGioHang.Rows[0].Cells[0].Value == null)
             {
                 return;
             }
@@ -370,15 +382,16 @@ namespace _3.PL.Views
             dgridHoaDon.Columns[2].Name = "Trạng thái";
             dgridHoaDon.Columns[3].Name = "Tổng tiền";
             dgridHoaDon.Rows.Clear();
-            foreach (var x in _hoaDonService.GetAll().OrderBy(c => c.TrangThai))
+            dgridHoaDon.AllowUserToAddRows = false;
+            foreach (var x in _hoaDonService.GetAll().OrderByDescending(c=>c.NgayTao))
             {
-                if (x.TrangThai == true)
+                if (x.TrangThai == 0 || x.TrangThai == 2)
                 {
-                    break;
+                    return;
                 }
                 else
                 {
-                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, x.TrangThai == false ? "Chưa thanh toán" : "Đã thanh toán", x.TongTien);
+                    dgridHoaDon.Rows.Add(x.IdHoaDon, x.TenKhachHang, "Chưa Thanh Toán", x.TongTien);
                 }
             }
 
@@ -425,6 +438,7 @@ namespace _3.PL.Views
         {
             this.Hide();
             FrmMain frm = new FrmMain(_nhanVienService.getlstNv().FirstOrDefault(c => c.IdNhanVien == _idnv).Email);
+            frm.Closed += (s, args) => this.Close();
             frm.ShowDialog();
         }
     }

@@ -303,6 +303,7 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Name = "FrmNhanVien";
             this.Text = "NhanVien";
+            this.Load += new System.EventHandler(this.FrmNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgr_nhanVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
