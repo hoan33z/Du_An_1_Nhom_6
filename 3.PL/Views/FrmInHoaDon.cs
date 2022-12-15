@@ -17,7 +17,6 @@ namespace _3.PL.Views
         ICTHoaDonService _cTHoaDonService;
         IHoaDonService _hoaDonService;
         ICTSanPhamService _cTSanPhamService;
-       // Guid _idnv;
         Guid _idhd;
         public FrmInHoaDon(Guid idhd)
         {
@@ -26,8 +25,6 @@ namespace _3.PL.Views
             _cTHoaDonService = new CTHoaDonService();
             _hoaDonService = new HoaDonService();
             _cTSanPhamService = new CTSanPhamService();
-            //_idnv = idnv;
-            //_idhd = _hoaDonService.GetEdit(_idnv).IdHoaDon;
             _idhd = idhd;
             LoadCTHD();
             LoadGioHang();

@@ -202,7 +202,7 @@ namespace _3.PL.Views
             }
             else
             {
-                this.Hide();
+                this.Close();
                 var kh = _khachHangService.GetEdit(_hoaDonService.GetEdit(_idnv).IdKhachHang);
                 _khachHangService.Update(kh);
                 FrmThanhToan frmtt = new FrmThanhToan(_idhd);

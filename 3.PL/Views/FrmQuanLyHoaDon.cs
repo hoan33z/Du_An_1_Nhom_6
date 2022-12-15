@@ -109,7 +109,7 @@ namespace _3.PL.Views
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            if (dgrid_hoaDon.Rows[0].Cells[0].Value == null)
+            if (_idHd == Guid.Empty)
             {
                 return;
             }
@@ -126,13 +126,13 @@ namespace _3.PL.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dgrid_hoaDon.Rows[0].Cells[0].Value==null)
+            if (_idHd == Guid.Empty)
             {
                 return;
             }
             else
             {
-                FrmInHoaDon frm = new FrmInHoaDon(_idnv);
+                FrmInHoaDon frm = new FrmInHoaDon(_idHd);
                 frm.ShowDialog();
             }
         }

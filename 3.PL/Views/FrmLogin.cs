@@ -55,10 +55,11 @@ namespace _3.PL.Views
                     else
                     {
                         string title = txt_tk.Text;
-                        MessageBox.Show("Đăng nhập thành công", "Thông báo");
+                       MessageBox.Show("Đăng nhập thành công", "Thông báo");
                         this.Hide();
                         FrmMain frm_Start = new FrmMain(title);
-                        frm_Start.ShowDialog();
+                        frm_Start.Closed += (s, args) => this.Close();
+                        frm_Start.Show();
                     }
                 }
                 else
