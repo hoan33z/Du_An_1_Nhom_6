@@ -17,6 +17,7 @@ namespace _3.PL.Views
         Utility _utility;
         string _passRandom;
         NhanVien _nv;
+        Guid _id;
         public FrmNhanVien()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace _3.PL.Views
         }
         public void loadData()
         {
-            dgr_nhanVien.ColumnCount = 8;
+            dgr_nhanVien.ColumnCount = 9;
             dgr_nhanVien.Columns[0].Name = "Tên Nhân Viên";
             dgr_nhanVien.Columns[1].Name = "Năm sinh";
             dgr_nhanVien.Columns[2].Name = "Giới tính";
@@ -36,6 +37,8 @@ namespace _3.PL.Views
             dgr_nhanVien.Columns[5].Name = "Địa Chỉ";
             dgr_nhanVien.Columns[6].Name = "Chức Vụ";
             dgr_nhanVien.Columns[7].Name = "Tình trạng tài khoản";
+            dgr_nhanVien.Columns[8].Name = "id";
+            dgr_nhanVien.Columns[8].Visible = false;
             dgr_nhanVien.Rows.Clear();
             foreach (var x in _iNhanVien.getlstNv())
             {
@@ -44,7 +47,7 @@ namespace _3.PL.Views
         }
         public void loadDataTimKiem()
         {
-            dgr_nhanVien.ColumnCount = 8;
+            dgr_nhanVien.ColumnCount = 9;
             dgr_nhanVien.Columns[0].Name = "Tên Nhân Viên";
             dgr_nhanVien.Columns[1].Name = "Năm sinh";
             dgr_nhanVien.Columns[2].Name = "Giới tính";
@@ -53,10 +56,12 @@ namespace _3.PL.Views
             dgr_nhanVien.Columns[5].Name = "Địa Chỉ";
             dgr_nhanVien.Columns[6].Name = "Chức Vụ";
             dgr_nhanVien.Columns[7].Name = "Tình trạng tài khoản";
+            dgr_nhanVien.Columns[8].Name = "id";
+            dgr_nhanVien.Columns[8].Visible = false;
             dgr_nhanVien.Rows.Clear();
             foreach (var x in _iNhanVien.getlstNv())
             {
-                dgr_nhanVien.Rows.Add(x.TenNv, x.NamSinh, x.GioiTinh == true ? "Nam" : "Nữ", x.Email, x.SDT, x.DiaChi, x.IdLoaiTk == true ? "Admin" : "Nhân Viên", x.TrangThai == true ? "Họat động" : "Ngừng Hoạt Động");
+                dgr_nhanVien.Rows.Add(x.TenNv, x.NamSinh, x.GioiTinh == true ? "Nam" : "Nữ", x.Email, x.SDT, x.DiaChi, x.IdLoaiTk == true ? "Admin" : "Nhân Viên", x.TrangThai == true ? "Họat động" : "Ngừng Hoạt Động",x.IdNhanVien);
             }
         }
         private void ClearForm()
@@ -141,6 +146,7 @@ namespace _3.PL.Views
             txt_DiaChi.Text = row.Cells[5].Value + "";
             cbx_chucVu.Text = row.Cells[6].Value + "";
             cbx_trangThaiTk.Text = row.Cells[7].Value + "";
+            _id = Guid.Parse(dgr_nhanVien.Rows[indexRow].Cells[8].Value.ToString());
             btn_them.Enabled = false;
         }
 
@@ -155,7 +161,7 @@ namespace _3.PL.Views
                     MessageBox.Show("Không được để trống thông tin!!", "Thông báo");
                     return;
                 }
-                var nv = _iNhanVien.getlstNv().FirstOrDefault(c => c.Email == txt_Email.Text);
+                var nv = _iNhanVien.getlstNv().FirstOrDefault(c => c.IdNhanVien == _id);
                 nv.SDT = txt_SDT.Text;
                 nv.Email = txt_Email.Text;
                 nv.DiaChi = txt_DiaChi.Text;
@@ -176,7 +182,7 @@ namespace _3.PL.Views
             hoi = MessageBox.Show("Bạn có muốn xóa không", "Thông báo", MessageBoxButtons.YesNo);
             if (hoi == DialogResult.Yes)
             {
-                var nv = _iNhanVien.getlstNv().FirstOrDefault(c => c.Email == txt_Email.Text);
+                var nv = _iNhanVien.getlstNv().FirstOrDefault(c => c.IdNhanVien == _id);
                 nv.TrangThai = false;
                 MessageBox.Show(_iNhanVien.DeleteNV(nv).ToString(), "thông báo");
                 ClearForm();
