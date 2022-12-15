@@ -23,6 +23,8 @@ namespace _3.PL.Views
             _utility = new Utility();
             _nv = new NhanVien();
             loadData();
+            btn_sua.Enabled = false;
+            btn_xoa.Enabled = false;
         }
         public void loadData()
         {
@@ -145,6 +147,8 @@ namespace _3.PL.Views
             cbx_trangThaiTk.Text = row.Cells[7].Value + "";
             _id = Guid.Parse(dgr_nhanVien.Rows[indexRow].Cells[8].Value.ToString());
             btn_them.Enabled = false;
+            btn_sua.Enabled = true;
+            btn_xoa.Enabled = true;
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
