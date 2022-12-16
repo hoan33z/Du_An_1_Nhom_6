@@ -21,44 +21,36 @@ namespace _3.PL.Views
             _iNhanVien = new NhanVienService();
             _inFoNhanVien = new NhanVien();
             _inFoNhanVien = _iNhanVien.getlstNv().FirstOrDefault(c => c.Email == title);
-            if (_inFoNhanVien.TrangThaiPass==false)
-            {
-                MessageBox.Show("Bạn phải đổi mật khẩu khi lần đầu đăng nhập vào hệ thông !!!", "Thông báo");
-                loadForm.Controls.Clear();
-                title = _inFoNhanVien.Email;
-                FrmChangePassword frm = new FrmChangePassword(title);
-                frm.TopLevel = false;
-                loadForm.Controls.Add(frm);
-                frm.FormBorderStyle = FormBorderStyle.None;
-                frm.Dock = DockStyle.Fill;
-                frm.Show();
-                menu_quanLy.Enabled = false;
-                menu_thongKe.Enabled = false;
-            }
-            else 
-            {
-                loadForm.Controls.Clear();
-                FrmThongTinNv frm = new FrmThongTinNv(title);
-                frm.TopLevel = false;
-                loadForm.Controls.Add(frm);
-                frm.FormBorderStyle = FormBorderStyle.None;
-                frm.Dock = DockStyle.Fill;
-                frm.Show();
-            }
+            
             if (_inFoNhanVien.IdLoaiTk == false)
             {
                 if (_inFoNhanVien.TrangThaiPass == false)
                 {
                     MessageBox.Show("Bạn hãy đổi mật khẩu để sử dụng phần mềm", "Thông báo");
-                    this.Hide();
-                    string title1 = _inFoNhanVien.Email;
-                    FrmMain frm = new FrmMain(title1);
-                    //DialogResult frmok = frm.ShowDialog();
-                    //if (frmok == DialogResult.OK)
-                    //{
-                    //    frm.ShowDialog();
-                    //}
+                    loadForm.Controls.Clear();                   
+                    FrmChangePassword frm = new FrmChangePassword(title);
+                    frm.TopLevel = false;
+                    loadForm.Controls.Add(frm);
+                    frm.FormBorderStyle = FormBorderStyle.None;
+                    frm.Dock = DockStyle.Fill;
                     frm.Show();
+                    DialogResult ok = DialogResult.OK;
+                    menu_quanLy.Enabled = false;
+                    QLBanHangToolStripMenuItem.Enabled = false;
+                    menu_thongKe.Enabled = false;
+                }
+                else
+                {
+                    loadForm.Controls.Clear();
+                    FrmDatHang frm = new FrmDatHang(_inFoNhanVien.IdNhanVien);
+                    frm.TopLevel = false;
+                    loadForm.Controls.Add(frm);
+                    frm.FormBorderStyle = FormBorderStyle.None;
+                    frm.Dock = DockStyle.Fill;
+                    frm.Show();
+                    menu_quanLy.Enabled = true;
+                    QLBanHangToolStripMenuItem.Enabled = true;
+                    menu_thongKe.Enabled = true;
                 }
                     qlNhanVien.Enabled = false;
             }

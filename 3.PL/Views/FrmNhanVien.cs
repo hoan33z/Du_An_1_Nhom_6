@@ -42,7 +42,7 @@ namespace _3.PL.Views
             dgr_nhanVien.Rows.Clear();
             foreach (var x in _iNhanVien.getlstNv())
             {
-                dgr_nhanVien.Rows.Add(x.TenNv, x.NamSinh, x.GioiTinh == true ? "Nam" : "Nữ", x.Email, x.SDT, x.DiaChi, x.IdLoaiTk == true ? "Admin" : "Nhân Viên", x.TrangThai == true ? "Họat động" : "Ngừng Hoạt Động");
+                dgr_nhanVien.Rows.Add(x.TenNv, x.NamSinh, x.GioiTinh == true ? "Nam" : "Nữ", x.Email, x.SDT, x.DiaChi, x.IdLoaiTk == true ? "Admin" : "Nhân Viên", x.TrangThai == true ? "Họat động" : "Ngừng Hoạt Động",x.IdNhanVien);
             }
         }
         public void loadDataTimKiem()
